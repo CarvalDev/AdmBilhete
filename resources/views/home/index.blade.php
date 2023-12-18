@@ -3,5 +3,5 @@
 @section('title','pagina login')
     
 @section('content')
-    <span>DASHBOARD</span>
+    <span class="display-1">DASHBOARD</span>
 @endsection
