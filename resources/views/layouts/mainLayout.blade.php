@@ -33,7 +33,7 @@
                 </ul>
                   
             </div>
-            <div style="height: 85%" class="w-100 d-flex justify-content-center align-items-center">@yield('content')</div>
+            <div style="height: 85%" class="w-100 d-flex justify-content-center">@yield('content')</div>
     </div>
     
 </body>
