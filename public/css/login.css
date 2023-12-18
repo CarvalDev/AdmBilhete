@@ -1,0 +1,22 @@
+html, body {
+    height: 100%;
+}
+.fundo{
+    background-color: #ff0000!important;
+}
+.btnCss{
+    height: 5vh!important;
+    color: white!important;
+    
+    
+}
+.form-control{
+    border: 1px solid black!important;
+}
+.form-control:focus{
+    outline: none!important;
+}
+
+.form-control:focus{
+    box-shadow: none!important;
+}
