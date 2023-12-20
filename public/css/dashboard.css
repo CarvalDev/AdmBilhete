@@ -1,0 +1,23 @@
+#sectionPrincipal{
+    height: 80%;
+}
+
+
+
+.item1, .item3{
+    width: 30%;
+}
+.item2{
+    width: 40%;
+    border: none;
+    border-left: 1px solid #FF0000;
+    border-right: 1px solid #FF0000;
+}
+
+.item{
+    width: 40%;
+   
+}
+
+
+
