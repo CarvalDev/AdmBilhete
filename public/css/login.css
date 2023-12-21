@@ -7,7 +7,8 @@ html, body {
 .btnCss{
     height: 5vh!important;
     color: white!important;
-    
+    border: 1px solid black!important;
+    text-align: center!important;
     
 }
 .form-control{
@@ -20,3 +21,20 @@ html, body {
 .form-control:focus{
     box-shadow: none!important;
 }
+@media (max-width:  576px) {
+    .testeResposivo {
+        max-width: 768px;
+        height: 300px;
+        padding: 1rem;
+        margin-bottom:1rem;
+        margin: 0 auto;
+      
+    }
+    .btnCss{
+        margin-top: 1rem;
+    }
+}
+
+
+
+    
