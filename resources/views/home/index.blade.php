@@ -41,12 +41,10 @@
                 <div class="w-100"></div>
             </div>
         </div>
-        <button id="btn-modal" onclick="modPerfil()">aaaaaa</button>
+      
     </div>
 @endsection
 
-@include('components.modal')
-<script src="{{ URL::asset('js/modal.js') }}"></script>
 
 @section('pageTitle', 'Painel de Controle')
 
