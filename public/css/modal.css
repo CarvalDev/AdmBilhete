@@ -12,3 +12,20 @@
         /* background-color: white;
             opacity: 50%; */
       }
+      .btnCss{
+        height: 5vh!important;
+        color: white!important;
+        border: 1px solid black!important;
+        text-align: center!important;
+        background-color: #ff0000!important;
+        
+    }
+    .text-area{
+      resize: none;
+      box-shadow: none!important;
+      border: none!important;
+    }
+    .btn-close{
+      box-shadow: none!important;
+      border: none!important;
+    }
