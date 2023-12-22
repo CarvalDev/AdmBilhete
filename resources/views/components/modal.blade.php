@@ -20,8 +20,8 @@
             <textarea class="form-control text-area border border-dark rounded-4" id="exampleFormControlTextarea1" rows="3" placeholder="Responda aqui"></textarea>
         </div>
     <div class="d-flex justify-content-between mt-xl-4">
-        <button class="btn btnCss fw-bold" style="width: 35%">Cancelar</button>
-        <button class="btn btnCss fw-bold" style="width: 35%">Enviar</button>
+        <button type="button" id="bt-close1" class="btn btnCss fw-bold" style="width: 35%">Cancelar</button>
+        <button type="button" class="btn btnCss fw-bold" style="width: 35%">Enviar</button>
     </div>
     </div>
 </div>
