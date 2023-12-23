@@ -22,9 +22,11 @@
             </div>
         </div>
     </div>
-    <div class="d-flex justify-content-start w-100 align-items-center ">
-        <span id="pageTitle" class="fs-1">@yield('pageTitle')</span>
-        
-    </div>
+    <div id="pageTitleContainer" class="d-flex justify-content-start w-100 align-items-center">
+        <span id="pageTitle" class="fs-3 fw-bold">@yield('pageTitle')</span>
+        <div id="underline"></div>
+      </div>
       
 </div>
+
+<script defer src="{{ URL::asset('js/responsivo.js') }}"></script>

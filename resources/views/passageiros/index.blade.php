@@ -9,7 +9,7 @@
 @section('content')
 <div class="tabela w-100 h-100">
     <table class="w-100 mt-3">
-        <tr class="" style="border-bottom:2px solid red">
+        <tr class="" style="border-bottom:1px solid red">
             <th class="p-2" style="width: 5%;">ID</th>
             <th class="px-2" style="width: 20%">Nome</th>
             <th class="px-2" style="width: 20%">Email</th>

@@ -4,7 +4,7 @@
     color: white;
     margin: 0;
     padding: 0;
-    transition: 0.30s;
+    
 }
 
 hr{
@@ -16,7 +16,7 @@ hr{
 }
 
 .nav-link:hover{
-    transform: scale(1.1);
+    
     color: #fff;
 }
 
