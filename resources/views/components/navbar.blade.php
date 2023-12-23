@@ -24,6 +24,7 @@
     </div>
     <div class="d-flex justify-content-start w-100 align-items-center ">
         <span id="pageTitle" class="fs-1">@yield('pageTitle')</span>
+        
     </div>
       
 </div>

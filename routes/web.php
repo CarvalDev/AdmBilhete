@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\CaixaEntradaController;
 use App\Http\Controllers\CatracaController;
+use App\Http\Controllers\FaturamentoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PassageiroController;
+use App\Http\Controllers\ReajusteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +29,5 @@ Route::get('/passageiros',[PassageiroController::class, 'passageiroIndex'])->nam
 Route::get('/catracas',[CatracaController::class, 'catracaIndex'])->name('catracas.index');
 Route::get('/caixaEntrada',[CaixaEntradaController::class, 'caixaIndex'])->name('caixaEntrada.index');
 Route::get('/login',[LoginController::class, 'index'])->name('login.index');
+Route::get('/reajuste',[ReajusteController::class, 'index'])->name('reajuste.index');
 
