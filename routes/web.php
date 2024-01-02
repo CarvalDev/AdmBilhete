@@ -30,4 +30,4 @@ Route::get('/catracas',[CatracaController::class, 'catracaIndex'])->name('catrac
 Route::get('/caixaEntrada',[CaixaEntradaController::class, 'caixaIndex'])->name('caixaEntrada.index');
 Route::get('/login',[LoginController::class, 'index'])->name('login.index');
 Route::get('/reajuste',[ReajusteController::class, 'index'])->name('reajuste.index');
-
+Route::get('/faturamento', [FaturamentoController::class, 'index'])->name('faturamento.index');
