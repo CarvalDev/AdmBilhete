@@ -9,33 +9,33 @@
             <div class="container d-flex justify-content-center align-items-center" style="height: 55vh">
                 <ul class="navbar-nav flex-column gap-5 text-center">
                     <li class="nav-item">
-                        <a href="" class="nav-link">Painel de Controle</a>
+                        <a href="{{route('home.index')}}" class="nav-link">Painel de Controle</a>
                         <hr>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">Caixa de Entrada</a>
+                        <a href="{{ route('caixaEntrada.index') }}" class="nav-link">Caixa de Entrada</a>
                         <hr>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">Passageiros</a>
+                        <a href="{{ route('passageiros.index') }}" class="nav-link">Passageiros</a>
                         <hr>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">Catracas</a>
+                        <a href="{{ route('catracas.index') }}" class="nav-link">Catracas</a>
                         <hr>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">Faturamento</a>
+                        <a href="{{ route('faturamento.index') }}" class="nav-link">Faturamento</a>
                         <hr>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">Reajuste</a>
+                        <a href="{{ route('reajuste.index') }}" class="nav-link">Reajuste</a>
                         <hr>
                     </li>
                 </ul>
             </div>
             <div class="d-flex justify-content-end align-items-end h-25">
-                <a href="" class="nav-link">
+                <a href="{{ route('login.index') }}" class="nav-link">
                     <div class="d-flex flex-row gap-2">
                         <div class="d-flex justify-content-center align-items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -46,9 +46,11 @@
                             d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z" />
                         </svg>
                     </div> 
+                    
                     <div class="d-flex justify-content-center align-items-center">
                     Sair
                     </div>
+                    
                 </div>
                 </a>
             </div>

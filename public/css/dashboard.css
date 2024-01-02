@@ -3,20 +3,37 @@
 }
 
 
-
-.item1, .item3{
+.item1{
+    width: 100%;
+}
+.item3{
     width: 30%;
 }
+
+.link{
+    width: 30%;
+    text-decoration: none;
+    color: #000000;
+}
 .item2{
-    width: 40%;
+    width: 100%;
     border: none;
     border-left: 1px solid #FF0000;
     border-right: 1px solid #FF0000;
 }
 
-.item{
+.link2{
     width: 40%;
+    text-decoration: none;
+    color: #000000;
+}
+
+.item{
+    width: 100%;
    
+}
+#grafico{
+    padding: 20px;
 }
 
 
