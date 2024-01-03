@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Passageiro;
 use Illuminate\Http\Request;
 
 class PassageiroController extends Controller
 {
-    public function passageiroIndex() {
-        return view('passageiros.index');
+    public function passageiroIndex(Passageiro $passageiro) {
+        $passageiros = $passageiro->all();
+        
+        return view('passageiros.index', compact('passageiros'));
     }
 }
 
