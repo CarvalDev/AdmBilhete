@@ -10,11 +10,7 @@
 
 <div class="tabela w-100 h-100">
     <div class="d-flex justify-content-end align-items-center container">    
-<<<<<<< HEAD
         <button id="btn-modalPassageiro" class="border-0"><i class="fas fa-plus-circle fa-2x" aria-hidden="true"></i></a></button>
-=======
-        <button class="border-0"><i class="fas fa-plus-circle fa-2x" aria-hidden="true"></i></a></button>
->>>>>>> a98ee5df2db66d649f3c435a2c8cee80f9a49c83
     </div>
     @if (count($passageiros)>0)
     <table class="w-100 mt-3">
