@@ -9,6 +9,9 @@
 @section('content')
 
 <div class="tabela w-100 h-100">
+    <div class="d-flex justify-content-end align-items-center container">    
+        <button id="btn-modalPassageiro" class="border-0"><i class="fas fa-plus-circle fa-2x" aria-hidden="true"></i></a></button>
+    </div>
     @if (count($passageiros)>0)
     <table class="w-100 mt-3">
 
@@ -47,8 +50,9 @@
         @endif
 </div>
 
+@include('components.modalPassageiro')
+<script src="{{ URL::asset('js/modalPassageiro.js') }}"></script>
 @endsection
-
 @section('pageTitle', 'Passageiros')
 
 @section('pesquisa')
