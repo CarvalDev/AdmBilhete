@@ -7,7 +7,7 @@
 @endpush
     
 @section('content')
-    <div id="sectionPrincipal" class="container  d-flex flex-column alig-items-center justify-content-between">
+    <div id="sectionPrincipal" class="container   flex-column alig-items-center justify-content-between">
         <div style="height: 45%" class="w-100   d-flex flex-row justify-content-center align-items-center">
             <a href="{{ route('passageiros.index') }}" class="link d-flex flex-column justify-content-between align-items-center    h-100">
             <div class="item1 d-flex flex-column justify-content-between align-items-center    h-100">
@@ -34,7 +34,7 @@
                     
                     <div>
                     
-                        <canvas id="grafico" ></canvas>
+                        <canvas  onclick="flipAndShow()" id="grafico" ></canvas>
                         
                   </div>
                 
@@ -63,6 +63,22 @@
             </a>
         </div>
       
+    </div>
+
+    <div id="sectionFluxoViagens" style="display: none" class="container   flex-column align-items-center justify-content-between">
+        <div class="d-flex flex-row justify-content-between align-items-center w-100">
+        <div class="d-flex flex-row justify-content-between align-items-center w-25">
+        <label for="">Fluxo:</label>
+        <select name="" class="form-control ms-2" id="">
+            <option value="">Semanal</option>
+            <option value="">Mensal</option>
+            <option value="">Semestral</option>
+        </select>
+    </div>
+        <div></div>
+        <button class="btn btn-outline-danger" onclick="flipAndShow2()" style="width: 10%">Voltar</button>
+        </div>
+        <canvas class="mt-4"  height="400" width="1000" id="graficoAmpliado" ></canvas>
     </div>
     
     <script src="{{asset('js/app.js')}}"></script>

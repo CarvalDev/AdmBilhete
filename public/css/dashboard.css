@@ -1,5 +1,10 @@
 #sectionPrincipal{
-    height: 80%;
+    height: 80% ;
+    display: flex;
+}
+
+#sectionFluxoViagens{
+    
 }
 
 
@@ -30,10 +35,35 @@
 
 .item{
     width: 100%;
-   
+
 }
 #grafico{
     padding: 20px;
+}
+
+#grafico:hover{
+    cursor: pointer;
+}
+
+@keyframes flipSection{
+    from{
+        transform: rotateY(0deg);
+    }
+    to{
+        transform: rotateY(180deg);
+        opacity: 0;
+    }
+}
+
+@keyframes desflipSection{
+    from{
+        transform: rotateY(45deg);
+        opacity: 0;
+    }
+    to{
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
 }
 
 
