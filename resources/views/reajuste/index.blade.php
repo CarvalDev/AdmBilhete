@@ -13,7 +13,7 @@
     <span class="border border-danger rounded-4 p-xl-4 p-lg-3   d-flex flex-column" style="height: 20vh;width:20vh;">
         <p class="fw-bold text-center mb-xl-3 mt-xl-3 mb-lg-4 mt-lg-4 mb-3 mt-5">Preço atual</p>
         <p class="fw-bold text-center mb-xl-3 mb-lg-4 mb-lg-4 mb-3">R$4,40</p>
-        <button id="btn-modal" class="btn d-flex justify-content-end btnBorda" onclick="modPerfil()"><i class="fa-regular fa-pen-to-square fa-xl"></i></button>
+        <button id="btn-modal" class="btn d-flex justify-content-end btnBorda" ><i class="fa-regular fa-pen-to-square fa-xl"></i></button>
     </span>
 </div>
 <div>
@@ -22,10 +22,11 @@
 
     </div>
 
-    <script src="{{ asset('js/reajuste.js') }}"></script>
-@endsection
+    <script src="{{ asset('js/reajuste.js') }}"></script> 
+    <script src="{{ URL::asset('js/modalCatraca.js') }}"></script>
+    @include('components.modalReajuste')
+    @endsection
 
-@include('components.modalReajuste')
 
 
 @section('pageTitle', 'Reajuste do Preço')

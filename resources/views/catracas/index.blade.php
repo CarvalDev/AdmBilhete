@@ -19,7 +19,7 @@
             <td class="px-2 text-center fw-bold">01</td>
             <td class="px-2 text-center fw-bold">312-N</td>
             <td class="px-2 text-center fw-bold">Term. Cidade Tiradentes/São Miguel Paulista</td>
-            <td class=" py-2  justify-content-evenly gap-5 d-flex flex-row" id="alterar"><button id="btn-modal" class="btn" onclick="modPerfil()"><i class="fa-regular fa-pen-to-square fa-xl "></i></button>
+            <td id="btn-modal" class=" py-2  justify-content-evenly gap-5 d-flex flex-row" id="alterar"><button id="" class="btn" onclick="modPerfil()"><i class="fa-regular fa-pen-to-square fa-xl "></i></button>
             <a href="" class="btn" style=""><i class="fa-regular fa-trash-can fa-xl"></i></a></td>
         </tr>
 

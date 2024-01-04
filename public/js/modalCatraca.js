@@ -1,5 +1,5 @@
 function modPerfil(){
-    console.log('oasddi')
+    
     const botao = document.querySelector("#btn-modal");
     const modal = document.querySelector("#modal");
     const close = document.querySelector("#bt-close");

@@ -28,4 +28,4 @@
 
 </dialog>
 
-<script src="{{ URL::asset('js/modalCatraca.js') }}"></script>
+
