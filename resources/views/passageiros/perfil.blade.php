@@ -11,15 +11,19 @@
 @section('content')
 <div class="w-100 h-100  d-flex flex-row">
     <div class="infosPassageiro h-100" style="width:70%">
-        <div class="primeirasInfo d-flex justify-content-center align-items-center w-100 h-50 d-flex flex-row">
-            <div class="fotoPassageiro" style="width: 25%;height:80%;border-radius:50%; border: 5px solid rgb(119, 116, 116)" >
-                <img src="{{ url('storage/site/pessoa.jpg') }}" class="w-100 h-100" style="border-radius:50%" alt="">
+        <div class="primeirasInfo ml-5  d-flex flex-column justify-content-center align-items-center w-50 h-50 d-flex flex-row">
+            <div class="fotoPassageiro" style="height:50%; border: 2px solid gray; border-radius:8%"  >
+                <img src="{{ url('storage/site/pessoa.jpg') }}" class="w-100 h-100" style="border-radius: 8%" alt="">
                 
             </div>
-            <div class="dadosPrincipais d-flex flex-column p-4">
-                <div class="flex-row d-flex gap-2"><p style="color:rgb(52, 49, 49);" class="fw-bold">ROBERTO FERREIRA </p></div>
-                <div class="flex-row d-flex gap-2"><strong>Cpf:</strong><p style="color: rgb(48, 48, 211);" class="fw-bold">900.777.879-00</p></div>
-                <div class="flex-row d-flex gap-2"><strong>Recargas Efetuadas:</strong><p style="color: rgb(48, 48, 211) " class="fw-bold">2</p></div>
+            <div class="dadosPrincipais d-flex flex-column ph-4">
+                <div class="flex-row d-flex gap-2 justify-content-center"><p style="color:rgb(52, 49, 49);" class="fw-bold p-0 m-0">ROBERTO FERREIRA </p></div>
+                <div class="flex-row d-flex gap-2 justify-content-center"><p  style="font-size: 12px" class="fw-bold text-secondary  p-0 m-0 mb-3 text-center">900.777.879-00</p></div>
+                <div class="d-flex flex-row justify-content-center align-items-center w-100 gap-3">
+                    <div class="d-flex gap-2"><strong class="fs-5">Total de recargas:</strong><p class="fw-bold fs-5">2</p>
+                    </div>
+                    <button class="p-0 mb-3 border-0 "><i class="fa-regular fa-pen-to-square fa-xl p-0 m-0"></i></button>
+                </div>
             </div>
         </div>
 
@@ -53,8 +57,4 @@
 </div>
 
 
-@endsection
-
-@section('pesquisa')
-    @include('components.barraPesquisa')
 @endsection
