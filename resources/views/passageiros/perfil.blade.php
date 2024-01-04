@@ -37,8 +37,10 @@
 
     <div class="historicoRecarga h-100 py-5" style="background-color: red;width:30%;border-top-left-radius: 80px 80px;" >
       <div class="todasInfo w-100 h-100 d-flex align-items-center flex-column text-white">
-        <div class="titulo d-flex justify-content-center w-100">
+        <div class="titulo d-flex justify-content-center w-100 flex-row">   
+            
             <h5 class="fw-bold text-white p-3 text-center">HISTÓRICO DE RECARGAS</h5>
+            <button class="border-0 btn"><i class="fas fa-plus-circle fa-2x text-white mb-2" aria-hidden="true"></i></a></button>
         </div>
         <table style="width: 90%">
             <tr class="" style="border-bottom:1.5px solid white">
