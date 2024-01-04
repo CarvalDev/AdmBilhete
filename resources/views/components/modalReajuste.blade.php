@@ -14,7 +14,7 @@
             <div class="mt-xl-5">
               
                 <form action="" method="POST">
-                <input type="number" name="reajuste" class="form-control text-area border border-dark rounded-4" placeholder="Preço atual da passagem"/>
+                <input type="text" name="reajuste" class="form-control text-area border border-dark rounded-4" placeholder="Preço atual da passagem"/>
                 </form>
             </div>
     <div class="d-flex justify-content-end mt-xl-5 mb-xl-3">
