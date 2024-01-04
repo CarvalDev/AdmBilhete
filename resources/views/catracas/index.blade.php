@@ -8,8 +8,11 @@
 
 @section('content')
 <div class="tabela w-100 h-100">
+    <div class="d-flex justify-content-end align-items-center container">    
+        <button class="border-0"><i class="fas fa-plus-circle fa-2x" aria-hidden="true"></i></a></button>
+    </div>
     <table class="w-100 mt-3">
-        <tr class="" style="border-bottom:2px solid red">
+        <tr class="" style="border-bottom:1.5px solid red">
             <th class="p-2 text-center" style="width: 5%;">ID</th>
             <th class="px-2 text-center" style="width: 20%">NºLinha</th>
             <th class="px-2 text-center" style="width: 40%">Linha</th>
