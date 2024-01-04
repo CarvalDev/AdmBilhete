@@ -8,7 +8,7 @@
 
     
 @section('content')
-    <div class="w-100 h-100 d-flex flex-column justify-content-around align-items-center border ">
+    <div class="w-100 h-100 d-flex flex-column justify-content-around align-items-center  ">
     <div class="d-flex justify-content-center aling-itens-center mt-3 ">
     <span class="border border-danger rounded-4 p-xl-4 p-lg-3   d-flex flex-column" style="height: 20vh;width:20vh;">
         <p class="fw-bold text-center mb-xl-3 mt-xl-3 mb-lg-4 mt-lg-4 mb-3 mt-5">Preço atual</p>
