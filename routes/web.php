@@ -31,3 +31,4 @@ Route::get('/caixaEntrada',[CaixaEntradaController::class, 'caixaIndex'])->name(
 Route::get('/login',[LoginController::class, 'index'])->name('login.index');
 Route::get('/reajuste',[ReajusteController::class, 'index'])->name('reajuste.index');
 Route::get('/faturamento', [FaturamentoController::class, 'index'])->name('faturamento.index');
+Route::get('/passageirosP',[PassageiroController::class, 'perfilPassageiro'])->name('perfilPassageiro.index');
