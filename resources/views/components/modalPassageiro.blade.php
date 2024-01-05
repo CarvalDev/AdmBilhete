@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="{{ URL::asset('css/modalPassageiro.css') }}">
 
-<dialog class="p-0" style="height: 65vh; width: 75vw" id="modalPassageiro">
+<dialog class="p-0" style="height: 67vh; width: 75vw" id="modalPassageiro">
     <div class="h-100 w-100">
         <div class="d-flex justify-content-between px-2 py-2 ">
             <div class="text-center" style="width:30%;">
@@ -12,16 +12,20 @@
         <hr style="border: 0.1px solid gray" class="my-3">
 
         <div class="row" style="width: 99%">
-            <div class="col-4 d-flex justify-content-center align-items-center"><img
-                    src="{{ url('storage/site/pessoa.jpg') }}" name="fotoPassageiro" style="width:128px; height:128px"
-                    alt=""></div>
-            <div class="col-4 "><input class="form-control" type="text" name="nomePassageiro" id="name"
+            <div class="col-4 d-flex justify-content-center align-items-center">
+                <label for="foto" id="lbFoto">
+                <img
+                    src="{{ url('storage/site/add-usuario.png') }}" name="fotoPassageiro" style="width:158px; border-radius: 25px" alt="">
+                    <input type="file" id="foto" name="foto" accept="image/*" class="custom-file-input" enctype="multipart/form-data">
+                </label>
+                </div>
+            <div class="col-4 d-flex align-items-center"><input class="form-control" type="text" name="nomePassageiro" id="name"
                     placeholder="Nome Completo"></div>
-            <div class="col-1"><select id="genero" name="generoPassageiro">
+            <div class="col-1 d-flex align-items-center"><select id="genero" name="generoPassageiro">
                     <option value="M">M</option>
                     <option value="F">F</option>
                 </select></div>
-            <div class="col-3"><input class="form-control" type="text" name="cpfPassageiro" id="cpf"
+            <div class="col-3 d-flex align-items-center"><input class="form-control" type="text" name="cpfPassageiro" id="cpf"
                     placeholder="CPF"></div>
             <div class="col-4 d-flex justify-content-center align-items-center my-1"><input type="date"
                     name="dataNasPassageiro" id="data_nascimento"></div>

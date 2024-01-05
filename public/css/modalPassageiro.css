@@ -6,6 +6,21 @@
     
   }
 
+
+  input[type="file"] {
+    display: none;
+}
+input:focus {
+    box-shadow: none !important;
+    background-color: white !important;
+}
+
+
+
+#lbFoto:hover{
+  cursor: pointer;
+  
+}
   #modalPassageiro::backdrop {
     backdrop-filter: blur(3px);
     /* background-color: white;
