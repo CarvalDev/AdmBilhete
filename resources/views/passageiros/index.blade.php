@@ -29,7 +29,7 @@
         @foreach ($passageiros as $passageiro)
             
         <tr style="border-bottom:1.5px solid red">
-            <td class="px-2 fw-bold ">01</td>
+            <td class="px-2 fw-bold ">{{$passageiro->id}}</td>
             <td class="px-2 fw-bold">{{$passageiro->nomePassageiro}}</td>
             <td class="px-2 fw-bold">{{$passageiro->emailPassageiro}}</td>
             <td class="px-2 fw-bold">{{ $passageiro->dataNascPassageiro }}</td>
