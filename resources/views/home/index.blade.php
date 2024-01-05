@@ -12,7 +12,7 @@
             <a href="{{ route('passageiros.index') }}" class="link d-flex flex-column justify-content-between align-items-center    h-100">
             <div class="item1 d-flex flex-column justify-content-between align-items-center    h-100">
                 <div class="w-100 text-center"><span class="fs-3 fw-bold" style="font-weight: 400">Passageiros Registrados</span></div>
-                <div class="w-100 text-center"><span class="fs-1 fw-bolder">459</span></div>
+                <div class="w-100 text-center"><span class="fs-1 fw-bolder">{{ $passageiro->count() }}</span></div>
                 <div class="w-100"></div>
 
             </div>
@@ -21,7 +21,7 @@
         <a href="{{ route('catracas.index') }}" class="link2 d-flex flex-column justify-content-between align-items-center    h-100">
             <div class="item2 d-flex flex-column justify-content-between align-items-center   h-100">
                 <div class="w-100 text-center"><span class="fs-3 fw-bold" style="font-weight: 400">Catracas Registradas</span></div>
-                <div class="w-100 text-center"><span class="fs-1 fw-bolder">459</span></div>
+                <div class="w-100 text-center"><span class="fs-1 fw-bolder">{{ $catraca->count() }}</span></div>
                 <div class="w-100"></div>
 
             </div>
@@ -50,7 +50,7 @@
             <a href="" class="link2 d-flex flex-column justify-content-between align-items-center    h-100">
             <div class="item h-100 d-flex flex-column justify-content-between align-items-center">
                 <div class="w-100 text-center"><span class="fs-3 fw-bold" style="font-weight: 400">Faturamentos</span></div>
-                <div class="w-100 text-center"><span class="fs-1 fw-bold">R$1.000.000,00</span></div>
+                <div class="w-100 text-center"><span class="fs-1 fw-bold">R${{ $faturamento }}</span></div>
                 <div class="w-100"></div>
             </div>
             </a>

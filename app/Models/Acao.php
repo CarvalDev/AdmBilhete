@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Database\Factories\AcaoFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,7 +15,7 @@ class Acao extends Model
         'dataAcao'
     ];
 
-    public function passageiros(){
+    public function passageiro(){
         return $this->belongsTo(Passageiro::class);
     }
 
@@ -26,4 +27,12 @@ class Acao extends Model
         return $this->hasOne(Consumo::class);
     }
 
+    public function compra(){
+        return $this->hasOne(Compra::class);
+    }
+
+    protected static function newFactory()
+    {
+        return AcaoFactory::new();
+    }
 }

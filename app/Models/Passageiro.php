@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Database\Factories\PassageiroFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -45,5 +46,10 @@ class Passageiro extends Model
 
     public function acaos(){
        return  $this->hasMany(Acao::class);
+    }
+
+    protected static function newFactory()
+    {
+        return PassageiroFactory::new();
     }
 }
