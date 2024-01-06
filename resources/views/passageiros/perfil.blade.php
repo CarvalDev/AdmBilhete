@@ -93,6 +93,8 @@
       </div>
     </div>
 </div>
-
+<script src="{{ asset('js/reajuste.js') }}"></script> 
+    <script src="{{ URL::asset('js/modalCatraca.js') }}"></script>
+    @include('components.modalRecarga')
 
 @endsection
