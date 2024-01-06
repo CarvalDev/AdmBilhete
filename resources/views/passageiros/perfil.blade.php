@@ -22,7 +22,7 @@
                 <div class="d-flex flex-row justify-content-center align-items-center w-100 gap-3">
                     <div class="d-flex gap-2"><strong class="fs-5">Total de recargas:</strong><p class="fw-bold fs-5">2</p>
                     </div>
-                    <button class="p-0 mb-3 border-0 "><i class="fa-regular fa-pen-to-square fa-xl p-0 m-0"></i></button>
+                    <button class="p-0 mb-3 border-0 " id="btn-modal"><i class="fa-regular fa-pen-to-square fa-xl p-0 m-0"></i></button>
                 </div>
             </div>
         </div>
@@ -57,6 +57,8 @@
       </div>
     </div>
 </div>
-
+<script src="{{ asset('js/reajuste.js') }}"></script> 
+    <script src="{{ URL::asset('js/modalCatraca.js') }}"></script>
+    @include('components.modalRecarga')
 
 @endsection
