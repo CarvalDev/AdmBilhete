@@ -22,11 +22,11 @@ return new class extends Migration
             $table->string('numTelPassageiro')->unique();
             $table->string('logrPassageiro');
             $table->string('numLogrPassageiro');
-            $table->string('complementoLogrPassageiro');
+            $table->string('complementoLogrPassageiro')->nullable();
             $table->string('ufPassageiro');
             $table->string('bairroPassageiro');
             $table->string('cepPassageiro');
-            $table->string('fotoPassageiro');
+            $table->string('fotoPassageiro')->nullable();
             $table->string('emailPassageiro')->unique();
             $table->string('senhaPassageiro');
             $table->rememberToken();

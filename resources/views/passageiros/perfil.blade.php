@@ -13,12 +13,12 @@
     <div class="infosPassageiro h-100" style="width:70%">
         <div class="primeirasInfo ml-5  d-flex flex-column justify-content-center align-items-center w-50 h-50 d-flex flex-row">
             <div class="fotoPassageiro" style="height:50%; border: 2px solid gray; border-radius:8%"  >
-                <img src="{{ url('storage/site/pessoa.jpg') }}" class="w-100 h-100" style="border-radius: 8%" alt="">
+                <img src="{{ url("storage/$passageiro->fotoPassageiro") }}" class="w-100 h-100" style="border-radius: 8%" alt="">
                 
             </div>
             <div class="dadosPrincipais d-flex flex-column ph-4">
-                <div class="flex-row d-flex gap-2 justify-content-center"><p style="color:rgb(52, 49, 49);" class="fw-bold p-0 m-0">ROBERTO FERREIRA </p></div>
-                <div class="flex-row d-flex gap-2 justify-content-center"><p  style="font-size: 12px" class="fw-bold text-secondary  p-0 m-0 mb-3 text-center">900.777.879-00</p></div>
+                <div class="flex-row d-flex gap-2 justify-content-center"><p style="color:rgb(52, 49, 49);" class="fw-bold p-0 m-0">{{ $passageiro->nomePassageiro }}</p></div>
+                <div class="flex-row d-flex gap-2 justify-content-center"><p  style="font-size: 12px" class="fw-bold text-secondary  p-0 m-0 mb-3 text-center">{{ $passageiro->cpfPassageiro }}</p></div>
                 <div class="d-flex flex-row justify-content-center align-items-center w-100 gap-3">
                     <div class="d-flex gap-2"><strong class="fs-5">Total de recargas:</strong><p class="fw-bold fs-5">2</p>
                     </div>

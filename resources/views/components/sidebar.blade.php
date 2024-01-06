@@ -3,7 +3,7 @@
 <header style="height: 100%">
     <nav class="navbar navbar-expand-sm flex-column h-100">
         <a href="{{route('home.index')}}" class="navbar-brand">
-            <img class="h-100 w-100 img-fluid" src="{{ url('storage/site/logo bilhete 1.png') }}" alt="">
+            <img class="h-100 w-100 img-fluid" src="{{ url('images/logo bilhete 1.png') }}" alt="">
         </a>
         <div class="collapse navbar-collapse flex-column h-100" id="navegacao">
             <div class="container d-flex justify-content-center align-items-center" style="height: 55vh">

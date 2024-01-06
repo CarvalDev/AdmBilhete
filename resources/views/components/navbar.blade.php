@@ -8,7 +8,7 @@
         </div>   
         <div class="d-flex  flex-row justify-content-end  gap-1 align-items-center"  data-bs-toggle="dropdown" aria-expanded="false">
             <div class="d-flex justify-content-center align-items-center  ">
-                <img src="{{ url('storage/site/user.png') }}" width="40px" alt="">
+                <img src="{{ url('images/user.png') }}" width="40px" alt="">
             </div>
             
             <div class="d-flex flex-column align-items-center justify-content-center">

@@ -16,14 +16,14 @@
     </div>
     <hr style="border: 0.1px solid gray" class="my-3">
 
-    <form class="row justify-content-around w-100" style="" method="POST" enctype="multipart/form-data">
+    <form class="row justify-content-around w-100" action="{{ route('passageiros.store') }}"  style="" method="POST" action="" enctype="multipart/form-data">
         @csrf
         <div class="col-4 d-flex  flex-column gap-4 justify-content-center align-items-center">
             <label for="foto" id="lbFoto">
             <img id="preview"
-                src="{{ url('storage/site/userAdd.png') }}" name="fotoPassageiro" style="width:158px; border-radius: 25px" alt="">
+                src="{{ url('images/userAdd.png') }}" name="fotoPassageiro" style="width:158px; border-radius: 25px" alt="">
             </label>
-            <input class="" type="file" id="foto" name="foto" accept="image/*" class="custom-file-input" >
+            <input type="file" id="foto" name="fotoPassageiro">
     </div>
     <div class="col-7 d-flex row  justify-content-center align-items-center"> 
         <div class="col-5 d-flex align-items-center"><input class="form-control" type="text" name="nomePassageiro" id="name"
@@ -100,18 +100,30 @@
         <div class="col-6 mt-3">  <input class="form-control" type="email" name="emailPassageiro" id="email" placeholder="E-mail"></div> 
         
         
-        <div class="col-6 mt-3"><input class="form-control" type="text" name="senhaPasageiro" id="telefone" placeholder="Senha"></div>
+        <div class="col-6 mt-3"><input class="form-control" type="text" name="senhaPassageiro" id="telefone" placeholder="Senha"></div>
         <div class="col-6 mt-3">  <input class="form-control" type="email" name="emailPassageiro" id="email" placeholder="Confirmar senha"></div> 
     
 
         <div class="d-flex justify-content-end align-items-end">
             <div class="col-12"><div class="d-flex justify-content-end mt-xl-5 mb-xl-3">
-                <button type="button" id="bt-cancelarPassageiro" class="btn btnCss fw-bold" style="">Cancelar</button>
-                <button type="button" class="btn btnCss fw-bold ms-5"  style="width: 5vw">Enviar</button>
+                <button  id="bt-cancelarPassageiro" class="btn btnCss fw-bold" style="">Cancelar</button>
+                <button  type="submit" class="btn btnCss fw-bold ms-5"  style="width: 5vw">Enviar</button>
             </div></div>
         </div>
     </div>
     </form>
+
+    <div>
+        @if ($errors->any())
+        <ul class="errors">
+            @foreach ($errors->all() as $error)
+                <li class="error">{{$error}}</li>
+            @endforeach
+        </ul>
+    @endif
+        
+
+    </div>
 
 
 

@@ -34,7 +34,7 @@
             <td class="px-2 fw-bold">{{$passageiro->emailPassageiro}}</td>
             <td class="px-2 fw-bold">{{ $passageiro->dataNascPassageiro }}</td>
             <td class="px-2 fw-bold">{{ $passageiro->cpfPassageiro }}</td>
-            <td class="justify-content-center align-items-center d-flex  py-2"><a href="{{route('perfilPassageiro.index')}}" class="btn px-4" style=""><i class="far fa-user-circle fa-xl"></i></a></td>
+            <td class="justify-content-center align-items-center d-flex  py-2"><a href="{{route('perfilPassageiro.index', $passageiro->id)}}" class="btn px-4" style=""><i class="far fa-user-circle fa-xl"></i></a></td>
         </tr>
         @endforeach
         
@@ -50,7 +50,7 @@
         @endif
 </div>
 
-@include('components.modalPassageiro')
+
 <script src="{{ URL::asset('js/modalPassageiro.js') }}"></script>
 @endsection
 @section('pageTitle', 'Passageiros')
