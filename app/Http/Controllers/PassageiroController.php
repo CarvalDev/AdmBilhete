@@ -12,6 +12,10 @@ class PassageiroController extends Controller
         
         return view('passageiros.index', compact('passageiros'));
     }
+
+    public function form(){
+        return view('passageiros.form');
+    }
     public function perfilPassageiro() {
         return view('passageiros.perfil');
     }

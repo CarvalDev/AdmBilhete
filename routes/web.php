@@ -26,6 +26,7 @@ Route::get('/', function () {
 
 Route::get('/home',[HomeController::class,'index'])->name('home.index');
 Route::get('/passageiros',[PassageiroController::class, 'passageiroIndex'])->name('passageiros.index');
+Route::get('/passageiros/form', [PassageiroController::class, 'form'])->name('passageiros.form');
 Route::get('/catracas',[CatracaController::class, 'catracaIndex'])->name('catracas.index');
 Route::get('/caixaEntrada',[CaixaEntradaController::class, 'caixaIndex'])->name('caixaEntrada.index');
 Route::get('/login',[LoginController::class, 'index'])->name('login.index');

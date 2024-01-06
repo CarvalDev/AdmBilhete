@@ -43,6 +43,9 @@ input:focus {
   box-shadow: none!important;
   border: none!important;
 }
-input{
-  border: 1px solid black!important;
+input, select{
+  border: 1px solid rgba(0, 0, 0, 0.3)!important;
+}
+#cep, #num{
+  border: none !important;
 }

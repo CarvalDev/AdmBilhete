@@ -10,7 +10,7 @@
 
 <div class="tabela w-100 h-100">
     <div class="d-flex justify-content-end align-items-center container">    
-        <button id="btn-modalPassageiro" class="border-0"><i class="fas fa-plus-circle fa-2x" aria-hidden="true"></i></a></button>
+        <a href="{{ route('passageiros.form') }}" class="border-0"><i class="fas fa-plus-circle fa-2x" aria-hidden="true"></i></a>
     </div>
     @if (count($passageiros)>0)
     <table class="w-100 mt-3">
@@ -29,7 +29,7 @@
         @foreach ($passageiros as $passageiro)
             
         <tr style="border-bottom:1.5px solid red">
-            <td class="px-2 fw-bold ">{{$passageiro->id}}</td>
+            <td class="px-2 fw-bold ">{{ $passageiro->id }}</td>
             <td class="px-2 fw-bold">{{$passageiro->nomePassageiro}}</td>
             <td class="px-2 fw-bold">{{$passageiro->emailPassageiro}}</td>
             <td class="px-2 fw-bold">{{ $passageiro->dataNascPassageiro }}</td>
