@@ -96,12 +96,12 @@
         </div>
         
         
-        <div class="col-6 mt-3"><input class="form-control" data-mask="(00)0000-0000" type="text" name="numTelPassageiro" id="telefone" placeholder="Telefone"></div>
+        <div class="col-6 mt-3"><input class="form-control" data-mask="(00)00000-0000" type="text" name="numTelPassageiro" id="telefone" placeholder="Telefone"></div>
         <div class="col-6 mt-3">  <input class="form-control" type="email" name="emailPassageiro" id="email" placeholder="E-mail"></div> 
         
         
-        <div class="col-6 mt-3"><input class="form-control" type="text" name="senhaPassageiro" id="telefone" placeholder="Senha"></div>
-        <div class="col-6 mt-3">  <input class="form-control" type="email" name="emailPassageiro" id="email" placeholder="Confirmar senha"></div> 
+        <div class="col-6 mt-3"><input class="form-control" type="password" name="senhaPassageiro" id="telefone" placeholder="Senha"></div>
+        <div class="col-6 mt-3">  <input class="form-control" type="password"  placeholder="Confirmar senha"></div> 
     
 
         <div class="d-flex justify-content-end align-items-end">
