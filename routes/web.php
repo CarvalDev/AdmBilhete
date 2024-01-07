@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CaixaEntradaController;
+use App\Http\Controllers\CarroController;
 use App\Http\Controllers\CatracaController;
 use App\Http\Controllers\FaturamentoController;
 use App\Http\Controllers\HomeController;
@@ -27,7 +28,7 @@ Route::get('/', function () {
 Route::get('/home',[HomeController::class,'index'])->name('home.index');
 Route::get('/passageiros',[PassageiroController::class, 'passageiroIndex'])->name('passageiros.index');
 Route::get('/passageiros/form', [PassageiroController::class, 'form'])->name('passageiros.form');
-Route::get('/catracas',[CatracaController::class, 'catracaIndex'])->name('catracas.index');
+Route::get('/carros',[CarroController::class, 'index'])->name('carros.index');
 Route::get('/caixaEntrada',[CaixaEntradaController::class, 'caixaIndex'])->name('caixaEntrada.index');
 Route::get('/login',[LoginController::class, 'index'])->name('login.index');
 Route::get('/reajuste',[ReajusteController::class, 'index'])->name('reajuste.index');

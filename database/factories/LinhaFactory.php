@@ -24,7 +24,7 @@ class LinhaFactory extends Factory
     {
         return [
             'numLinha' => fake()->numerify('####-##'),
-            'nomeLinha' => fake()->name(),
+            'nomeLinha' => fake()->city(),
         ];
     }
 }

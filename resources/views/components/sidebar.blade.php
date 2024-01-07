@@ -21,7 +21,7 @@
                         <hr>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('catracas.index') }}" class="nav-link">Catracas</a>
+                        <a href="{{ route('carros.index') }}" class="nav-link">Carros</a>
                         <hr>
                     </li>
                     <li class="nav-item">
