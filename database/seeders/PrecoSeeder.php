@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Catraca;
+use App\Models\Preco;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class catracaSeeder extends Seeder
+class PrecoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,9 +14,11 @@ class catracaSeeder extends Seeder
      * @return void
      */
     public function run()
-    { 
-        Catraca::factory()
-            ->count(300)
-            ->create();
+    {
+        Preco::create([
+            'passagemPreco' => '4.40',
+            'meiaPassagemPreco' => '2.20',
+        ]);
+
     }
 }

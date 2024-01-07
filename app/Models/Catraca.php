@@ -11,11 +11,11 @@ class Catraca extends Model
 {
     use HasFactory;
     protected $fillable = [
-    'linhaCatraca'
+    
     ];
 
-    public function consumos(){
-        return $this->hasMany(Consumo::class);
+    public function carro(){
+        return $this->hasOne(Carro::class);
     }
 
     protected static function newFactory()

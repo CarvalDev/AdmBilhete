@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Catraca;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class catracaSeeder extends Seeder
+class PassagemSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,9 +13,7 @@ class catracaSeeder extends Seeder
      * @return void
      */
     public function run()
-    { 
-        Catraca::factory()
-            ->count(300)
-            ->create();
+    {
+        //
     }
 }

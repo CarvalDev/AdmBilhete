@@ -15,6 +15,15 @@ class Acao extends Model
         'dataAcao'
     ];
 
+    public function configure(){
+        return $this->afterMaking(function(Acao $acao){
+            
+            
+        })->afterCreating(function(Acao $acao){
+            $acao->compra(Compra::factory()->count(1)->for($acao)->create());
+        });
+    }
+
     public function passageiro(){
         return $this->belongsTo(Passageiro::class);
     }

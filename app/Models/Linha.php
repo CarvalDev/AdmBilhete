@@ -2,24 +2,23 @@
 
 namespace App\Models;
 
-use Database\Factories\SuporteFactory;
+use Database\Factories\LinhaFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Suporte extends Model
+class Linha extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'categoriaSuporte',
-        'descSuporte'
+        'numLinha',
+        'nomeLinha'
     ];
 
-    public function acaos(){
-        return $this->belongsTo(Acao::class);
+    public function carros(){
+        return $this->hasMany(Carro::class);
     }
     protected static function newFactory()
     {
-        return SuporteFactory::new();
+        return LinhaFactory::new();
     }
 }

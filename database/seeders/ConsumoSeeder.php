@@ -2,21 +2,23 @@
 
 namespace Database\Seeders;
 
-use App\Models\Catraca;
+use App\Models\Consumo;
+use App\Models\Passagem;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class catracaSeeder extends Seeder
+class ConsumoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      *
      * @return void
      */
+    protected $model = Consumo::class;
     public function run()
-    { 
-        Catraca::factory()
-            ->count(300)
-            ->create();
+    {
+        
+        
+
     }
 }

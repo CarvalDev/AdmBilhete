@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('catracas', function (Blueprint $table) {
+        Schema::create('consumos', function (Blueprint $table) {
             $table->id();
-            $table->string('linhaCatraca');
+            $table->foreignId('passagem_id')->constrained('passagems');
+            $table->foreignId('acao_id')->constrained('acaos');
+            $table->foreignId('carro_id')->constrained('carros');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('catracas');
+        Schema::dropIfExists('consumos');
     }
 };

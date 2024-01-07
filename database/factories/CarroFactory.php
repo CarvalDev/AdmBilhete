@@ -2,26 +2,24 @@
 
 namespace Database\Factories;
 
-use App\Models\Catraca;
+use App\Models\Carro;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Catraca>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Carro>
  */
-class CatracaFactory extends Factory
+class CarroFactory extends Factory
 {
     /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
      */
-    protected $model = Catraca::class;
+    protected $model = Carro::class;
     public function definition()
     {
         return [
-            
+            'numCarro' => fake()->numerify('###-###')
         ];
     }
-
-    
 }

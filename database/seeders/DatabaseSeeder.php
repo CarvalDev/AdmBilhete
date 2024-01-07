@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Catraca;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,9 +17,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            PassageiroSeeder::class,
-            catracaSeeder::class, 
+            catracaSeeder::class,
+            LinhaSeeder::class,
+            CarroSeeder::class,
             FormaPagamentoSeeder::class,
+            PassageiroSeeder::class,
+            ReajusteSeeder::class,
+            PrecoSeeder::class,
             AcaoSeeder::class,
         ]);
     }

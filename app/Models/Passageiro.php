@@ -36,7 +36,7 @@ class Passageiro extends Model
         'email_verified_at' => 'datetime',
     ];
 
-    public function cartao_passageiros(){
+    public function cartaoPassageiro(){
         return $this->hasMany(CartaoPassageiro::class);
     }
 

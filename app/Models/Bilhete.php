@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Database\Factories\BilheteFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -27,7 +28,11 @@ class Bilhete extends Model
        return  $this->belongsTo(Passageiro::class);
     }
 
-    public function passagens(){
+    public function passagem(){
        return $this->hasMany(Passagem::class);
+    }
+    protected static function newFactory()
+    {
+        return BilheteFactory::new();
     }
 }

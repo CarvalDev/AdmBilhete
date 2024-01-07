@@ -2,11 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Carro;
 use App\Models\Catraca;
+use App\Models\Linha;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class catracaSeeder extends Seeder
+class LinhaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,9 +16,10 @@ class catracaSeeder extends Seeder
      * @return void
      */
     public function run()
-    { 
-        Catraca::factory()
-            ->count(300)
+    {
+        
+        Linha::factory(30)
             ->create();
+        
     }
 }

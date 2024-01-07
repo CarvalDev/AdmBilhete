@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Acao;
 use App\Models\Compra;
+use App\Models\Consumo;
 use App\Models\FormaPagamento;
 use App\Models\Passageiro;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -19,14 +20,18 @@ class AcaoSeeder extends Seeder
     
     public function run(Passageiro $passageiro)
     {
-        $passageiro = $passageiro->find(1);
-        $acao = Acao::factory()
-            ->count(40)
-            ->for($passageiro)
-            ->has(Compra::factory()
-                ->for(FormaPagamento::find(fake()->numberBetween(1,3)))
-                ->count(1))
-            ->create();
+        for($i=1;$i<=400;$i++){
+           $acao = Acao::create([
+                'tipoAcao' => 'Consumo',
+                'dataAcao' => fake()->dateTimeBetween('-2 years', time()),
+                'passageiro_id' => fake()->numberBetween(1, 40),
+            ]);
+            Consumo::create([
+                'passagem_id' => fake()->numberBetween(1, 800),
+                'acao_id' => $acao->id,
+                'carro_id' => fake()->numberBetween(1, 300),
+            ]);
+        }
         
     }
 }

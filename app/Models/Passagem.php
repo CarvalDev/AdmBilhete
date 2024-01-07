@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Database\Factories\PassagemFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,5 +19,10 @@ class Passagem extends Model
 
     public function consumos(){
         return $this->hasMany(Consumo::class);
+    }
+
+    protected static function newFactory()
+    {
+        return PassagemFactory::new();
     }
 }

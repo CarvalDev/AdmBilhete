@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Acao;
+use App\Models\Compra;
+use App\Models\FormaPagamento;
 use App\Models\Passageiro;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -17,7 +20,15 @@ class PassageiroFactory extends Factory
      */
     protected $model = Passageiro::class;
 
-   
+    // public function configure(){
+    //     return $this->afterMaking(function(Passageiro $passageiro){
+            
+            
+    //     })->afterCreating(function(Passageiro $passageiro){
+    //        $passageiro->acaos(Acao::factory()->count(10)->for($passageiro)->has(Compra::factory()->count(1)->for(FormaPagamento::find(1))->for(Acao::find(1))))->create(['tipoAcao' => 'compra', 'dataAcao' => '2024-01-06 00:00:00']);
+            
+    //     });
+    // }
     public function definition()
     {
         return [

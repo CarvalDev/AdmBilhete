@@ -24,7 +24,7 @@
     </div>
 <div class="col-md-6 col-xs-12 d-sm-none d-md-block m-0 p-0">
     <div class="d-none d-md-flex h-100  justify-content-center align-items-center fundo">
-        <img src="{{ url('storage/site/logo bilhete 1.png') }}" class="img-fluid" alt="" srcset="">
+        <img src="{{ url('images/logo bilhete 1.png') }}" class="img-fluid" alt="" srcset="">
     </div>
   
     
