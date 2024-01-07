@@ -23,7 +23,7 @@
             <th class="px-2 text-center" style="width: 10%">    <label>Exluir</label></th>
         </tr>
         @foreach ($carros as $carro)
-        <tr style="border-bottom:1.5px solid red">
+        <tr style="border-bottom:1.5px solid red; height:50px" class="">
             <td class="px-2 text-center fw-bold">{{$carro->numCarro}}</td>
             <td class="px-2 text-center fw-bold">{{$carro->numLinha}}</td>
             <td class="px-2 text-center fw-bold">{{$carro->nomeLinha}}</td>
