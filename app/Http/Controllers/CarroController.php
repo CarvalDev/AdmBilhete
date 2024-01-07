@@ -14,4 +14,13 @@ class CarroController extends Controller
         ->get();
         return view('carros.index', compact('carros'));
     } 
+    public static function destroy($id)
+    {
+        //$user = User::where('id',$id)->first();
+        if(!$carros = Carro::find($id))
+            return redirect()->route('carros.index');
+
+            $carros->delete();
+            return redirect()->route('carros.index');
+    }
 }

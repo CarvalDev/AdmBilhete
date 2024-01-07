@@ -29,7 +29,11 @@
             <td class="px-2 text-center fw-bold">{{$carro->nomeLinha}}</td>
             <td class="px-2 text-center fw-bold">{{$carro->catraca_id}}</td>
             <td id="btn-modal" class=" px-2 text-center fw-bold" id="alterar"><button id="" class="btn" onclick="modPerfil()"><i class="fa-regular fa-pen-to-square fa-xl "></i></button></td>
-            <td class="px-2 text-center fw-bold"><a href="" class="btn" style=""><i class="fa-regular fa-trash-can fa-xl"></i></a></td>
+            <form action="{{route('carros.destroy',$carro->id)}}" method="post">
+                @method('DELETE')
+                @csrf
+            <td class="px-2 text-center fw-bold"><button type="submit" class="btn"><i class="fa-regular fa-trash-can fa-xl"></i></button></td>
+            </form>
         </tr>
         @endforeach
 

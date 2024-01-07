@@ -24,7 +24,7 @@ use App\Http\Controllers\ReajusteController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::delete("/carros/{id}", [CarroController::class,'destroy'])->name('carros.destroy');
 Route::get('/home',[HomeController::class,'index'])->name('home.index');
 Route::get('/passageiros',[PassageiroController::class, 'passageiroIndex'])->name('passageiros.index');
 Route::get('/passageiros/form', [PassageiroController::class, 'form'])->name('passageiros.form');
