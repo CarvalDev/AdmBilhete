@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="infosBilhete justify-content-center gap-1 h-100 d-flex flex-column p-2 px-3" style="width:70%">
-                            <strong style="font-size:13px">MIGUEL R. LIMA</strong>
+                            <strong style="font-size:13px">{{ $passageiro->nomePassageiro }}</strong>
                             <label style="font-size:13px">ESCOLA TÉCNICA ESTADUAL DE GUAIANAZES</label>
                             <label style="font-size:13px">TÉCNICO</label>
                             <div class="" style="font-size:13px"><strong>CPF</strong><label class="ps-1">{{ $passageiro->cpfPassageiro }}</label></div>

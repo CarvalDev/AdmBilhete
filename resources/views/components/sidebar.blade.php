@@ -1,13 +1,15 @@
 <link rel="stylesheet" href="{{ URL::asset('css/nav.css') }}">
 
-<header style="height: 100%">
-    <nav class="navbar navbar-expand-sm flex-column h-100">
-        <a href="{{route('home.index')}}" class="navbar-brand">
-            <img class="h-100 w-100 img-fluid" src="{{ url('images/logo bilhete 1.png') }}" alt="">
+<header  style="height: 100%">
+    <nav  class="navbar navbar-expand-sm flex-column h-100">
+        <div style="width:80%; height:20%" class="  m-0  d-flex justify-content-center align-items-center">
+        <a style="height:100% width:100%" href="{{route('home.index')}}" >
+            <img class="img-fluid"  style="" src="{{ url('images/logo bilhete 1.png') }}" alt="">
         </a>
-        <div class="collapse navbar-collapse flex-column h-100" id="navegacao">
-            <div class="container d-flex justify-content-center align-items-center" style="height: 55vh">
-                <ul class="navbar-nav flex-column gap-5 text-center">
+        </div>
+        <div style="height:80%" class="collapse navbar-collapse  flex-column h-100" id="navegacao">
+            <div class="container d-flex justify-content-center align-items-center" style="height: 100%">
+                <ul class="navbar-nav flex-column d-flex h-100 justify-content-between  text-center">
                     <li class="nav-item">
                         <a href="{{route('home.index')}}" class="nav-link">Painel de Controle</a>
                         <hr>
@@ -29,12 +31,12 @@
                         <hr>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('reajuste.index') }}" class="nav-link">Reajuste</a>
+                        <span href="" id="navTransition" onclick="abreNav()" class="nav-link">Mais Opções<i class="fa-solid fa-arrow-right"></i></span>
                         <hr>
                     </li>
                 </ul>
             </div>
-            <div class="d-flex justify-content-end align-items-end h-25">
+            <div class="d-flex justify-content-end align-items-end ">
                 <a href="{{ route('login.index') }}" class="nav-link">
                     <div class="d-flex flex-row gap-2">
                         <div class="d-flex justify-content-center align-items-center">
@@ -57,4 +59,5 @@
         </div>
 
     </nav>
+    
 </header>

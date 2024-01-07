@@ -13,6 +13,7 @@ hr{
     border: 1.5px solid;
     border-color: #fff;
     opacity: 100% !important;
+    width: 100%;
 }
 
 .nav-link:hover{
@@ -20,3 +21,10 @@ hr{
     color: #fff;
 }
 
+.nav-item{
+    height: 16.66%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
