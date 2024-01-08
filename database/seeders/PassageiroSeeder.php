@@ -24,7 +24,7 @@ class PassageiroSeeder extends Seeder
      */
     public function run()
     {
-        $factory = Passageiro::factory()
+        Passageiro::factory()
             ->count(40)
             ->has(Acao::factory(10)
                 ->has(Compra::factory(1)->for(FormaPagamento::find(1)))

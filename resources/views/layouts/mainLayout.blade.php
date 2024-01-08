@@ -14,14 +14,18 @@
 </head>
 <body>
     <div class="content w-100 vh-100 d-flex justify-content-center align-items-center">
-        <div  style="width: 10%;background-color:#FF0000" class="h-100  d-flex justify-content-center align-items-center fixed-top">@include('components.sidebar')</div>
+        <div id="navbar"  style="width: 10%;background-color:#FF0000" class="h-100  d-flex justify-content-center align-items-center fixed-top">@include('components.sidebar')</div>
         <div style="width: 90%; margin-left:10%" class=" vh-100 d-flex flex-column justify-content-center align-items-center">
-        @include('components.navbar')
-        <div style="height: 80%" class="w-100 d-flex justify-content-center align-items-center">@yield('content')</div>
-    </div>
+            @include('components.navbar')
+            <div style="height: 80%" class="w-100 d-flex justify-content-center align-items-center">@yield('content')</div>
+        </div>
+        <div id="navExpandida" class="h-100   justify-content-center align-items-center fixed-top">
+            @include('components.sideBarExpandida')
+        </div>
     
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="{{ URL::asset('js/nav.js') }}"></script>
 {{-- <script>$('.dropdown-toggle').dropdown()</script> --}}
 
 

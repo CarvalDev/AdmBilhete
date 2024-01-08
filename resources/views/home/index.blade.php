@@ -18,10 +18,10 @@
             </div>
         </a>
 
-        <a href="{{ route('carros.index') }}" class="link2 d-flex flex-column justify-content-between align-items-center    h-100">
+        <a href="{{ route('linhas.index') }}" class="link2 d-flex flex-column justify-content-between align-items-center    h-100">
             <div class="item2 d-flex flex-column justify-content-between align-items-center   h-100">
-                <div class="w-100 text-center"><span class="fs-3 fw-bold" style="font-weight: 400">Carros Registrados</span></div>
-                <div class="w-100 text-center"><span class="fs-1 fw-bolder">{{ $carro->count() }}</span></div>
+                <div class="w-100 text-center"><span class="fs-3 fw-bold" style="font-weight: 400">Linhas Registradas</span></div>
+                <div class="w-100 text-center"><span class="fs-1 fw-bolder">{{ $linha->count() }}</span></div>
                 <div class="w-100"></div>
 
             </div>
