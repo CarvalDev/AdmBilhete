@@ -129,7 +129,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body text-center align-items-center justify-content-center d-flex mt-2">
-          <p class="fw-bold fs-5" id="numPassagem">{{ $passagens[0]->passagens }}</p>
+          <p class="fw-bold fs-5" id="numPassagem">{{ $passagens[0]->passagens ?? null}}</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger">Remover Passagem</button>
