@@ -25,8 +25,9 @@ class PassageiroController extends Controller
         if($request->fotoPassageiro){
             $data['fotoPassageiro'] = $request->fotoPassageiro->store('passageiros');
         }
-        Passageiro::create($data);
-        return view('passageiros.form');
+        $passageiro = Passageiro::create($data);
+        
+        return redirect()->route('passageiros.index');
     }
     public function perfilPassageiro($id, Bilhete $bilhete, Passagem $passagens) {
         $passageiro = Passageiro::find($id);

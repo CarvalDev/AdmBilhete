@@ -1,0 +1,51 @@
+#modalPassageiro{
+    margin-left: auto;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border: none;
+    border-radius: 10px;
+
+  }
+
+
+  input[type="file"] {
+    display: none;
+}
+input:focus {
+    box-shadow: none !important;
+    background-color: white !important;
+}
+
+
+
+#lbFoto:hover{
+  cursor: pointer;
+
+}
+  #modalPassageiro::backdrop {
+    backdrop-filter: blur(3px);
+    /* background-color: white;
+        opacity: 50%; */
+  }
+  .btnCss{
+    height: 5vh!important;
+    color: white!important;
+    border: 1px solid black!important;
+    text-align: center!important;
+    background-color: #ff0000!important;
+
+}
+.text-area{
+  resize: none;
+  box-shadow: none!important;
+  border: none!important;
+}
+.btn-close{
+  box-shadow: none!important;
+  border: none!important;
+}
+input, select{
+  border: 1px solid rgba(0, 0, 0, 0.3)!important;
+}
+#cep, #num{
+  border: none !important;
+}
