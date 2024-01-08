@@ -1,8 +1,47 @@
-.btnFormulario{
-    background-color: red !important;
-    color: white !important;
 
+
+
+#modalPassageiro{
+    margin-left: auto;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border: none;
+    border-radius: 10px;
+    
+  }
+
+
+  input[type="file"] {
+    display: none;
 }
-.inputFormulario{
-    border: 1px solid black !important;
+input:focus {
+    box-shadow: none !important;
+    background-color: white !important;
 }
+
+
+
+#lbFoto:hover{
+  cursor: pointer;
+  
+}
+
+  .btnFormulario{
+    height: 5vh!important;
+    color: white!important;
+    border: 1px solid black!important;
+    text-align: center!important;
+    background-color: #ff0000!important;
+    
+}
+
+
+input, select{
+  border: 1px solid rgba(0, 0, 0, 0.3)!important;
+}
+#cep, #num{
+  border: none !important;
+}
+
+#cep:focus{
+    border: none !important;
+  }
