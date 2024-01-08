@@ -29,7 +29,7 @@
             <td class="px-2 text-center fw-bold">{{$linhas[$i]->nomeLinha}}</td>
             <td class="px-2 text-center fw-bold">{{$linhas[$i]->qtdCarros}}</td>
             <td class="px-2 text-center fw-bold">{{$consumos[$i]->qtdConsumos ?? 0}}</td>
-            <td id="btn-modal" class=" px-2 text-center fw-bold" id="alterar"><button id="" class="btn" ><i class="fa-solid fa-info"></i></button></td>
+            <td id="btn-modal" class=" px-2 text-center fw-bold" id="alterar"><a id="" href="{{ route('linhas.show', $linhas[$i]->id) }}" class="btn" ><i class="fa-solid fa-info"></i></a></td>
         
             
         </tr>
