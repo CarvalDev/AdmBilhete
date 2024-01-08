@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUpdateLinhasFormRequest;
+use App\Http\Requests\StoreUpdatePassageiroFormRequest;
 use App\Models\Carro;
 use App\Models\Linha;
 use Illuminate\Http\Request;
@@ -29,5 +31,10 @@ class LinhasController extends Controller
 
     public function register(){
         return view('linhas.register');
+    }
+    public function store(StoreUpdateLinhasFormRequest $request){
+        $data = $request->all();
+        Linha::create($data);
+        return redirect()->route('linhas.index');
     }
 }

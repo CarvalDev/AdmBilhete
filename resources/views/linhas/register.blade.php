@@ -13,14 +13,14 @@
     <hr style="border: 0.1px solid gray" class="my-3">
     <div class="w-100 d-flex align-items-center justify-content-center " style="height: 60vh">
 
-        <form action="" class="w-100 form-group"> 
+        <form action="{{ route('linhas.store') }}" class="w-100 form-group" method="POST">
+        @csrf 
         <div class="container border border-1   p-0 border-dark rounded-5" style="height: 35vh">
             <div class="w-100 rounded-top-5 m-0 d-flex align-items-center justify-content-center" style="height: 12%; background-color:red">
             </div>
             <div class="row d-flex justify-content-center align-items-center p-3" style="height: 65%">
-                    <div class="col-4 p-4"><input  id="NomeLinha" name="nomeLinha" type="text" placeholder="Nome" class="form-control inputFormulario"></div>
-                    <div class="col-4 p-4"><input data-mask="0000-00" id="NumLinha" name="NumLinha" type="text" placeholder="N°" class="form-control inputFormulario"></div>
-                    <div class="col-4 p-4"><input data-mask="000" id="QtdCarroLinha" name="qtdCarroLinha" type="text" placeholder="Quantidade de Carros" class="form-control inputFormulario"></div>
+                    <div class="col-6 p-4"><input  id="NomeLinha" name="nomeLinha" type="text" placeholder="Nome" class="form-control inputFormulario"></div>
+                    <div class="col-6 p-4"><input data-mask="0000-00" id="NumLinha" name="numLinha" type="text" placeholder="N°" class="form-control inputFormulario"></div>
                 </div>
                 <div class="d-flex justify-content-end align-items-end">
                     <div class="col-12"><div class="d-flex justify-content-end ">
@@ -32,7 +32,13 @@
             
         </form>
     </div>
-    
+    @if ($errors->any())
+    <ul class="errors">
+        @foreach ($errors->all() as $error)
+            <li class="error">{{$error}}</li>
+        @endforeach
+    </ul>
+@endif
 </div>
     
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
