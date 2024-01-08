@@ -5,6 +5,7 @@ use App\Http\Controllers\CarroController;
 use App\Http\Controllers\CatracaController;
 use App\Http\Controllers\FaturamentoController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LinhasController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PassageiroController;
@@ -28,7 +29,7 @@ Route::delete("/carros/{id}", [CarroController::class,'destroy'])->name('carros.
 Route::get('/home',[HomeController::class,'index'])->name('home.index');
 Route::get('/passageiros',[PassageiroController::class, 'passageiroIndex'])->name('passageiros.index');
 Route::get('/passageiros/form', [PassageiroController::class, 'form'])->name('passageiros.form');
-Route::get('/carros',[CarroController::class, 'index'])->name('carros.index');
+Route::get('/linhas',[LinhasController::class, 'index'])->name('linhas.index');
 Route::get('/caixaEntrada',[CaixaEntradaController::class, 'caixaIndex'])->name('caixaEntrada.index');
 Route::get('/login',[LoginController::class, 'index'])->name('login.index');
 Route::get('/reajuste',[ReajusteController::class, 'index'])->name('reajuste.index');
