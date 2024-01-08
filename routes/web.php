@@ -40,9 +40,12 @@ Route::get('/faturamento', [FaturamentoController::class, 'index'])->name('fatur
 Route::get('/passageirosP/{id}/',[PassageiroController::class, 'perfilPassageiro'])->name('perfilPassageiro.index');
 Route::get('/linhas/{id}/show', [LinhasController::class, 'show'])->name('linhas.show');
 Route::post('/passageiros/store', [PassageiroController::class, 'store'])->name('passageiros.store');
-<<<<<<< Updated upstream
+
 Route::get('passageiros/AddBilhete/{id}', [PassageiroController::class, 'addBilhete'])->name('passageiros.addBilhete');
 Route::post('passageiros/{id}/bilhetes/store', [PassageiroController::class, 'bilheteStore'])->name('passageiros.bilhetes.store');
-=======
 
->>>>>>> Stashed changes
+
+
+
+
+ 
