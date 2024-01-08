@@ -9,22 +9,40 @@
     
 @section('content')
     <div class="w-100 h-100 d-flex flex-column justify-content-around align-items-center  ">
-    <div class="d-flex justify-content-center aling-itens-center mt-3 ">
-    <span class="border border-danger rounded-4 p-xl-4 p-lg-3   d-flex flex-column" style="height: 20vh;width:20vh;">
+    <div class="d-flex flex-column justify-content-center aling-itens-center mt-3 ">
+    <span class="border border-danger rounded-4 p-xl-4 p-lg-3 d-flex flex-column"  style="height: 25vh;width:20vw;">
         <p class="fw-bold text-center mb-xl-3 mt-xl-3 mb-lg-4 mt-lg-4 mb-3 mt-5">Preço atual</p>
-        <p class="fw-bold text-center mb-xl-3 mb-lg-4 mb-lg-4 mb-3">R$4,40</p>
-        <button id="btn-modal" class="btn d-flex justify-content-end btnBorda" ><i class="fa-regular fa-pen-to-square fa-xl"></i></button>
+        <label class="d-flex flex-row gap-2 w-100 align-items-center justify-content-center">
+        <p class="fw-bold text-center d-flex pt-3 ms-4" >R$4,40</p>
+        <button type="button" class="btn d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-pen-to-square fa-xl" ></i></button>
+        </label>
+        
     </span>
 </div>
 <div>
     <canvas width="800" id="grafico" ></canvas>
 </div>
-
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header" style="border-bottom:1px solid gray">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Preço de Reajuste</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form class="" method="POST" action="">
+        <div class="modal-body text-center align-items-center justify-content-center d-flex mt-2">
+          <input type="text" class="fw-bold fs-5 form-control text-center" id="numPassagem" placeholder="R$ 4,40">
+        </div>
+        <div class="modal-footer">
+          <a href="{{ route('reajuste.index') }}" class="btn btn-danger">Cancelar</a>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>
+        </form>
+      </div>
     </div>
-
+  </div>
+    </div>
     <script src="{{ asset('js/reajuste.js') }}"></script> 
-    <script src="{{ URL::asset('js/modalCatraca.js') }}"></script>
-    @include('components.modalReajuste')
     @endsection
 
 

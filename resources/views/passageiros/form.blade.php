@@ -109,7 +109,7 @@
         </div>
     </div>
     </form>
-
+{{-- 
     <div>
         @if ($errors->any())
         <ul class="errors">
@@ -120,12 +120,10 @@
     @endif
         
 
-    </div>
+    </div> --}}
 
 
 
-</div>
-</div>
 </div>
     
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.0.0.min.js"></script>

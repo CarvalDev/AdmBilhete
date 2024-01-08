@@ -11,17 +11,29 @@
 
 @section('content')
 <div class="w-100 h-100  d-flex flex-row">
-    <div class="infosPassageiro h-100" style="width:70%">
-        <div class="primeirasInfo ml-5  d-flex flex-column justify-content-center align-items-center w-50 d-flex flex-row" style="height:45%">
-            <div class="fotoPassageiro" style="height:70%; border: 2px solid gray; border-radius:8%"  >
+    <div class="infosPassageiro h-100" style="width:70%;">
+        <div class="primeirasInfo d-flex flex-row justify-content-center align-items-end w-100 d-flex flex-row" style="height:45%">
+            <div class=" h-100 d-flex flex-column justify-content-around align-items-center" style="width:150%">
+            <div class="fotoPassageiro" style="height:70%; border: 2px solid gray; border-radius:8%;"  >
                 <img src="{{ url("storage/$passageiro->fotoPassageiro") }}" class="w-100 h-100" style="border-radius: 8%" alt="">
             </div>
             <div class="dadosPrincipais d-flex flex-column ph-4">
                 <div class="flex-row d-flex gap-2 justify-content-center"><p style="color:rgb(52, 49, 49);" class="fw-bold p-0 m-0">{{ $passageiro->nomePassageiro }}</p></div>
                 <div class="flex-row d-flex gap-2 justify-content-center"><p  style="font-size: 12px" class="fw-bold text-secondary  p-0 m-0 mb-3 text-center">{{ $passageiro->cpfPassageiro }}</p></div>
             </div>
+            </div>
+            <div class="maisInfo d-flex flex-column px-3  h-100 gap-1 justify-content-center p-2" style="width:120%;border-left:2px solid black;">
+              <div class="" style="font-size:13px"><strong>Email</strong><label class="ps-1"> {{ $passageiro->emailPassageiro }} </label></div>
+              <div class="" style="font-size:13px"><strong>Estado</strong><label class="ps-1 text-uppercase"> {{ $passageiro->ufPassageiro}} </label></div>
+              <div class="" style="font-size:13px"><strong>Num. Tel.</strong><label class="ps-1"> {{ $passageiro->numTelPassageiro }} </label></div>
+              <div class="" style="font-size:13px"><strong>Data Nasc.</strong><label class="ps-1"> {{ $linhaNasc }} </label></div>
+              
+            </div>
+            <div class="d-flex justify-content-end align-items-center py-1 align-end container" >    
+              <a href="{{ route('passageiros.addBilhete', $passageiro->id) }}" class="border-0"><i class="fas fa-plus-circle fa-2x" aria-hidden="true"></i></a>
+          </div>
         </div>
-
+        
         <div class="bilhetes align-items-start justify-content-center d-flex flex-column" style="height: 55%;width:100%;background-color:rgba(128, 128, 128, 0.588)">
             @if (count($bilhetes)>0)
             <div id="carouselExample" class="carousel slide w-100">
@@ -31,7 +43,7 @@
                   <div class="carousel-item active w-100 h-100">
                     <a href="#" class="btn text-decoration-none w-100 h-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <div class="d-flex w-100 h-100 align-items-center justify-content-center">
-                        <div class="rounded-4" style="height: 90%;width:56%;background-color:@if($bilhete->tipoBilhete == 'Comum') #808080 @elseif ($bilhete->tipoBilhete == 'Estudante') #4169E1 @elseif ($bilhete->tipoBilhete == 'Idoso') #FFDB58 @else #90EE90 @endif ">
+                        <div class="rounded-4" style="height: 90%;width:56%;background-color:@if($bilhete->tipoBilhete == 'Comum') #808075 @elseif ($bilhete->tipoBilhete == 'Estudante') #4390E1 @elseif ($bilhete->tipoBilhete == 'Idoso') #FFDB70 @elseif ($bilhete->tipoBilhete == 'Pcd') #DDA0DD  @elseif ($bilhete->tipoBilhete == 'Gestante') #FFA500 @elseif ($bilhete->tipoBilhete == 'Obesa') #FFA500 @elseif ($bilhete->tipoBilhete == 'Obesa') #FFA500 @else #98FB98   @endif ">
                             <header class="w-100  d-flex flex-row justify-content-between" style="height:21%">
                                 <div class="dNe h-100 d-flex align-items-center justify-content-center" style="width:35%">
                                     <img src=" {{ url('images/DNElogo.png')}} " style="width: 85%;height:80%">
@@ -51,10 +63,10 @@
                                     </div>
             
                                     <div class="infosBilhete justify-content-center text-start gap-1 h-100 d-flex flex-column p-2 px-3" style="width:70%">
-                                        <strong style="font-size:13px">{{ $passageiro->nomePassageiro }}</strong>
-                                        <div class="" style="font-size:13px"><strong>CPF</strong><label class="ps-1">{{ $passageiro->cpfPassageiro }}</label></div>
-                                        <div class="" style="font-size:13px"><strong>Bairro</strong><label class="ps-1">{{ $passageiro->bairroPassageiro }}</label></div>
-                                        <div class="" style="font-size:13px"><strong>Data Nasc.</strong><label class="ps-1">{{ $passageiro->dataNascPassageiro }}</label></div>
+                                      <div class="" style="font-size:13px"><strong>Tipo Bilhete</strong><label class="ps-1"> {{ $bilhete->tipoBilhete }} </label></div>
+                                        <div class="" style="font-size:13px"><strong>Status</strong><label class="ps-1">{{ $bilhete->statusBilhete }}</label></div>
+                                        <div class="" style="font-size:13px"><strong>Gratuidade</strong><label class="ps-1">@if($bilhete->gratuidadeBilhete == 1) Sim @else Não @endif </label></div>
+                                        <div class="" style="font-size:13px"><strong>Meia Passagem</strong><label class="ps-1"> @if ($bilhete->meiaPassagensBilhete == 1) Sim @else Não @endif</label></div>
                                     </div>
                             </section>
                             

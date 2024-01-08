@@ -39,3 +39,5 @@ Route::get('/reajuste',[ReajusteController::class, 'index'])->name('reajuste.ind
 Route::get('/faturamento', [FaturamentoController::class, 'index'])->name('faturamento.index');
 Route::get('/passageirosP/{id}/',[PassageiroController::class, 'perfilPassageiro'])->name('perfilPassageiro.index');
 Route::post('/passageiros/store', [PassageiroController::class, 'store'])->name('passageiros.store');
+Route::get('passageiros/AddBilhete/{id}', [PassageiroController::class, 'addBilhete'])->name('passageiros.addBilhete');
+Route::post('passageiros/{id}/bilhetes/store', [PassageiroController::class, 'bilheteStore'])->name('passageiros.bilhetes.store');
