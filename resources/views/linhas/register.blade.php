@@ -19,9 +19,10 @@
             <div class="w-100 rounded-top-5 m-0  px-3" style="height: 12%; background-color:red">
                 <span  class="fs-4 fw-bold text-light text-start">Adicionar Linhas</span>
             </div>
-            <div class="row d-flex justify-content-center align-items-center p-3 flex-column" style="height: 65%">
-                    <div class="col-6 p-4"><input  id="NomeLinha" name="nomeLinha" type="text" placeholder="Nome" class="form-control inputFormulario"></div>
-                    <div class="col-6 p-4"><input data-mask="0000-00" id="NumLinha" name="numLinha" type="text" placeholder="N°" class="form-control inputFormulario"></div>
+            <div class="row d-flex justify-content-center align-items-center p-3" style="height: 65%">
+                    <div class="col-4 p-4"><input  id="NomeLinha" name="nomeLinha" type="text" placeholder="Nome" class="form-control inputFormulario"></div>
+                    <div class="col-4 p-4"><input data-mask="0000-00" id="NumLinha" name="numLinha" type="text" placeholder="N°" class="form-control inputFormulario"></div>
+                    <div class="col-4 p-4"><input data-mask="000" id="qtdCarroLinha" name="qtdCarroLinha" type="text" placeholder="Quantidade de Carros" class="form-control inputFormulario"></div>
                 </div>
                 <div class="d-flex justify-content-end align-items-end">
                     <div class="col-12"><div class="d-flex justify-content-end ">
