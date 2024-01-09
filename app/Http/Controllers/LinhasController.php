@@ -43,6 +43,13 @@ class LinhasController extends Controller
     public function register(){
         return view('linhas.register');
     }
+
+    public function update($id, Request $request, Linha $linha){
+        $linha = $linha->find($id);
+        $linha->update($request->all());
+        return redirect()->route('linhas.show', $id);
+        
+    }
     public function store(StoreUpdateLinhasFormRequest $request){
         $data = $request->all();
         $linha = Linha::create($data);
@@ -60,11 +67,6 @@ class LinhasController extends Controller
                     
                     ->where('linha_id', '=', "$id")
                     ->get();
-                    
-
-        
-
-
 
         $consumos = $consumo    
                      ->select('carros.id as carros')   

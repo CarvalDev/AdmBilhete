@@ -28,7 +28,7 @@ Linha {{$linha->nomeLinha}}
                     <td>{{$carros->count()}}</td>
                 </tr>
             </table>
-            <form id="formUpdate" style="height: 60%" class="w-75 row mb-4  rounded shadow  d-flex flex-column justify-content-center align-items-center">
+            <form id="formUpdate" action="{{ route('linhas.update', $linha->id) }}" method="post" style="height: 60%" class="w-75 row mb-4  rounded shadow  d-flex flex-column justify-content-center align-items-center">
                 @csrf
                 @method('PUT')
                 <div style="height: 20%" class="w-100 d-flex flex-row justify-content-center align-items-center">
@@ -38,12 +38,12 @@ Linha {{$linha->nomeLinha}}
                     
                         <div class="col-12">
                             <label for="nomeLinha">Nome Linha:</label>
-                            <input type="text" value="{{$linha->nomeLinha}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <input type="text" name="nomeLinha" value="{{$linha->nomeLinha}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                             
                           </div>
                           <div class="col-12   ">
                             <label for="numLinha">Numero Linha:</label>
-                            <input type="text" value="{{$linha->numLinha}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <input type="text" name="numLinha" value="{{$linha->numLinha}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                             
                           </div>
                   
