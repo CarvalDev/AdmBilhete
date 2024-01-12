@@ -7,9 +7,11 @@ use App\Http\Controllers\FaturamentoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LinhasController;
 use App\Http\Controllers\LoginController;
+use App\Mail\RespostaSuporteMail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PassageiroController;
 use App\Http\Controllers\ReajusteController;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +36,7 @@ Route::get('/passageiros/form', [PassageiroController::class, 'form'])->name('pa
 Route::get('/linhas',[LinhasController::class, 'index'])->name('linhas.index');
 Route::get('/linhas/register',[LinhasController::class, 'register'])->name('linhas.register');
 Route::get('/caixaEntrada',[CaixaEntradaController::class, 'caixaIndex'])->name('caixaEntrada.index');
+Route::get('/caixaEntrada/{id}/show', [CaixaEntradaController::class, 'show'])->name('caixaEntrada.show');
 Route::get('/login',[LoginController::class, 'index'])->name('login.index');
 Route::get('/reajuste',[ReajusteController::class, 'index'])->name('reajuste.index');
 Route::get('/faturamento', [FaturamentoController::class, 'index'])->name('faturamento.index');
@@ -43,7 +46,10 @@ Route::post('/passageiros/store', [PassageiroController::class, 'store'])->name(
 Route::put('/linhas/{id}/update', [LinhasController::class, 'update'])->name('linhas.update');
 Route::get('passageiros/AddBilhete/{id}', [PassageiroController::class, 'addBilhete'])->name('passageiros.addBilhete');
 Route::post('passageiros/{id}/bilhetes/store', [PassageiroController::class, 'bilheteStore'])->name('passageiros.bilhetes.store');
-
+Route::get('/email', function(){
+    Mail::to('carvalhohugo425@gmail.com')
+    ->send(new RespostaSuporteMail());
+});
 
 
 
