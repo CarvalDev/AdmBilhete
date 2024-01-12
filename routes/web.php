@@ -10,6 +10,7 @@ use App\Http\Controllers\LoginController;
 use App\Mail\RespostaSuporteMail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PassageiroController;
+use App\Http\Controllers\PrecoController;
 use App\Http\Controllers\ReajusteController;
 use Illuminate\Support\Facades\Mail;
 
@@ -38,7 +39,10 @@ Route::get('/linhas/register',[LinhasController::class, 'register'])->name('linh
 Route::get('/caixaEntrada',[CaixaEntradaController::class, 'caixaIndex'])->name('caixaEntrada.index');
 Route::get('/caixaEntrada/{id}/show', [CaixaEntradaController::class, 'show'])->name('caixaEntrada.show');
 Route::get('/login',[LoginController::class, 'index'])->name('login.index');
-Route::get('/reajuste',[ReajusteController::class, 'index'])->name('reajuste.index');
+Route::get('/preco', [PrecoController::class, 'index'])->name('preco.index');
+Route::get('/preco/{id}/edit', [PrecoController::class, 'edit'])->name('preco.edit');
+Route::put('/preco/{id}/update', [PrecoController::class, 'update'])->name('preco.update');
+Route::get('/reajuste', [ReajusteController::class, 'store'])->name('reajuste.store');
 Route::get('/faturamento', [FaturamentoController::class, 'index'])->name('faturamento.index');
 Route::get('/passageirosP/{id}/',[PassageiroController::class, 'perfilPassageiro'])->name('perfilPassageiro.index');
 Route::get('/linhas/{id}/show', [LinhasController::class, 'show'])->name('linhas.show');

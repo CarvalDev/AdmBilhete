@@ -13,7 +13,7 @@
     <span class="border border-danger rounded-4 p-xl-4 p-lg-3 d-flex flex-column"  style="height: 25vh;width:20vw;">
         <p class="fw-bold text-center mb-xl-3 mt-xl-3 mb-lg-4 mt-lg-4 mb-3 mt-5">Preço atual</p>
         <label class="d-flex flex-row gap-2 w-100 align-items-center justify-content-center">
-        <p class="fw-bold text-center d-flex pt-3 ms-4" >R$4,40</p>
+        <p class="fw-bold text-center d-flex pt-3 ms-4" >R${{$preco->passagemPreco}}</p>
         <button type="button" class="btn d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-pen-to-square fa-xl" ></i></button>
         </label>
         
@@ -29,12 +29,23 @@
           <h1 class="modal-title fs-5" id="exampleModalLabel">Preço de Reajuste</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form class="" method="POST" action="">
+        <form class="" method="POST" action="{{route('preco.update',$preco->id)}}" required>
+          @method('PUT')
+          @csrf
         <div class="modal-body text-center align-items-center justify-content-center d-flex mt-2">
-          <input type="text" class="fw-bold fs-5 form-control text-center" id="numPassagem" placeholder="R$ 4,40">
+          <input type="hidden" data-mask="0000-00-00" data-mask-selectonfocus="true" class="fw-bold fs-5 form-control text-center" name="dataReajuste" value="2024-12-20"> 
+          <input type="text" class="fw-bold fs-5 form-control text-center" name="passagemPreco" placeholder="R${{$preco->passagemPreco}}">
+          <input type="hidden" name="meiaPassagemPreco" value="{{$preco->passagemPreco/2}}">
         </div>
+        @if($errors->any())
+        <ul class="errors">
+      @foreach($errors->all() as $error)
+      <li class="errors"> {{$error}}</li>
+      @endforeach
+      </ul>
+      @endif
         <div class="modal-footer">
-          <a href="{{ route('reajuste.index') }}" class="btn btn-danger">Cancelar</a>
+          <a href="{{ route('preco.edit',['id'=>1]) }}" class="btn btn-danger">Cancelar</a>
           <button type="submit" class="btn btn-primary">Salvar</button>
         </div>
         </form>
@@ -42,7 +53,13 @@
     </div>
   </div>
     </div>
+        
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous" defer>
+</script>
     <script src="{{ asset('js/reajuste.js') }}"></script> 
+    <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
     @endsection
 
 

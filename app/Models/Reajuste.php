@@ -9,8 +9,8 @@ class Reajuste extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'dataReajuste',
         'precoPassagemReajuste',
-        'precoMeiaPassagemReajuste'
+        'precoMeiaPassagemReajuste',
+        'dataReajuste'
     ];
 }

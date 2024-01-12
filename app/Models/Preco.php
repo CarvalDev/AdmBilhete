@@ -12,4 +12,12 @@ class Preco extends Model
         'passagemPreco',
         'meiaPassagemPreco',
     ];
+    protected static function boot()
+    {
+        parent::boot();
+        
+        static::updating(function ($preco) {
+            $preco->meiaPassagemPreco = $preco->passagemPreco / 2;
+        });
+    }
 }

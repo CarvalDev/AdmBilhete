@@ -9,7 +9,7 @@
             <div class="container d-flex justify-content-center w-100 align-items-center" style="height: 100%">
                 <ul class="navbar-nav flex-column w-100  d-flex h-100 justify-content-between  text-center">
                     <li class="nav-item">
-                        <a href="{{route('reajuste.index')}}" class="nav-link">Reajuste</a>
+                            <a href="{{route('preco.edit',['id'=>1])}}" class="nav-link">Editar Preço</a>
                         <hr>
                     </li>
                     <li class="nav-item">
