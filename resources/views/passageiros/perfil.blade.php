@@ -11,11 +11,16 @@
 
 @section('content')
 <div class="w-100 h-100  d-flex flex-row">
-    <div class="infosPassageiro h-100" style="width:70%;">
+    <div class="infosPassageiro h-100" style="width:70%;"> 
+     
         <div class="primeirasInfo d-flex flex-row justify-content-center align-items-end w-100 d-flex flex-row" style="height:45%">
             <div class=" h-100 d-flex flex-column justify-content-around align-items-center" style="width:150%">
             <div class="fotoPassageiro" style="height:70%; border: 2px solid gray; border-radius:8%;"  >
-                <img src="{{ url("storage/$passageiro->fotoPassageiro") }}" class="w-100 h-100" style="border-radius: 8%" alt="">
+                <img @if ($passageiro->fotoPassageiro == '')
+                src="{{ url("images/userPadrao.png")}} 
+                @else
+                src="{{ url("storage/$passageiro->fotoPassageiro")}} 
+                @endif   " class="w-100 h-100" style="border-radius: 8%" alt="">
             </div>
             <div class="dadosPrincipais d-flex flex-column ph-4">
                 <div class="flex-row d-flex gap-2 justify-content-center"><p style="color:rgb(52, 49, 49);" class="fw-bold p-0 m-0">{{ $passageiro->nomePassageiro }}</p></div>

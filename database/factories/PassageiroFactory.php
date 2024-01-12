@@ -43,7 +43,7 @@ class PassageiroFactory extends Factory
         'ufPassageiro' => 'sp',
         'bairroPassageiro' => 'São Miguel Nases',
         'cepPassageiro' => fake()->randomDigit(8),
-        'fotoPassageiro' => 'foto.png',
+        'fotoPassageiro' => null,
         'emailPassageiro' => fake()->unique()->email(),
         'senhaPassageiro' => '123',
         ];

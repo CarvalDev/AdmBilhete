@@ -20,8 +20,8 @@ class SuporteFactory extends Factory
     public function definition()
     {
         return [
-        'categoriaSuporte' => 'tipo1',
-        'descSuporte' => 'suporte bom'
+        'categoriaSuporte' => fake()->randomElement(['Bilhetes', 'Compras', 'Uso', 'Falhas']),
+        'descSuporte' => fake()->paragraph()
     ];
         
     }
