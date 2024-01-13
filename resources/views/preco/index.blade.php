@@ -33,7 +33,6 @@
           @method('PUT')
           @csrf
         <div class="modal-body text-center align-items-center justify-content-center d-flex mt-2">
-          <input type="hidden" data-mask="0000-00-00" data-mask-selectonfocus="true" class="fw-bold fs-5 form-control text-center" name="dataReajuste" value="2024-12-20"> 
           <input type="text" class="fw-bold fs-5 form-control text-center" name="passagemPreco" placeholder="R${{$preco->passagemPreco}}">
           <input type="hidden" name="meiaPassagemPreco" value="{{$preco->passagemPreco/2}}">
         </div>

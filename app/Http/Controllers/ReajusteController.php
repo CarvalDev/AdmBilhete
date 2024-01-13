@@ -12,9 +12,20 @@ class ReajusteController extends Controller
         return view("reajuste.index");
     }
     public static function store(Request $request){
+
+        
+        
         $data = $request->all();
-        Reajuste::create($data);
-        dd($data);
-        //return redirect()->route('preco.edit',['id'=>1]);
+        
+        
+        $dataAgora = explode(' ',date(now()));
+        
+        Reajuste::create([
+            'precoPassagemReajuste' => $data['data']['passagemPreco'],
+            'precoMeiaPassagemReajuste' => $data['data']['passagemPreco']/2,
+             'dataReajuste' => $dataAgora[0]
+        ]);
+        return redirect()->route('preco.edit',['id'=>1]);
+        
     }
 }

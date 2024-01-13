@@ -32,7 +32,7 @@ class PrecoController extends Controller
 
         //return redirect()->route('preco.edit',['id'=>1]);
 
-         return redirect()->action([ReajusteController::class, 'store'],compact('data'));
+        return redirect()->action([ReajusteController::class, 'store'],compact('data'));
    
     }
 }
