@@ -19,10 +19,31 @@
         </div>
     </div>
     <div class="container">
+        @if (isset($data->status))
+        <div id="pageTitleContainer" class="d-flex  justify-content-between w-100 align-items-center">
+            <div>
+            <span id="pageTitle" class="fs-3 fw-bold">@yield('pageTitle')</span>
+            <div id="underline"></div>
+            </div>
+            <form @if (isset($data->status))
+                action="{{route('caixaEntrada.index')}}"
+            @endif class="d-flex  gap-2 h-25 flex-row w-25">
+            <select class="form-control border border-dark w-50 " name="statusSuporte" id="">
+                <option  value="Aberto">Abertos</option>
+                <option  value="Fechado">Fechados</option>
+            </select>
+            <button type="submit" class="w-50 btn btn-primary">Mudar</button>
+            </form>
+
+        </div>
+        
+        @else    
+        
         <div id="pageTitleContainer" class="d-flex  justify-content-start w-100 align-items-center">
             <span id="pageTitle" class="fs-3 fw-bold">@yield('pageTitle')</span>
             <div id="underline"></div>
         </div>
+        @endif
     </div>
       
 </div>

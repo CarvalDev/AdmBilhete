@@ -54,8 +54,8 @@ Route::post('passageiros/{id}/bilhetes/store', [PassageiroController::class, 'bi
 //     Mail::to('carvalhohugo425@gmail.com')
 //     ->send(new RespostaSuporteMail());
 // });
-Route::post('/caixaEntrada/{id}/email', [CaixaEntradaController::class, 'sendMail'])->name('caixaEntrada.mail');
+Route::post('/caixaEntrada/{id}/{idSuporte}/email', [CaixaEntradaController::class, 'sendMail'])->name('caixaEntrada.mail');
 Route::post('passageiros/bilhetes/passagens/store', [PassageiroController::class, 'storePassagens'])->name('passageiro.passagens.store');
-
+Route::put('/caixaEntrada/{id}/update', [CaixaEntradaController::class, 'update'])->name('caixaEntrada.suporte.update');
 
  

@@ -1,0 +1,46 @@
+#userPlace::before{
+    content: "";
+    min-width: 5px;
+    min-height: 36%;
+    background-color: #d83636;
+    position: absolute;
+    left: 45.6%;
+    top: 22%;
+}
+
+#status{
+    font-weight: bold ;
+}
+
+#duvidaPlace{
+    background-color: #edf2f4;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+#headerDuvida{
+    background-color: #d83636;
+    color: #fff;
+    border-radius: 10px !important;
+}
+
+textarea, select{
+    border: black 1px solid !important;
+    background-color: transparent !important;
+    color: black !important;
+}
+
+#fecharSuporte{
+    
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: black;
+}
+#fecharSuporte::before{
+    content: "";
+    min-width: 5px;
+    min-height: 80%;
+    background-color: #d83636;
+    position: relative;
+    left: 100%;
+    top: 0%;
+}

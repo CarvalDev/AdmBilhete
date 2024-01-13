@@ -11,11 +11,18 @@ use Illuminate\Support\Facades\Mail;
 
 class CaixaEntradaController extends Controller
 {
-    public function caixaIndex(Suporte $suporte) {
+    public function caixaIndex(Suporte $suporte, Request $request) {
+        if(!isset($request->statusSuporte)){
+            $status = 'Aberto';
+        }else{
+            $status = $request->statusSuporte;
+        }
+
         $suportes = $suporte
-                    ->select('suportes.id as idSuporte','emailPassageiro as email', 'descSuporte as desc', 'dataAcao as data', 'categoriaSuporte as tema' )
+                    ->select('suportes.id as idSuporte','emailPassageiro as email', 'descSuporte as desc', 'dataAcao as data', 'categoriaSuporte as tema', 'statusSuporte as status' )
                     ->join('acaos', 'suportes.acao_id', 'acaos.id')
                     ->join('passageiros', 'acaos.passageiro_id', 'passageiros.id')
+                    ->where('statusSuporte', "$status")
                     ->get();
 
         $datas = $suportes;
@@ -35,18 +42,30 @@ class CaixaEntradaController extends Controller
                     ->where('suportes.id', '=', "$id")
                     ->get();
         $formatar='';
+       
         
         $data = $infos[0];
                         $formatar = explode(' ', $data->dataAcao);
                         $formatar = explode('-', $formatar[0]);
                         $data->dataAcao = $formatar[2]."/".$formatar[1]."/".$formatar[0];
+        $data['id'] = $id;
         return view('caixaEntrada.show', compact('data'));
     }
-    public function sendMail($id, Passageiro $passageiro, Request $request){
+
+    public function update( $id, Request $request){
+        
+        $suporte = Suporte::find($id);
+        $suporte->update([
+            'statusSuporte' => $request->statusSuporte
+        ]);
+        return redirect()->back();
+    }
+    public function sendMail($id, $idSuporte, Passageiro $passageiro, Request $request){
+        
         $passageiro = $passageiro->find($id);
         $mensagem = $request->mensagem;
-        Mail::to($passageiro->emailPassageiro)
-        ->send(new RespostaSuporteMail($mensagem));
-        return redirect()->route('caixaEntrada.index');
+        // Mail::to($passageiro->emailPassageiro)
+        // ->send(new RespostaSuporteMail($mensagem));
+        return $this->update($idSuporte, $request);
     }
 }
