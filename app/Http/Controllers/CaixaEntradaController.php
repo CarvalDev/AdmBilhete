@@ -64,8 +64,10 @@ class CaixaEntradaController extends Controller
         
         $passageiro = $passageiro->find($id);
         $mensagem = $request->mensagem;
-        // Mail::to($passageiro->emailPassageiro)
-        // ->send(new RespostaSuporteMail($mensagem));
+        $suporte = Suporte::find($idSuporte);
+
+        Mail::to($passageiro->emailPassageiro)
+        ->send(new RespostaSuporteMail($mensagem, $idSuporte, $passageiro->nomePassageiro,$suporte->descSuporte, $suporte->categoriaSuporte));
         return $this->update($idSuporte, $request);
     }
 }
