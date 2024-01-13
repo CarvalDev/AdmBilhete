@@ -18,9 +18,11 @@ class RespostaSuporteMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(
+        public string $mensagem,
+    )
     {
-        //
+        
     }
 
     /**
@@ -43,7 +45,7 @@ class RespostaSuporteMail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'email.respostaSuporte',
+            markdown: 'email.respostaSuporte',
         );
     }
 

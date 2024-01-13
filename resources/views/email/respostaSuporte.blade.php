@@ -1,1 +1,3 @@
-ola tudo bem
+@component('mail::message')
+    {{$mensagem }}
+@endcomponent

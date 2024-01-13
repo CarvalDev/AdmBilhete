@@ -50,11 +50,11 @@ Route::post('/passageiros/store', [PassageiroController::class, 'store'])->name(
 Route::put('/linhas/{id}/update', [LinhasController::class, 'update'])->name('linhas.update');
 Route::get('passageiros/AddBilhete/{id}', [PassageiroController::class, 'addBilhete'])->name('passageiros.addBilhete');
 Route::post('passageiros/{id}/bilhetes/store', [PassageiroController::class, 'bilheteStore'])->name('passageiros.bilhetes.store');
-Route::get('/email', function(){
-    Mail::to('carvalhohugo425@gmail.com')
-    ->send(new RespostaSuporteMail());
-});
-
+// Route::get('/email', function(){
+//     Mail::to('carvalhohugo425@gmail.com')
+//     ->send(new RespostaSuporteMail());
+// });
+Route::post('/caixaEntrada/{id}/email', [CaixaEntradaController::class, 'sendMail'])->name('caixaEntrada.mail');
 
 
  
