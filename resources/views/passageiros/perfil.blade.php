@@ -43,12 +43,12 @@
             @if (count($bilhetes)>0)
             <div id="carouselExample" class="carousel slide w-100">
                 <div class="carousel-inner w-100 h-100">
-                    @foreach ($bilhetes as $bilhete)
-                    <input type="hidden" value="{{ $bilhete->id }}" id="numero">
-                  <div class="carousel-item active w-100 h-100">
+                    @for ($i=0;$i<$bilhetes->count();$i++)
+                    <input type="hidden" value="{{ $bilhetesPassagens[$i] }}" id="numero">
+                  <div class="carousel-item active w-100 h-100" onclick="imprime({{$bilhetesPassagens[$i]}}, {{$bilhetes[$i]->id}})">
                     <a href="#" class="btn text-decoration-none w-100 h-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <div class="d-flex w-100 h-100 align-items-center justify-content-center">
-                        <div class="rounded-4" style="height: 90%;width:56%;background-color:@if($bilhete->tipoBilhete == 'Comum') #808075 @elseif ($bilhete->tipoBilhete == 'Estudante') #4390E1 @elseif ($bilhete->tipoBilhete == 'Idoso') #FFDB70 @elseif ($bilhete->tipoBilhete == 'Pcd') #DDA0DD  @elseif ($bilhete->tipoBilhete == 'Gestante') #FFA500 @elseif ($bilhete->tipoBilhete == 'Obesa') #FFA500 @elseif ($bilhete->tipoBilhete == 'Obesa') #FFA500 @else #98FB98   @endif ">
+                        <div class="rounded-4" style="height: 90%;width:56%;background-color:@if($bilhetes[$i]->tipoBilhete == 'Comum') #808075 @elseif ($bilhetes[$i]->tipoBilhete == 'Estudante') #4390E1 @elseif ($bilhetes[$i]->tipoBilhete == 'Idoso') #FFDB70 @elseif ($bilhetes[$i]->tipoBilhete == 'Pcd') #DDA0DD  @elseif ($bilhetes[$i]->tipoBilhete == 'Gestante') #FFA500 @elseif ($bilhetes[$i]->tipoBilhete == 'Obesa') #FFA500 @elseif ($bilhetes[$i]->tipoBilhete == 'Obesa') #FFA500 @else #98FB98   @endif ">
                             <header class="w-100  d-flex flex-row justify-content-between" style="height:21%">
                                 <div class="dNe h-100 d-flex align-items-center justify-content-center" style="width:35%">
                                     <img src=" {{ url('images/DNElogo.png')}} " style="width: 85%;height:80%">
@@ -68,10 +68,10 @@
                                     </div>
             
                                     <div class="infosBilhete justify-content-center text-start gap-1 h-100 d-flex flex-column p-2 px-3" style="width:70%">
-                                      <div class="" style="font-size:13px"><strong>Tipo Bilhete</strong><label class="ps-1"> {{ $bilhete->tipoBilhete }} </label></div>
-                                        <div class="" style="font-size:13px"><strong>Status</strong><label class="ps-1">{{ $bilhete->statusBilhete }}</label></div>
-                                        <div class="" style="font-size:13px"><strong>Gratuidade</strong><label class="ps-1">@if($bilhete->gratuidadeBilhete == 1) Sim @else Não @endif </label></div>
-                                        <div class="" style="font-size:13px"><strong>Meia Passagem</strong><label class="ps-1"> @if ($bilhete->meiaPassagensBilhete == 1) Sim @else Não @endif</label></div>
+                                      <div class="" style="font-size:13px"><strong>Tipo Bilhete</strong><label class="ps-1"> {{ $bilhetes[$i]->tipoBilhete }} </label></div>
+                                        <div class="" style="font-size:13px"><strong>Status</strong><label class="ps-1">{{ $bilhetes[$i]->statusBilhete }}</label></div>
+                                        <div class="" style="font-size:13px"><strong>Gratuidade</strong><label class="ps-1">@if($bilhetes[$i]->gratuidadeBilhete == 1) Sim @else Não @endif </label></div>
+                                        <div class="" style="font-size:13px"><strong>Meia Passagem</strong><label class="ps-1"> @if ($bilhetes[$i]->meiaPassagensBilhete == 1) Sim @else Não @endif</label></div>
                                     </div>
                             </section>
                             
@@ -82,7 +82,7 @@
                                 <div class="codUsoBilhete h-100 p-2 d-flex flex-row gap-5 h-100" style="width:75%">
                                     <div class="" style="width: 70%">
                                         <label style="font-size:11px">Código de uso/N° do Bilhete Único</label>
-                                        <p class="fw-bold" style="padding-left:47%;font-size:12px">{{ $bilhete->numBilhete }}</p>
+                                        <p class="fw-bold" style="padding-left:47%;font-size:12px">{{ $bilhetes[$i]->numBilhete }}</p>
                                     </div>
             
                                     <div class="logo2023 d-flex justify-content-center align-items-center h-100" style="width:30%">
@@ -95,7 +95,7 @@
                     </div>
                   </a>
                   </div>
-                  @endforeach
+                  @endfor
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -140,19 +140,59 @@
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog  modal-dialog-centered">
-      <div class="modal-content">
+      <div class="modal-content" id="primeira">
         <div class="modal-header" style="border-bottom:1px solid gray">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Quantidade Total de Passagens</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body text-center align-items-center justify-content-center d-flex mt-2">
-          <p class="fw-bold fs-5" id="numPassagem">{{ $passagens[0]->passagens ?? null}}</p>
+          <p class="fw-bold fs-5" id="numPassagem"></p>
+          <input type="hidden" class="btn" id="idBilhete" name="idBilhete">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger">Remover Passagem</button>
-          <button type="button" class="btn btn-primary">Adicionar Passagem</button>
+          <button type="button" class="btn btn-danger" id="removeBtn" onclick="remover()">Remover Passagem</button>
+          <button type="button" class="btn btn-primary" id="adicionaBtn" onclick="adicionar()">Adicionar Passagem</button>
         </div>
       </div>
+
+      <form class="modal-content" action=" {{ route('passageiro.passagens.store') }} " method="POST" style="display:none" id="adiciona">
+        @csrf
+        <div class="modal-header" style="border-bottom:1px solid gray">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Adicionar Passagens</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center align-items-center justify-content-center d-flex flex-row gap-3 mt-2">
+          <p class="fw-bold fs-5 mt-3" id="numPassagemA"></p>
+          <span class="rounded-circle p-2 px-3 border border-dark " style="background-color: bisque" onclick="plusNumero()"><i class="fa-solid fa-plus"></i></span>
+          <input type="hidden" class="btn" name="qtdPassagemAdiciona" id="inputAdiciona">
+          <input type="hidden" class="btn" name="qtdPassagemAnterior" id="qtdPassagemAnterior">
+          <input type="hidden" class="btn" id="idBilheteAdd" name="idBilhete">
+        </div>
+        <div class="modal-footer"> 
+          <button type="button" class="btn btn-danger" onclick="voltar()">Voltar</button>
+          <button type="submit" class="btn btn-primary">Adicionar</button>
+        </div>
+      </form>
+
+      <form class="modal-content" action="" style="display:none" id="remove">
+        @csrf
+        @method('PUT')
+        <div class="modal-header" style="border-bottom:1px solid gray">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Remover Passagens</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center align-items-center justify-content-center border border-dark gap-3 d-flex flex-row mt-2">
+          <p class="fw-bold fs-5 mt-3" id="numPassagemR"></p>
+          <span class="rounded-circle p-2 px-3 border border-dark " style="background-color: bisque" onclick="minusNumero()"><i class="fa-solid fa-minus"></i></span>
+          <input type="hidden" class="btn" name="qtdPassagemRemove" id="inputRemove">
+          <input type="hidden" class="btn" name="qtdPassagemAnterior" id="qtdPassagemAnterior2">
+          <input type="hidden" class="btn" id="idBilheteRemove" name="idBilhete">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" onclick="voltar()">Voltar</button>
+          <button type="submit" class="btn btn-primary">Remover</button>
+        </div>
+      </form>
     </div>
   </div>
 <script src=" {{ URL::asset('js/verificaPassagem.js')}} "></script>

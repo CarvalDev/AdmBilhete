@@ -55,6 +55,7 @@ Route::post('passageiros/{id}/bilhetes/store', [PassageiroController::class, 'bi
 //     ->send(new RespostaSuporteMail());
 // });
 Route::post('/caixaEntrada/{id}/email', [CaixaEntradaController::class, 'sendMail'])->name('caixaEntrada.mail');
+Route::post('passageiros/bilhetes/passagens/store', [PassageiroController::class, 'storePassagens'])->name('passageiro.passagens.store');
 
 
  

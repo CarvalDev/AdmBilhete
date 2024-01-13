@@ -90,7 +90,6 @@ class LinhasController extends Controller
             }
             $consumosTotais = $consumosTotais + $consumosFixed[$i];
         }
-        
         return view('linhas.show', compact('linha', 'carros', 'consumosFixed', 'consumosTotais'));
     }
 }

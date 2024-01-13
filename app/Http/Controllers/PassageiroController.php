@@ -19,6 +19,18 @@ class PassageiroController extends Controller
     public function form(){
         return view('passageiros.form');
     }
+    public function storePassagens(Request $request, Bilhete $bilhete) {
+
+        $bilhete = $bilhete->find($request->idBilhete);
+        $passagens = $request->qtdPassagemAdiciona-$request->qtdPassagemAnterior;
+        for ($i=0;$i<$passagens;$i++) {
+            $bilhete->passagem()->create([
+                'statusPassagem'=>'Ativa',
+                'tempoRestantePassagem' => '02:00:00'
+            ]);
+        }
+        return redirect()->back();
+    }
 
     public function addBilhete($id) {
         $idUsuario['id'] = $id;
@@ -97,8 +109,22 @@ class PassageiroController extends Controller
                     ->join('passagems', 'bilhetes.id', 'passagems.bilhete_id')
                     ->groupBy('bilhetes.id')
                     ->where('passageiro_id', "$passageiro->id")
+                    ->where('statusPassagem','Ativa')
                     ->get();
         $acoes = $passageiro->acaos()->get();
+        $bilhetesPassagens = null;
+        for($i=0;$i<$bilhetes->count();$i++){
+            $achou =0;
+            for($j=0;$j<$passagens->count();$j++){
+                if($bilhetes[$i]->id == $passagens[$j]->id ){
+                    $bilhetesPassagens[$i] = $passagens[$j]->passagens;
+                    $achou++;
+                }
+            }
+            if($achou==0){
+                $bilhetesPassagens[$i] = 0;
+            }
+        }
 
         $dataNasc = explode("-",$passageiro->dataNascPassageiro);
         $linhaNasc = $dataNasc[2]."/".$dataNasc[1]."/".$dataNasc[0];
@@ -109,8 +135,7 @@ class PassageiroController extends Controller
             $linha = explode("-", $separa[0]);
             $acoes[$i]->dataAcao = $linha[2]."/".$linha[1]."/".$linha[0];
         }
-
-        return view('passageiros.perfil', compact('passageiro', 'bilhetes', 'acoes', 'passagens', 'linhaNasc'));
+        return view('passageiros.perfil', compact('passageiro', 'bilhetes', 'acoes', 'passagens', 'linhaNasc', 'bilhetesPassagens'));
     }
 }
 
