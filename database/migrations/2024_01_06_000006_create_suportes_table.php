@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('categoriaSuporte');
             $table->text('descSuporte');
+            $table->string('statusSuporte');
             $table->foreignId('acao_id')->constrained('acaos');
             $table->timestamps();
         });

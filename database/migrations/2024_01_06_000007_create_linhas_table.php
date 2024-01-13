@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('numLinha', 60);
             $table->string('nomeLinha', 100);
+            $table->string('statusLinha', 7);
             $table->timestamps();
         });
     }

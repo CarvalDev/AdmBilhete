@@ -11,7 +11,7 @@ class Catraca extends Model
 {
     use HasFactory;
     protected $fillable = [
-    
+        'statusCatraca',
     ];
 
     public function carro(){

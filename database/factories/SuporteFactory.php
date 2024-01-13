@@ -21,7 +21,8 @@ class SuporteFactory extends Factory
     {
         return [
         'categoriaSuporte' => fake()->randomElement(['Bilhetes', 'Compras', 'Uso', 'Falhas']),
-        'descSuporte' => fake()->paragraph()
+        'descSuporte' => fake()->paragraph(),
+        'statusSuporte' => fake()->randomElement(['Aberto', 'Fechado']),
     ];
         
     }

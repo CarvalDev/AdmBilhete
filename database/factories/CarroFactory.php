@@ -19,7 +19,8 @@ class CarroFactory extends Factory
     public function definition()
     {
         return [
-            'numCarro' => fake()->numerify('###-###')
+            'numCarro' => fake()->numerify('###-###'),
+            'statusCarro' => "Ativo",
         ];
     }
 }

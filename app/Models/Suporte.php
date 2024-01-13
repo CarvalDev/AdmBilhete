@@ -12,7 +12,8 @@ class Suporte extends Model
 
     protected $fillable = [
         'categoriaSuporte',
-        'descSuporte'
+        'descSuporte',
+        'statusSuporte'
     ];
 
     public function acaos(){

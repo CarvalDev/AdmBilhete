@@ -10,7 +10,8 @@ class Carro extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'numCarro'
+        'numCarro',
+        'statusCarro',
     ];
 
     public function catraca(){

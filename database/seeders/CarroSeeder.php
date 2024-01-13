@@ -24,7 +24,8 @@ class CarroSeeder extends Seeder
             Carro::create([
                 'linha_id' => $linhas[$j]->id,
                 'catraca_id' => $catracas[$i]->id,
-                'numCarro' => fake()->numerify('###-###')
+                'numCarro' => fake()->numerify('###-###'),
+                'statusCarro' => 'Ativo'
             ]);
             if(($i+1)%10==0){
                 $j++;

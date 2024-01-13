@@ -19,7 +19,7 @@ class CatracaFactory extends Factory
     public function definition()
     {
         return [
-            
+            'statusCatraca' => 'Ativa',
         ];
     }
 

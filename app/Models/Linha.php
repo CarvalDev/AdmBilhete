@@ -11,7 +11,8 @@ class Linha extends Model
     use HasFactory;
     protected $fillable = [
         'numLinha',
-        'nomeLinha'
+        'nomeLinha',
+        'statusLinha'
     ];
 
     public function carros(){

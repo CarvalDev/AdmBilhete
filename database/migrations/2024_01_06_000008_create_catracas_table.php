@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('catracas', function (Blueprint $table) {
             $table->id();
+            $table->string('statusCatraca', 7);
             $table->timestamps();
         });
     }
