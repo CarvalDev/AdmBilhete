@@ -16,7 +16,7 @@
                 
                 <div class="fotoPassageiro" style="height:70%;border-radius:8%;"  >
                     <a href="">
-                        <img @if ($data->fotoPasageiro == '')
+                        <img @if ($data->fotoPassageiro == '')
                         src="{{ url("images/userPadrao.png")}} 
                         @else
                         src="{{ url("storage/$data->fotoPassageiro")}} 
@@ -31,7 +31,7 @@
             <div id="duvidaPlace" class="h-100  d-flex flex-column justify-content-center align-items-center" style="width: 60%">
                 <div id="headerDuvida" style="height:20%" class=" w-100 d-flex justify-content-between align-items-center">
                     <span class="ms-3 fs-4">Tema da Dúvida: {{ $data->categoriaSuporte }} </span>
-                    <span class="me-3">Data: {{ $data->id }}</span>
+                    <span class="me-3">Data: {{ $data->dataAcao }}</span>
                 </div>
                 <div style="height:70%" class=" w-100 d-flex justify-content-center align-items-center">
                     <div style="width: 90%; height:95%" class=" overflow-auto">
