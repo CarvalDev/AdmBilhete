@@ -34,7 +34,7 @@ function remover() {
     modalPrimeiro.style.display = "none"
     idBilheteInputRemove.value = id
     console.log(idBilheteInputRemove)
-    qtdPassA2R = numPassR.innerHTML
+    qtdPassA2R.value = numPassR.innerHTML
 }
 
 function plusNumero() {

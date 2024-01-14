@@ -56,6 +56,7 @@ Route::post('passageiros/{id}/bilhetes/store', [PassageiroController::class, 'bi
 // });
 Route::post('/caixaEntrada/{id}/{idSuporte}/email', [CaixaEntradaController::class, 'sendMail'])->name('caixaEntrada.mail');
 Route::post('passageiros/bilhetes/passagens/store', [PassageiroController::class, 'storePassagens'])->name('passageiro.passagens.store');
+Route::put('passageiros/bilhetes/passagens/update', [PassageiroController::class, 'updatePassagens'])->name('passageiro.passagens.update');
 Route::put('/caixaEntrada/{id}/update', [CaixaEntradaController::class, 'update'])->name('caixaEntrada.suporte.update');
 
  

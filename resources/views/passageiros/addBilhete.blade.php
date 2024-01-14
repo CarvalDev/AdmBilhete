@@ -26,7 +26,7 @@
             </label>
     </div>
     <div class="col-7 d-flex row h-100 justify-content-center align-items-center"> 
-        <div class="col-5 mt-3 justify-content-center d-flex flex-row align-items-center ">
+        <div class="col-5 mt-5 justify-content-center d-flex flex-row align-items-center ">
             <label for="tipoBilhete" class="text-center px-3" style="border-right: 1px solid black">Tipo</label>
             <select id="tipoBilhete" class="form-control ms-2" name="tipoBilhete" style="border-bottom: 1px solid black">
                 <option value="Estudante">Estudante</option>
@@ -39,7 +39,7 @@
                 <option value="Corporativo">Corporativo</option>
             </select>
         </div>
-        <div class="col-7 mt-4 d-flex align-items-center gap-2  ">
+        <div class="col-7 mt-5 d-flex align-items-center gap-2  ">
             <label for="status" style="width: 30%;border-right: 1px solid black" class=" text-center">Status</label>
             <select id="status" class="form-control" name="status" style="width:60%;border-bottom: 1px solid black">
                 <option value="Ativo">Ativo</option>

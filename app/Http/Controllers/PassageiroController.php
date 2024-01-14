@@ -19,6 +19,26 @@ class PassageiroController extends Controller
     public function form(){
         return view('passageiros.form');
     }
+
+    public function updatePassagens(Request $request, Passagem $passagem){
+        // dd($request);
+        if ($request->qtdPassagemRemove == 0) {
+        return redirect()->back();
+        } else {
+            $passagemRemove = $request->qtdPassagemAnterior-$request->qtdPassagemRemove;
+            $bilhete = Bilhete::find($request->idBilhete);
+            $passagens = $bilhete->passagem()->where('statusPassagem', 'Ativa')->get();
+            for($i=0;$i<$passagemRemove;$i++) {
+                $passagem->where('id',$passagens[$i]->id)->update([
+                    'statusPassagem' => 'Inativa'
+                ]);
+            }
+            return redirect()->back();
+        }
+        
+        
+        
+    }
     public function storePassagens(Request $request, Bilhete $bilhete) {
 
         $bilhete = $bilhete->find($request->idBilhete);

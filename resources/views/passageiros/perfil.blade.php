@@ -14,32 +14,40 @@
     <div class="infosPassageiro h-100" style="width:70%;"> 
      
         <div class="primeirasInfo d-flex flex-row justify-content-center align-items-end w-100 d-flex flex-row" style="height:45%">
-            <div class=" h-100 d-flex flex-column justify-content-around align-items-center" style="width:150%">
-            <div class="fotoPassageiro" style="height:70%;border-radius:8%;"  >
+            <div class=" h-100 d-flex flex-column justify-content-around align-items-center" style="width:150%;margin-left:9%;margin-right:9%">
+            <div class="fotoPassageiro" style="height:70%;"  >
                 <img @if ($passageiro->fotoPassageiro == '')
                 src="{{ url("images/userPadrao.png")}} 
                 @else
                 src="{{ url("storage/$passageiro->fotoPassageiro")}} 
-                @endif   " class="w-100 h-100" style="border-radius: 8%" alt="">
-            </div>
-            <div class="dadosPrincipais d-flex flex-column ph-4">
-                <div class="flex-row d-flex gap-2 justify-content-center"><p style="color:rgb(52, 49, 49);" class="fw-bold p-0 m-0">{{ $passageiro->nomePassageiro }}</p></div>
-                <div class="flex-row d-flex gap-2 justify-content-center"><p  style="font-size: 12px" class="fw-bold text-secondary  p-0 m-0 mb-3 text-center">{{ $passageiro->cpfPassageiro }}</p></div>
+                @endif   " class="w-100 h-100" style="border-radius: 10%" alt="">
             </div>
             </div>
-            <div class="maisInfo d-flex flex-column px-3  h-100 gap-1 justify-content-center p-2" style="width:120%;border-left:2px solid black;">
+            <div class="maisInfo d-flex flex-column align-self-center px-3 overflow-auto h-75 gap-1 justify-content-center p-2" style="width:180%;border-left:2px solid black;">
+              <div class="" style="font-size:13px;margin-top:50%"><strong>Nome</strong><label class="ps-1"> {{ $passageiro->nomePassageiro }} </label></div>
+              <div class="" style="font-size:13px"><strong>Cpf</strong><label class="ps-1"> {{ $passageiro->cpfPassageiro}} </label></div>
               <div class="" style="font-size:13px"><strong>Email</strong><label class="ps-1"> {{ $passageiro->emailPassageiro }} </label></div>
               <div class="" style="font-size:13px"><strong>Estado</strong><label class="ps-1 text-uppercase"> {{ $passageiro->ufPassageiro}} </label></div>
               <div class="" style="font-size:13px"><strong>Num. Tel.</strong><label class="ps-1"> {{ $passageiro->numTelPassageiro }} </label></div>
               <div class="" style="font-size:13px"><strong>Data Nasc.</strong><label class="ps-1"> {{ $linhaNasc }} </label></div>
-              
+              <div class="" style="font-size:13px"><strong>Bairro</strong><label class="ps-1"> {{ $passageiro->bairroPassageiro }} </label></div>
+              <div class="" style="font-size:13px"><strong>Logr.</strong><label class=""> {{ $passageiro->logrPassageiro }} </label></div>
+              <div class="" style="font-size:13px"><strong>Cep</strong><label class="ps-1"> {{ $passageiro->cepPassageiro }} </label></div>
+              <div class="" style="font-size:13px"><strong>Num Logr.</strong><label class="ps-1"> {{ $passageiro->numLogrPassageiro }} </label></div>
+              <div class="" style="font-size:13px"><strong>Complemento Logr.</strong><label class="ps-1"> {{ $passageiro->complementoLogrPassageiro }} </label></div>
             </div>
+            {{-- <div class="maisInfo2 d-flex flex-column align-self-center px-3   h-75 gap-1 justify-content-center p-2" style="width:140%;">
+              <div class="" style="font-size:13px"><strong>Logr.</strong><label class=""> {{ $passageiro->logrPassageiro }} </label></div>
+              <div class="" style="font-size:13px"><strong>Cep</strong><label class="ps-1"> {{ $passageiro->cepPassageiro }} </label></div>
+              <div class="" style="font-size:13px"><strong>Num Logr.</strong><label class="ps-1"> {{ $passageiro->numLogrPassageiro }} </label></div>
+              <div class="" style="font-size:13px"><strong>Complemento Logr.</strong><label class=""> {{ $passageiro->complementoLogrPassageiro }} </label></div>
+            </div> --}}
             <div class="d-flex justify-content-end align-items-center py-1 align-end container" >    
               <a href="{{ route('passageiros.addBilhete', $passageiro->id) }}" class="border-0"><i class="fas fa-plus-circle fa-2x" aria-hidden="true"></i></a>
           </div>
         </div>
         
-        <div class="bilhetes align-items-start justify-content-center d-flex flex-column" style="height: 55%;width:100%;background-color:rgba(128, 128, 128, 0.588)">
+        <div class="bilhetes align-items-start justify-content-center d-flex flex-column" style="height: 55%;width:100%;background-color:#edf2f4">
             @if (count($bilhetes)>0)
             <div id="carouselExample" class="carousel slide w-100">
                 <div class="carousel-inner w-100 h-100">
@@ -97,12 +105,12 @@
                   </div>
                   @endfor
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <button class="carousel-control-prev " type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                  <span class="text-dark fs-3" aria-hidden="true"><i class="fa-solid fa-left-long"></i></span>
                   <span class="visually-hidden">Previous</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class=" text-dark fs-3" aria-hidden="true"><i class="fa-solid fa-right-long"></i></span>
                   <span class="visually-hidden">Next</span>
                 </button>
               </div> 
@@ -162,8 +170,8 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body text-center align-items-center justify-content-center d-flex flex-row gap-3 mt-2">
-          <p class="fw-bold fs-5 mt-3" id="numPassagemA"></p>
-          <span class="rounded-circle p-2 px-3 border border-dark " style="background-color: bisque" onclick="plusNumero()"><i class="fa-solid fa-plus"></i></span>
+          <p class="fw-bold fs-5 ms-5" id="numPassagemA" style="margin-top: 2.8%;"></p>
+          <span class="rounded-circle p-1 px-2 border border-dark " style="background-color: bisque;width:7.5%" onclick="plusNumero()"><i class="fa-solid fa-plus"></i></span>
           <input type="hidden" class="btn" name="qtdPassagemAdiciona" id="inputAdiciona">
           <input type="hidden" class="btn" name="qtdPassagemAnterior" id="qtdPassagemAnterior">
           <input type="hidden" class="btn" id="idBilheteAdd" name="idBilhete">
@@ -174,16 +182,16 @@
         </div>
       </form>
 
-      <form class="modal-content" action="" style="display:none" id="remove">
+      <form class="modal-content" action=" {{ route('passageiro.passagens.update') }} " method="POST" style="display:none" id="remove">
         @csrf
         @method('PUT')
         <div class="modal-header" style="border-bottom:1px solid gray">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Remover Passagens</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body text-center align-items-center justify-content-center border border-dark gap-3 d-flex flex-row mt-2">
-          <p class="fw-bold fs-5 mt-3" id="numPassagemR"></p>
-          <span class="rounded-circle p-2 px-3 border border-dark " style="background-color: bisque" onclick="minusNumero()"><i class="fa-solid fa-minus"></i></span>
+        <div class="modal-body text-center align-items-center justify-content-center  gap-3 d-flex flex-row mt-2">
+          <p class="fw-bold fs-5 ms-5" id="numPassagemR" style="margin-top: 2.8%"></p>
+          <span class="rounded-circle p-1 px-2 border border-dark " style="background-color: bisque; width:7.5%" onclick="minusNumero()"><i class="fa-solid fa-minus"></i></span>
           <input type="hidden" class="btn" name="qtdPassagemRemove" id="inputRemove">
           <input type="hidden" class="btn" name="qtdPassagemAnterior" id="qtdPassagemAnterior2">
           <input type="hidden" class="btn" id="idBilheteRemove" name="idBilhete">
