@@ -13,7 +13,7 @@
     <span class="border border-danger rounded-4 p-xl-4 p-lg-3 d-flex flex-column"  style="height: 25vh;width:20vw;">
         <p class="fw-bold text-center mb-xl-3 mt-xl-3 mb-lg-4 mt-lg-4 mb-3 mt-5">Preço atual</p>
         <label class="d-flex flex-row gap-2 w-100 align-items-center justify-content-center">
-        <p class="fw-bold text-center d-flex pt-3 ms-4" >R${{$preco->passagemPreco}}</p>
+        <p class="fw-bold text-center d-flex pt-3 ms-4" >R${{number_format($preco->passagemPreco, 2, ',')}}</p>
         <button type="button" class="btn d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-pen-to-square fa-xl" ></i></button>
         </label>
         
@@ -52,7 +52,9 @@
     </div>
   </div>
     </div>
-        
+        @for ($i=0;$i<4;$i++)
+            <input type="hidden" value="{{$reajustes[$i]->dataReajuste."#".$reajustes[$i]->precoPassagemReajuste}}" name="reajustes">
+        @endfor
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous" defer>

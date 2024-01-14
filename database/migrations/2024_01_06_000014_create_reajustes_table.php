@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('reajustes', function (Blueprint $table) {
             $table->id();
-            $table->date('dataReajuste');
+            $table->dateTime('dataReajuste');
             $table->float('precoPassagemReajuste');
             $table->float('precoMeiaPassagemReajuste');
             $table->timestamps();

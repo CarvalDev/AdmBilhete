@@ -50,14 +50,14 @@
             <a href="" class="link2 d-flex flex-column justify-content-between align-items-center    h-100">
             <div class="item h-100 d-flex flex-column justify-content-between align-items-center">
                 <div class="w-100 text-center"><span class="fs-3 fw-bold" style="font-weight: 400">Faturamentos</span></div>
-                <div class="w-100 text-center"><span class="fs-1 fw-bold">R${{ $faturamento }}</span></div>
+                <div class="w-100 text-center"><span class="fs-1 fw-bold">R${{ number_format($faturamento, 2, ",", ".") }}</span></div>
                 <div class="w-100"></div>
             </div>
             </a>
             <a href="{{ route('caixaEntrada.index') }}" class="link2 d-flex flex-column justify-content-between align-items-center    h-100">
             <div style="border-left: 1px solid #FF0000" class="item h-100 d-flex flex-column justify-content-between align-items-center">
                 <div class="w-100 text-center"><span class="fs-3 fw-bold" style="font-weight: 400">Suporte</span></div>
-                <div class="w-100 text-center"><span class="fs-1 fw-bold">459</span></div>
+                <div class="w-100 text-center"><span class="fs-1 fw-bold">{{$suporte}}</span></div>
                 <div class="w-100"></div>
             </div>
             </a>

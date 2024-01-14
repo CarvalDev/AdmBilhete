@@ -18,12 +18,12 @@ class ReajusteController extends Controller
         $data = $request->all();
         
         
-        $dataAgora = explode(' ',date(now()));
+        
         
         Reajuste::create([
             'precoPassagemReajuste' => $data['data']['passagemPreco'],
             'precoMeiaPassagemReajuste' => $data['data']['passagemPreco']/2,
-             'dataReajuste' => $dataAgora[0]
+             'dataReajuste' => date(now())
         ]);
         return redirect()->route('preco.edit',['id'=>1]);
         

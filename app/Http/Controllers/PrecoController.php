@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUpdatePrecoFormRequest;
 use App\Models\Preco;
+use App\Models\Reajuste;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 class PrecoController extends Controller
@@ -11,12 +12,16 @@ class PrecoController extends Controller
     public $preco;
     
     public function index(){
-        return view("preco.index");
+        return view("preco.index"); 
     }
-    public static function edit($id)
+    public static function edit($id, Reajuste $reajuste)
     {
         $preco = Preco::find($id);
-        return view('preco.index', compact('preco'));
+        $reajustes = $reajuste
+                        ->orderBy('dataReajuste', 'desc')
+                        ->get();
+        
+        return view('preco.index', compact('preco', 'reajustes'));
     }
   
     public static function update(StoreUpdatePrecoFormRequest $request,$id)
