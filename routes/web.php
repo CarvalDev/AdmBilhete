@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdmController;
 use App\Http\Controllers\CaixaEntradaController;
 use App\Http\Controllers\CarroController;
 use App\Http\Controllers\CatracaController;
@@ -59,5 +60,8 @@ Route::post('passageiros/{id}/bilhetes/store', [PassageiroController::class, 'bi
 Route::post('/caixaEntrada/{id}/{idSuporte}/email', [CaixaEntradaController::class, 'sendMail'])->name('caixaEntrada.mail');
 Route::post('passageiros/bilhetes/passagens/store', [PassageiroController::class, 'storePassagens'])->name('passageiro.passagens.store');
 Route::put('/caixaEntrada/{id}/update', [CaixaEntradaController::class, 'update'])->name('caixaEntrada.suporte.update');
+Route::get('/adm',[AdmController::class,	'index'])->name('adm.index');
+Route::post('/adm/store', [AdmController::class, 'store'])->name('adm.store');
+
 
  

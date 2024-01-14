@@ -13,7 +13,7 @@
                         <hr>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Adicionar Adm</a>
+                        <a href="{{route('adm.index')}}" class="nav-link">Adicionar Adm</a>
                         <hr>
                     </li>
                     <li class="nav-item">
