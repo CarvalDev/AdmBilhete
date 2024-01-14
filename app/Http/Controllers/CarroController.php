@@ -3,21 +3,48 @@
 namespace App\Http\Controllers;
 
 use App\Models\Carro;
+use App\Models\Catraca;
+use App\Models\Linha;
 use Illuminate\Http\Request;
 
 class CarroController extends Controller
 {
-    public function index(Carro $carro){
-        
-        return view('carros.index', compact('carros'));
-    } 
-    public static function destroy($id)
+   
+    public static function updateStatus(Request $request, Carro $carro, Catraca $catraca)
     {
-        //$user = User::where('id',$id)->first();
-        if(!$carros = Carro::find($id))
-            return redirect()->route('carros.index');
+        $carro
+        ->where('id', "$request->idCarro")
+        ->update([
+            'statusCarro' => $request->statusCarro
+        ]);
+        $carro = $carro
+                    ->where('id', $request->idCarro)
+                    ->get();
+        
+        
+        if($request->statusCarro == "Ativo"){
+            $statusCatraca = "Ativa";
+        }else{
+            $statusCatraca = "Inativa";
+        }
+        $id = $carro[0]->catraca_id;
+        $catraca
+            ->where('id', $id)
+            ->update([
+                'statusCatraca' => $statusCatraca
+            ]);
+        
+        return redirect()->back();
+    }
 
-            $carros->delete();
-            return redirect()->route('carros.index');
+    public function store(Request $request, $idLinha, Catraca $catraca){
+        $linha = Linha::find($idLinha);
+        $catraca->factory($request->qtdCarro)
+                ->has(
+                    Carro::factory(1)
+                    ->for($linha)
+                )
+                ->create();
+        return redirect()->back();
     }
 }
