@@ -1,5 +1,6 @@
 @extends('layouts.mainLayout')
 
+
 @push('css')
     <link rel="stylesheet" href="{{ URL::asset('css/linhasShow.css') }}">
 @endpush
@@ -89,12 +90,33 @@ Linha {{$linha->nomeLinha}}
                     <td id="consumo" class="px-2 text-center fw-bold">
                      {{$consumosFixed[$i]}}
                     </td>
-                    <td id="btn-modal" class=" px-2 text-center fw-bold" id="alterar"><a id="" href="" class="btn" ><i class="fa-solid fa-trash"></i></a></td>
-                
+                    @if ($carros[$i]->statusCarro == "Ativo")
+                    @section('tituloModal')
+                        Desativar carro?
+                    @endsection
+                    
+                    @section('obs')
+                        Ao desativar carro todas as catracas relacionadas serão desativadas
+                    @endsection
+                    <td onclick="pegaStatus('Inativo', {{$carros[$i]->id}})" data-bs-toggle="modal" data-bs-target="#visibilidade" class=" px-2 text-center fw-bold" id="alterar"><a id=""  class="btn" ><i class="fa-solid fa-trash"></i></a></td>
+                    @else
+                    @section('tituloModal')
+                        Reativar carro?
+                    @endsection
+                    @section('obs')
+                        Ao reativar carro todas as catracas relacionadas serão reativadas
+                    @endsection
+                    <td onclick="pegaStatus('Ativo', {{$carros[$i]->id}})" data-bs-toggle="modal" data-bs-target="#visibilidade" class=" px-2 text-center fw-bold" id="alterar"><a id="" class="btn" ><i class="fa-solid fa-check"></i></a></td>
+                    @endif
+                    
+                  
                     
                 </tr>
                 @endfor
                 @include('components.modalCarro')
+                @include('components.modalDesativarLinha')
+                @include('components.modalAtivarLinha')
+                @include('components.modalCarroVisibilidade')
                 
                 
         
@@ -108,5 +130,6 @@ Linha {{$linha->nomeLinha}}
 @endsection
 @section('pageTitle')
 Linha {{$linha->nomeLinha." ".$linha->numLinha}} 
+
 @endsection
 

@@ -112,7 +112,7 @@ class PassageiroController extends Controller
         if($request->fotoPassageiro){
             $data['fotoPassageiro'] = $request->fotoPassageiro->store('passageiros');
         }
-        $passageiro = Passageiro::create($data);
+         Passageiro::create($data);
         
         return redirect()->route('passageiros.index');
     }

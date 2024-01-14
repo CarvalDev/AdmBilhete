@@ -19,31 +19,50 @@
         </div>
     </div>
     <div class="container">
-        @if (isset($data->status))
+        @if (isset($data->status) || isset($linhas))
         <div id="pageTitleContainer" class="d-flex  justify-content-between w-100 align-items-center">
-            <div>
+            <div class="w-25 ">
             <span id="pageTitle" class="fs-3 fw-bold">@yield('pageTitle')</span>
             <div id="underline"></div>
             </div>
             <form @if (isset($data->status))
                 action="{{route('caixaEntrada.index')}}"
-            @endif class="d-flex  gap-2 h-25 flex-row w-25">
+                class="d-flex   h-25 flex-row w-25 gap-2">
             <select class="form-control border border-dark w-50 " name="statusSuporte" id="">
                 <option  value="Aberto">Abertos</option>
                 <option  value="Fechado">Fechados</option>
             </select>
             <button type="submit" class="w-50 btn btn-primary">Mudar</button>
             </form>
+                @elseif(isset($linhas))
+                action="{{route('linhas.index')}}"
+                class="d-flex   h-25 flex-row w-25 gap-2">
+            <select class="form-control border border-dark w-50 " name="statusLinha" id="">
+                <option  value="Ativa">Ativas</option>
+                <option  value="Inativa">Inativas</option>
+            </select>
+            <button type="submit" class="w-50 btn btn-primary">Mudar</button>
+            </form>
+            @endif
+             
 
-        </div>
+        
         
         @else    
         
         <div id="pageTitleContainer" class="d-flex  justify-content-start w-100 align-items-center">
             <span id="pageTitle" class="fs-3 fw-bold">@yield('pageTitle')</span>
             <div id="underline"></div>
+            @if(isset($linha->nomeLinha) && $linha->statusLinha == "Ativa") 
+                <a href="" class="ms-4 text-dark fs-5" data-bs-toggle="modal" data-bs-target="#desativar"><i class="fa-solid fa-trash"></i></a>
+            @elseif(isset($linha->nomeLinha) && $linha->statusLinha == "Inativa")
+                
+            <a href="" class="ms-4 text-dark fs-5" data-bs-toggle="modal" data-bs-target="#ativar"><i class="fa-solid fa-check"></i></a>
+       
+            @else
+            @endif
+            @endif
         </div>
-        @endif
     </div>
       
 </div>

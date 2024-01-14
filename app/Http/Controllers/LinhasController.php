@@ -14,21 +14,23 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 
 class LinhasController extends Controller
 {
-    public function index(Linha $linha, Bilhete $bilhete){
+    public function index(Linha $linha, Bilhete $bilhete, Request $request){
+        $status = "aa";
+        if(!isset($request->statusLinha)){
+            $status = "Ativa";
+        }
+        else{
+            $status = $request->statusLinha;
+        }
         $linhas = $linha
         ->select('linhas.id','numLinha', 'nomeLinha')
         ->selectRaw('COUNT(carros.id) as qtdCarros')
         ->join('carros', 'linhas.id', '=', 'carros.linha_id')
         ->groupBy('id', 'numLinha', 'nomeLinha')
+        ->where('statusLinha', '=', $status)
         ->get();
 
-        $passagens = $bilhete
-                ->select('bilhetes.id')
-                ->selectRaw('COUNT(passagems.id) as passagens')
-                ->join('passagems', 'bilhetes.id', 'passagems.bilhete_id')
-                ->groupBy('bilhetes.id')
-                ->get();
-                
+        
 
        $consumos = $linha
         ->select('linhas.id')
@@ -36,6 +38,7 @@ class LinhasController extends Controller
         ->join('carros', 'linhas.id', '=', 'carros.linha_id')
         ->join('consumos', 'carros.id', 'consumos.carro_id')
         ->groupBy('linhas.id')
+        ->where('statusLinha', $status)
         ->get();
         return view('linhas.index', compact('linhas', 'consumos'));
     }
@@ -47,8 +50,34 @@ class LinhasController extends Controller
     public function update($id, Request $request, Linha $linha){
         $linha = $linha->find($id);
         $linha->update($request->all());
-        return redirect()->route('linhas.show', $id);
-        
+        return redirect()->route('linhas.show', $id);   
+    }
+    public function updateStatus($id, Request $request, Linha $linha, Carro $carro, Catraca $catraca){
+        $linha = $linha->find($id);
+        $linha->update([
+            'statusLinha' => $request->statusLinha
+        ]);
+        if($request->statusLinha == "Inativa"){
+            $statusCarro = "Inativo";
+        }else{
+            $statusCarro = "Ativo";
+        }
+        $carro
+            ->where('linha_id', "$id")
+            ->update([
+                'statusCarro' => $statusCarro
+                    ]);
+        $carros = $carro
+                    ->where('linha_id', "$id")
+                    ->get();
+        foreach($carros as $carro){
+            $catraca
+                ->where('id', "$carro->catraca_id")
+                ->update([
+                    'statusCatraca' => $request->statusLinha
+                ]);
+        }
+        return redirect()->back();
     }
     public function store(StoreUpdateLinhasFormRequest $request){
         $data = $request->all();
