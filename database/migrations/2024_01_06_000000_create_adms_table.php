@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nomeAdm');
             $table->string('emailAdm');
             $table->string('senhaAdm');
+            $table->string('fotoAdm')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

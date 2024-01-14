@@ -15,10 +15,11 @@ class AdmController extends Controller
     public function store(StoreUpdateAdmFormRequest $request){
         $data = $request->all();
         $data['senhaAdm'] = bcrypt($data['senhaAdm']);
-        //dd($data);
-        // if($request->fotoAdm){
-        //     $data['fotoAdm'] = $request->fotoAdm->store('adm');
-        // }
+        
+         if($request->fotoAdm){
+            $data['fotoAdm'] = $request->fotoAdm->store('adm');
+         }
+         
          Adm::create($data);
          return view('adm.form');
     }

@@ -11,6 +11,7 @@ class Adm extends Model
         'nomeAdm',
         'emailAdm',
         'senhaAdm',
+        'fotoAdm',
     ];
 
     protected $hidden = [

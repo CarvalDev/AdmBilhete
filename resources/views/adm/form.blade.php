@@ -5,11 +5,11 @@
 
 @endpush
 
-@section('title', 'Adicionar Passageiro')
+@section('title', 'Adicionar Adm')
 
-@section('pageTitle', 'Adicionar Passageiro')
+@section('pageTitle', 'Adicionar Adm')
 @section('content')
-<form action="{{route('adm.store')}}" method="post">
+<form action="{{route('adm.store')}}" method="post" enctype="multipart/form-data">
   @csrf
     <div class="card-header">
       <strong>INFORMAÇÕES DO USUÁRIO</strong>
@@ -19,7 +19,7 @@
             <img id="preview"
                 src="{{ url('images/userAdd.png') }}" name="fotoPassageiro" class="" style="width:158px; border-radius: 25px" alt="">
             </label>
-            <input type="file" id="foto" name="fotoPassageiro">
+            <input type="file" id="foto" name="fotoAdm">
     </div>
       </div>
       <div class=" col-md-10">
