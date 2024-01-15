@@ -11,7 +11,13 @@ use Illuminate\Support\Facades\Mail;
 
 class CaixaEntradaController extends Controller
 {
+    protected $model;
+    public function __construct(Suporte $suporte)
+    {
+        $this -> model = $suporte;
+    }
     public function caixaIndex(Suporte $suporte, Request $request) {
+
         if(!isset($request->statusSuporte)){
             $status = 'Aberto';
         }else{
@@ -25,7 +31,15 @@ class CaixaEntradaController extends Controller
                     ->where('statusSuporte', "$status")
                     ->get();
 
+                    $suportes = $this->model
+                    ->getSuportes(
+                     search: $request->search ?? '',
+                     status: $status
+                     
+                         );
+
         $datas = $suportes;
+        
         $formatar='';
         foreach($datas as $data){
             $formatar = explode(' ', $data->data);
@@ -33,6 +47,9 @@ class CaixaEntradaController extends Controller
             $data->data = $formatar[2]."/".$formatar[1]."/".$formatar[0];
         }
         
+        
+    
+             
         return view('caixaEntrada.index', compact('datas'));
     }
     public function show($id, Suporte $suporte){
@@ -49,6 +66,8 @@ class CaixaEntradaController extends Controller
                         $formatar = explode('-', $formatar[0]);
                         $data->dataAcao = $formatar[2]."/".$formatar[1]."/".$formatar[0];
         $data['id'] = $id;
+
+        
         return view('caixaEntrada.show', compact('data'));
     }
 

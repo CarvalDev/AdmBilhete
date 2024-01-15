@@ -58,6 +58,7 @@ class Passageiro extends Model
         $passageiro = $this->where(function($query) use ($search){
             if($search)
             {
+            
             $query->where('nomePassageiro','LIKE',"%{$search}%");
             $query->orWhere('emailPassageiro','LIKE',"%{$search}%");
             }

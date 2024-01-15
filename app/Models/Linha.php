@@ -22,4 +22,29 @@ class Linha extends Model
     {
         return LinhaFactory::new();
     }
+    public function getLinhas(String | null $search = null,$status)
+    {
+        $linha = new Linha();
+        // $linha = $this->where(function($query) use ($search){
+        //     if($search)
+        //     {
+        //     $query->where('nomeLinha','LIKE',"%{$search}%");
+        //     $query->orWhere('numLinha','LIKE',"%{$search}%");
+        //     }
+        // })->get();  
+        $linhas = $linha
+        ->select('linhas.id','numLinha', 'nomeLinha')
+        ->selectRaw('COUNT(carros.id) as qtdCarros')
+        ->join('carros', 'linhas.id', '=', 'carros.linha_id')
+        
+        ->groupBy('id', 'numLinha', 'nomeLinha')
+        ->where('statusLinha', '=', $status)
+        ->where('nomeLinha','LIKE',"%{$search}%")
+        ->orWhere('numLinha','LIKE',"%{$search}%")
+        ->get();   
+
+
+        return $linhas;
+        
+    }
 }

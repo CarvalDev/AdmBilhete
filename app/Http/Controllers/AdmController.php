@@ -8,11 +8,22 @@ use Illuminate\Http\Request;
 
 class AdmController extends Controller
 {
+    
+    protected $model;
+    public function __construct(Adm $adm)
+    {
+        $this -> model = $adm;
+    }
     public function form(){
         return view('adm.form');
     } 
-    public function index(Adm $adm){
+    public function index(Adm $adm,Request $request){
+
         $adms = $adm->all();
+        $adms = $this->model
+        ->getAdm(
+         search: $request->search ?? ''
+             );
         return view('adm.index', compact('adms'));
     }
 

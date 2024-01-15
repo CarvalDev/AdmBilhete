@@ -14,6 +14,12 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 
 class LinhasController extends Controller
 {
+    protected $model;
+    public function __construct(Linha $linha)
+    {
+        $this -> model = $linha;
+    }
+         
     public function index(Linha $linha, Bilhete $bilhete, Request $request){
         $status = "aa";
         if(!isset($request->statusLinha)){
@@ -40,6 +46,18 @@ class LinhasController extends Controller
         ->groupBy('linhas.id')
         ->where('statusLinha', $status)
         ->get();
+
+        
+
+        $linhas = $this->model
+        ->getLinhas(
+         search: $request->search ?? '',
+         status: $status
+         
+             );
+
+          
+
         return view('linhas.index', compact('linhas', 'consumos'));
     }
 
