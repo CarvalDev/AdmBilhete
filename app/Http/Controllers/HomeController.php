@@ -9,6 +9,7 @@ use App\Models\Linha;
 use App\Models\Passageiro;
 use App\Models\Suporte;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -17,7 +18,7 @@ class HomeController extends Controller
         $faturamento = $compra->sum('valorTotalCompra');
         $linha = $linha->all();
         $suporte = $suporte->all()->count();
-
+        
 
         
         

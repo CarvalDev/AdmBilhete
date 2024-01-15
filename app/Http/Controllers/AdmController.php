@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUpdateAdmFormRequest;
 use App\Models\Adm;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdmController extends Controller
 {
@@ -17,6 +20,33 @@ class AdmController extends Controller
     public function form(){
         return view('adm.form');
     } 
+
+    public function login(Request $request){
+        $credentials = [
+            'emailAdm' => $request['emailAdm'],
+            'password' => $request['password'],
+            
+        ];
+        
+        try{
+        Auth::guard('adm')->attempt($credentials);
+            $request->session()->regenerate();
+            
+            
+            
+            return redirect()->intended('/home');
+        }catch(Exception $e){
+            dd($e->getMessage());
+        }
+
+    }
+
+    public function logout(Request $request){
+        Auth::guard('adm')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('login.index');
+    }
     public function index(Adm $adm,Request $request){
 
         $adms = $adm->all();
@@ -40,7 +70,7 @@ class AdmController extends Controller
         $adm = Adm::find($id);
         $data = $request->all();
         if($request->senhaAdm == ''){
-            $data['senhaAdm'] = $adm->senhaAdm;
+            $data['password'] = bcrypt($adm->senhaAdm);
         }
         if($request->fotoAdm){
             
@@ -57,7 +87,7 @@ class AdmController extends Controller
 
     public function store(StoreUpdateAdmFormRequest $request){
         $data = $request->all();
-        $data['senhaAdm'] = bcrypt($data['senhaAdm']);
+        $data['password'] = bcrypt($data['senhaAdm']);
         
          if($request->fotoAdm){
             $data['fotoAdm'] = $request->fotoAdm->store('adm');

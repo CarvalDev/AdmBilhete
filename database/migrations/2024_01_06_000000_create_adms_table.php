@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nomeAdm');
             $table->string('emailAdm');
-            $table->string('senhaAdm');
+            $table->string('password');
             $table->string('fotoAdm')->nullable();
             $table->rememberToken();
             $table->timestamps();

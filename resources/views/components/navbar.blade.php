@@ -8,11 +8,18 @@
         </div>   
         <div class="d-flex  flex-row justify-content-end  gap-1 align-items-center"  data-bs-toggle="dropdown" aria-expanded="false">
             <div class="d-flex justify-content-center align-items-center  ">
-                <img src="{{ url('images/user.png') }}" width="40px" alt="">
+                <img 
+                @if (Auth::guard('adm')->user()->fotoAdm == null)
+                    
+                src="{{ url('images/user.png') }}" width="40px" alt="">
+                @else
+                src="{{ url("storage/Auth::guard('adm')->user()->fotoAdm") }}" width="40px" alt="">
+                @endif
+
             </div>
            
             <div class="d-flex flex-column align-items-center justify-content-center">
-                <span class="ms-4 fw-bold">Nome do Admin</span>     
+                <span class="ms-4 fw-bold">{{Auth::guard('adm')->user()->nomeAdm}}</span>     
                 <span id="cargo" class="ms-4">cargo</span>
                 
             </div>

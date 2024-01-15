@@ -6,6 +6,7 @@ use App\Models\Adm;
 use Hamcrest\NullDescription;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class AdmSeeder extends Seeder
 {
@@ -19,7 +20,7 @@ class AdmSeeder extends Seeder
         Adm::create([
             'nomeAdm' => 'adm',
             'emailAdm' => 'adm@gmail.com',
-            'senhaAdm' => '123',
+            'password' => bcrypt('123'),
             'fotoAdm' => null
         ]);
     }

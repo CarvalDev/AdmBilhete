@@ -37,7 +37,8 @@
                 </ul>
             </div>
             <div class="d-flex justify-content-end align-items-end ">
-                <a href="{{ route('login.index') }}" class="nav-link">
+                <form method="POST" action="{{ route('adm.logout') }}" class="nav-link">
+                    @csrf
                     <div class="d-flex flex-row gap-2">
                         <div class="d-flex justify-content-center align-items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -49,12 +50,12 @@
                         </svg>
                     </div> 
                     
-                    <div class="d-flex justify-content-center align-items-center">
+                    <button type="submit" class="d-flex justify-content-center align-items-center">
                     Sair
-                    </div>
+                    </button>
                     
                 </div>
-                </a>
+            </form>
             </div>
         </div>
 

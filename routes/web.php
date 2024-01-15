@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\Mail;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::group(['middleware' => 'adm'], function(){
 Route::put('/carros/status/update', [CarroController::class, 'updateStatus'])->name('carros.status.update'); 
 Route::post('/linhas/store',[LinhasController::class, 'store'])->name('linhas.store');
 Route::post('/linhas/{idLinha}/carros/store', [CarroController::class, 'store'])->name('carros.store');
@@ -41,7 +42,7 @@ Route::get('/linhas',[LinhasController::class, 'index'])->name('linhas.index');
 Route::get('/linhas/register',[LinhasController::class, 'register'])->name('linhas.register');
 Route::get('/caixaEntrada',[CaixaEntradaController::class, 'caixaIndex'])->name('caixaEntrada.index');
 Route::get('/caixaEntrada/{id}/show', [CaixaEntradaController::class, 'show'])->name('caixaEntrada.show');
-Route::get('/login',[LoginController::class, 'index'])->name('login.index');
+
 Route::get('/preco', [PrecoController::class, 'index'])->name('preco.index');
 Route::get('/preco/{id}/edit', [PrecoController::class, 'edit'])->name('preco.edit');
 Route::put('/preco/{id}/update', [PrecoController::class, 'update'])->name('preco.update');
@@ -68,6 +69,14 @@ Route::get('/adm/perfil', [AdmController::class, 'perfil'])->name('adm.perfil');
 Route::get('adm/{id}/edit', [AdmController::class, 'edit'])->name('adm.edit');
 Route::delete('adm/{id}/destroy', [AdmController::class, 'destroy'])->name('adm.destroy');
 Route::put('adm/{id}/update', [AdmController::class, 'update'])->name('adm.update');
+Route::post('/logout', [AdmController::class, 'logout'])->name('adm.logout');
+
+});
 
 
- 
+
+
+Route::post('/login', [AdmController::class, 'login'])->name('adm.login');
+
+
+Route::get('/login',[LoginController::class, 'index'])->name('login.index');
