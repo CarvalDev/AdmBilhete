@@ -24,19 +24,22 @@ class CaixaEntradaController extends Controller
             $status = $request->statusSuporte;
         }
 
-        $suportes = $suporte
+        
+        if(isset($request->search)){
+                    $suportes = $this->model
+                    ->getSuportes(
+                     search: $request->search ?? '',
+                     
+                     
+                         );
+        }else{
+            $suportes = $suporte
                     ->select('suportes.id as idSuporte','emailPassageiro as email', 'descSuporte as desc', 'dataAcao as data', 'categoriaSuporte as tema', 'statusSuporte as status' )
                     ->join('acaos', 'suportes.acao_id', 'acaos.id')
                     ->join('passageiros', 'acaos.passageiro_id', 'passageiros.id')
                     ->where('statusSuporte', "$status")
                     ->get();
-
-                    $suportes = $this->model
-                    ->getSuportes(
-                     search: $request->search ?? '',
-                     status: $status
-                     
-                         );
+        }
 
         $datas = $suportes;
         

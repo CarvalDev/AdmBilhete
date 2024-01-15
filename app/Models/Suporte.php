@@ -23,20 +23,19 @@ class Suporte extends Model
     {
         return SuporteFactory::new();
     }
-    public function getSuportes(String | null $search = null,$status)
+    public function getSuportes(String | null $search = null)
     {
-     
+        
         $suportes = $this
         ->select('suportes.id as idSuporte','emailPassageiro as email', 'descSuporte as desc', 'dataAcao as data', 'categoriaSuporte as tema', 'statusSuporte as status' )
                     ->join('acaos', 'suportes.acao_id', 'acaos.id')
                     ->join('passageiros', 'acaos.passageiro_id', 'passageiros.id')
-                    ->where('statusSuporte', "$status")
                     ->where('emailPassageiro','LIKE',"%{$search}%")
                     ->orWhere('descSuporte','LIKE',"%{$search}%")
                     ->orWhere('dataAcao','LIKE',"%{$search}%")
                     ->get();
 
-
+        
         return $suportes;
         
     }

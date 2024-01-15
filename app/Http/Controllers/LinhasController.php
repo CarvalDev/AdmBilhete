@@ -28,13 +28,23 @@ class LinhasController extends Controller
         else{
             $status = $request->statusLinha;
         }
-        $linhas = $linha
+        
+        if(isset($request->search)){
+            $linhas = $this->model
+        ->getLinhas(
+         search: $request->search ?? ''
+         
+         
+             );
+        }else{
+            $linhas = $linha
         ->select('linhas.id','numLinha', 'nomeLinha')
         ->selectRaw('COUNT(carros.id) as qtdCarros')
         ->join('carros', 'linhas.id', '=', 'carros.linha_id')
         ->groupBy('id', 'numLinha', 'nomeLinha')
         ->where('statusLinha', '=', $status)
         ->get();
+        }
 
         
 
@@ -49,12 +59,6 @@ class LinhasController extends Controller
 
         
 
-        $linhas = $this->model
-        ->getLinhas(
-         search: $request->search ?? '',
-         status: $status
-         
-             );
 
           
 
