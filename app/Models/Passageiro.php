@@ -52,4 +52,19 @@ class Passageiro extends Model
     {
         return PassageiroFactory::new();
     }
+
+    public function getPassageiros(String | null $search = null)
+    {
+        $passageiro = $this->where(function($query) use ($search){
+            if($search)
+            {
+            $query->where('nomePassageiro','LIKE',"%{$search}%");
+            $query->orWhere('emailPassageiro','LIKE',"%{$search}%");
+            }
+        })->get();     
+
+
+        return $passageiro;
+        
+    }
 }

@@ -10,12 +10,22 @@ use Illuminate\Http\Request;
 
 class PassageiroController extends Controller
 {
-    public function passageiroIndex(Passageiro $passageiro) {
-        $passageiros = $passageiro->all();
-        
-        return view('passageiros.index', compact('passageiros'));
+    protected $model;
+    public function __construct(Passageiro $passageiro)
+    {
+        $this -> model = $passageiro;
     }
+    public function passageiroIndex(Passageiro $passageiro,Request $request) {
+        $passageiros = $passageiro->all();
 
+           $passageiros = $this->model
+           ->getPassageiros(
+            search: $request->search ?? ''
+                );
+
+                return view('passageiros.index', compact('passageiros'));
+
+            }
     public function form(){
         return view('passageiros.form');
     }
