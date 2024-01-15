@@ -66,7 +66,7 @@
             <input type="file" id="foto" name="foto" accept="image/*" class="custom-file-input">
           </div>
           <div class=" text-end  col-md-10">
-          <a class=" btn btn-primary" role="button" aria-disabled="true" href="index.php">Voltar</i></a>
+          <a href="{{ route('adm.index') }}" class=" btn btn-primary" role="button" aria-disabled="true" href="index.php">Voltar</i></a>
           <input type="submit" class=" btn btn-success" value="Salvar">
         </div>
         </div>

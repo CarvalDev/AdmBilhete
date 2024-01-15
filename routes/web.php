@@ -62,6 +62,7 @@ Route::post('passageiros/bilhetes/passagens/store', [PassageiroController::class
 Route::put('passageiros/bilhetes/passagens/update', [PassageiroController::class, 'updatePassagens'])->name('passageiro.passagens.update');
 Route::put('/caixaEntrada/{id}/update', [CaixaEntradaController::class, 'update'])->name('caixaEntrada.suporte.update');
 Route::get('/adm',[AdmController::class,	'index'])->name('adm.index');
+Route::get('/adm/form',[AdmController::class,	'form'])->name('adm.form');
 Route::post('/adm/store', [AdmController::class, 'store'])->name('adm.store');
 
 

@@ -81,6 +81,7 @@ class LinhasController extends Controller
     }
     public function store(StoreUpdateLinhasFormRequest $request){
         $data = $request->all();
+        $data['statusLinha'] = "Ativa";
         $linha = Linha::create($data);
         $crud =Catraca::factory($data['qtdCarroLinha'])
         ->has(Carro::factory(1)
