@@ -64,6 +64,9 @@ Route::put('/caixaEntrada/{id}/update', [CaixaEntradaController::class, 'update'
 Route::get('/adm',[AdmController::class,	'index'])->name('adm.index');
 Route::get('/adm/form',[AdmController::class,	'form'])->name('adm.form');
 Route::post('/adm/store', [AdmController::class, 'store'])->name('adm.store');
+Route::get('/adm/perfil', [AdmController::class, 'perfil'])->name('adm.perfil');
+Route::get('adm/{id}/edit', [AdmController::class, 'edit'])->name('adm.edit');
+Route::delete('adm/{id}/destroy', [AdmController::class, 'destroy'])->name('adm.destroy');
 
 
  

@@ -5,12 +5,12 @@
 
 @endpush
 
-@section('title', 'Adicionar Adm')
+@section('title', 'Perfil')
 
-@section('pageTitle', 'Adicionar Adm')
+@section('pageTitle', 'Perfil')
 @section('content')
 
-<form action="{{route('adm.store')}}" style="max-height: 100%" class="w-100 h-100 flex-column d-flex justify-content-center align-items-center" method="post" enctype="multipart/form-data">
+<form action="" style="max-height: 100%" class="w-100 h-100 flex-column d-flex justify-content-center align-items-center" method="post" enctype="multipart/form-data">
   @csrf
     <div class=" mb-2">
       <strong>INFORMAÇÕES DO ADM</strong>
@@ -67,8 +67,8 @@
             <input type="file" id="foto" name="foto" accept="image/*" class="custom-file-input">
           </div>
           <div class=" text-end  col-md-10">
-          <a href="{{ route('adm.index') }}" class=" btn btn-primary" role="button" aria-disabled="true" href="index.php">Voltar</i></a>
-          <input type="submit" class=" btn btn-success" value="Salvar">
+          <a href="{{ route('home.index') }}" class=" btn btn-primary" role="button" aria-disabled="true" href="index.php">Voltar</i></a>
+          <button class="btn btn-primary">Atualizar</button>
         </div>
         </div>
 

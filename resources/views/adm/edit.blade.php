@@ -5,12 +5,12 @@
 
 @endpush
 
-@section('title', 'Adicionar Adm')
+@section('title', 'Atualizar Administrador')
 
-@section('pageTitle', 'Adicionar Adm')
+@section('pageTitle', 'Atualizar Administrador')
 @section('content')
 
-<form action="{{route('adm.store')}}" style="max-height: 100%" class="w-100 h-100 flex-column d-flex justify-content-center align-items-center" method="post" enctype="multipart/form-data">
+<form action="" style="max-height: 100%" class="w-100 h-100 flex-column d-flex justify-content-center align-items-center" method="post" enctype="multipart/form-data">
   @csrf
     <div class=" mb-2">
       <strong>INFORMAÇÕES DO ADM</strong>
@@ -18,7 +18,11 @@
    <div class=" d-flex justify-content-center align-items-center">
             <label for="foto" id="lbFoto">
             <img id="preview"
+                @if ($adm->fotoAdm == '')
                 src="{{ url('images/userAdd.png') }}" name="fotoPassageiro" class="" style="width:158px; border-radius: 25px" alt="">
+                @else 
+                src="{{ url("storage/$adm->fotoAdm") }}" name="fotoPassageiro" class="" style="width:158px; border-radius: 25px" alt="">   
+                @endif
             </label>
             <input type="file" id="foto" name="fotoAdm">
     </div>
@@ -27,7 +31,7 @@
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="nome" class="col-form-label">Nome:</label>
-            <input type="text" class="form-control" name="nomeAdm" maxlength="50" id="nome" value=""
+            <input type="text" value="{{$adm->nomeAdm}}" class="form-control" name="nomeAdm" maxlength="50" id="nome" value=""
               required>
             <div class="invalid-feedback">
               Nome Inválido
@@ -35,7 +39,7 @@
           </div>
           <div class="col-md-6">
             <label for="email" class="col-form-label">Email:</label>
-            <input type="email" class="form-control" name="emailAdm" maxlength="100" value=""
+            <input type="email" value="{{$adm->emailAdm}}" class="form-control" name="emailAdm" maxlength="100" value=""
               id="email" required>
             <div class="invalid-feedback">
               E-mail Inválido
@@ -46,7 +50,7 @@
          
           <div class="col-md-6">
             <label for="senha" class="col-form-label">Senha:</label>
-            <input type="password" class="form-control" name="senhaAdm" value="" maxlength="10"
+            <input type="password"  class="form-control" name="senhaAdm" value="" maxlength="10"
               id="senha" required>
             <div class="invalid-feedback">
               Senha Inválido
@@ -68,7 +72,7 @@
           </div>
           <div class=" text-end  col-md-10">
           <a href="{{ route('adm.index') }}" class=" btn btn-primary" role="button" aria-disabled="true" href="index.php">Voltar</i></a>
-          <input type="submit" class=" btn btn-success" value="Salvar">
+          <button class="btn btn-primary">Atualizar</button>
         </div>
         </div>
 

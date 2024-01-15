@@ -31,8 +31,12 @@
             <td class="px-2 fw-bold ">{{ $adm->id }}</td>
             <td class="px-2 fw-bold">{{$adm->nomeAdm}}</td>
             <td class="px-2 fw-bold">{{$adm->emailAdm}}</td>
-            <td class="  py-2"><a href="" class="btn px-4" style=""><i class="fa-solid fa-pen-to-square"></i></a></td>
-            <td class="py-2"><a href="" class="btn px-4" style=""><i class="fa-solid fa-trash"></i></a></td>
+            <td class="  py-2"><a href="{{ route('adm.edit', $adm->id) }}" class="btn px-4" style=""><i class="fa-solid fa-pen-to-square"></i></a></td>
+            <form action="{{ route('adm.destroy', $adm->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+            <td class="py-2"><button type="submit" class="btn px-4" style=""><i class="fa-solid fa-trash"></i></button></td>
+            </form>
         </tr>
         @endforeach
         
@@ -43,7 +47,7 @@
     </table>
     @else
         <div class="w-100 h-50 d-flex justify-content-center align-items-center ">
-            <span class="fs-3">Não há passageiros para exibir</span>
+            <span class="fs-3">Não há administradores para exibir</span>
         </div>
         @endif
 </div>
