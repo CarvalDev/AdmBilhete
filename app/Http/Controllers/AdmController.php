@@ -36,6 +36,20 @@ class AdmController extends Controller
         return redirect()->back();
     }
 
+    public function update($id, Request $request){
+        $adm = Adm::find($id);
+        $data = $request->all();
+        if($request->senhaAdm == ''){
+            $data['senhaAdm'] = $adm->senhaAdm;
+        }
+        if($request->fotoAdm){
+            
+            $data['fotoAdm'] = $request->fotoAdm->store('adm');
+         }
+        $adm->update($data);
+        return redirect()->back();
+    }
+
     public function edit($id){
         $adm = Adm::find($id);
         return view('adm.edit', compact('adm'));

@@ -10,10 +10,11 @@
 @section('pageTitle', 'Atualizar Administrador')
 @section('content')
 
-<form action="" style="max-height: 100%" class="w-100 h-100 flex-column d-flex justify-content-center align-items-center" method="post" enctype="multipart/form-data">
+<form action="{{ route('adm.update', $adm->id) }}" style="max-height: 100%" class="w-100 h-100 flex-column d-flex justify-content-center align-items-center" method="post" enctype="multipart/form-data">
   @csrf
+  @method('PUT')
     <div class=" mb-2">
-      <strong>INFORMAÇÕES DO ADM</strong>
+      <strong>ATUALIZAR INFORMAÇÕES DO ADM</strong>
     </div>
    <div class=" d-flex justify-content-center align-items-center">
             <label for="foto" id="lbFoto">
@@ -51,7 +52,7 @@
           <div class="col-md-6">
             <label for="senha" class="col-form-label">Senha:</label>
             <input type="password"  class="form-control" name="senhaAdm" value="" maxlength="10"
-              id="senha" required>
+              id="senha" >
             <div class="invalid-feedback">
               Senha Inválido
             </div>
@@ -59,7 +60,7 @@
           <div class="col-md-6">
             <label for="senha" class="col-form-label">Confirme sua Senha:</label>
             <input type="password" class="form-control" name="senhaConf" value="" maxlength="10"
-              id="senha" required>
+              id="senha" >
             <div class="invalid-feedback">
               Senha Inválido
             </div>
