@@ -54,7 +54,7 @@ var anos = [2012, 2014, 2016, 2018, 2020, 2022];
                       },
                       y: {
                         beginAtZero: false,
-                        max: Math.ceil(max), 
+                        max: Math.ceil(max) + 1, 
                         min: (Math.round(min) - 1) ,
                         grid: {
                           display: false 

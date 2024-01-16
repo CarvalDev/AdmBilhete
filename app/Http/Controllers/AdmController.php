@@ -98,6 +98,7 @@ class AdmController extends Controller
          }
          
          Adm::create($data);
-         return view('adm.form');
+         $user = Auth::guard('adm')->user();
+         return view('adm.form', compact('user'));
     }
 }
