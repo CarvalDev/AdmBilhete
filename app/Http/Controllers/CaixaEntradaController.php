@@ -7,6 +7,7 @@ use App\Models\Acao;
 use App\Models\Passageiro;
 use App\Models\Suporte;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class CaixaEntradaController extends Controller
@@ -50,10 +51,10 @@ class CaixaEntradaController extends Controller
             $data->data = $formatar[2]."/".$formatar[1]."/".$formatar[0];
         }
         
-        
+        $user = Auth::guard('adm')->user();
     
              
-        return view('caixaEntrada.index', compact('datas'));
+        return view('caixaEntrada.index', compact('datas', 'user'));
     }
     public function show($id, Suporte $suporte){
         $infos = $suporte
@@ -70,8 +71,8 @@ class CaixaEntradaController extends Controller
                         $data->dataAcao = $formatar[2]."/".$formatar[1]."/".$formatar[0];
         $data['id'] = $id;
 
-        
-        return view('caixaEntrada.show', compact('data'));
+        $user = Auth::guard('adm')->user();
+        return view('caixaEntrada.show', compact('data', 'user'));
     }
 
     public function update( $id, Request $request){

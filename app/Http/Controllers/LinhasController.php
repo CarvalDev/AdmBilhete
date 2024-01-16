@@ -10,6 +10,7 @@ use App\Models\Catraca;
 use App\Models\Consumo;
 use App\Models\Linha;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpKernel\Attribute\AsController;
 
 class LinhasController extends Controller
@@ -60,13 +61,14 @@ class LinhasController extends Controller
         
 
 
-          
+        $user = Auth::guard('adm')->user();
 
-        return view('linhas.index', compact('linhas', 'consumos'));
+        return view('linhas.index', compact('linhas', 'consumos', 'user'));
     }
 
     public function register(){
-        return view('linhas.register');
+        $user = Auth::guard('adm')->user();
+        return view('linhas.register', compact('user'));
     }
 
     public function update($id, Request $request, Linha $linha){
@@ -142,6 +144,7 @@ class LinhasController extends Controller
             }
             $consumosTotais = $consumosTotais + $consumosFixed[$i];
         }
-        return view('linhas.show', compact('linha', 'carros', 'consumosFixed', 'consumosTotais'));
+        $user = Auth::guard('adm')->user();
+        return view('linhas.show', compact('linha', 'carros', 'consumosFixed', 'consumosTotais', 'user'));
     }
 }

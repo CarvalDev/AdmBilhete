@@ -18,7 +18,10 @@
    <div class=" d-flex justify-content-center align-items-center">
             <label for="foto" id="lbFoto">
             <img id="preview"
-                src="{{ url('images/userAdd.png') }}" name="fotoPassageiro" class="" style="width:158px; border-radius: 25px" alt="">
+            @if ($user->fotoAdm == null)
+            src="{{ url("images/addUser.png") }}" name="fotoPassageiro" class="" style="width:158px; border-radius: 25px" alt=""> 
+            @endif
+                src="{{ url("storage/$user->fotoAdm") }}" name="fotoPassageiro" class="" style="width:158px; border-radius: 25px" alt="">
             </label>
             <input type="file" id="foto" name="fotoAdm">
     </div>
@@ -27,7 +30,7 @@
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="nome" class="col-form-label">Nome:</label>
-            <input type="text" class="form-control" name="nomeAdm" maxlength="50" id="nome" value=""
+            <input type="text" class="form-control" value="{{$user->nomeAdm}}" name="nomeAdm" maxlength="50" id="nome" value=""
               required>
             <div class="invalid-feedback">
               Nome Inválido
@@ -35,7 +38,7 @@
           </div>
           <div class="col-md-6">
             <label for="email" class="col-form-label">Email:</label>
-            <input type="email" class="form-control" name="emailAdm" maxlength="100" value=""
+            <input type="email" class="form-control" value="{{$user->emailAdm}}" name="emailAdm" maxlength="100" value=""
               id="email" required>
             <div class="invalid-feedback">
               E-mail Inválido

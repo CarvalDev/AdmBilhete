@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Compra;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FaturamentoController extends Controller
 {
@@ -12,7 +13,7 @@ class FaturamentoController extends Controller
                     ->selectRaw('COUNT(id) as compras')
                     ->selectRaw('SUM(valorTotalCompra) as valor')
                     ->get();
-        
-        return view("faturamento.index", compact('compras'));
+        $user = Auth::guard('adm')->user();
+        return view("faturamento.index", compact('compras', 'user'));
     }
 }

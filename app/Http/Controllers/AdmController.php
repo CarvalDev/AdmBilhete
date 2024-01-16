@@ -18,7 +18,8 @@ class AdmController extends Controller
         $this -> model = $adm;
     }
     public function form(){
-        return view('adm.form');
+        $user = Auth::guard('adm')->user();
+        return view('adm.form', compact('user'));
     } 
 
     public function login(Request $request){
@@ -54,11 +55,13 @@ class AdmController extends Controller
         ->getAdm(
          search: $request->search ?? ''
              );
-        return view('adm.index', compact('adms'));
+        $user = Auth::guard('adm')->user();
+        return view('adm.index', compact('adms', 'user'));
     }
 
     public function perfil(){
-        return view('adm.perfil');
+        $user = Auth::guard('adm')->user();
+        return view('adm.perfil', compact('user'));
     }
 
     public function destroy($id){
@@ -82,7 +85,8 @@ class AdmController extends Controller
 
     public function edit($id){
         $adm = Adm::find($id);
-        return view('adm.edit', compact('adm'));
+        $user = Auth::guard('adm')->user();
+        return view('adm.edit', compact('adm', 'user'));
     }
 
     public function store(StoreUpdateAdmFormRequest $request){

@@ -7,6 +7,7 @@ use App\Models\Bilhete;
 use App\Models\Passageiro;
 use App\Models\Passagem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PassageiroController extends Controller
 {
@@ -22,12 +23,13 @@ class PassageiroController extends Controller
            ->getPassageiros(
             search: $request->search ?? ''
                 );
-
-                return view('passageiros.index', compact('passageiros'));
+        $user = Auth::guard('adm')->user();
+        return view('passageiros.index', compact('passageiros', 'user'));
 
             }
     public function form(){
-        return view('passageiros.form');
+        $user = Auth::guard('adm')->user();
+        return view('passageiros.form', compact('user'));
     }
 
     public function updatePassagens(Request $request, Passagem $passagem){
@@ -64,7 +66,8 @@ class PassageiroController extends Controller
 
     public function addBilhete($id) {
         $idUsuario['id'] = $id;
-        return view('passageiros.addBilhete', compact('idUsuario'));
+        $user = Auth::guard('adm')->user();
+        return view('passageiros.addBilhete', compact('idUsuario', 'user'));
         
     }
     public function bilheteStore($id, Passageiro $passageiro, Request $request) {
@@ -165,7 +168,8 @@ class PassageiroController extends Controller
             $linha = explode("-", $separa[0]);
             $acoes[$i]->dataAcao = $linha[2]."/".$linha[1]."/".$linha[0];
         }
-        return view('passageiros.perfil', compact('passageiro', 'bilhetes', 'acoes', 'passagens', 'linhaNasc', 'bilhetesPassagens'));
+        $user = Auth::guard('adm')->user();
+        return view('passageiros.perfil', compact('passageiro', 'bilhetes', 'acoes', 'passagens', 'linhaNasc', 'bilhetesPassagens', 'user'));
     }
 }
 

@@ -50,7 +50,7 @@
                         </svg>
                     </div> 
                     
-                    <button type="submit" class="d-flex justify-content-center align-items-center">
+                    <button type="submit" style="background-color: transparent; color:white; border:none" class="d-flex justify-content-center align-items-center">
                     Sair
                     </button>
                     

@@ -9,25 +9,29 @@
         <div class="d-flex  flex-row justify-content-end  gap-1 align-items-center"  data-bs-toggle="dropdown" aria-expanded="false">
             <div class="d-flex justify-content-center align-items-center  ">
                 <img 
-                @if (Auth::guard('adm')->user()->fotoAdm == null)
+                @if ($user->fotoAdm == null)
                     
                 src="{{ url('images/user.png') }}" width="40px" alt="">
                 @else
-                src="{{ url("storage/Auth::guard('adm')->user()->fotoAdm") }}" width="40px" alt="">
+                src="{{ url("storage/$user->fotoAdm") }}" width="40px" alt="" class="rounded-circle">
+                
                 @endif
 
             </div>
            
             <div class="d-flex flex-column align-items-center justify-content-center">
-                <span class="ms-4 fw-bold">{{Auth::guard('adm')->user()->nomeAdm}}</span>     
-                <span id="cargo" class="ms-4">cargo</span>
+                <span class="ms-4 fw-bold">{{$user->nomeAdm}}</span>     
+                
                 
             </div>
             <span class="ms-2"><i class="fa-solid fa-chevron-down"></i></span>
         </div>
         <ul class="dropdown-menu text-small " >
+            <form action="{{ route('adm.logout') }}" method="POST">
+                @csrf
             <a class="w-100 dropdown-item" href="{{ URL::route('adm.perfil') }}">Perfil</a>
-            <li><button class="dropdown-item">Sign out</button></li>
+            <li><button type="submit" class="dropdown-item">Sign out</button></li>
+        </form>
             </ul>
     </div>
     <div class="container">

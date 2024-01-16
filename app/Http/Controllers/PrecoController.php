@@ -7,21 +7,21 @@ use App\Models\Preco;
 use App\Models\Reajuste;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
+
 class PrecoController extends Controller
 {
     public $preco;
     
-    public function index(){
-        return view("preco.index"); 
-    }
+    
     public static function edit($id, Reajuste $reajuste)
     {
         $preco = Preco::find($id);
         $reajustes = $reajuste
                         ->orderBy('dataReajuste', 'desc')
                         ->get();
-        
-        return view('preco.index', compact('preco', 'reajustes'));
+        $user = Auth::guard('adm')->user();
+        return view('preco.index', compact('preco', 'reajustes', 'user'));
     }
   
     public static function update(StoreUpdatePrecoFormRequest $request,$id)

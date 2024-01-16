@@ -18,11 +18,11 @@ class HomeController extends Controller
         $faturamento = $compra->sum('valorTotalCompra');
         $linha = $linha->all();
         $suporte = $suporte->all()->count();
-        
+        $user = Auth::guard('adm')->user();
 
         
         
-        return view('home.index', compact('passageiro', 'faturamento', 'linha', 'suporte'));
+        return view('home.index', compact('passageiro', 'faturamento', 'linha', 'suporte', 'user'));
     }
 
 }
