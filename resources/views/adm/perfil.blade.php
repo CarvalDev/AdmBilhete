@@ -10,8 +10,9 @@
 @section('pageTitle', 'Perfil')
 @section('content')
 
-<form action="" style="max-height: 100%" class="w-100 h-100 flex-column d-flex justify-content-center align-items-center" method="post" enctype="multipart/form-data">
+<form action="{{route('adm.update', $user->id)}}" style="max-height: 100%" class="w-100 h-100 flex-column d-flex justify-content-center align-items-center" method="post" enctype="multipart/form-data">
   @csrf
+  @method('PUT')
     <div class=" mb-2">
       <strong>INFORMAÇÕES DO ADM</strong>
     </div>
@@ -19,9 +20,10 @@
             <label for="foto" id="lbFoto">
             <img id="preview"
             @if ($user->fotoAdm == null)
-            src="{{ url("images/addUser.png") }}" name="fotoPassageiro" class="" style="width:158px; border-radius: 25px" alt=""> 
+            src="{{ url("images/userAdd.png") }}" name="fotoPassageiro" class="" style="width:158px; border-radius: 25px" alt=""> 
+            @else
+            src="{{ url("storage/$user->fotoAdm") }}" name="fotoPassageiro" class="" style="width:158px; border-radius: 25px" alt="">
             @endif
-                src="{{ url("storage/$user->fotoAdm") }}" name="fotoPassageiro" class="" style="width:158px; border-radius: 25px" alt="">
             </label>
             <input type="file" id="foto" name="fotoAdm">
     </div>
