@@ -58,7 +58,7 @@ class StoreUpdatePassageiroFormRequest extends FormRequest
             ],
             'numLogrPassageiro' => [
                 'required'
-            ],
+            ], 
             'complementoLogrPassageiro' => [
                 'nullable'
             ],

@@ -14,10 +14,15 @@
                 <label for="email" class="form-label fw-bold text-xs">Email</label>
                 <input type="emailAdm" name="emailAdm" id="email" class="form-control mb-xl-3 mb-sm-3">
                 <label for="senha" class="form-label fw-bold text-xs ">Senha</label>
-                <input type="senhaAdm" name="password" class="form-control mb-xl-3 mb-sm-3" id="senha">
+                <input type="password" name="password" class="form-control mb-xl-3 mb-sm-3" id="senha">
                 <input type="checkbox" name="checkbox" id="checkbox">
                 <label for="checkbox" class=" fw-bold text-xs" >Lembre de mim</label>
                 <input type="submit" class="fundo fw-bold text-uppercase w-100 btn btnCss mt-xl-3 mt-sm-5" value="Enviar">
+                @if (session('erro'))
+                    <div class="w-100 mt-2  text-center">
+                        <span class="text-danger">{{session('erro')}}</span>
+                    </div>
+                @endif
             </form>
             </div>
         </div>

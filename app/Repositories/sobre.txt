@@ -1,0 +1,5 @@
+INTERPRETAÇÃO PESSOAL
+//Repositories servem para guardarmos requisições utilizando o banco de dados 
+    Em Eloquent, guardamos as classes com os metodos do Eloquent fazendo o CRUD no banco
+    Em Contracts, temos interfaces, que serao misturadas no appServiceProvider com as respectivas Repositories em Eloquent
+        nessas interfaces definiremos o que sera obrigatorio em questao de metodos para determinada repository cumprir

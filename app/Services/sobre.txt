@@ -1,0 +1,4 @@
+INTERPRETAÇÃO PESSOAL
+//Services são classes mais soltas, nao dependem exatamente de estarem ligadas a uma entidade e nem toda entidade estará relacionada a ela
+    Servem para organizar codigos que lidam  com a lógica, ou outros meios que não sejam ligados ao banco de dados
+    

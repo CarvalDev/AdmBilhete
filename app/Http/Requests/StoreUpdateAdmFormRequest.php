@@ -23,6 +23,7 @@ class StoreUpdateAdmFormRequest extends FormRequest
      */
     public function rules()
     {
+        $id = $this->id ?? '';
         $rules = [
             'nomeAdm' => [
                 'required',
@@ -32,14 +33,22 @@ class StoreUpdateAdmFormRequest extends FormRequest
             ],
             'emailAdm' => [
                 'required',
-                'email'
+                'email',
+                "unique:adms,emailAdm,{$id},id"
             ],
-            'senhaAdm' => [
+            'password' => [
                 'required',
                 'max:255',
                 'min:3',
             ],
         ];
+        if($this->method('PUT')){
+            $rules['password'] = [
+                'nullable',
+                'min:3',
+                'max:255'
+            ];
+        }
         
         return $rules;
     }
