@@ -2,9 +2,11 @@
 
 namespace App\Services;
 
+use App\Mail\RespostaSuporteMail;
 use App\Repositories\Contracts\AdmRepositoryInterface;
 use Exception;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class AdmServices
@@ -52,5 +54,10 @@ class AdmServices
             $data['fotoAdm'] = $request->fotoAdm->store('adm');
          }
          return $data;
+    }
+
+    public function emailSuporte($email, $mensagem, $idSuporte, $nomePassageiro,$descSuporte, $categoriaSuporte){
+        Mail::to($email)
+        ->send(new RespostaSuporteMail($mensagem, $idSuporte, $nomePassageiro,$descSuporte, $categoriaSuporte));
     }
 }

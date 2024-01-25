@@ -11,9 +11,7 @@
         public function resolveModel(){
             return app($this->model);
         }
-        public function all(){
-            return $this->model->all();
-        }
+        
         public function findById($id){
             return $this->model->find($id);
         }
