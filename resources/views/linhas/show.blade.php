@@ -25,7 +25,7 @@ Linha {{$linha->nomeLinha}}
                 </tr>
                 <tr class="text-center" style="">
                     <td>{{$linha->id}}</td>
-                    <td>{{$consumosTotais}}</td>
+                    <td>{{$linha->totalConsumos}}</td>
                     <td>{{$carros->count()}}</td>
                 </tr>
             </table>
@@ -68,7 +68,7 @@ Linha {{$linha->nomeLinha}}
             <a href="" class="border-0 me-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-plus-circle fa-2x text-dark" aria-hidden="true"></i></a>
           </div>
 
-            
+             
           
         </div>
         <div class=" w-100 overflow-auto"  style="height:90%">
@@ -81,16 +81,16 @@ Linha {{$linha->nomeLinha}}
                     <th class="px-2   text-center" style="width: 10%"><label>Excluir</label></th>
                     
                 </tr>
-                @for ($i = 0; $i < count($carros); $i++)
+                @foreach ($carros as $carro)
                 
                 <tr style="border-bottom:1.5px solid red">
-                    <td class="px-2 text-center fw-bold">{{$carros[$i]->id}}</td>
-                    <td class="px-2 text-center fw-bold">{{$carros[$i]->numCarro}}</td>
-                    <td class="px-2 text-center fw-bold">{{$carros[$i]->catraca_id}}</td>
+                    <td class="px-2 text-center fw-bold">{{$carro->id}}</td>
+                    <td class="px-2 text-center fw-bold">{{$carro->numCarro}}</td>
+                    <td class="px-2 text-center fw-bold">{{$carro->catraca_id}}</td>
                     <td id="consumo" class="px-2 text-center fw-bold">
-                     {{$consumosFixed[$i]}}
+                     {{$carro->qtdConsumos}}
                     </td>
-                    @if ($carros[$i]->statusCarro == "Ativo")
+                    @if ($carro->statusCarro == "Ativo")
                     @section('tituloModal')
                         Desativar carro?
                     @endsection
@@ -98,7 +98,7 @@ Linha {{$linha->nomeLinha}}
                     @section('obs')
                         Ao desativar carro todas as catracas relacionadas serão desativadas
                     @endsection
-                    <td onclick="pegaStatus('Inativo', {{$carros[$i]->id}})" data-bs-toggle="modal" data-bs-target="#visibilidade" class=" px-2 text-center fw-bold" id="alterar"><a id=""  class="btn" ><i class="fa-solid fa-trash"></i></a></td>
+                    <td onclick="pegaStatus('Inativo', {{$carro->id}})" data-bs-toggle="modal" data-bs-target="#visibilidade" class=" px-2 text-center fw-bold" id="alterar"><a id=""  class="btn" ><i class="fa-solid fa-trash"></i></a></td>
                     @else
                     @section('tituloModal')
                         Reativar carro?
@@ -106,13 +106,13 @@ Linha {{$linha->nomeLinha}}
                     @section('obs')
                         Ao reativar carro todas as catracas relacionadas serão reativadas
                     @endsection
-                    <td onclick="pegaStatus('Ativo', {{$carros[$i]->id}})" data-bs-toggle="modal" data-bs-target="#visibilidade" class=" px-2 text-center fw-bold" id="alterar"><a id="" class="btn" ><i class="fa-solid fa-check"></i></a></td>
+                    <td onclick="pegaStatus('Ativo', {{$carro->id}})" data-bs-toggle="modal" data-bs-target="#visibilidade" class=" px-2 text-center fw-bold" id="alterar"><a id="" class="btn" ><i class="fa-solid fa-check"></i></a></td>
                     @endif
                     
                   
                     
                 </tr>
-                @endfor
+                @endforeach
                 @include('components.modalCarro')
                 @include('components.modalDesativarLinha')
                 @include('components.modalAtivarLinha')

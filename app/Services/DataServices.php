@@ -65,4 +65,24 @@ class DataServices
         $data['passageiro_id'] = $idPassageiro;
         return $data;
     }
+    public static function resolveConsumos($linhas, $consumos)
+    {
+        for($i=0;$i < $linhas->count(); $i++)
+        {
+            $achou =0;
+            for($j=0;$j < $consumos->count();$j++)
+            {
+                if($linhas[$i]->id == $consumos[$j]->id)
+                {
+                    $achou++;
+                    $linhas[$i]->qtdConsumos = $consumos[$j]->qtdConsumos;
+                }
+            }
+            if($achou == 0){
+                $linhas[$i]->qtdConsumos = 0;
+            }
+            
+        }
+        return $linhas;
+    }
 }
