@@ -29,7 +29,7 @@
               <div class="" style="font-size:13px"><strong>Email</strong><label class="ps-1"> {{ $passageiro->emailPassageiro }} </label></div>
               <div class="" style="font-size:13px"><strong>Estado</strong><label class="ps-1 text-uppercase"> {{ $passageiro->ufPassageiro}} </label></div>
               <div class="" style="font-size:13px"><strong>Num. Tel.</strong><label class="ps-1"> {{ $passageiro->numTelPassageiro }} </label></div>
-              <div class="" style="font-size:13px"><strong>Data Nasc.</strong><label class="ps-1"> {{ $linhaNasc }} </label></div>
+              <div class="" style="font-size:13px"><strong>Data Nasc.</strong><label class="ps-1"> {{ $passageiro->dataNascPassageiro }} </label></div>
               <div class="" style="font-size:13px"><strong>Bairro</strong><label class="ps-1"> {{ $passageiro->bairroPassageiro }} </label></div>
               <div class="" style="font-size:13px"><strong>Logr.</strong><label class=""> {{ $passageiro->logrPassageiro }} </label></div>
               <div class="" style="font-size:13px"><strong>Cep</strong><label class="ps-1"> {{ $passageiro->cepPassageiro }} </label></div>
@@ -51,12 +51,12 @@
             @if (count($bilhetes)>0)
             <div id="carouselExample" class="carousel slide w-100">
                 <div class="carousel-inner w-100 h-100">
-                    @for ($i=0;$i<$bilhetes->count();$i++)
-                    <input type="hidden" value="{{ $bilhetesPassagens[$i] }}" id="numero">
-                  <div class="carousel-item active w-100 h-100" onclick="imprime({{$bilhetesPassagens[$i]}}, {{$bilhetes[$i]->id}})">
+                    @foreach ($bilhetes as $bilhete)
+                    <input type="hidden" value="{{ $bilhete->qtdPassagem }}" id="numero">
+                  <div class="carousel-item active w-100 h-100" onclick="imprime({{$bilhete->qtdPassagem}}, {{$bilhete->id}})">
                     <a href="#" class="btn text-decoration-none w-100 h-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <div class="d-flex w-100 h-100 align-items-center justify-content-center">
-                        <div class="rounded-4" style="height: 90%;width:56%;background-color:@if($bilhetes[$i]->tipoBilhete == 'Comum') #808075 @elseif ($bilhetes[$i]->tipoBilhete == 'Estudante') #4390E1 @elseif ($bilhetes[$i]->tipoBilhete == 'Idoso') #FFDB70 @elseif ($bilhetes[$i]->tipoBilhete == 'Pcd') #DDA0DD  @elseif ($bilhetes[$i]->tipoBilhete == 'Gestante') #FFA500 @elseif ($bilhetes[$i]->tipoBilhete == 'Obesa') #FFA500 @elseif ($bilhetes[$i]->tipoBilhete == 'Obesa') #FFA500 @else #98FB98   @endif ">
+                        <div class="rounded-4" style="height: 90%;width:56%;background-color:@if($bilhete->tipoBilhete == 'Comum') #808075 @elseif ($bilhete->tipoBilhete == 'Estudante') #4390E1 @elseif ($bilhete->tipoBilhete == 'Idoso') #FFDB70 @elseif ($bilhete->tipoBilhete == 'Pcd') #DDA0DD  @elseif ($bilhete->tipoBilhete == 'Gestante') #FFA500 @elseif ($bilhete->tipoBilhete == 'Obesa') #FFA500 @elseif ($bilhete->tipoBilhete == 'Obesa') #FFA500 @else #98FB98   @endif ">
                             <header class="w-100  d-flex flex-row justify-content-between" style="height:21%">
                                 <div class="dNe h-100 d-flex align-items-center justify-content-center" style="width:35%">
                                     <img src=" {{ url('images/DNElogo.png')}} " style="width: 85%;height:80%">
@@ -76,10 +76,10 @@
                                     </div>
             
                                     <div class="infosBilhete justify-content-center text-start gap-1 h-100 d-flex flex-column p-2 px-3" style="width:70%">
-                                      <div class="" style="font-size:13px"><strong>Tipo Bilhete</strong><label class="ps-1"> {{ $bilhetes[$i]->tipoBilhete }} </label></div>
-                                        <div class="" style="font-size:13px"><strong>Status</strong><label class="ps-1">{{ $bilhetes[$i]->statusBilhete }}</label></div>
-                                        <div class="" style="font-size:13px"><strong>Gratuidade</strong><label class="ps-1">@if($bilhetes[$i]->gratuidadeBilhete == 1) Sim @else Não @endif </label></div>
-                                        <div class="" style="font-size:13px"><strong>Meia Passagem</strong><label class="ps-1"> @if ($bilhetes[$i]->meiaPassagensBilhete == 1) Sim @else Não @endif</label></div>
+                                      <div class="" style="font-size:13px"><strong>Tipo Bilhete</strong><label class="ps-1"> {{ $bilhete->tipoBilhete }} </label></div>
+                                        <div class="" style="font-size:13px"><strong>Status</strong><label class="ps-1">{{ $bilhete->statusBilhete }}</label></div>
+                                        <div class="" style="font-size:13px"><strong>Gratuidade</strong><label class="ps-1">@if($bilhete->gratuidadeBilhete == 1) Sim @else Não @endif </label></div>
+                                        <div class="" style="font-size:13px"><strong>Meia Passagem</strong><label class="ps-1"> @if ($bilhete->meiaPassagensBilhete == 1) Sim @else Não @endif</label></div>
                                     </div>
                             </section>
                             
@@ -90,7 +90,7 @@
                                 <div class="codUsoBilhete h-100 p-2 d-flex flex-row gap-5 h-100" style="width:75%">
                                     <div class="" style="width: 70%">
                                         <label style="font-size:11px">Código de uso/N° do Bilhete Único</label>
-                                        <p class="fw-bold" style="padding-left:47%;font-size:12px">{{ $bilhetes[$i]->numBilhete }}</p>
+                                        <p class="fw-bold" style="padding-left:47%;font-size:12px">{{ $bilhete->numBilhete }}</p>
                                     </div>
             
                                     <div class="logo2023 d-flex justify-content-center align-items-center h-100" style="width:30%">
@@ -103,7 +103,7 @@
                     </div>
                   </a>
                   </div>
-                  @endfor
+                  @endforeach
                 </div>
                 <button class="carousel-control-prev " type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                   <span class="text-dark fs-3" aria-hidden="true"><i class="fa-solid fa-left-long"></i></span>
