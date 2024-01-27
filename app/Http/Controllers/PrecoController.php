@@ -3,36 +3,38 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUpdatePrecoFormRequest;
-use App\Models\Preco;
+
 use App\Models\Reajuste;
-use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
+use App\Repositories\Contracts\PrecoRepositoryInterface;
+use App\Repositories\Contracts\ReajusteRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
 
 class PrecoController extends Controller
 {
-    public $preco;
     
-    
-    public static function edit($id, Reajuste $reajuste)
+    protected $model;
+    public function __construct(PrecoRepositoryInterface $preco)
     {
-        $preco = Preco::find($id);
-        $reajustes = $reajuste
-                        ->orderBy('dataReajuste', 'desc')
-                        ->get();
+        $this -> model = $preco;
+    }
+    
+    public function edit($id, Reajuste $reajuste)
+    {
+        $preco = $this->model->findById($id);
+        $reajustes = $this->model->getTheLastReajustes($reajuste);
         $user = Auth::guard('adm')->user();
         return view('preco.index', compact('preco', 'reajustes', 'user'));
     }
   
-    public static function update(StoreUpdatePrecoFormRequest $request,$id)
+    public function update(StoreUpdatePrecoFormRequest $request,$id)
     {
-        if(!$preco = Preco::find($id))
+        if(!$preco = $this->model->findById($id))
         return redirect()->route('preco.index');
         
         $data = $request->all();
       
         
-        $preco->update($data);
+        $this->model->update($id, $data);
 
 
         //return redirect()->route('preco.edit',['id'=>1]);

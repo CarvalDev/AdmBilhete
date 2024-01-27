@@ -46,6 +46,14 @@ class AppServiceProvider extends ServiceProvider
             'App\Repositories\Contracts\ConsumoRepositoryInterface',
             'App\Repositories\Eloquent\ConsumoRepository'
         );
+        $this->app->bind(
+            'App\Repositories\Contracts\ReajusteRepositoryInterface',
+            'App\Repositories\Eloquent\ReajusteRepository'
+        );
+        $this->app->bind(
+            'App\Repositories\Contracts\PrecoRepositoryInterface',
+            'App\Repositories\Eloquent\PrecoRepository'
+        );
     }
 
     /**

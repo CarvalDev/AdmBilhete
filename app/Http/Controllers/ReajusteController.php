@@ -3,28 +3,24 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Reajuste;
+
+use App\Repositories\Contracts\ReajusteRepositoryInterface;
 use Illuminate\Http\Request;
 
 class ReajusteController extends Controller
 {
+    protected $model;
+    public function __construct(ReajusteRepositoryInterface $reajuste)
+    {
+        $this -> model = $reajuste;
+    }
+        
     public function index(){
         return view("reajuste.index");
     }
-    public static function store(Request $request){
-
-        
-        
+    public function store(Request $request){
         $data = $request->all();
-        
-        
-        
-        
-        Reajuste::create([
-            'precoPassagemReajuste' => $data['data']['passagemPreco'],
-            'precoMeiaPassagemReajuste' => $data['data']['passagemPreco']/2,
-             'dataReajuste' => date(now())
-        ]);
+        $this->model->create($data);
         return redirect()->route('preco.edit',['id'=>1]);
         
     }
