@@ -54,6 +54,10 @@ class AppServiceProvider extends ServiceProvider
             'App\Repositories\Contracts\PrecoRepositoryInterface',
             'App\Repositories\Eloquent\PrecoRepository'
         );
+        $this->app->bind(
+            'App\Repositories\Contracts\CompraRepositoryInterface',
+            'App\Repositories\Eloquent\CompraRepository'
+        );
     }
 
     /**
