@@ -42,9 +42,9 @@
             <label class="sr-only" for="inlineFormInputGroup">Bairro</label>
             <div class="input-group">
                 <div class="input-group-prepend">
-                    <div class="input-group-text"><input data-mask="00000-000" id="cep" name="cepPassageiro" type="text" style="width: 100px;background-color:transparent"placeholder="cep"></div>
+                    <div class="input-group-text"><input data-mask="00000-000" id="cep" name="cepPassageiro" type="text" style="width: 100px;background-color:transparent"placeholder="cep" onblur="pesquisacep(this.value);"></div>
                 </div>
-                <input type="text" name="bairroPassageiro" class="form-control" id="inlineFormInputGroup" placeholder="Bairro">
+                <input type="text" name="bairroPassageiro" class="form-control" id="bairro" placeholder="Bairro">
             </div>
         </div>
 
@@ -78,7 +78,7 @@
         </div>
         <div class="col-8 mt-3">
             <div class="input-group ">
-                <input type="text" class="form-control" name="logrPassageiro" placeholder="Logradouro" aria-label="Recipiente para nickname" aria-describedby="basic-addon2">
+                <input type="text" class="form-control" id="rua" name="logrPassageiro" placeholder="Logradouro" aria-label="Recipiente para nickname" aria-describedby="basic-addon2">
                 <div class="input-group-append">
                   <span class="input-group-text" id="basic-addon2"><input name="numLogrPassageiro" type="text" id="num" style="width: 50px; background-color:transparent"placeholder="N°"></span>
                 </div>
@@ -134,4 +134,5 @@
   
   <script src="{{ asset('js/formularioPassageiro.js') }}"></script>
   <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
+  <script src="{{ asset('js/cep.js') }}"></script>
 @endsection
