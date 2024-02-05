@@ -36,12 +36,7 @@
               <div class="" style="font-size:13px"><strong>Num Logr.</strong><label class="ps-1"> {{ $passageiro->numLogrPassageiro }} </label></div>
               <div class="" style="font-size:13px"><strong>Complemento Logr.</strong><label class="ps-1"> {{ $passageiro->complementoLogrPassageiro }} </label></div>
             </div>
-            {{-- <div class="maisInfo2 d-flex flex-column align-self-center px-3   h-75 gap-1 justify-content-center p-2" style="width:140%;">
-              <div class="" style="font-size:13px"><strong>Logr.</strong><label class=""> {{ $passageiro->logrPassageiro }} </label></div>
-              <div class="" style="font-size:13px"><strong>Cep</strong><label class="ps-1"> {{ $passageiro->cepPassageiro }} </label></div>
-              <div class="" style="font-size:13px"><strong>Num Logr.</strong><label class="ps-1"> {{ $passageiro->numLogrPassageiro }} </label></div>
-              <div class="" style="font-size:13px"><strong>Complemento Logr.</strong><label class=""> {{ $passageiro->complementoLogrPassageiro }} </label></div>
-            </div> --}}
+            
             <div class="d-flex justify-content-end align-items-center py-1 align-end container" >    
               <a href="{{ route('passageiros.addBilhete', $passageiro->id) }}" class="border-0"><i class="fas fa-plus-circle fa-2x" aria-hidden="true"></i></a>
           </div>
@@ -72,7 +67,7 @@
             
                             <section class="corpoBilhete w-100  d-flex flex-row" style="height:55%">
                                     <div class="fotoDonoBilhete  h-100" style="width:30%;margin-left:3%">
-                                        <img src=" {{ url('images/iconFotoBilhete.jpg')}}" class="h-100 w-100">
+                                        <img  @if($bilhete->qrCodeBilhete != 'pendente') src="  {{ $bilhete->qrCodeBilhete}} " @else src="{{ url('images/userPadrao.png') }}" @endif class="h-100 w-100">
                                     </div>
             
                                     <div class="infosBilhete justify-content-center text-start gap-1 h-100 d-flex flex-column p-2 px-3" style="width:70%">

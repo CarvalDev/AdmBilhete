@@ -21,7 +21,7 @@ class PassageiroController extends Controller
     }
     public function passageiroIndex(Request $request)
     {
-
+        
         $passageiros = $this->model->all($request->search);
         $user = Auth::guard('adm')->user();
 
@@ -62,8 +62,12 @@ class PassageiroController extends Controller
 
     public function addBilhete($id) 
     {
+        $services = new DataServices();
         $idUsuario['id'] = $id;
+        
+        
         $user = Auth::guard('adm')->user();
+        
         return view('passageiros.addBilhete', compact('idUsuario', 'user'));
 
     }
@@ -72,9 +76,11 @@ class PassageiroController extends Controller
         
         
         $data = $dataServices->resolveBeneficios($request->tipoBilhete, $id);
-        $bilheteModel->create($data);
-        
-        
+        $newBilhete = $bilheteModel->create($data);
+        $qrCode = $dataServices->qrCodeFetch($newBilhete->id);
+        $data['qrCodeBilhete'] = $qrCode;
+        $bilheteModel->update($newBilhete->id, $data);
+
         return redirect()->route('perfilPassageiro.index', $id);
     }
 
@@ -114,6 +120,7 @@ class PassageiroController extends Controller
         $user = Auth::guard('adm')->user();
         return view('passageiros.perfil', compact('passageiro', 'bilhetes', 'acoes', 'passagens', 'user'));
     }
+
 }
 
 

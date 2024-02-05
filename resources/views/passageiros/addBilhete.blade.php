@@ -56,6 +56,7 @@
         </div>
     </div>
     </form>
+    <img src="http://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Cuzinho" alt=""  id="qrCode" style="padding: 500px">
 
     <div>
         @if ($errors->any())
@@ -72,4 +73,5 @@
 
 
 </div>
+<script src="{{ asset('js/qrCode.js') }}"></script>
 @endsection
