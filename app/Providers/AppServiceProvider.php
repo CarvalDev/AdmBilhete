@@ -58,6 +58,14 @@ class AppServiceProvider extends ServiceProvider
             'App\Repositories\Contracts\CompraRepositoryInterface',
             'App\Repositories\Eloquent\CompraRepository'
         );
+        $this->app->bind(
+            'App\Repositories\Contracts\CarroRepositoryInterface',
+            'App\Repositories\Eloquent\CarroRepository'
+        );
+        $this->app->bind(
+            'App\Repositories\Contracts\CatracaRepositoryInterface',
+            'App\Repositories\Eloquent\CatracaRepository'
+        );
     }
 
     /**

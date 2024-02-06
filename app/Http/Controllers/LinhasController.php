@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Requests\StoreUpdateLinhasFormRequest;
+use App\Models\Carro;
+use App\Models\Catraca;
+use App\Repositories\Contracts\CarroRepositoryInterface;
+use App\Repositories\Contracts\CatracaRepositoryInterface;
 use App\Repositories\Contracts\ConsumoRepositoryInterface;
 use App\Repositories\Contracts\LinhasRepositoryInterface;
 use App\Services\DataServices;
@@ -11,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 class LinhasController extends Controller
-{
+{  
     protected $model;
     public function __construct(LinhasRepositoryInterface $linha)
     {
@@ -69,5 +72,38 @@ class LinhasController extends Controller
         $user = Auth::guard('adm')->user();
 
         return view('linhas.show', compact('linha', 'carros', 'user'));
+    }
+
+    public static function updateStatusCarro(Request $request, CarroRepositoryInterface $carroModel, CatracaRepositoryInterface $catracaModel)
+    {
+       
+        $data['statusCarro'] = $request->statusCarro;
+
+        $carroModel->update($request->idCarro, $data);
+     
+        $carro = $carroModel->findById($request->idCarro);
+        
+        if($request->statusCarro == "Ativo"){
+            $statusCatraca = "Ativa";
+        }else{
+            $statusCatraca = "Inativa";
+        }
+
+        $id = $carro->catraca_id;
+
+        $dataCatraca['statusCatraca'] = $statusCatraca;
+
+        $catracaModel->update($id, $dataCatraca);
+            
+        
+        return redirect()->back();
+    }
+
+    public function storeCarro(Request $request, $idLinha, CatracaRepositoryInterface $catracaModel){
+        $linha = $this->model->findById($idLinha);
+        
+        
+        $catracaModel->factory($linha, $request->qtdCarro);
+        return redirect()->back();
     }
 }

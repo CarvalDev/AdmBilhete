@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AdmController;
 use App\Http\Controllers\CaixaEntradaController;
-use App\Http\Controllers\CarroController;
+
 use App\Http\Controllers\CatracaController;
 use App\Http\Controllers\FaturamentoController;
 use App\Http\Controllers\HomeController;
@@ -28,11 +28,11 @@ use Illuminate\Support\Facades\Mail;
 
 
 Route::group(['middleware' => 'adm'], function(){
-Route::put('/carros/status/update', [CarroController::class, 'updateStatus'])->name('carros.status.update'); 
+Route::put('/carros/status/update', [LinhasController::class, 'updateStatusCarro'])->name('carros.status.update'); 
 Route::post('/linhas/store',[LinhasController::class, 'store'])->name('linhas.store');
-Route::post('/linhas/{idLinha}/carros/store', [CarroController::class, 'store'])->name('carros.store');
+Route::post('/linhas/{idLinha}/carros/store', [LinhasController::class, 'storeCarro'])->name('carros.store');
 Route::put('/linhas/{id}/status/update', [LinhasController::class, 'updateStatus'])->name('linhas.status.update');
-Route::delete("/carros/{id}", [CarroController::class,'destroy'])->name('carros.destroy');
+
 Route::get('/',[HomeController::class,'index'])->name('home.index');
 Route::get('/passageiros',[PassageiroController::class, 'passageiroIndex'])->name('passageiros.index');
 Route::get('/passageiros/form', [PassageiroController::class, 'form'])->name('passageiros.form');
