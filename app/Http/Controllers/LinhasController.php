@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Http\Requests\StoreUpdateLinhasFormRequest;
-use App\Models\Carro;
-use App\Models\Catraca;
 use App\Repositories\Contracts\CarroRepositoryInterface;
 use App\Repositories\Contracts\CatracaRepositoryInterface;
 use App\Repositories\Contracts\ConsumoRepositoryInterface;

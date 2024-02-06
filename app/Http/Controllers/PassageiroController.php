@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUpdatePassageiroFormRequest;
-use App\Models\Bilhete;
-use App\Models\Passageiro;
-use App\Models\Passagem;
 use App\Repositories\Contracts\BilheteRepositoryInterface;
 use App\Repositories\Contracts\PassageiroRepositoryInterface;
 use App\Services\DataServices;

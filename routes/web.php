@@ -3,7 +3,7 @@
 use App\Http\Controllers\AdmController;
 use App\Http\Controllers\CaixaEntradaController;
 
-use App\Http\Controllers\CatracaController;
+
 use App\Http\Controllers\FaturamentoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LinhasController;

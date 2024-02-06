@@ -6,7 +6,6 @@ use App\Http\Requests\StoreUpdatePrecoFormRequest;
 
 use App\Models\Reajuste;
 use App\Repositories\Contracts\PrecoRepositoryInterface;
-use App\Repositories\Contracts\ReajusteRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
 
 class PrecoController extends Controller
