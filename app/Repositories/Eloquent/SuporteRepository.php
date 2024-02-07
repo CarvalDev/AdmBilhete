@@ -51,4 +51,7 @@ class SuporteRepository extends AbstractRepository implements SuporteRepositoryI
             'statusSuporte' => $status
         ]);
     }
+    public function allHome(){
+        return $this->model->all()->count();
+    }
 }

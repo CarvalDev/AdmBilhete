@@ -11,5 +11,6 @@ interface LinhasRepositoryInterface
     public function update($id,$data);
     public function updateStatusLinhaCarroCatraca($id, $status);
     public function createWithCatracaCarro($data);
+    public function allHome();
     
 }

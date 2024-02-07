@@ -8,16 +8,27 @@ use App\Models\Compra;
 use App\Models\Linha;
 use App\Models\Passageiro;
 use App\Models\Suporte;
-use Illuminate\Http\Request;
+use App\Repositories\Contracts\CompraRepositoryInterface;
+use App\Repositories\Contracts\LinhasRepositoryInterface;
+use App\Repositories\Contracts\PassageiroRepositoryInterface;
+use App\Repositories\Contracts\SuporteRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-    public function index(Passageiro $passageiro, Compra $compra, Linha $linha, Suporte $suporte){
-        $passageiro = $passageiro->all();
-        $faturamento = $compra->sum('valorTotalCompra');
-        $linha = $linha->all();
-        $suporte = $suporte->all()->count();
+    protected $modelP,$modelC,$modelL,$modelS;
+    public function __construct(PassageiroRepositoryInterface $passageiro,CompraRepositoryInterface $compra,LinhasRepositoryInterface $linha,SuporteRepositoryInterface $suporte)
+    {
+        $this->modelP = $passageiro;
+        $this->modelC = $compra;
+        $this->modelL = $linha;
+        $this->modelS = $suporte;
+    }
+    public function index(){
+        $passageiro = $this->modelP->allHome();
+        $faturamento = $this->modelC->sumHome();
+        $linha = $this->modelL->allHome();
+        $suporte = $this->modelS->allHome();
         $user = Auth::guard('adm')->user();
 
         

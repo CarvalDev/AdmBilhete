@@ -8,6 +8,5 @@ interface SuporteRepositoryInterface
     public function findWithPassageiro($id);
     public function updateStatus($id, $status);
     public function findById($id);
-    
-    
+    public function allHome();
 }

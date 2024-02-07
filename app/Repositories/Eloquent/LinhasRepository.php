@@ -104,4 +104,7 @@ class LinhasRepository extends AbstractRepository implements LinhasRepositoryInt
         
     
     }
+    public function allHome(){
+        return $this->model->all();
+    }
 }

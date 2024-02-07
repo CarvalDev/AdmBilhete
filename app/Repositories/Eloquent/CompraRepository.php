@@ -19,5 +19,8 @@ class CompraRepository extends AbstractRepository implements CompraRepositoryInt
                     ->selectRaw('SUM(valorTotalCompra) as valor')
                     ->get();
     }
+    public function sumHome(){
+        return  $this->model->sum('valorTotalCompra');
+    }
    
 }

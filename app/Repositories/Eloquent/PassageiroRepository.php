@@ -32,5 +32,8 @@ class PassageiroRepository extends AbstractRepository implements PassageiroRepos
                 ->where('passageiros.id', $id)
                 ->get();
     }
-    
+    public function allHome(){
+        
+      return  $this->model->all();
+    }
 }
