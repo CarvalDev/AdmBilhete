@@ -12,7 +12,7 @@
   position: absolute;
   width: auto;
   height: 3px;
-  background-color: #f00;
+  background-color: #dd2d4a;
   visibility: visible;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -37,13 +37,18 @@
   z-index: 2;
   position: fixed;
   height: 100%;
-  background-color: #f00;
+  background-color: #dd2d4a;
   
   
 }
 
 #navTransition{
   cursor: pointer;
+}
+#navTransition:hover{
+  transition: all 1s;
+  transform: scale(1.03);
+  font-weight: bolder;
 }
 
 @keyframes slideIn{

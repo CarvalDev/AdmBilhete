@@ -4,35 +4,35 @@
     <nav  class="navbar navbar-expand-sm flex-column h-100">
         <div style="width:80%; height:20%" class="  m-0  d-flex justify-content-center align-items-center">
         <a style="height:100% width:100%" href="{{route('home.index')}}" >
-            <img class="img-fluid"  style="" src="{{ url('images/logo bilhete 1.png') }}" alt="">
+            <img class="img-fluid"  style="" src="{{ url('images/logoBranca.png') }}" alt="">
         </a>
         </div>
         <div style="height:80%" class="collapse navbar-collapse  flex-column h-100" id="navegacao">
             <div class="container d-flex justify-content-center align-items-center" style="height: 100%">
-                <ul class="navbar-nav flex-column d-flex h-100 justify-content-between  text-center">
+                <ul class="navbar-nav flex-column d-flex h-100 justify-content-between   text-center">
                     <li class="nav-item">
                         <a href="{{route('home.index')}}" class="nav-link">Painel de Controle</a>
-                        <hr>
+                        <!-- <hr> -->
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item ">
                         <a href="{{ route('caixaEntrada.index') }}" class="nav-link">Caixa de Entrada</a>
-                        <hr>
+                        <!-- <hr> -->
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('passageiros.index') }}" class="nav-link">Passageiros</a>
-                        <hr>
+                        <!-- <hr> -->
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('linhas.index') }}" class="nav-link">Linhas</a>
-                        <hr>
+                        <!-- <hr> -->
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('faturamento.index') }}" class="nav-link">Faturamento</a>
-                        <hr>
+                        <!-- <hr> -->
                     </li>
                     <li class="nav-item">
                         <span href="" id="navTransition" onclick="abreNav()" class="nav-link">Mais Opções<i class="fa-solid fa-arrow-right"></i></span>
-                        <hr>
+                        <!-- <hr> -->
                     </li>
                 </ul>
             </div>

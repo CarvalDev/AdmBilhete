@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="content w-100 vh-100 d-flex justify-content-center align-items-center">
-        <div id="navbar"  style="width: 10%;background-color:#FF0000" class="h-100  d-flex justify-content-center align-items-center fixed-top">@include('components.sidebar')</div>
+        <div id="navbar"  style="width: 10%;background-color:#dd2d4a" class="h-100  d-flex justify-content-center align-items-center fixed-top">@include('components.sidebar')</div>
         <div style="width: 90%; margin-left:10%" class=" vh-100 d-flex flex-column justify-content-center align-items-center">
             @include('components.navbar')
             <div style="height: 80%" class="w-100 d-flex justify-content-center align-items-center">@yield('content')</div>

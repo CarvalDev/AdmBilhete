@@ -10,15 +10,15 @@
                 <ul class="navbar-nav flex-column w-100  d-flex h-100 justify-content-between  text-center">
                     <li class="nav-item">
                             <a href="{{route('preco.edit',['id'=>1])}}" class="nav-link">Editar Preço</a>
-                        <hr>
+                        <!-- <hr> -->
                     </li>
                     <li class="nav-item">
                         <a href="{{route('adm.index')}}" class="nav-link">Administradores</a>
-                        <hr>
+                        <!-- <hr> -->
                     </li>
                     <li class="nav-item">
                         <span id="navTransition" onclick="fechaNav()" href="{{ route('passageiros.index') }}" class="nav-link"><i class="fa-solid fa-arrow-left"></i> Fechar</span>
-                        <hr>
+                        <!-- <hr> -->
                     </li>
                     <li class="nav-item">
                         
