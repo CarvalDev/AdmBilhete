@@ -10,19 +10,22 @@ $.ajaxSetup({
 
 
 $(document).on('keyup', function(e){
+    
     e.preventDefault()
     let search = $('#admSearch').val()
     $.ajax({
-        url: "{{ route('adm.index') }}",
-        method: 'get',
+        url: "{{ route('adm.search') }}",
+        method: 'get', 
         data: {search: search},
         success: function(res){
-        //    console.log(res) 
-        console.log(res)
+           console.log(res) 
+        
         $('#tabela').html(res)
-        //    $("#tabela").html($(res).filter('#tabela'));
-            // $('#tabela').hide().html(res).fadeIn();
+        
            
+        },
+        error: function(e){
+            alert("ad")
         }
     })
 })
@@ -60,6 +63,7 @@ $('#admStore').submit(function(e) {
                     "hideMethod": "fadeOut"
                     }
                     $('#admStore input').val("")
+                    
         },
         error: function(err){
             let error = err.responseJSON

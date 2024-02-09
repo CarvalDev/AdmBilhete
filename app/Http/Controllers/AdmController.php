@@ -40,7 +40,7 @@ class AdmController extends Controller
         return redirect()->route('login.index');
     }
     public function index(){
-        $adms = $this->model->all();
+        $adms = $this->model->defaultAll();
         $user = Auth::guard('adm')->user();
         return view('adm.index', compact('adms', 'user'));
     }
@@ -48,7 +48,13 @@ class AdmController extends Controller
     public function search(Request $request)
     {
         $adms = $this->model->search($request->search);
-        
+        if($adms->count() >= 1){
+            return view('adm.partials.adms_result', compact('adms'))->render();
+        }else{
+            return response()->json([
+                'status' => 'nada_encontrado'
+            ]);
+        }
     }
 
     public function perfil(){

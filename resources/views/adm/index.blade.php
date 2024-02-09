@@ -13,9 +13,9 @@
         <a href="{{ route('adm.form') }}" class="border-0"><i class="fas fa-plus-circle fa-2x" aria-hidden="true"></i></a>
     </div>
     @if (count($adms)>0)
-    <table id="tabela" class="w-100 mt-3 text-center">
+    <table id="tabela" class="mx-auto mt-3 text-center" style="width: 98%">
 
-        <tr class="" style="border-bottom:1px solid red">
+        <tr class="" style="border-bottom:rgba(1, 1, 1, 0.1) 1px solid">
             <th class="p-2" style="width: 10%;">ID</th>
             <th class="px-2" style="width: 25%">Nome</th>
             <th class="px-2" style="width: 25%">Email</th>
@@ -27,7 +27,7 @@
         
         @foreach ($adms as $adm)
             
-        <tr style="border-bottom:1.5px solid red">
+        <tr style="border-bottom:rgba(1, 1, 1, 0.1) 1px solid">
             <td class="px-2 fw-bold ">{{ $adm->id }}</td>
             <td class="px-2 fw-bold">{{$adm->nomeAdm}}</td>
             <td class="px-2 fw-bold">{{$adm->emailAdm}}</td>
