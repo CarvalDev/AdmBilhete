@@ -13,7 +13,7 @@
         <a href="{{ route('adm.form') }}" class="border-0"><i class="fas fa-plus-circle fa-2x" aria-hidden="true"></i></a>
     </div>
     @if (count($adms)>0)
-    <table class="w-100 mt-3 text-center">
+    <table id="tabela" class="w-100 mt-3 text-center">
 
         <tr class="" style="border-bottom:1px solid red">
             <th class="p-2" style="width: 10%;">ID</th>
@@ -54,9 +54,15 @@
 
 
 <script src="{{ URL::asset('js/modalPassageiro.js') }}"></script>
+
+@include('adm.ajax.adm')
+
+
+
+
 @endsection
 @section('pageTitle', 'Administradores')
 
 @section('pesquisa')
-    @include('components.barraPesquisa')
+@include('components.barraPesquisa')
 @endsection

@@ -42,7 +42,7 @@ class AdmController extends Controller
     public function index(AdmRepositoryInterface $adm,Request $request){
         $adms = $this->model->all(search: $request->search ?? '');
         $user = Auth::guard('adm')->user();
-        return view('adm.index', compact('adms', 'user'));
+        return view('adm.index', compact('adms', 'user'))->render();
     }
 
     public function perfil(){
@@ -70,8 +70,13 @@ class AdmController extends Controller
 
     public function store(StoreUpdateAdmFormRequest $request){
         $data = $this->services->dataQualityStore($request);
+        
         $this->model->create($data);
         $user = Auth::guard('adm')->user();
-        return view('adm.form', compact('user'));
+        
+        return response()->json([
+            'status' => 'success'
+        ]);
+        
     }
 }

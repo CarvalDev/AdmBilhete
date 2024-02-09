@@ -10,7 +10,7 @@
 @section('pageTitle', 'Adicionar Adm')
 @section('content')
 
-<form action="{{route('adm.store')}}" style="max-height: 100%" class="w-100 h-100 flex-column d-flex justify-content-center align-items-center" method="post" enctype="multipart/form-data">
+<form action="" style="max-height: 100%" id="admStore" class="w-100 h-100 flex-column d-flex justify-content-center align-items-center" method="post" enctype="multipart/form-data">
   @csrf
     <div class=" mb-2">
       <strong>INFORMAÇÕES DO ADM</strong>
@@ -27,7 +27,7 @@
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="nome" class="col-form-label">Nome:</label>
-            <input type="text" class="form-control" name="nomeAdm" maxlength="50" id="nome" value=""
+            <input type="text" class="form-control" name="nomeAdm" maxlength="50" id="nomeAdm" value=""
               required>
             <div class="invalid-feedback">
               Nome Inválido
@@ -36,7 +36,7 @@
           <div class="col-md-6">
             <label for="email" class="col-form-label">Email:</label>
             <input type="email" class="form-control" name="emailAdm" maxlength="100" value=""
-              id="email" required>
+              id="emailAdm" required>
             <div class="invalid-feedback">
               E-mail Inválido
             </div>
@@ -47,15 +47,15 @@
           <div class="col-md-6">
             <label for="senha" class="col-form-label">Senha:</label>
             <input type="password" class="form-control" name="senhaAdm" value="" maxlength="10"
-              id="senha" required>
+              id="senhaAdm" required>
             <div class="invalid-feedback">
               Senha Inválido
             </div>
           </div>
           <div class="col-md-6">
             <label for="senha" class="col-form-label">Confirme sua Senha:</label>
-            <input type="password" class="form-control" name="senhaConf" value="" maxlength="10"
-              id="senha" required>
+            <input type="password" class="form-control" name="senhaConf"  value="" maxlength="10"
+              id="senhaConfirma" required>
             <div class="invalid-feedback">
               Senha Inválido
             </div>
@@ -68,7 +68,7 @@
           </div>
           <div class=" text-end  col-md-10">
           <a href="{{ route('adm.index') }}" class=" btn btn-primary" role="button" aria-disabled="true" href="index.php">Voltar</i></a>
-          <input type="submit" class=" btn btn-success" value="Salvar">
+          <button type="submit" class=" btn btn-success salvarBtn">Salvar</button>
         </div>
         </div>
 
@@ -76,22 +76,23 @@
     </div>
   </form>
   <div>
-    @if ($errors->any())
-    <ul class="errors">
-        @foreach ($errors->all() as $error)
-            <li class="error">{{$error}}</li>
-        @endforeach
-    </ul>
-@endif
+    
+    <div class="errors">
+      
+    </div>
+
     
 
 </div>
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
-  {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous" defer>
-  </script> --}}
-  <!-- Para usar Mascara  -->
-  
+{{-- <script type="text/javascript" src="http://code.jquery.com/jquery-3.0.0.min.js"></script> --}}
+{{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous" defer>
+</script> --}}
+<!-- Para usar Mascara  -->
+
+  @include('adm.ajax.adm')
   <script src="{{ asset('js/formularioPassageiro.js') }}"></script>
   <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
+  
+
 @endsection

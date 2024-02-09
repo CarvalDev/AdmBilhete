@@ -3,7 +3,8 @@
 @if(isset($passageiros))
 action="{{route('passageiros.index')}}"
 @elseif(isset($adms))
-action="{{route('adm.index')}}"
+
+
 @elseif(isset($linhas))
 action="{{route('linhas.index')}}"
 @elseif(isset($suportes))
@@ -12,7 +13,18 @@ action="{{route('caixaEntrada.index')}}"
 method="get" class="d-flex flex-row">
     @csrf
     
-    <input type="text" placeholder="Pesquisa" name="search" class="form-control border border-danger rounded-5">
+    <input type="text" placeholder="Pesquisa" name="search" class="form-control border border-danger rounded-5"
+    @if(isset($passageiros))
+            id="passageirosSearch"
+    @elseif(isset($adms))
+            id="admSearch"
+    @elseif(isset($linhas))
+        action="{{route('linhas.index')}}"
+    @elseif(isset($suportes))
+        action="{{route('caixaEntrada.index')}}"
+    @endif
+    
+    >
     <button type="submit" style="background: none; border:none;font-size:22px"><i style="color: #000" class="fa-solid fa-magnifying-glass"></i></button>    
 </form>
 
