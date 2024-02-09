@@ -18,6 +18,8 @@ $(document).on('keyup', function(e){
         data: {search: search},
         success: function(res){
         //    console.log(res) 
+        console.log(res)
+        $('#tabela').html(res)
         //    $("#tabela").html($(res).filter('#tabela'));
             // $('#tabela').hide().html(res).fadeIn();
            

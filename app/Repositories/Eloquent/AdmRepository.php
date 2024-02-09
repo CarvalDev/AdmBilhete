@@ -12,14 +12,13 @@ use App\Repositories\Eloquent\AbstractRepository;
         public function __construct(){
             $this->model = app($this->model);
         }
-        public function all(String | null $search = null){
+        public function search(String | null $search = null){
             
-            return $this->model->where(function($query) use ($search){
-                if($search)
-                {
-                $query->where('nomeAdm','LIKE',"%{$search}%");
-                $query->orWhere('emailAdm','LIKE',"%{$search}%");
-                }
-            })->get();   
+            return $this->model->
+                
+                where('nomeAdm','LIKE',"%{$search}%")
+                ->orWhere('emailAdm','LIKE',"%{$search}%")
+                
+            ->get();   
         }
     }

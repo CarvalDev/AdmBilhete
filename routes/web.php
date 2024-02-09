@@ -68,6 +68,7 @@ Route::get('/adm/perfil', [AdmController::class, 'perfil'])->name('adm.perfil');
 Route::get('adm/{id}/edit', [AdmController::class, 'edit'])->name('adm.edit');
 Route::delete('adm/{id}/destroy', [AdmController::class, 'destroy'])->name('adm.destroy');
 Route::put('adm/{id}/update', [AdmController::class, 'update'])->name('adm.update');
+
 Route::post('/logout', [AdmController::class, 'logout'])->name('adm.logout');
 
 });

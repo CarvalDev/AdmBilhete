@@ -39,10 +39,16 @@ class AdmController extends Controller
         $this->services->logout($request);
         return redirect()->route('login.index');
     }
-    public function index(AdmRepositoryInterface $adm,Request $request){
-        $adms = $this->model->all(search: $request->search ?? '');
+    public function index(){
+        $adms = $this->model->all();
         $user = Auth::guard('adm')->user();
-        return view('adm.index', compact('adms', 'user'))->render();
+        return view('adm.index', compact('adms', 'user'));
+    }
+
+    public function search(Request $request)
+    {
+        $adms = $this->model->search($request->search);
+        
     }
 
     public function perfil(){

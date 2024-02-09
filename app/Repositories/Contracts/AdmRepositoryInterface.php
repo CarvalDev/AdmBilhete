@@ -4,7 +4,8 @@
 
     interface AdmRepositoryInterface
     {
-        public function all(String | null $search = null);
+        public function search(String | null $search = null);
+        public function all();
         public function destroy($id);
         public function update($id, $data);
         public function findById($id);
