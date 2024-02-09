@@ -5,6 +5,7 @@ use App\Http\Controllers\CaixaEntradaController;
 
 
 use App\Http\Controllers\FaturamentoController;
+use App\Http\Controllers\FormularioPassageiroControler;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LinhasController;
 use App\Http\Controllers\LoginController;
@@ -70,6 +71,7 @@ Route::put('adm/{id}/update', [AdmController::class, 'update'])->name('adm.updat
 Route::post('/logout', [AdmController::class, 'logout'])->name('adm.logout');
 
 });
+Route::get('/formulariopassageiro', [FormularioPassageiroControler::class, 'index'])->name('formulariopassageiro.index');
 
 
 
