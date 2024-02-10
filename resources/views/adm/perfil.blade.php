@@ -9,7 +9,7 @@
 
 @section('pageTitle', 'Perfil')
 @section('content')
-
+<div class="w-100 h-100">
 <form action="{{route('adm.update', $user->id)}}" style="max-height: 100%" class="w-100 h-100 flex-column d-flex justify-content-center align-items-center" method="post" enctype="multipart/form-data">
   @csrf
   @method('PUT')

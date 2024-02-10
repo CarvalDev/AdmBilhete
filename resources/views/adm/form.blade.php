@@ -9,7 +9,7 @@
 
 @section('pageTitle', 'Adicionar Adm')
 @section('content')
-
+<div class=" w-100 h-100">
 <form action="" style="max-height: 100%" id="admStore" class="w-100 h-100 flex-column d-flex justify-content-center align-items-center" method="post" enctype="multipart/form-data">
   @csrf
     <div class=" mb-2">

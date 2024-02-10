@@ -9,7 +9,7 @@
 
 @section('pageTitle', 'Atualizar Administrador')
 @section('content')
-
+<div class="w-100 h-100">
 <form action="{{ route('adm.update', $adm->id) }}" style="max-height: 100%" class="w-100 h-100 flex-column d-flex justify-content-center align-items-center" method="post" enctype="multipart/form-data">
   @csrf
   @method('PUT')
@@ -91,6 +91,7 @@
     
 
 </div>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
   {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous" defer>

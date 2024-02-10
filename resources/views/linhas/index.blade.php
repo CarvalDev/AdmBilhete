@@ -13,8 +13,8 @@
     </div>
     
     @if (isset($linhas))
-    <table class="w-100 mt-3">
-        <tr class="" style="border-bottom:1.5px solid red">
+    <table class="mx-auto mt-3" style="width: 95%">
+        <tr class="" style="border-bottom:rgba(1, 1, 1, 0.1) 1px solid">
             <th class="p-2 text-center" style="width: 20%;">Nº Linha</th>
             <th class="px-2 text-center" style="width: 20%">Nome Linha</th>
             <th class="px-2 text-center" style="width: 20%">Qtd Carros</th>
@@ -24,7 +24,7 @@
         </tr>
         @foreach ($linhas as $linha)
         
-        <tr style="border-bottom:1.5px solid red">
+        <tr style="border-bottom:rgba(1, 1, 1, 0.1) 1px solid">
             <td class="px-2 text-center fw-bold">{{$linha->numLinha}}</td>
             <td class="px-2 text-center fw-bold">{{$linha->nomeLinha}}</td>
             <td class="px-2 text-center fw-bold">{{$linha->qtdCarros}}</td>

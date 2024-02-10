@@ -13,7 +13,7 @@
         <a href="{{ route('adm.form') }}" class="border-0"><i class="fas fa-plus-circle fa-2x" aria-hidden="true"></i></a>
     </div>
     @if (count($adms)>0)
-    <table id="tabela" class="mx-auto mt-3 text-center" style="width: 98%">
+    <table id="tabela" class="mx-auto mt-3 text-center" style="width: 95%">
 
         <tr class="" style="border-bottom:rgba(1, 1, 1, 0.1) 1px solid">
             <th class="p-2" style="width: 10%;">ID</th>

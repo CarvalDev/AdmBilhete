@@ -73,3 +73,5 @@ const flipAndShow2 = () => {
   }, 500)
   
 }
+
+
