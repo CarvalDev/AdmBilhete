@@ -19,7 +19,7 @@ class PassagemFactory extends Factory
     public function definition()
     {
         return [
-            'statusPassagem' => fake()->randomElement(['Ativa', 'Inativa']),
+            'statusPassagem' => fake()->randomElement(['Ativa']),
             'tempoRestantePassagem' => '00:00:00'
         ];
     }

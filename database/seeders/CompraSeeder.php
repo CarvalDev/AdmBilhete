@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Acao;
+use App\Models\Bilhete;
 use App\Models\Compra;
 use App\Models\FormaPagamento;
 use App\Models\Passageiro;
@@ -16,18 +17,23 @@ class CompraSeeder extends Seeder
      *
      * @return void 
      */
-    public function run(Passageiro $passageiro)
+    public function run(Passageiro $passageiroModel, Bilhete $bilheteModel, FormaPagamento $formaPagamentoModel)
     {
-        $passageiro = $passageiro->find(1);
-        $formaPagamento = FormaPagamento::find(fake()->numberBetween(1,3));
-        Compra::factory()
-            ->count(30)
-            ->for($formaPagamento)
-            ->for(Acao::factory()
-                    
-                    ->for($passageiro), 'acao'
-                     )
-            ->create();
-        
+       
+        for($i=1;$i<=40;$i++){
+            $bilhete = $bilheteModel->find($i);
+            $passageiro = $bilhete->passageiro()->get();
+            $passageiro = $passageiroModel->find($passageiro[0]->id);
+            for($j=1;$j<=5;$j++){
+                $formaPagamento = $formaPagamentoModel->find(fake()->numberBetween(1,4));
+                Acao::factory(1)
+                    ->for($passageiro)
+                    ->has(Compra::factory(1)
+                    ->for($formaPagamento)
+                    ->for($bilhete))
+                    ->create();
+            }
+
+        }
     }
 }

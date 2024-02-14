@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('cepPassageiro');
             $table->string('fotoPassageiro')->nullable();
             $table->string('emailPassageiro')->unique();
-            $table->string('senhaPassageiro');
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

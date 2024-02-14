@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('compras', function (Blueprint $table) {
+        Schema::create('codigos', function (Blueprint $table) {
             $table->id();
-            $table->integer('qtdPassagensCompra');
-            $table->float('valorTotalCompra');
-            $table->foreignId('forma_pagamento_id')->constrained('forma_pagamentos');
-            $table->foreignId('acao_id')->constrained('acaos'); 
+            $table->string('codigo', 4);
+            $table->string('tipoCodigo');
+            $table->boolean('wasUsed');
+            $table->foreignId('passageiro_id')->constrained('passageiros');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('compras');
+        Schema::dropIfExists('codigos');
     }
 };

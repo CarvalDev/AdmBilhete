@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
             ReajusteSeeder::class,
             PrecoSeeder::class,
             AcaoSeeder::class,
+            CompraSeeder::class,
+
         ]);
     }
 }

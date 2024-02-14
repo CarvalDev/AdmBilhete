@@ -97,7 +97,7 @@
         <div class="col-6 mt-3">  <input class="form-control" type="email" name="emailPassageiro" id="email" placeholder="E-mail"></div> 
         
         
-        <div class="col-6 mt-3"><input class="form-control" type="password" name="senhaPassageiro" id="telefone" placeholder="Senha"></div>
+        <div class="col-6 mt-3"><input class="form-control" type="password" name="password" id="telefone" placeholder="Senha"></div>
         <div class="col-6 mt-3">  <input class="form-control" type="password"  placeholder="Confirmar senha"></div> 
     
 

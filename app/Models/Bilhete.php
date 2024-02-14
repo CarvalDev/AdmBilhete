@@ -25,13 +25,16 @@ class Bilhete extends Model
         'meiaPassagensBilhete' => 'boolean',
     ];
 
-    public function passageiros(){
+    public function passageiro(){
        return  $this->belongsTo(Passageiro::class);
     }
 
     public function passagem(){
        return $this->hasMany(Passagem::class);
     }
+    public function compra(){
+        return $this->hasMany(Compra::class);
+     }
     protected static function newFactory()
     {
         return BilheteFactory::new();

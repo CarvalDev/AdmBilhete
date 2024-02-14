@@ -21,8 +21,8 @@ class CompraFactory extends Factory
     {
         $fakeNumber = fake()->numberBetween(2, 20);
         return [ 
-            'qtdPassagensCompra' => $fakeNumber,
-            'valorTotalCompra' => $fakeNumber*4.4,
+            'qtdPassagensCompra' => 4,
+            'valorTotalCompra' => 4*4.4,
         ];
     }
 }

@@ -1,8 +1,9 @@
+
 <x-mail::layout>
 {{-- Header --}}
 <x-slot:header>
 <x-mail::header :url="config('app.url')">
-<img src="{{URL::asset('images/logo bilhete 1.png')}}" alt="">
+<img src="{{ URL::asset('images/logo bilhete 1.png') }}" alt="">
 </x-mail::header>
 </x-slot:header>
 

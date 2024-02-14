@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Mail;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+ 
 
 Route::group(['middleware' => 'adm'], function(){
 Route::put('/carros/status/update', [LinhasController::class, 'updateStatusCarro'])->name('carros.status.update'); 

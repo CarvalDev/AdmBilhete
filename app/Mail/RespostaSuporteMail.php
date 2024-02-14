@@ -20,7 +20,7 @@ class RespostaSuporteMail extends Mailable
      */
     public function __construct(
         public string $mensagem,
-        public string $idSuporte,
+        public string $idSuporte, 
         public string $nome,
         public string $msgUsuario, 
         public string $tema,

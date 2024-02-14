@@ -26,9 +26,7 @@ class PassageiroSeeder extends Seeder
     {
         Passageiro::factory()
             ->count(40)
-            ->has(Acao::factory(10)
-                ->has(Compra::factory(1)->for(FormaPagamento::find(1)))
-            )
+            
             ->has(Acao::factory(2)
                 ->has(Suporte::factory(1))
             )

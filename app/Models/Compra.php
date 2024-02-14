@@ -11,7 +11,8 @@ class Compra extends Model
     use HasFactory;
     protected $fillable = [
         'qtdPassagensCompra',
-        'valorTotalCompra'
+        'valorTotalCompra',
+        'bilhete_id'
     ];
 
     public function formaPagamento(){
@@ -21,6 +22,9 @@ class Compra extends Model
     public function acao(){
         return $this->belongsTo(Acao::class);
     }
+    public function bilhete(){
+        return  $this->belongsTo(Bilhete::class);
+     }
 
     protected static function newFactory()
     {

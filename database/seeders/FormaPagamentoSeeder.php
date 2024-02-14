@@ -26,5 +26,8 @@ class FormaPagamentoSeeder extends Seeder
         FormaPagamento::create([
             'descFormaPagamento' => 'pix',
         ]);
+        FormaPagamento::create([
+            'descFormaPagamento' => 'boleto',
+        ]);
     }
 }

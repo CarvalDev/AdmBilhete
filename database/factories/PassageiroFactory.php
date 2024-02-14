@@ -45,7 +45,7 @@ class PassageiroFactory extends Factory
         'cepPassageiro' => fake()->randomDigit(8),
         'fotoPassageiro' => null,
         'emailPassageiro' => fake()->unique()->email(),
-        'senhaPassageiro' => '123',
+        'password' => null,
         ];
     }
 }

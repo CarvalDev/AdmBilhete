@@ -24,7 +24,7 @@ class Passageiro extends Model
         'cepPassageiro',
         'fotoPassageiro',
         'emailPassageiro',
-        'senhaPassageiro',
+        'password',
     ];
 
     protected $hidden = [

@@ -84,7 +84,7 @@ class PassageiroController extends Controller
     public function store(StoreUpdatePassageiroFormRequest $request)
     {
         $data = $request->all();
-        $data['senhaPassageiro'] = bcrypt($data['senhaPassageiro']);
+        $data['password'] = bcrypt($data['password']);
         if($request->fotoPassageiro){
             $data['fotoPassageiro'] = $request->fotoPassageiro->store('passageiros');
         }
