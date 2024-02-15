@@ -107,4 +107,31 @@ class LinhasRepository extends AbstractRepository implements LinhasRepositoryInt
     public function allHome(){
         return $this->model->all();
     }
-}
+
+    public function search(String | null $search = null){
+        $linhas1 = $this->model
+        ->select('linhas.id','numLinha', 'nomeLinha')
+        ->selectRaw('COUNT(carros.id) as qtdCarros')
+        ->join('carros', 'linhas.id', '=', 'carros.linha_id')
+        ->groupBy('id', 'numLinha', 'nomeLinha')
+        ->
+        where('nomeLinha','LIKE',"%{$search}%")
+            ->get();
+        
+        $consumos = $this->model
+                ->select('linhas.id')
+                ->selectRaw('COUNT(consumos.id) as qtdConsumos')
+                ->join('carros', 'linhas.id', '=', 'carros.linha_id')
+                ->join('consumos', 'carros.id', 'consumos.carro_id')
+                ->groupBy('linhas.id')
+                ->
+                where('nomeLinha','LIKE',"%{$search}%")
+                    ->get();
+                    
+        $linhas = DataServices::resolveConsumos($linhas1, $consumos);
+        return $linhas; 
+        
+        
+    }
+} 
+

@@ -13,7 +13,7 @@
     </div>
     
     @if (isset($linhas))
-    <table class="mx-auto mt-3" style="width: 95%">
+    <table class="mx-auto mt-3" style="width: 95%" id="tabela">
         <tr class="" style="border-bottom:rgba(1, 1, 1, 0.1) 1px solid">
             <th class="p-2 text-center" style="width: 20%;">Nº Linha</th>
             <th class="px-2 text-center" style="width: 20%">Nome Linha</th>
@@ -43,10 +43,10 @@
     </div>
     @endif
 </div>
+@include('linhas.ajax.linhas') 
 @endsection
 
 @include('components.modalCatracas')
-
 
 @section('pageTitle','Linhas')
 

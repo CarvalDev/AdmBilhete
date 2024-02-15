@@ -19,7 +19,7 @@ method="get" class="d-flex flex-row">
     @elseif(isset($adms))
             id="admSearch"
     @elseif(isset($linhas))
-        action="{{route('linhas.index')}}"
+        id="linhaSearch"
     @elseif(isset($suportes))
         action="{{route('caixaEntrada.index')}}"
     @endif

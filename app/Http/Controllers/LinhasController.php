@@ -54,6 +54,18 @@ class LinhasController extends Controller
         return redirect()->route('linhas.index');
     }
 
+    public function search(Request $request)
+    {
+        $linhas = $this->model->search($request->search);
+        if($linhas->count() >= 1){
+            return view('linhas.partials.linhas_result', compact('linhas'))->render();
+        }else{
+            return response()->json([
+                'status' => 'nada_encontrado'
+            ]);
+        }
+    }
+
     public function show($id,   ConsumoRepositoryInterface $consumoModel){
        
         $query = $this->model->findWithCarros($id);
