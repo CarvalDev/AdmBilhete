@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="tabela w-100 h-100">
-    <table class=" mx-auto mt-4 text-center" style="width:98%">
+    <table class=" mx-auto mt-4 text-center" style="width:98%" id="tabela">
         <tr class="text-center" style="border-bottom:rgba(1, 1, 1, 0.1) 1px solid">
             @if ($datas->count()>0)
             <th class="px-2" style="width: 5%;">ID</th>
@@ -44,6 +44,7 @@
 
     </table>
 </div>   
+@include('caixaEntrada.ajax.caixaEntrada')
 @endsection
 
 @include('components.modal')

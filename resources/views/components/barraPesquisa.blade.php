@@ -6,9 +6,9 @@
 
 
 @elseif(isset($linhas))
-action="{{route('linhas.index')}}"
-@elseif(isset($suportes))
-action="{{route('caixaEntrada.index')}}"
+
+@elseif(isset($datas))
+
 @endif
 method="get" class="d-flex flex-row">
     @csrf
@@ -20,8 +20,8 @@ method="get" class="d-flex flex-row">
             id="admSearch"
     @elseif(isset($linhas))
         id="linhaSearch"
-    @elseif(isset($suportes))
-        action="{{route('caixaEntrada.index')}}"
+    @elseif(isset($datas))
+        id="caixaEntradaSearch"
     @endif
     
     >

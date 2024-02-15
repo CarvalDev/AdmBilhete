@@ -43,6 +43,7 @@ Route::get('/linhas/register',[LinhasController::class, 'register'])->name('linh
 Route::get('/linhas/results', [linhasController::class, 'search'])->name('linha.search');
 Route::get('/caixaEntrada',[CaixaEntradaController::class, 'caixaIndex'])->name('caixaEntrada.index');
 Route::get('/caixaEntrada/{id}/show', [CaixaEntradaController::class, 'show'])->name('caixaEntrada.show');
+Route::get('/caixaEntrada/results', [CaixaEntradaController::class, 'search'])->name('caixaEntrada.search');
 
 Route::get('/preco', [PrecoController::class, 'index'])->name('preco.index');
 Route::get('/preco/{id}/edit', [PrecoController::class, 'edit'])->name('preco.edit');

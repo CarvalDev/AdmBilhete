@@ -77,4 +77,15 @@ class CaixaEntradaController extends Controller
         return redirect()->back();
 
     }
+    public function search(Request $request)
+    {
+        $datas = $this->model->search($request->search);
+        if($datas->count() >= 1){
+            return view('caixaEntrada.partials.caixaEntrada_result', compact('datas'))->render();
+        }else{
+            return response()->json([
+                'status' => 'nada_encontrado'
+            ]);
+        }
+    }
 }

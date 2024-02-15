@@ -21,13 +21,12 @@
     }
     .boxView{
         border: 1px solid black
-    }
+    }   
 
 </style>
-    <div class="w-100 h-100 border border-2 d-flex justify-content-center align-items-center ">
-        <div class="conteudoCima border border-2">
 
-        </div>
+    <div class="w-100 h-100 border border-2 d-flex justify-content-center align-items-center ">
+        
         
         <div class="formulario h-75 w-75 border border-2">
                 <p class="w-100 text-center border border-2 pColor fw-bold rounded ">Dados do Usuario</p>
@@ -273,7 +272,13 @@
                                 </textarea>
                     </div>
                 </div>
-                <div class="d-flex justify-content-center align-items-center">
+                <div class="d-flex justify-content-center align-items-center w-25">
+                <div class="text-center h-25 border border-dark mt-md-3">
+                    <input type="checkbox" name="" id="robo">
+                    <label for="robo">Não sou um robô</label>
+                </div>
+                </div>
+                <div class="d-flex justify-content-center align-items-center mt-md-3">
                     <button type="submit" class="btn btnCustom fw-bold">Concordo</button>
                     <button type="submit" class="btn btnCustom fw-bold">Cancelar</button>
                 </div>

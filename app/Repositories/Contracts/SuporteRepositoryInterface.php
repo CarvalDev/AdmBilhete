@@ -9,4 +9,5 @@ interface SuporteRepositoryInterface
     public function updateStatus($id, $status);
     public function findById($id);
     public function allHome();
+    public function search(String | null $search = null);
 }

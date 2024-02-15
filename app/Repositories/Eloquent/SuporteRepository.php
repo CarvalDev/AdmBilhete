@@ -54,4 +54,19 @@ class SuporteRepository extends AbstractRepository implements SuporteRepositoryI
     public function allHome(){
         return $this->model->all()->count();
     }
+    public function search(String | null $search = null){
+            
+        return  $this->model->
+        select('suportes.id as idSuporte','emailPassageiro as email', 'descSuporte as desc', 'dataAcao as data', 'categoriaSuporte as tema', 'statusSuporte as status' )
+        ->join('acaos', 'suportes.acao_id', 'acaos.id')
+        ->join('passageiros', 'acaos.passageiro_id', 'passageiros.id')
+
+              
+        ->where('emailPassageiro','LIKE',"%{$search}%")
+        ->orWhere('descSuporte','LIKE',"%{$search}%")
+        ->orWhere('dataAcao','LIKE',"%{$search}%")
+                
+        
+        ->get();
+    }
 }
