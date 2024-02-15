@@ -1,7 +1,7 @@
 
 <form
 @if(isset($passageiros))
-action="{{route('passageiros.index')}}"
+
 @elseif(isset($adms))
 
 
@@ -15,7 +15,7 @@ method="get" class="d-flex flex-row">
     
     <input type="text" placeholder="Pesquisa" name="search" class="form-control border border-danger rounded-5"
     @if(isset($passageiros))
-            id="passageirosSearch"
+            id="passageiroSearch"
     @elseif(isset($adms))
             id="admSearch"
     @elseif(isset($linhas))

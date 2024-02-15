@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ URL::asset('css/passageiros.css') }}">
 
 @endpush
-
+      
 @section('title', 'Adicionar Passageiro')
 
 @section('pageTitle', 'Adicionar Passageiro')
@@ -13,7 +13,7 @@
     
     
 
-    <form class="row justify-content-around w-100" action="{{ route('passageiros.store') }}"  style="" method="POST" action="" enctype="multipart/form-data">
+    <form class="row justify-content-around w-100"  id="passageiroStore" method="POST"  enctype="multipart/form-data">
         @csrf
         <div class="col-3 d-flex  flex-column gap-4 justify-content-center align-items-center">
             <label for="foto" id="lbFoto">
@@ -104,7 +104,7 @@
         <div class="d-flex justify-content-end align-items-end">
             <div class="col-12"><div class="d-flex justify-content-end mt-xl-5 mb-xl-3">
                 <button  id="bt-cancelarPassageiro" class="btn btnCss fw-bold" style="">Cancelar</button>
-                <button  type="submit" class="btn btnCss fw-bold ms-5"  style="width: 5vw">Enviar</button>
+                <button  type="submit" class="btn btnCss fw-bold ms-5 salvarBtn"  style="width: 5vw">Enviar</button>
             </div></div>
         </div>
     </div>
@@ -125,13 +125,13 @@
 
 
 </div>
-    
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
   {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous" defer>
   </script> --}}
   <!-- Para usar Mascara  -->
-  
+  @include('passageiros.ajax.passageiro')   
   <script src="{{ asset('js/formularioPassageiro.js') }}"></script>
   <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
   <script src="{{ asset('js/cep.js') }}"></script>

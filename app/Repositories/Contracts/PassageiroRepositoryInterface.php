@@ -4,9 +4,10 @@ namespace App\Repositories\Contracts;
 
 interface PassageiroRepositoryInterface
 {
-    public function all($search);
+    public function search(String | null $search = null);
     public function findWithAcoes($id);
     public function create($data);
     public function allHome();
+    
     
 }

@@ -13,8 +13,8 @@
         <a href="{{ route('passageiros.form') }}" class="border-0"><i class="fas fa-plus-circle fa-2x" aria-hidden="true"></i></a>
     </div>
     @if (count($passageiros)>0)
-    <table class="  mt-3  mx-auto" style="width: 98%;">
-        <thead class="" style=" !important">
+    <table class="  mt-3  mx-auto" style="width: 98%;" id="tabela">
+        <thead class="">
         <tr class="text-center" style="border-bottom:rgba(1, 1, 1, 0.1) 1px solid  ">
             <th class="" style="width: 5%;">ID</th>
             <th class="" style="width: 20%">Nome</th>
@@ -53,6 +53,9 @@
 
 
 <script src="{{ URL::asset('js/modalPassageiro.js') }}"></script>
+
+@include('passageiros.ajax.passageiro') 
+
 @endsection
 @section('pageTitle', 'Passageiros')
 

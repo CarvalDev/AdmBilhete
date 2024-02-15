@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PassageiroController;
 use App\Http\Controllers\PrecoController;
 use App\Http\Controllers\ReajusteController;
+use App\Models\Passageiro;
 use Illuminate\Support\Facades\Mail;
 
 /*
@@ -49,10 +50,11 @@ Route::get('/reajuste', [ReajusteController::class, 'store'])->name('reajuste.st
 Route::get('/faturamento', [FaturamentoController::class, 'index'])->name('faturamento.index');
 Route::get('/passageirosP/{id}/',[PassageiroController::class, 'perfilPassageiro'])->name('perfilPassageiro.index');
 Route::get('/linhas/{id}/show', [LinhasController::class, 'show'])->name('linhas.show');
-Route::post('/passageiros/store', [PassageiroController::class, 'store'])->name('passageiros.store');
+Route::post('/passageiros/store', [PassageiroController::class, 'store'])->name('passageiro.store');
 Route::put('/linhas/{id}/update', [LinhasController::class, 'update'])->name('linhas.update');
 Route::get('passageiros/AddBilhete/{id}', [PassageiroController::class, 'addBilhete'])->name('passageiros.addBilhete');
 Route::post('passageiros/{id}/bilhetes/store', [PassageiroController::class, 'bilheteStore'])->name('passageiros.bilhetes.store');
+Route::get('/passageiros/results', [PassageiroController::class, 'search'])->name('passageiro.search');
 // Route::get('/email', function(){
 //     Mail::to('carvalhohugo425@gmail.com')
 //     ->send(new RespostaSuporteMail());

@@ -14,15 +14,12 @@ class PassageiroRepository extends AbstractRepository implements PassageiroRepos
         $this->model = app($this->model);
     }
 
-    public function all($search)
+    public function search(String | null $search = null)
     {
         return $this->model
-            ->where(function($query) use ($search){
-                if($search !=null){
-                    $query->where('nomePassageiro','LIKE',"%{$search}%");
-                    $query->orWhere('emailPassageiro','LIKE',"%{$search}%");
-                }
-            })->get();
+            ->where('nomePassageiro','LIKE',"%{$search}%")
+            ->orWhere('emailPassageiro','LIKE',"%{$search}%")
+                 ->get();
     }
     public function findWithAcoes($id)
     {

@@ -71,7 +71,7 @@ class StoreUpdatePassageiroFormRequest extends FormRequest
                 "unique:passageiros,emailPassageiro,{$id},id",
                 'email'
             ],
-            'senhaPassageiro' => [
+            'password' => [
                 'required'
             ],
             'fotoPassageiro' => [

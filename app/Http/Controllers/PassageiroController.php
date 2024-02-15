@@ -19,7 +19,7 @@ class PassageiroController extends Controller
     public function passageiroIndex(Request $request)
     {
         
-        $passageiros = $this->model->all($request->search);
+        $passageiros = $this->model->search($request->search);
         $user = Auth::guard('adm')->user();
 
         return view('passageiros.index', compact('passageiros', 'user'));
@@ -90,7 +90,9 @@ class PassageiroController extends Controller
         }
         $this->model->create($data);
 
-        return redirect()->route('passageiros.index');
+        return response()->json([
+            'status' => 'success'
+        ]);
     }
     public function perfilPassageiro($id, BilheteRepositoryInterface $bilheteModel, DataServices $dataServices) 
     {
@@ -116,6 +118,20 @@ class PassageiroController extends Controller
 
         $user = Auth::guard('adm')->user();
         return view('passageiros.perfil', compact('passageiro', 'bilhetes', 'acoes', 'passagens', 'user'));
+    }
+
+    public function search(Request $request)
+    {
+          
+        $passageiros = $this->model->search($request->search);
+        
+        if($passageiros->count() >= 1){
+            return view('passageiros.partials.passageiros_result', compact('passageiros'))->render();
+        }else{
+            return response()->json([
+                'status' => $passageiros
+            ]);
+        }
     }
 
 }

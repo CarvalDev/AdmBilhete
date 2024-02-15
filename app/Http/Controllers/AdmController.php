@@ -87,7 +87,7 @@ class AdmController extends Controller
         $user = Auth::guard('adm')->user();
         
         return response()->json([
-            'status' => 'success'
+            'status' => 'success'    
         ]);
         
     }
