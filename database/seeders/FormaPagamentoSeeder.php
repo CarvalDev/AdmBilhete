@@ -16,18 +16,14 @@ class FormaPagamentoSeeder extends Seeder
     public function run()
     {
         FormaPagamento::create([
-            'descFormaPagamento' => 'credito',
-        ]);
+            'descFormaPagamento' => 'Cartao',
+        ]);  
 
         FormaPagamento::create([
-            'descFormaPagamento' => 'debito',
-        ]);
-
-        FormaPagamento::create([
-            'descFormaPagamento' => 'pix',
+            'descFormaPagamento' => 'Pix',
         ]);
         FormaPagamento::create([
-            'descFormaPagamento' => 'boleto',
+            'descFormaPagamento' => 'Boleto',
         ]);
     }
 }
