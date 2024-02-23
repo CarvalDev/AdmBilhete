@@ -14,10 +14,11 @@
     <title>@yield('title') - BUD</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body onload="loading()">
     <div class="content mainLayout w-100 vh-100 d-flex justify-content-center align-items-center">
-        <div id="navbar"  style="width: 10%;background-color:#dd2d4a" class="h-100  d-flex justify-content-center align-items-center fixed-top">@include('components.sidebar')</div>
+        <div id="navbar"  style="width: 10%;" class="h-100   d-flex justify-content-center align-items-center fixed-top">@include('components.sidebar')</div>
         <div style="width: 90%; margin-left:10%" class=" vh-100 d-flex flex-column justify-content-center align-items-center">
             @include('components.navbar')
             <div style="height: 80%" class="loadedDiv w-100  justify-content-center align-items-center">
