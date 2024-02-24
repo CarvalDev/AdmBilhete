@@ -72,18 +72,24 @@ li a:hover{
   width: 100%;
   display: flex;
   align-items: center;
+  
 }
-.sidebar .logo-details i{
-  font-size: 30px;
+.sidebar .logo-details img{
+  
   color: #fff;
-  height: 50px;
-  min-width: 78px;
-  text-align: center;
-  line-height: 50px;
+  height: 45px;
+  min-width: 40px;
+  margin-left: 15px;
+  align-self: center !important;
+  justify-self: center !important;
+  
 }
 .sidebar .logo-details .logo_name{
-  font-size: 22px;
+  font-size: 15px;
+  line-height: -20px;
   color: #fff;
+  margin-top: 15px;
+  margin-left: 20px;
   font-weight: 600;
   transition: 0.3s ease;
   transition-delay: 0.1s;
@@ -110,8 +116,10 @@ li a:hover{
   transition: all 0.4s ease;
 }
 .sidebar .nav-links li:hover{
-  background: #1d1b31;
+  background-color: #d34343;
+  color: #11101d;
 }
+
 .sidebar .nav-links li .iocn-link{
   display: flex;
   align-items: center;
@@ -142,7 +150,7 @@ li a:hover{
   text-decoration: none;
 }
 .sidebar .nav-links li a .link_name{
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   color: #fff;
   transition: all 0.4s ease;
@@ -154,7 +162,7 @@ li a:hover{
 .sidebar .nav-links li .sub-menu{
   padding: 6px 6px 14px 80px;
   margin-top: -10px;
-  background: #1d1b31;
+  background: #d34343;
   display: none;
 }
 .sidebar .nav-links li.showMenu .sub-menu{
@@ -243,7 +251,7 @@ li a:hover{
   object-fit: cover;
   border-radius: 16px;
   margin: 0 14px 0 12px;
-  background: #1d1b31;
+  background: transparent;
   transition: all 0.5s ease;
 }
 .sidebar.close .profile-details img{

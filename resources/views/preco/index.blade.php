@@ -44,7 +44,7 @@
       </ul>
       @endif
         <div class="modal-footer">
-          <a href="{{ route('preco.edit',['id'=>1]) }}" class="btn btn-danger">Cancelar</a>
+          <a href="{{ route('preco.index') }}" class="btn btn-danger">Cancelar</a>
           <button type="submit" class="btn btn-primary">Salvar</button>
         </div>
         </form>

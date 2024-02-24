@@ -45,8 +45,8 @@ Route::get('/caixaEntrada',[CaixaEntradaController::class, 'caixaIndex'])->name(
 Route::get('/caixaEntrada/{id}/show', [CaixaEntradaController::class, 'show'])->name('caixaEntrada.show');
 Route::get('/caixaEntrada/results', [CaixaEntradaController::class, 'search'])->name('caixaEntrada.search');
 
-Route::get('/preco', [PrecoController::class, 'index'])->name('preco.index');
-Route::get('/preco/{id}/edit', [PrecoController::class, 'edit'])->name('preco.edit');
+
+Route::get('/preco', [PrecoController::class, 'edit'])->name('preco.index');
 Route::put('/preco/{id}/update', [PrecoController::class, 'update'])->name('preco.update');
 Route::get('/reajuste', [ReajusteController::class, 'store'])->name('reajuste.store');
 Route::get('/faturamento', [FaturamentoController::class, 'index'])->name('faturamento.index');

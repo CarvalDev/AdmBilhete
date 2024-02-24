@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="{{ URL::asset('css/nav.css') }}">
 
-<header  style="height: 100%">
+<header  style="height: 100%; width:100%">
     {{-- <nav  class="navbar navbar-expand-sm flex-column h-100">
         <div style="width:80%; height:20%" class="  m-0  d-flex justify-content-center align-items-center">
         <a style="height:100% width:100%" href="{{route('home.index')}}" >
@@ -69,124 +69,110 @@
 
     <div class="sidebar close">
         <div class="logo-details">
-          <i class='bx bxl-c-plus-plus'></i>
-          <span class="logo_name">CodingLab</span>
+          {{-- <i class='bx bxl-c-plus-plus'></i> --}}
+          <img src="{{URL::asset('images/bBranca.png')}}" class=""  alt="">
+          <span class="logo_name">Bilhete Único Digital</span> 
         </div>
         <ul class="nav-links">
           <li>
-            <a href="#">
+            <a href="{{ route('home.index') }}">
               <i class='bx bx-grid-alt' ></i>
               <span class="link_name">Dashboard</span>
             </a>
             <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Category</a></li>
+              <li><a class="link_name" href="{{route('home.index')}}">Dashboard</a></li>
             </ul>
           </li>
           <li>
             <div class="iocn-link">
-              <a href="#">
+              <a href="{{route('caixaEntrada.index')}}">
                 <i class='bx bx-collection' ></i>
-                <span class="link_name">Category</span>
+                <span class="link_name">Suportes</span>
               </a>
-              <i class='bx bxs-chevron-down arrow' ></i>
+              
             </div>
-            <ul class="sub-menu">
-              <li><a class="link_name" href="#">Category</a></li>
-              <li><a href="#">HTML & CSS</a></li>
-              <li><a href="#">JavaScript</a></li>
-              <li><a href="#">PHP & MySQL</a></li>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="{{route('caixaEntrada.index')}}">Suportes</a></li>
+              
             </ul>
           </li>
           <li>
             <div class="iocn-link">
               <a href="#">
                 <i class='bx bx-book-alt' ></i>
-                <span class="link_name">Posts</span>
+                <span class="link_name">Passageiros</span>
               </a>
               <i class='bx bxs-chevron-down arrow' ></i>
             </div>
             <ul class="sub-menu">
-              <li><a class="link_name" href="#">Posts</a></li>
-              <li><a href="#">Web Design</a></li>
-              <li><a href="#">Login Form</a></li>
-              <li><a href="#">Card Design</a></li>
+              <li><a class="link_name" href="#">Passageiros</a></li>
+              <li><a href="{{route('passageiros.index')}}">Lista de Passageiros</a></li>
+              <li><a href="{{route('passageiros.form')}}">Adicionar Passageiros</a></li>
             </ul>
           </li>
           <li>
-            <a href="#">
+            <a href="{{route('linhas.index')}}">
               <i class='bx bx-pie-chart-alt-2' ></i>
-              <span class="link_name">Analytics</span>
+              <span class="link_name">Linhas</span>
             </a>
             <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Analytics</a></li>
+              <li><a class="link_name" href="{{route('linhas.index')}}">Linhas</a></li>
             </ul>
           </li>
           <li>
-            <a href="#">
-              <i class='bx bx-line-chart' ></i>
-              <span class="link_name">Chart</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Chart</a></li>
+            <div class="iocn-link">
+              <a href="#">
+                <i class='bx bx-book-alt' ></i>
+                <span class="link_name">Financeiro</span>
+              </a>
+              <i class='bx bxs-chevron-down arrow' ></i>
+            </div>
+            <ul class="sub-menu ">
+              <li><a class="link_name" href="#">Financeiro</a></li>
+              <li><a href="{{ route('faturamento.index') }}">Faturamento</a></li>
+              <li><a href="{{ route('preco.index') }}">Editar Preço</a></li>
             </ul>
           </li>
           <li>
             <div class="iocn-link">
               <a href="#">
                 <i class='bx bx-plug' ></i>
-                <span class="link_name">Plugins</span>
+                <span class="link_name" >Adms</span>
               </a>
               <i class='bx bxs-chevron-down arrow' ></i>
             </div>
             <ul class="sub-menu">
-              <li><a class="link_name" href="#">Plugins</a></li>
-              <li><a href="#">UI Face</a></li>
-              <li><a href="#">Pigments</a></li>
-              <li><a href="#">Box Icons</a></li>
+              <li><a class="link_name" href="#">Administradores</a></li>
+              <li><a href="{{ route('adm.index') }}">Lista de Adms</a></li>
+              <li><a href="{{ route('adm.form') }}">Adicionar Adm</a></li>
+              
             </ul>
           </li>
-          <li>
-            <a href="#">
-              <i class='bx bx-compass' ></i>
-              <span class="link_name">Explore</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Explore</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">
-              <i class='bx bx-history'></i>
-              <span class="link_name">History</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">History</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">
-              <i class='bx bx-cog' ></i>
-              <span class="link_name">Setting</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Setting</a></li>
-            </ul>
+          
           </li>
           <li>
         <div class="profile-details">
           <div class="profile-content">
-            <!--<img src="image/profile.jpg" alt="profileImg">-->
+            <img @if ($user->fotoAdm == '')
+                src="{{URL::asset('images/user.png')}}"
+            @else src="{{$user->fotoAdm}}" alt="profileImg">
+            @endif
           </div>
           <div class="name-job">
-            <div class="profile_name">Prem Shahi</div>
-            <div class="job">Web Desginer</div>
+            <div class="profile_name">{{$user->nomeAdm}}</div>
+            <div class="job">Supervisor</div>
           </div>
+          <form action="{{ route('adm.logout') }}" method="POST">
+            @csrf
+            <button type="submit" style="background-color: transparent; border:none">
           <i class='bx bx-log-out' ></i>
+        </button>
+          </form>
         </div>
       </li>
     </ul>
       </div>
-      <section class="home-section">
+      <section class="home-section bg-white">
         <div class="home-content">
           <i class='bx bx-menu' ></i>
           

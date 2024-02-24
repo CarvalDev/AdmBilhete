@@ -10,7 +10,7 @@
 @elseif(isset($datas))
 
 @endif
-method="get" class="d-flex flex-row">
+method="get" class="d-flex flex-row gap-2" >
     @csrf
     
     <input type="text" placeholder="Pesquisa" name="search" class="form-control border border-danger rounded-5"

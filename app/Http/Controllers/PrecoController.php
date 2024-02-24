@@ -17,9 +17,9 @@ class PrecoController extends Controller
         $this -> model = $preco;
     }
     
-    public function edit($id, Reajuste $reajuste)
+    public function edit( Reajuste $reajuste)
     {
-        $preco = $this->model->findById($id);
+        $preco = $this->model->findById(1);
         $reajustes = $this->model->getTheLastReajustes($reajuste);
         $user = Auth::guard('adm')->user();
         return view('preco.index', compact('preco', 'reajustes', 'user'));
