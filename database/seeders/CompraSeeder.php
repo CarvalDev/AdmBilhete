@@ -25,7 +25,7 @@ class CompraSeeder extends Seeder
             $passageiro = $bilhete->passageiro()->get();
             $passageiro = $passageiroModel->find($passageiro[0]->id);
             for($j=1;$j<=5;$j++){
-                $formaPagamento = $formaPagamentoModel->find(fake()->numberBetween(1,4));
+                $formaPagamento = $formaPagamentoModel->find(fake()->numberBetween(1,3));
                 Acao::factory(1)
                     ->for($passageiro)
                     ->has(Compra::factory(1)
