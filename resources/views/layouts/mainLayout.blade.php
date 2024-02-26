@@ -32,9 +32,7 @@
             
             </div>
         </div>
-        <div id="navExpandida" class="h-100   justify-content-center align-items-center fixed-top">
-            @include('components.sideBarExpandida')
-        </div>
+        
         
     
 </body>
