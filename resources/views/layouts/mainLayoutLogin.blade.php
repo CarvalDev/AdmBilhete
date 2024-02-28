@@ -13,7 +13,7 @@
     <div style="font-family: 'Poppins', sans-serif;
     height: 100vh;
     width: 100vw;
-    background-color: #dac8c8;
+    background-color: #d5d5d5;
     display:flex;
     justify-content: center;
     align-items: center;">

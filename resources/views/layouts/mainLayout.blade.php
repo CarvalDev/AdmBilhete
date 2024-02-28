@@ -17,14 +17,12 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body onload="loading()">
-    <div class="content mainLayout w-100 vh-100 d-flex justify-content-center align-items-center">
-        <div id="navbar"  style="width: 10%;" class="h-100   d-flex justify-content-center align-items-center fixed-top">@include('components.sidebar')</div>
+    <div class="content mainLayout w-100 vh-100 d-flex justify-content-center align-items-center">       
+        <div id="navbar"  style="width: 10%;" class="h-100   d-flex justify-content-center align-items-center fixed-top">@include('components.sidebar')</div>      
         <div style="width: 90%; margin-left:10%" class=" vh-100 d-flex flex-column justify-content-center align-items-center">
-            @include('components.navbar')
-            <div style="height: 80%" class="loadedDiv w-100  justify-content-center align-items-center">
+            <span id="pageTitle" class="fs-3 fw-bold">@yield('pageTitle')</span>
+            <div style="height: 100%" class="loadedDiv w-100 justify-content-center align-items-center">               
                 @yield('content')
-                
-            
             </div>
             <div style="height: 80%" class="onLoadingDiv w-100 justify-content-center align-items-center">
                 
