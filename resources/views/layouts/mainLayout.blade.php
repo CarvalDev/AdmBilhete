@@ -20,7 +20,7 @@
     <div class="content mainLayout w-100 vh-100 d-flex justify-content-center align-items-center">       
         <div id="navbar"  style="width: 10%;" class="h-100   d-flex justify-content-center align-items-center fixed-top">@include('components.sidebar')</div>      
         <div style="width: 90%; margin-left:10%" class=" vh-100 d-flex flex-column justify-content-center align-items-center">
-            <span id="pageTitle" class="fs-3 fw-bold">@yield('pageTitle')</span>
+            <span id="pageTitle" class="fs-3 ">@yield('pageTitle')</span>
             <div style="height: 100%" class="loadedDiv w-100 justify-content-center align-items-center">               
                 @yield('content')
             </div>
