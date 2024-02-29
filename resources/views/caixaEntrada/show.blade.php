@@ -6,28 +6,76 @@
 
 @push('css')
     <link rel="stylesheet" href="{{ URL::asset('css/showCaixaEntrada.css') }}" type="text/css">
+    <link href="vc-toggle-switch.css" rel="stylesheet" />
 @endpush
 
 
 @section('content')
-    <div class="w-100 h-100 gap-1  d-flex flex-column justify-content-center align-items-center">
-        <section class="w-100 h-25  d-flex flex-row justify-content-around align-items-center">
-            <div id="userPlace" class="h-100  d-flex flex-row " >           
-                <div class="fotoPassageiro">
-                    <a href="">
-                        <img @if ($data->fotoPassageiro == '')
-                        src="{{ url("images/userPadrao.png")}} 
+    <div class="w-100 h-100 gap-1 d-flex flex-column justify-content-center align-items-center pe-5">
+        <section class="user w-100 h-25 d-flex flex-row justify-content-start align-items-center pb-3">
+            <div id="userPlace" class="h-100 d-flex flex-row align-items-center " > 
+                {{-- <img src="{{ asset('images/userPadrao.png') }}" alt="">           --}}
+                <div class="fotoPassageiro rounded-circle bg-danger">
+                    
+                
+                        <img 
+                         @if ($data->fotoPassageiro == '')
+                        src="{{ asset('images/userPadrao.png') }} "
+
                         @else
-                        src="{{ url("storage/$data->fotoPassageiro")}} 
-                        @endif  class="w-100 h-100" style="border-radius: 100%" alt="">
-                    </a>
+
+                        src="{{ asset("storage/$data->fotoPassageiro")}} "
+
+                        @endif  style="border-radius: 100%; width: 150px; height: 150px; object-fit: cover;" alt="">
+                    
                 </div>
-                <div class="dadosPrincipais d-flex flex-column " >
-                    <div class="flex-row d-flex gap-2 justify-content-center"><p style="color:rgb(52, 49, 49);" class="fw-bold p-0 m-0">{{ $data->nomePassageiro }}</p></div>
-                    <div class="flex-row d-flex gap-2 justify-content-center"><p  style="font-size: 12px" class="fw-bold text-secondary  p-0 m-0 mb-3 text-center">{{ $data->emailPassageiro }}</p></div>
+                
+                <div class="dadosPrincipais d-flex flex-column ms-3" >
+                    <div class="flex-row d-flex gap-2"><p style="color:rgb(52, 49, 49);" class=" fs-4 fw-bold p-0 m-0 text-uppercase">{{ $data->nomePassageiro }}</p></div>
+                    <div class="flex-row d-flex gap-2"><p  style="font-size: 12px" class="fw-bold fs-6 text-secondary  p-0 m-0 mb-3 text-center">{{ $data->emailPassageiro }}</p></div>
                 </div>
             </div>
-            <div id="duvidaPlace" class="h-100  d-flex flex-column justify-content-center align-items-center" style="width: 60%">
+        </section>
+        <section class="w-100 d-flex flex-column justify-content-center align-items-center" style="height: 60%">
+            <div class="w-100 pb-3 d-flex flex-row justify-content-between">
+                <div class="col-10">
+                <span class="me-3 fs-6 fw-semibold text-secondary">{{ $data->dataAcao }}</span>
+            </div>
+            <div class="col-1 px-2">
+                <div class="bg-primary rounded-5 bg-opacity-10 border border-primary px-2 text-primary text-uppercase text-center"  >{{ $data->categoriaSuporte }}</div>       
+            </div>
+            <div class="col-1 px-2">         
+                <div @if ($data->statusSuporte == 'Aberto') class="bg-primary rounded-5 bg-opacity-10 border border-primary px-2 text-primary text-uppercase text-center"
+                     @else class"bg-danger rounded-5 bg-opacity-10 border border-danger px-2 text-danger text-uppercase text-center"
+                     @endif
+                    >{{ $data->statusSuporte }}</div>
+            </div>
+            </div>
+            <div class="w-100 h-100 d-flex flex-column justify-content-between" style="height:90% ">
+                <div class="h-50">
+                    <span class="w-100 p-2 ">
+                        {{ $data->descSuporte }}
+                    </span>
+                </div>
+               
+                <form id="fecharSuporte" action="{{ route('caixaEntrada.mail', [$data->passageiro_id, $data->id]) }}" method="post" class="w-100 col">
+                          
+                    <div class="row">
+                        <div class="col"></div>
+                    <label class="switch col-1" >
+                        <input type="checkbox" name="statusSuporte">
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                    <div class="row">
+                    <div class="input-field ps-4 col">
+                          <input type="text" name="mensagem" placeholder="Responder Atendimento ">
+                      </div>
+                      <div  class="col-1 d-flex align-items-center"><button type="submit" class="btn btn-sm px-2 btn-dark rounded-5">Enviar</button></div>
+                    </div>
+                </form>    
+            </div>
+            {{-- <div id="duvidaPlace" class="h-100  d-flex flex-column justify-content-center align-items-center" style="width: 60%">
                 <div id="headerDuvida" style="height:20%" class=" w-100 d-flex justify-content-between align-items-center">
                     <span class="ms-3 fs-4">Tema da Dúvida: {{ $data->categoriaSuporte }} </span>
                     <span class="me-3">Data: {{ $data->dataAcao }}</span>
@@ -41,12 +89,9 @@
                         </span>
                     </div>
                 </div>
-            </div>
-
-        </section>
-        <section class="w-100 h-50  d-flex flex-row justify-content-center align-items-center">
+            </div> --}}
                 
-            @if ($data->statusSuporte == 'Aberto')
+            {{-- @if ($data->statusSuporte == 'Aberto')
                                 
             
             <form id="fecharSuporte" action="{{ route('caixaEntrada.mail', [$data->passageiro_id, $data->id]) }}" method="post" class="d-flex  flex-row justify-content-center align-items-center h-100 " style="width: 85%">
@@ -92,7 +137,7 @@
                     </form>
                 </div>
 
-                @endif
+                @endif --}}
         </section>
     </div>
 @endsection
