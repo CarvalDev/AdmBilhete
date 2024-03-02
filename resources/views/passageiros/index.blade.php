@@ -2,6 +2,7 @@
 
 @push('css')
 <link rel="stylesheet" href="{{ URL::asset('css/passageiros.css') }}" type="text/css">
+
 @endpush
 
 @section('title', 'Passageiros')
@@ -13,11 +14,12 @@
         <a href="{{ route('passageiros.form') }}" class="border-0"><i class="fas fa-plus-circle fa-2x" aria-hidden="true"></i></a>
     </div>
     @if (count($passageiros)>0)
+    <div id="table-content">
     <table class="  mt-3  mx-auto" style="width: 98%;" id="tabela">
         <thead class="">
         <tr class="text-center" style="border-bottom:rgba(1, 1, 1, 0.1) 1px solid  ">
-            <th class="" style="width: 5%;">ID</th>
-            <th class="" style="width: 20%">Nome</th>
+            
+            <th class="" style="width: 25%">Nome</th>
             <th class="" style="width: 20%">Email</th>
             <th class="" style="width: 20%">Nascimento</th>
             <th class="" style="width: 20%">Cpf</th>
@@ -30,8 +32,8 @@
         @foreach ($passageiros as $passageiro)
             
         <tr class="text-center" style="border-bottom:rgba(1, 1, 1, 0.1) 1px solid">
-            <td class=" fw-bold ">{{ $passageiro->id }}</td>
-            <td class=" fw-bold">{{$passageiro->nomePassageiro}}</td>
+            
+            <td class=" fw-bold" id="nome" style="width: 20ch; text-overflow:ellipsis; overflow:hidden">{{$passageiro->nomePassageiro}}</td>
             <td class=" fw-bold">{{$passageiro->emailPassageiro}}</td>
             <td class=" fw-bold">{{ $passageiro->dataNascPassageiro }}</td>
             <td class=" fw-bold">{{ $passageiro->cpfPassageiro }}</td>
@@ -44,6 +46,10 @@
         
         
     </table>
+    <div class="p-3">
+    {{ $passageiros->links() }}
+    </div>
+</div>
     @else
         <div class="w-100 h-50 d-flex justify-content-center align-items-center ">
             <span class="fs-3">Não há passageiros para exibir</span>

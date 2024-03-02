@@ -100,6 +100,21 @@ $('#passageiroStore').submit(function(e) {
     })
 })
 
+$(document).on('click', '.pagination a', function(e){
+    e.preventDefault()
+    let pagina = $(this).attr('href').split('page=')[1]
+    console.log(pagina)
+    passageiros(pagina)
+})
+
+function passageiros(pagina){
+    $.ajax({
+        url: "/passageiros/results?page="+pagina,
+        success: function(res){
+            $('#table-content').html(res)
+        }
+    })
+}
 
 
 </script>

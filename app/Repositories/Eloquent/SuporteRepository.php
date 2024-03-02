@@ -31,7 +31,7 @@ class SuporteRepository extends AbstractRepository implements SuporteRepositoryI
                             $query->orWhere('dataAcao','LIKE',"%{$search}%");
                         }
                 })
-                ->get();
+                ->paginate(15);
          
     }
 
@@ -67,6 +67,6 @@ class SuporteRepository extends AbstractRepository implements SuporteRepositoryI
         ->orWhere('dataAcao','LIKE',"%{$search}%")
                 
         
-        ->get();
+        ->paginate(15);
     }
 }

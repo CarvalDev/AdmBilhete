@@ -49,3 +49,11 @@ input, select{
 #cep, #num{
   border: none !important;
 }
+
+#nome{
+  white-space: nowrap;
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+  width: 20ch !important;
+}

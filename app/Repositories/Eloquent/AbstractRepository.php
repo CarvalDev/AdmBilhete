@@ -9,7 +9,7 @@
             $this->model = $this->resolveModel();
         }
         public function defaultAll(){
-            return $this->model->all();
+            return $this->model->paginate(10);
         }
         public function resolveModel(){
             return app($this->model);

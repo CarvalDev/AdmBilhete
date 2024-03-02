@@ -1,3 +1,5 @@
+<div id="table-content">
+
 <table id="tabela" class="  mt-3  mx-auto" style="width: 98%;">
     <thead class="">
     <tr class="text-center" style="border-bottom:rgba(1, 1, 1, 0.1) 1px solid  ">
@@ -29,3 +31,7 @@
     
     
 </table>
+<div class="p-3">
+    {{ $passageiros->links() }}
+    </div>
+</div>

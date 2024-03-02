@@ -19,7 +19,8 @@ class PassageiroRepository extends AbstractRepository implements PassageiroRepos
         return $this->model
             ->where('nomePassageiro','LIKE',"%{$search}%")
             ->orWhere('emailPassageiro','LIKE',"%{$search}%")
-                 ->get();
+                 
+                 ->paginate(10);
     }
     public function findWithAcoes($id)
     {

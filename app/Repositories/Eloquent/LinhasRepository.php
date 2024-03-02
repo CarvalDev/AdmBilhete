@@ -32,7 +32,7 @@ class LinhasRepository extends AbstractRepository implements LinhasRepositoryInt
                 $query->where('statusLinha', '=', $status);
                 }
             })
-            ->get();
+            ->paginate(15);
 
         $consumos = $this->model
                 ->select('linhas.id')
@@ -48,7 +48,7 @@ class LinhasRepository extends AbstractRepository implements LinhasRepositoryInt
                             $query->orWhere('numLinha','LIKE',"%{$search}%");
                         }
                     })
-                    ->get();
+                    ->paginate(15);
         $linhas = DataServices::resolveConsumos($linhas, $consumos);
         return $linhas;
     }

@@ -43,6 +43,9 @@
         
 
     </table>
+    <div class="p-3">
+    {{ $datas->links() }}
+    </div>
 </div>   
 @include('caixaEntrada.ajax.caixaEntrada')
 @endsection

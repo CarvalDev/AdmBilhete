@@ -37,6 +37,9 @@
         
 
     </table>
+    <div class="p-3">
+        {{ $linhas->links() }}
+    </div>
     @else
     <div class="w-100 h-50 d-flex justify-content-center align-items-center ">
         <span class="fs-3">Não há catracas para exibir</span>
