@@ -262,8 +262,16 @@ li a:hover{
   color: #fff;
   font-size: 18px;
   font-weight: 500;
-  white-space: nowrap;
+  white-space: nowrap; 
 }
+.profile_name p{
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0 !important;
+  text-overflow: ellipsis !important;
+  width: 10ch !important;
+}
+
 .sidebar.close .profile-details i,
 .sidebar.close .profile-details .profile_name,
 .sidebar.close .profile-details .job{

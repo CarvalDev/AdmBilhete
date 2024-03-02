@@ -88,14 +88,14 @@
           </li>
           <li>
         <div class="profile-details">
-          <div class="profile-content">
+          <div class="profile-content" onclick="perfil()">
             <img @if ($user->fotoAdm == '')
                 src="{{URL::asset('images/user.png')}}"
-            @else src="{{$user->fotoAdm}}" alt="profileImg">
+            @else src="{{url("storage/$user->fotoAdm")}}" alt="profileImg">
             @endif
           </div>
           <div class="name-job">
-            <div class="profile_name">{{$user->nomeAdm}}</div>
+            <div class="profile_name"><p>{{$user->nomeAdm}}</p></div>
             <div class="job">Supervisor</div>
           </div>
           <form action="{{ route('adm.logout') }}" method="POST">

@@ -32,7 +32,7 @@
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="nome" class="col-form-label">Nome:</label>
-            <input type="text" class="form-control" value="{{$user->nomeAdm}}" name="nomeAdm" maxlength="50" id="nome" value=""
+            <input type="text" class="form-control" value="{{$user->nomeAdm}}" name="nomeAdm"  id="nome" value=""
               required>
             <div class="invalid-feedback">
               Nome Inválido

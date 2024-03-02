@@ -16,11 +16,16 @@ class PassageiroRepository extends AbstractRepository implements PassageiroRepos
 
     public function search(String | null $search = null)
     {
-        return $this->model
+        $passageiros =  $this->model
             ->where('nomePassageiro','LIKE',"%{$search}%")
             ->orWhere('emailPassageiro','LIKE',"%{$search}%")
                  
-                 ->paginate(10);
+                 ->paginate(15);
+        foreach($passageiros as $passageiro){
+        $passageiro->dataNascPassageiro = explode("-",$passageiro->dataNascPassageiro);
+        $passageiro->dataNascPassageiro = $passageiro->dataNascPassageiro[2]."/".$passageiro->dataNascPassageiro[1]."/".$passageiro->dataNascPassageiro[0];
+        }
+        return $passageiros;
     }
     public function findWithAcoes($id)
     {

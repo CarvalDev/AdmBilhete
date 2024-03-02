@@ -20,7 +20,7 @@ $(document).on('keyup', function(e){
         data: {search: search},
         success: function(res){
         
-        $('#tabela').html(res)
+        $('#table-content').html(res)
             
             if(res.status !== undefined){
                 toastr.info("Nenhum passageiro encontrado.", "Erro!")
@@ -102,16 +102,23 @@ $('#passageiroStore').submit(function(e) {
 
 $(document).on('click', '.pagination a', function(e){
     e.preventDefault()
+    
+    onLoadingDiv.style.display = "flex"
+    loadedDiv.style.display = "none"
     let pagina = $(this).attr('href').split('page=')[1]
     console.log(pagina)
     passageiros(pagina)
 })
 
 function passageiros(pagina){
+    let search = $('#passageiroSearch').val()
     $.ajax({
         url: "/passageiros/results?page="+pagina,
+        data: {search:search },
         success: function(res){
             $('#table-content').html(res)
+            onLoadingDiv.style.display = "none"
+            loadedDiv.style.display = "flex"
         }
     })
 }

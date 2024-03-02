@@ -19,11 +19,11 @@
         <thead class="">
         <tr class="text-center" style="border-bottom:rgba(1, 1, 1, 0.1) 1px solid  ">
             
-            <th class="" style="width: 25%">Nome</th>
-            <th class="" style="width: 20%">Email</th>
-            <th class="" style="width: 20%">Nascimento</th>
-            <th class="" style="width: 20%">Cpf</th>
-            <th class="text-center" style="width: 15%">Perfil</th>
+            <th class="py-2" id="nomePassageiro" style="width: 20%">Nome</th>
+            <th class="py-2" style="width: 30%">Email</th>
+            <th class="py-2" style="width: 20%">Nascimento</th>
+            <th class="py-2" style="width: 20%">Cpf</th>
+            <th class="text-center py-2" style="width: 10%">Perfil</th>
         </tr>
         </thead>
        
@@ -33,10 +33,10 @@
             
         <tr class="text-center" style="border-bottom:rgba(1, 1, 1, 0.1) 1px solid">
             
-            <td class=" fw-bold" id="nome" style="width: 20ch; text-overflow:ellipsis; overflow:hidden">{{$passageiro->nomePassageiro}}</td>
-            <td class=" fw-bold">{{$passageiro->emailPassageiro}}</td>
-            <td class=" fw-bold">{{ $passageiro->dataNascPassageiro }}</td>
-            <td class=" fw-bold">{{ $passageiro->cpfPassageiro }}</td>
+            <td class="text-center fw-bold" id="nomePassageiro" style="">{{$passageiro->nomePassageiro}}</td>
+            <td class="text-center fw-bold">{{$passageiro->emailPassageiro}}</td>
+            <td class="text-center fw-bold">{{ $passageiro->dataNascPassageiro }}</td>
+            <td class="text-center fw-bold">{{ $passageiro->cpfPassageiro }}</td>
             <td class="justify-content-center align-items-center d-flex  py-2"><a href="{{route('perfilPassageiro.index', $passageiro->id)}}" class="btn px-4" style=""><i class="far fa-user-circle fa-xl"></i></a></td>
         </tr>
         @endforeach

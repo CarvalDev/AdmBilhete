@@ -126,6 +126,7 @@ class PassageiroController extends Controller
         $passageiros = $this->model->search($request->search);
         
         if($passageiros->count() >= 1){
+           
             return view('passageiros.partials.passageiros_result', compact('passageiros'))->render();
         }else{
             return response()->json([
