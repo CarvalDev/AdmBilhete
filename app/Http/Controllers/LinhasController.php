@@ -50,8 +50,9 @@ class LinhasController extends Controller
     public function store(StoreUpdateLinhasFormRequest $request){
         $data = $request->all();
         $data['statusLinha'] = "Ativa";
+        
         $this->model->createWithCatracaCarro($data);
-        return redirect()->route('linhas.index');
+        // return redirect()->route('linhas.index');
     }
 
     public function search(Request $request)

@@ -7,9 +7,10 @@
 @section('title','Linhas')
 
 @section('content')
+@include('linhas.partials.modal_adicionar')
 <div class="mt-2 tabela w-100 h-100">
     <div class="d-flex justify-content-end align-items-center container">    
-        <a href="{{route('linhas.register')}}" class="border-0"><i class="fas fa-plus-circle fa-2x text-dark" aria-hidden="true"></i></a>
+        <a onclick="acionaModal()" class="border-0"><i class="fas fa-plus-circle fa-2x text-dark" aria-hidden="true"></i></a>
     </div>
     
     @if (isset($linhas))
@@ -51,7 +52,7 @@
 @include('linhas.ajax.linhas') 
 @endsection
 
-@include('components.modalCatracas')
+
 
 @section('pageTitle','Linhas')
 

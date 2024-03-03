@@ -139,15 +139,66 @@ $(document).on('change', '#statusLinha', function(e){
     
 })
 
-const statusChange = (status, search) =>{
-    $.ajax({
+const statusChange = async(status, search) =>{
+    
+    await $.ajax({
         url: "{{ route('linhas.search') }}",
         data: {search:search, statusLinha:status},
         success: response => {
             $('#table-content').html(response)
+            onLoadingDiv.style.display = "none"
+            loadedDiv.style.display = "flex"
         }
     })
+    
 }
+
+$(document).on('submit', '#linhaForm', function(e){
+    e.preventDefault()
+    console.log('foase')
+    let nomeLinha = $('#nomeLinha').val()
+    let numLinha = $('#NumLinha').val()
+    let qtd = $('#qtdCarroLinha').val()
+    
+    modal.close()
+    
+    $.ajax({
+        url: "{{ route('linhas.store') }}",
+        method: 'post',
+        data: {
+            nomeLinha: nomeLinha,
+            numLinha: numLinha,
+            qtdCarroLinha: qtd
+        },
+        success:  response =>{
+            
+            toastr.success("Nova Linha Adicionada.", "Sucesso!")
+
+toastr.options = {
+"closeButton": true,
+"debug": false,
+"newestOnTop": false,
+"progressBar": true,
+"positionClass": "toast-top-right",
+"preventDuplicates": false,
+"onclick": null,
+"showDuration": "1000",
+"hideDuration": "1000",
+"timeOut": "5000",
+"extendedTimeOut": "1000",
+"showEasing": "swing",
+"hideEasing": "linear",
+"showMethod": "fadeIn",
+"hideMethod": "fadeOut"
+}
+            
+        },
+        error: e =>{
+            console.log(JSON.stringify(e));
+                    $('#passageiroStore input').val("")
+        }
+    })
+})
 
 
 </script>
