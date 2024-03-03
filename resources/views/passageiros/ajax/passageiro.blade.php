@@ -102,7 +102,7 @@ $('#passageiroStore').submit(function(e) {
 
 $(document).on('click', '.pagination a', function(e){
     e.preventDefault()
-    
+     
     onLoadingDiv.style.display = "flex"
     loadedDiv.style.display = "none"
     let pagina = $(this).attr('href').split('page=')[1]

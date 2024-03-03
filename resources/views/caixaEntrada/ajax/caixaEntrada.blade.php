@@ -13,15 +13,20 @@ $(document).on('keyup', function(e){
     
     e.preventDefault()
     let search = $('#caixaEntradaSearch').val()
+    let status = $('#statusSuporte').val()
+    if(search == ''){
+        statusChange(status, search)
+    }
+    else{
     console.log(search)
     $.ajax({
         url: "{{ route('caixaEntrada.search') }}",
         method: 'get', 
         data: {search: search},
         success: function(res){
-        $('#tabela').html(res)  
+        $('#table-content').html(res)  
             if(res.status == 'nada_encontrado'){
-            console.log("vtncfdplixo")
+            
                 toastr.info("Nenhuma duvida encontrada.", "Erro!")
 
                     toastr.options = {
@@ -50,6 +55,7 @@ $(document).on('keyup', function(e){
                     $('#caixaEntradaStore input').val("")
         }
     })
+}
 })
 $('#admStore').submit(function(e) {
     e.preventDefault();
@@ -96,5 +102,47 @@ $('#admStore').submit(function(e) {
         }
     })
 })
+
+$(document).on('change', '#statusSuporte', function(e){
+    e.preventDefault()
+    let search = $('#caixaEntradaSearch').val()
+    let status = $('#statusSuporte').val()
+    console.log('mudou')
+    statusChange(status, search)
+    
+})
+
+const statusChange = (status, search) =>{
+    $.ajax({
+        url: "{{ route('caixaEntrada.search') }}",
+        data: {search:search, statusSuporte:status},
+        success: response => {
+            $('#table-content').html(response)
+        }
+    })
+}
+
+$(document).on('click', '.pagination a', function(e){
+    e.preventDefault()
+    onLoadingDiv.style.display = "flex"
+    loadedDiv.style.display = "none"
+    let pagina = $(this).attr('href').split('page=')[1]
+    console.log(pagina)
+    suportes(pagina)
+})
+
+function suportes(pagina){
+    let search = $('#caixaEntradaSearch').val()
+    let status = $('#statusSuporte').val()
+    $.ajax({
+        url: "/caixaEntrada/results?page="+pagina,
+        data: {search:search, statusSuporte:status },
+        success: function(res){
+            $('#table-content').html(res)
+            onLoadingDiv.style.display = "none"
+            loadedDiv.style.display = "flex"
+        }
+    })
+}
 
 </script>

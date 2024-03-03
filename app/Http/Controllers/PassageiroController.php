@@ -129,9 +129,7 @@ class PassageiroController extends Controller
            
             return view('passageiros.partials.passageiros_result', compact('passageiros'))->render();
         }else{
-            return response()->json([
-                'status' => $passageiros
-            ]);
+            return view('components.no_results')->with('palavra', $request->search)->render();
         }
     }
 

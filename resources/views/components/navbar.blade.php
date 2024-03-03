@@ -43,21 +43,21 @@
             </div>
             <form @if (isset($data->status))
                 action="{{route('caixaEntrada.index')}}"
-                class="d-flex   h-25 flex-row w-25 gap-2">
-            <select class="form-control border border-dark w-50 " name="statusSuporte" id="">
+                class="d-flex  justify-content-end  h-25 flex-row w-25 gap-2">
+            <select class="form-control border border-dark w-50 " id="statusSuporte" name="statusSuporte" id="">
                 <option  value="Aberto">Abertos</option>
                 <option  value="Fechado">Fechados</option>
             </select>
-            <button type="submit" class="w-50 btn btn-primary">Mudar</button>
+            
             </form>
                 @elseif(isset($linhas))
                 action="{{route('linhas.index')}}"
-                class="d-flex   h-25 flex-row w-25 gap-2">
-            <select class="form-control border border-dark w-50 " name="statusLinha" id="">
+                class="d-flex justify-content-end   h-25 flex-row w-25 gap-2">
+            <select class="form-control border border-dark w-50 " id="statusLinha" name="statusLinha" id="">
                 <option  value="Ativa">Ativas</option>
                 <option  value="Inativa">Inativas</option>
             </select>
-            <button type="submit" class="w-50 btn btn-primary">Mudar</button>
+            
             </form>
             @endif
              

@@ -11,7 +11,7 @@
  
 <div class="tabela w-100 h-100 ">
     <div class="d-flex justify-content-end align-items-center container">    
-        <a href="{{ route('passageiros.form') }}" class="border-0"><i class="fas fa-plus-circle fa-2x" aria-hidden="true"></i></a>
+        <a href="{{ route('passageiros.form') }}" class="border-0"><i class="fas fa-plus-circle fa-2x text-dark" aria-hidden="true"></i></a>
     </div>
     @if (count($passageiros)>0)
     <div id="table-content">

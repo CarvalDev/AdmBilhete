@@ -116,7 +116,7 @@ class LinhasRepository extends AbstractRepository implements LinhasRepositoryInt
         ->groupBy('id', 'numLinha', 'nomeLinha')
         ->
         where('nomeLinha','LIKE',"%{$search}%")
-            ->get();
+            ->paginate(15);
         
         $consumos = $this->model
                 ->select('linhas.id')
@@ -126,7 +126,7 @@ class LinhasRepository extends AbstractRepository implements LinhasRepositoryInt
                 ->groupBy('linhas.id')
                 ->
                 where('nomeLinha','LIKE',"%{$search}%")
-                    ->get();
+                    ->paginate(15);
                     
         $linhas = DataServices::resolveConsumos($linhas1, $consumos);
         return $linhas; 

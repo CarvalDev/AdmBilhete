@@ -19,6 +19,6 @@ use App\Repositories\Eloquent\AbstractRepository;
                 where('nomeAdm','LIKE',"%{$search}%")
                 ->orWhere('emailAdm','LIKE',"%{$search}%")
                 
-            ->get();   
+            ->paginate(10);   
         }
     }

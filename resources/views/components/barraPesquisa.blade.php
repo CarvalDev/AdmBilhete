@@ -13,7 +13,7 @@
 method="get" class="d-flex flex-row gap-2" >
     @csrf
     
-    <input type="text" placeholder="Pesquisa" name="search" class="form-control border border-danger rounded-5"
+    <input type="text" placeholder="Pesquisa" name="search" class="form-control rounded-5" style="border-color: rgba(0,0,0,0.4)"
     @if(isset($passageiros))
             id="passageiroSearch"
     @elseif(isset($adms))

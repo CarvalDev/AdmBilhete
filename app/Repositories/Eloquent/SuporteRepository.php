@@ -27,7 +27,7 @@ class SuporteRepository extends AbstractRepository implements SuporteRepositoryI
                             $query->where('statusSuporte', "$status");
                         }else{
                             $query->where('emailPassageiro','LIKE',"%{$search}%");
-                            $query->orWhere('descSuporte','LIKE',"%{$search}%");
+                            $query->orWhere('categoriaSuporte','LIKE',"%{$search}%");
                             $query->orWhere('dataAcao','LIKE',"%{$search}%");
                         }
                 })
@@ -63,7 +63,7 @@ class SuporteRepository extends AbstractRepository implements SuporteRepositoryI
 
               
         ->where('emailPassageiro','LIKE',"%{$search}%")
-        ->orWhere('descSuporte','LIKE',"%{$search}%")
+        ->orWhere('categoriaSuporte','LIKE',"%{$search}%")
         ->orWhere('dataAcao','LIKE',"%{$search}%")
                 
         

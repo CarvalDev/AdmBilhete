@@ -18,7 +18,7 @@ $(document).on('keyup', function(e){
         method: 'get', 
         data: {search: search},
         success: function(res){
-        $('#tabela').html(res)
+        $('#table-content').html(res)
         if(res.status == 'nada_encontrado')
         {
             toastr.info("Nenhum administrador encontrado.", "Erro!")
@@ -96,6 +96,23 @@ $('#admStore').submit(function(e) {
     })
 })
 
+$(document).on('click', '.pagination a', function(e){
+    e.preventDefault()
+    let search = $('#admSearch').val()
+    let pagina = $(this).attr('href').split('page=')[1]
+    onLoadingDiv.style.display = "flex"
+    loadedDiv.style.display = "none"
+    $.ajax({
+        url: "adm/results?page="+pagina,
+        method: 'get',
+        data: {search: search},
+        success: response =>{
+            $('#table-content').html(response)
+            onLoadingDiv.style.display = "none"
+            loadedDiv.style.display = "flex"
+        }
+    })
+})
 
 
 </script>

@@ -51,9 +51,7 @@ class AdmController extends Controller
         if($adms->count() >= 1){
             return view('adm.partials.adms_result', compact('adms'))->render();
         }else{
-            return response()->json([
-                'status' => 'nada_encontrado'
-            ]);
+            return view('components.no_results')->with('palavra', $request->search)->render();
         }
     }
 

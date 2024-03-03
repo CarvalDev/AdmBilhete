@@ -13,18 +13,22 @@ $(document).on('keyup', function(e){
     
     e.preventDefault()
     let search = $('#linhaSearch').val()
+    let status = $('#statusLinha').val()
+    if(search == ''){
+        statusChange(status, search)
+    }else{
     console.log(search)
     $.ajax({
-        url: "{{ route('linha.search') }}",
+        url: "{{ route('linhas.search') }}",
         method: 'get', 
         data: {search: search},
         success: function(res){
-        
-        $('#tabela').html(res)
+        console.log(res)
+        $('#table-content').html(res)
             
             if(res.status !== undefined){
                 toastr.info("Nenhuma linha encontrada.", "Erro!")
-
+ 
                     toastr.options = {
                     "closeButton": true,
                     "debug": false,
@@ -47,10 +51,11 @@ $(document).on('keyup', function(e){
         
         },
         error: function(e){
-            
+            console.log(JSON.stringify(e));
                     $('#passageiroStore input').val("")
         }
     })
+}
 })
 
 
@@ -100,6 +105,49 @@ $('#passageiroStore').submit(function(e) {
     })
 })
 
+
+$(document).on('click', '.pagination a', function(e){
+    e.preventDefault()
+    onLoadingDiv.style.display = "flex"
+    loadedDiv.style.display = "none"
+    let pagina = $(this).attr('href').split('page=')[1]
+    console.log(pagina)
+    linhas(pagina)
+})
+
+function linhas(pagina){
+    let search = $('#linhaSearch').val()
+    let status = $('#statusLinha').val()
+    $.ajax({
+        url: "/linhas/results?page="+pagina,
+        data: {search:search, statusLinha:status },
+        success: function(res){
+            $('#table-content').html(res)
+            onLoadingDiv.style.display = "none"
+            loadedDiv.style.display = "flex"
+        }
+    })
+}
+
+
+$(document).on('change', '#statusLinha', function(e){
+    e.preventDefault()
+    let search = $('#linhaSearch').val()
+    let status = $('#statusLinha').val()
+    console.log('mudou')
+    statusChange(status, search)
+    
+})
+
+const statusChange = (status, search) =>{
+    $.ajax({
+        url: "{{ route('linhas.search') }}",
+        data: {search:search, statusLinha:status},
+        success: response => {
+            $('#table-content').html(response)
+        }
+    })
+}
 
 
 </script>

@@ -56,13 +56,12 @@ class LinhasController extends Controller
 
     public function search(Request $request)
     {
-        $linhas = $this->model->search($request->search);
+        $linhas = $this->model->getLinhasWithCarrosAndConsumos($request->statusLinha,$request->search);
+        
         if($linhas->count() >= 1){
             return view('linhas.partials.linhas_result', compact('linhas'))->render();
         }else{
-            return response()->json([
-                'status' => 'nada_encontrado'
-            ]);
+            return view('components.no_results')->with('palavra', $request->search)->render();
         }
     }
 

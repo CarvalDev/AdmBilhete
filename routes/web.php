@@ -40,7 +40,7 @@ Route::get('/passageiros',[PassageiroController::class, 'passageiroIndex'])->nam
 Route::get('/passageiros/form', [PassageiroController::class, 'form'])->name('passageiros.form');
 Route::get('/linhas',[LinhasController::class, 'index'])->name('linhas.index');
 Route::get('/linhas/register',[LinhasController::class, 'register'])->name('linhas.register');
-Route::get('/linhas/results', [linhasController::class, 'search'])->name('linha.search');
+Route::get('/linhas/results', [LinhasController::class, 'search'])->name('linhas.search');
 Route::get('/caixaEntrada',[CaixaEntradaController::class, 'caixaIndex'])->name('caixaEntrada.index');
 Route::get('/caixaEntrada/{id}/show', [CaixaEntradaController::class, 'show'])->name('caixaEntrada.show');
 Route::get('/caixaEntrada/results', [CaixaEntradaController::class, 'search'])->name('caixaEntrada.search');
