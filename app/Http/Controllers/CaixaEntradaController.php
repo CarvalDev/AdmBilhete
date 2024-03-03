@@ -69,11 +69,16 @@ class CaixaEntradaController extends Controller
         $passageiro = $passageiro->find($id);
         $mensagem = $request->mensagem;
         $suporte = $this->model->findById($idSuporte);
+        
+        if(!isset($request->statusSuporte)) {
+            $request['statusSuporte'] = 'Aberto';
+        }
+        
 
         $admServices->emailSuporte($passageiro->emailPassageiro, $mensagem, $idSuporte, $passageiro->nomePassageiro, $suporte->descSuporte, $suporte->categoriaSuporte);
 
         $this->model->updateStatus($idSuporte, $request->statusSuporte);
-
+        
         return redirect()->back();
 
     }

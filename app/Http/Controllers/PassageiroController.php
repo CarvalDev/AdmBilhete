@@ -100,8 +100,12 @@ class PassageiroController extends Controller
         $passageiro = $this->model->findWithAcoes($id);
         $bilhetes = $passageiro[0]->bilhetes;
         $acoes = $passageiro[0]->acaos;
+        $acoesCompra = $acoes->where('tipoAcao', 'Compra')->count();
+        $totalSuporte = $this->model->getSuporte($id)->count();
         $passageiro = $passageiro[0];
         $passagens = $bilheteModel->getPassagensAtivas($id);
+        $passagensInativas = $bilheteModel->getConsumos($id)[0]->passagensConsumidas;
+
         $bilhetes = $dataServices->resolvePassagens($bilhetes, $passagens);
 
         $dataNasc = explode("-",$passageiro->dataNascPassageiro);
@@ -117,7 +121,7 @@ class PassageiroController extends Controller
         }
 
         $user = Auth::guard('adm')->user();
-        return view('passageiros.perfil', compact('passageiro', 'bilhetes', 'acoes', 'passagens', 'user'));
+        return view('passageiros.perfil', compact('passageiro', 'bilhetes', 'acoes', 'passagens', 'user', 'passagensInativas', 'acoesCompra', 'totalSuporte'));
     }
 
     public function search(Request $request)

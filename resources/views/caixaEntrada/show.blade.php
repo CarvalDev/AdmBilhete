@@ -27,22 +27,28 @@
 
                         src="{{ asset("storage/$data->fotoPassageiro")}} "
 
-                        @endif  style="border-radius: 100%; width: 150px; height: 150px; object-fit: cover;" alt="">
+                        @endif  style="border-radius: 100%; width: 100px; height: 100px; object-fit: cover;" alt="">
                     
                 </div>
                 
-                <div class="dadosPrincipais d-flex flex-column ms-3" >
+                <div class="dadosPrincipais d-flex flex-column ms-3 mt-4" >
                     <div class="flex-row d-flex gap-2"><p style="color:rgb(52, 49, 49);" class=" fs-4 fw-bold p-0 m-0 text-uppercase">{{ $data->nomePassageiro }}</p></div>
                     <div class="flex-row d-flex gap-2"><p  style="font-size: 12px" class="fw-bold fs-6 text-secondary  p-0 m-0 mb-3 text-center">{{ $data->emailPassageiro }}</p></div>
                 </div>
                 
             </div>
-            <div class="align-self-start px-3" role="button">
-                <i class="fa-solid fa-circle-xmark text-danger fs-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Fechar sem responder"></i>
-            </div>
+            <form action="{{route('caixaEntrada.suporte.update', $data->id)}}" method="post">
+                @csrf
+                @method('PUT')
+                <button type="submit" class="align-self-start px-3 bg-transparent" style="border: 0px">
+                    <input type="hidden" name="statusSuporte" value="Fechado">
+                    <i class="fa-solid fa-circle-xmark text-danger fs-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Fechar sem responder"></i>
+                </button>
+            </form>
+
         </section>
         <section class="w-100 d-flex flex-column justify-content-center align-items-center" style="height: 60%">
-            <div class="w-100 pb-3 d-flex flex-row justify-content-between">
+            <div class="w-100 pb-3 mt-2 d-flex flex-row justify-content-between align-items-center">
                 <div class="col-10">
                 <span class="me-3 fs-6 fw-semibold text-secondary">{{ $data->dataAcao }}</span>
             </div>
@@ -56,29 +62,40 @@
                     >{{ $data->statusSuporte }}</div>
             </div>
             </div>
-            <div class="w-100 h-100 d-flex flex-column justify-content-between" style="height:90% ">
-                <div class="h-50 pt-2">
-                    <span class="w-100 py-2 texto">
+            <div class="w-100 h-100 d-flex flex-column justify-content-between">
+                <div class="h-50  pt-2 ms-2" style="width: 92%">
+                    <span class=" py-2 texto">
                         {{ $data->descSuporte }}
                     </span>
                 </div>
-               
+                @if( $data->statusSuporte == 'Aberto')
                 <form id="fecharSuporte" action="{{ route('caixaEntrada.mail', [$data->passageiro_id, $data->id]) }}" method="post" class="w-100 col">
-                          
+                          @csrf
                     <div class="row">
                         <div class="col"></div>
                     <label class="switch col-1" >
-                        <input type="checkbox" name="statusSuporte">
+                        <input type="checkbox" name="statusSuporte" value="Fechado"  >
                         <span class="slider"></span>
                       </label>
+
                     </div>
+
                     <div class="row">
                     <div class="input-field ps-4 col">
                           <input type="text" name="mensagem" placeholder="Responder Atendimento ">
                       </div>
                       <div  class="col-1 d-flex align-items-center"><button type="submit" class="btn px-3 btn-dark rounded-5">Enviar</button></div>
                     </div>
-                </form>    
+                </form>   
+                    @else 
+                    <form action="{{route('caixaEntrada.suporte.update', $data->id)}}" method="POST" class="w-100 d-flex  justify-content-center align-items-center">
+                        @method('PUT')
+                        @csrf
+                            <input type="hidden" name="statusSuporte" value="Aberto">
+                            <button type="submit" class="bg-success border border-none p-3 rounded-5 text-light shadow ">Reabrir Suporte</button>
+                    </form>
+                    @endif
+ 
             </div>
             {{-- <div id="duvidaPlace" class="h-100  d-flex flex-column justify-content-center align-items-center" style="width: 60%">
                 <div id="headerDuvida" style="height:20%" class=" w-100 d-flex justify-content-between align-items-center">

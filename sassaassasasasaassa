@@ -1,0 +1,260 @@
+[33mcommit f9787d6912a575079c32bdd985be04a9ec184e60[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: samugstu <samuelsouza0225@gmail.com>
+Date:   Sun Mar 3 11:50:11 2024 -0300
+
+    Modificar Perfil e Suporte 100%
+
+[33mcommit 0eff06485438100c7a48712351a84d8c1d6dac03[m
+Author: hugo <carvalhohugo425@gmail.com>
+Date:   Sat Mar 2 13:47:13 2024 -0300
+
+    Ajustar sidebar, integrar paginação com pesquisa, corrigir bug de duplicação na lista de passageiros, ajustes no layout das listas
+
+[33mcommit 23b9194ed20d210fc50e2f8e402b46ca497afcfb[m
+Author: hugo <carvalhohugo425@gmail.com>
+Date:   Fri Mar 1 23:39:14 2024 -0300
+
+    Adicionar paginação as listas, e integrar função ajax na lista de passageiros
+
+[33mcommit a594286b8ab2650e7728662686be3fe53969c407[m
+Author: samugstu <samuelsouza0225@gmail.com>
+Date:   Thu Feb 29 17:35:07 2024 -0300
+
+    Adicionar suporte 70%
+
+[33mcommit 4dda898c31ac612910cf35c1bbafb863dff11128[m
+Author: samugstu <samuelsouza0225@gmail.com>
+Date:   Thu Feb 29 11:58:45 2024 -0300
+
+    Adicionar besteirinhas
+
+[33mcommit 12b8e64dbf5829ef913fcd7fc7db7868db886d00[m
+Author: samugstu <samuelsouza0225@gmail.com>
+Date:   Wed Feb 28 10:48:59 2024 -0300
+
+    Adicionar Coisinhas Bestas
+
+[33mcommit 6db693bf9d1e7ade295ce560823ef5d9fab745bf[m
+Author: hugo <carvalhohugo425@gmail.com>
+Date:   Sun Feb 25 22:53:45 2024 -0300
+
+    Alterar os icones da side bar
+
+[33mcommit df5263ebedee621dbd1acda8e54f9cf998aae6a1[m
+Author: Miguel <migramoslim@gmail.com>
+Date:   Sun Feb 25 00:27:49 2024 -0300
+
+    nova tela loginAdm
+
+[33mcommit ee2d456f73a80641d45c6f94115c46f6cbda66f1[m
+Merge: 07bd47b 5e2cf9e
+Author: hugo <carvalhohugo425@gmail.com>
+Date:   Sat Feb 24 16:08:28 2024 -0300
+
+    Merge branch 'main' of https://github.com/CarvalDev/bilhete-unico-digital-adm
+
+[33mcommit 07bd47b899482c9aa093d39d33c5aac8a39c10d7[m
+Author: hugo <carvalhohugo425@gmail.com>
+Date:   Sat Feb 24 16:08:06 2024 -0300
+
+    Arrumar a nova side bar
+
+[33mcommit 5e2cf9ed135ef6f033622cedbf57fb7d86e481c6[m
+Author: Hugo Carvalho <142733241+CarvalDev@users.noreply.github.com>
+Date:   Sat Feb 24 15:04:51 2024 -0300
+
+    Update CompraSeeder.php
+
+[33mcommit 68d144087a170af5747bce8272d2c5e6164ac6c3[m
+Author: Hugo Carvalho <carvalhohugo425@gmail.com>
+Date:   Fri Feb 23 17:38:57 2024 -0300
+
+    Integrar a nova sidebar
+
+[33mcommit beef56a1d4a23ac8d327466f5aabed1dddc0386a[m
+Author: Hugo Carvalho <carvalhohugo425@gmail.com>
+Date:   Thu Feb 22 16:25:37 2024 -0300
+
+    Alterar o seeder da forma de pagamento
+
+[33mcommit 52b31139fd2b29ee147950ac66dabdf565fe5b88[m
+Author: Hugo Carvalho <142733241+CarvalDev@users.noreply.github.com>
+Date:   Fri Feb 16 17:38:59 2024 -0300
+
+    Update anotações.txt
+
+[33mcommit 7bee46365149d0aa102a299b30bb1256e1d54188[m
+Author: Hugo Carvalhom <carvalhohugo425@gmail.com>
+Date:   Fri Feb 16 17:36:29 2024 -0300
+
+    Adicionar anotações
+
+[33mcommit c810a3f986d507200ea30dbaa6309977785c256c[m
+Author: Mateus707 <darkp331@gmail.com>
+Date:   Thu Feb 15 20:19:07 2024 -0300
+
+    crud ajax(ultimos select)
+
+[33mcommit 5128323c238f147030579f94bf18a781a2563c54[m
+Author: GabrielSousa2004 <gabrielsilva.sousa2004@gmail.com>
+Date:   Thu Feb 15 17:15:03 2024 -0300
+
+    crud Ajax
+
+[33mcommit 66768a94bb1930e8573c367d0f805187a48984a6[m
+Author: GabrielSousa2004 <gabrielsilva.sousa2004@gmail.com>
+Date:   Thu Feb 15 16:19:10 2024 -0300
+
+    crud Ajax
+
+[33mcommit 88578d90b7ea0ded0a2adcca4e82e9757862be23[m
+Author: hugo <carvalhohugo425@gmail.com>
+Date:   Wed Feb 14 00:24:45 2024 -0300
+
+    Reestrturar banco de dados e suas seeders
+
+[33mcommit d4c2ba96c1c6d99977b123099a96b3f154639678[m
+Author: hugo <carvalhohugo425@gmail.com>
+Date:   Fri Feb 9 22:02:31 2024 -0300
+
+    Implementar loadings na navegação entre telas
+
+[33mcommit f66c081120a5adc62a5bb9624eb548065518ea75[m
+Author: hugo <carvalhohugo425@gmail.com>
+Date:   Fri Feb 9 18:48:52 2024 -0300
+
+    Fazer pesquisas na lista de adms com ajax
+
+[33mcommit adbc8f4951700a408ee3e6d5d732b5a4945c51aa[m
+Author: hugo <carvalhohugo425@gmail.com>
+Date:   Fri Feb 9 18:19:56 2024 -0300
+
+    Refatorar AdmController
+
+[33mcommit f955d660437a467621c188238a02e5bc63b3d855[m
+Author: Mateus707 <darkp331@gmail.com>
+Date:   Fri Feb 9 17:47:45 2024 -0300
+
+    fomularioPassageiro(Andamento)
+
+[33mcommit 90a82cdd25bdf88435a332ecec022e422bc77c9e[m
+Author: hugo <carvalhohugo425@gmail.com>
+Date:   Fri Feb 9 17:25:28 2024 -0300
+
+    Insert adm com ajax
+
+[33mcommit bfc14236c5d8963da017c840a8bb625b08f10c5d[m
+Author: Hugo Carvalho <carvalhohugo425@gmail.com>
+Date:   Wed Feb 7 17:34:55 2024 -0300
+
+    alterar alguns detalhes
+
+[33mcommit 6828fa3f191dd24a11b00412e30cfa4469c31ba7[m
+Merge: 6511d41 c77b5fe
+Author: Mateus707 <darkp331@gmail.com>
+Date:   Tue Feb 6 22:28:50 2024 -0300
+
+    Merge branch 'main' of https://github.com/CarvalDev/bilhete-unico-digital-adm
+
+[33mcommit 6511d419c68dd7ee3689df933ff5f292fcef04f9[m
+Author: Mateus707 <darkp331@gmail.com>
+Date:   Tue Feb 6 22:27:49 2024 -0300
+
+    Repositorios no home
+
+[33mcommit c77b5fe8583286e67db70d977cb2a201e0293e1c[m
+Author: hugo <carvalhohugo425@gmail.com>
+Date:   Mon Feb 5 22:17:30 2024 -0300
+
+    remover o catracaController
+
+[33mcommit 41e3f637cbd34f479ddc9d8fca8b8568f73b9de7[m
+Author: hugo <carvalhohugo425@gmail.com>
+Date:   Mon Feb 5 22:12:07 2024 -0300
+
+    refatorar codigos no LinhasController
+
+[33mcommit 4be308e7504534e56fe303834cf8b528628c38e7[m
+Author: hugo <carvalhohugo425@gmail.com>
+Date:   Mon Feb 5 20:26:01 2024 -0300
+
+    Integrar a api geradora de qr codes e inserir os links dos qrcodes do bilhete no banco
+
+[33mcommit 578beb8cdd5be1f9abf8f116189faac698342cb8[m
+Author: hugo <carvalhohugo425@gmail.com>
+Date:   Sun Feb 4 13:36:08 2024 -0300
+
+    integrar a api de cep
+
+[33mcommit bc62017cc286f07285faa924e44dbd9ba3b33417[m
+Author: Mateus707 <darkp331@gmail.com>
+Date:   Sun Jan 28 22:19:53 2024 -0300
+
+    repositorio do faturamento
+
+[33mcommit 8f536c2accc7829e5681fe69a533eb8dbf7757c0[m
+Author: Mateus707 <darkp331@gmail.com>
+Date:   Fri Jan 26 22:01:00 2024 -0300
+
+    Repositorio do preco e reajuste
+
+[33mcommit 9b3e66f50bc08a5d5e512957b5c54093dba1d483[m
+Author: hugo <carvalhohugo425@gmail.com>
+Date:   Fri Jan 26 00:21:31 2024 -0300
+
+    Refatoração LinhasController
+
+[33mcommit d0fa739f8ac6a3b7a3ad45f78cdda0dc78f39461[m
+Merge: 8aac359 b2d64a4
+Author: Hugo Carvalho <142733241+CarvalDev@users.noreply.github.com>
+Date:   Thu Jan 25 21:26:04 2024 -0300
+
+    Merge pull request #1 from CarvalDev/dependabot/npm_and_yarn/vite-4.5.2
+    
+    Bump vite from 4.5.1 to 4.5.2
+
+[33mcommit b2d64a4ee1ba55fe196bc6b900c673cd47cc3d8b[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Fri Jan 26 00:25:07 2024 +0000
+
+    Bump vite from 4.5.1 to 4.5.2
+    
+    Bumps [vite](https://github.com/vitejs/vite/tree/HEAD/packages/vite) from 4.5.1 to 4.5.2.
+    - [Release notes](https://github.com/vitejs/vite/releases)
+    - [Changelog](https://github.com/vitejs/vite/blob/v4.5.2/packages/vite/CHANGELOG.md)
+    - [Commits](https://github.com/vitejs/vite/commits/v4.5.2/packages/vite)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: vite
+      dependency-type: direct:development
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+[33mcommit 8aac359da298e53fbaf62b7dc0ee09cbb719140f[m
+Author: hugo <carvalhohugo425@gmail.com>
+Date:   Thu Jan 25 21:23:34 2024 -0300
+
+    Refatoração PassageiroController
+
+[33mcommit 2584e0339ee918460bb6d3ac3efe73b4edfca319[m
+Author: hugo <carvalhohugo425@gmail.com>
+Date:   Thu Jan 25 19:22:41 2024 -0300
+
+    Refatoração caixaEntradaController
+
+[33mcommit 816fadd46c19a858149d09821aa3e3e39c214a66[m
+Author: hugo <carvalhohugo425@gmail.com>
+Date:   Sun Jan 21 23:29:38 2024 -0300
+
+    Refatoramento de AdmController, adição de repositories e services
+
+[33mcommit c3696c2d3f4fbc4e51aa82182e7d6cc6313a9d05[m
+Author: hugo <carvalhohugo425@gmail.com>
+Date:   Mon Jan 15 22:47:36 2024 -0300
+
+    alteração
+
+[33mcommit 6f7ea3214016b094cf27f10dba77ee43457eb5c4[m
+Author: hugo <carvalhohugo425@gmail.com>

@@ -35,6 +35,17 @@ class PassageiroRepository extends AbstractRepository implements PassageiroRepos
                 ->where('passageiros.id', $id)
                 ->get();
     }
+    public function getSuporte($id)
+    {
+        return $this->model
+                ->select('acaos.id')
+                ->selectRaw('COUNT(suportes.id) as totalSuporte')
+                ->join('acaos', 'acaos.passageiro_id', 'passageiros.id')
+                ->join('suportes', 'suportes.acao_id', 'acaos.id')
+                ->groupBy('acaos.id')
+                ->where('passageiro_id', "$id")
+                ->get();
+    }
     public function allHome(){
         
       return  $this->model->all();
