@@ -1,0 +1,59 @@
+.title-dados{
+  text-transform: uppercase;
+  font-size: 20px;
+  color:rgb(52, 49, 49);
+  font-weight: bold;
+}
+
+.desc-dados{
+  font-size: 17px;
+  font-weight: 600;
+  color: rgb(131, 125, 125);
+}
+
+.info{
+  font-size: 15px;
+}
+
+.infos-title{
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.bilhetes {
+  height: 550px;
+  overflow: auto;
+}
+
+.historico {
+  height: 550px;
+  overflow: auto;
+}
+
+.tipoConsumo{
+  font-size: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.tipoConsumo2{
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: rgb(131, 125, 125);
+}
+.nav-link{
+  text-transform: uppercase;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+html ::-webkit-scrollbar {
+  width: 10px;
+}
+html ::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background: #e70000;
+}
+html ::-webkit-scrollbar-track {
+  background: #ffffff00;
+}

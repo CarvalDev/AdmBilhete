@@ -7,15 +7,16 @@
 @push('css')
     <link rel="stylesheet" href="{{ URL::asset('css/showCaixaEntrada.css') }}" type="text/css">
     <link href="vc-toggle-switch.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 @endpush
 
 
 @section('content')
     <div class="w-100 h-100 gap-1 d-flex flex-column justify-content-center align-items-center pe-5">
-        <section class="user w-100 h-25 d-flex flex-row justify-content-start align-items-center pb-3">
+        <section class="user w-100 h-25 d-flex flex-row justify-content-between align-items-center pb-3">
             <div id="userPlace" class="h-100 d-flex flex-row align-items-center " > 
                 {{-- <img src="{{ asset('images/userPadrao.png') }}" alt="">           --}}
-                <div class="fotoPassageiro rounded-circle bg-danger">
+                <div class="fotoPassageiro rounded-circle border border-5 border-danger">
                     
                 
                         <img 
@@ -34,6 +35,10 @@
                     <div class="flex-row d-flex gap-2"><p style="color:rgb(52, 49, 49);" class=" fs-4 fw-bold p-0 m-0 text-uppercase">{{ $data->nomePassageiro }}</p></div>
                     <div class="flex-row d-flex gap-2"><p  style="font-size: 12px" class="fw-bold fs-6 text-secondary  p-0 m-0 mb-3 text-center">{{ $data->emailPassageiro }}</p></div>
                 </div>
+                
+            </div>
+            <div class="align-self-start px-3" role="button">
+                <i class="fa-solid fa-circle-xmark text-danger fs-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Fechar sem responder"></i>
             </div>
         </section>
         <section class="w-100 d-flex flex-column justify-content-center align-items-center" style="height: 60%">
@@ -42,18 +47,18 @@
                 <span class="me-3 fs-6 fw-semibold text-secondary">{{ $data->dataAcao }}</span>
             </div>
             <div class="col-1 px-2">
-                <div class="bg-primary rounded-5 bg-opacity-10 border border-primary px-2 text-primary text-uppercase text-center"  >{{ $data->categoriaSuporte }}</div>       
+                <div class="bg-primary rounded-5 bg-opacity-5 border-primary px-2 py-1 text-light text-capitalize text-center shadow"  >{{ $data->categoriaSuporte }}</div>       
             </div>
             <div class="col-1 px-2">         
-                <div @if ($data->statusSuporte == 'Aberto') class="bg-primary rounded-5 bg-opacity-10 border border-primary px-2 text-primary text-uppercase text-center"
-                     @else class"bg-danger rounded-5 bg-opacity-10 border border-danger px-2 text-danger text-uppercase text-center"
+                <div @if ($data->statusSuporte == 'Aberto') class="bg-success rounded-5 bg-opacity-5 px-2 py-1 text-light text-capitalize text-center shadow"
+                     @else class="bg-danger rounded-5 bg-opacity-5 px-2 py-1 text-light text-capitalize text-center shadow"
                      @endif
                     >{{ $data->statusSuporte }}</div>
             </div>
             </div>
             <div class="w-100 h-100 d-flex flex-column justify-content-between" style="height:90% ">
-                <div class="h-50">
-                    <span class="w-100 p-2 ">
+                <div class="h-50 pt-2">
+                    <span class="w-100 py-2 texto">
                         {{ $data->descSuporte }}
                     </span>
                 </div>
@@ -71,7 +76,7 @@
                     <div class="input-field ps-4 col">
                           <input type="text" name="mensagem" placeholder="Responder Atendimento ">
                       </div>
-                      <div  class="col-1 d-flex align-items-center"><button type="submit" class="btn btn-sm px-2 btn-dark rounded-5">Enviar</button></div>
+                      <div  class="col-1 d-flex align-items-center"><button type="submit" class="btn px-3 btn-dark rounded-5">Enviar</button></div>
                     </div>
                 </form>    
             </div>
@@ -140,6 +145,12 @@
                 @endif --}}
         </section>
     </div>
+    <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl)
+        });
+      </script>
 @endsection
 
 

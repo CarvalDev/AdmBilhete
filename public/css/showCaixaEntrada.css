@@ -6,6 +6,10 @@
     font-weight: bold ;
 }
 
+.texto{
+    font-size: 17px;
+}
+
 #duvidaPlace{
     background-color: #edf2f4;
     border-top-left-radius: 10px;
@@ -50,18 +54,18 @@ textarea, select{
     outline: none;
     border:none;
     border-bottom: 3px solid rgb(88, 88, 88);
-    font-size: 15px;
+    font-size: 18px;
   }
 
   .switch {
-    --button-width: 3.5em;
-    --button-height: 2em;
-    --toggle-diameter: 1.5em;
+    --button-width: 5em;
+    --button-height: 3em;
+    --toggle-diameter: 2em;
     --button-toggle-offset: calc((var(--button-height) - var(--toggle-diameter)) / 2);
     --toggle-shadow-offset: 10px;
     --toggle-wider: 3em;
     --color-grey: #cccccc;
-    --color-green: #4296f4;
+    --color-green: #f70000;
    }
    
    .slider {
@@ -108,4 +112,4 @@ textarea, select{
    .switch input[type="checkbox"]:checked:active + .slider::after {
     transform: translateX(calc(var(--button-width) - var(--toggle-wider) - var(--button-toggle-offset)));
    }
-   
+ 
