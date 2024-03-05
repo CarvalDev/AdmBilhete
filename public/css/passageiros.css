@@ -1,72 +1,49 @@
-#modalPassageiro{
-    margin-left: auto;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    border: none;
-    border-radius: 10px;
 
-  }
-
-
-  input[type="file"] {
+input[type="file"] {
     display: none;
 }
-input:focus {
-    box-shadow: none !important;
-    background-color: white !important;
-}
-
 
 
 #lbFoto:hover{
   cursor: pointer;
 
 }
-  #modalPassageiro::backdrop {
-    backdrop-filter: blur(3px);
-    /* background-color: white;
-        opacity: 50%; */
-  }
-  .btnCss{
-    height: 5vh!important;
-    color: white!important;
-    border: 1px solid black!important;
-    text-align: center!important;
-    background-color: #ff0000!important;
+  
+.input-g {
+  position: relative;
+ }
+ 
+ .input {
+  border: solid 1.5px #9e9e9e;
+  border-radius: 1rem;
+  background: none;
+  padding: 0.8rem;
+  font-size: 1rem;
+  color: #000000;
+  transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+ }
+ 
+ .user-label {
+  position: absolute;
+  left: 15px;
+  color: #2c2c2c;
+  pointer-events: none;
+  transform: translateY(1rem);
+  transition: 150ms cubic-bezier(0.4,0,0.2,1);
+ }
+ 
+ .input:focus, input:valid {
+  outline: none;
+  border: 1.5px solid #e70000;
+ }
+ 
+ .input:focus ~ label, input:valid ~ label {
+  transform: translateY(-50%) scale(0.8);
+  background-color: #ffffff;
+  padding: 0 .2em;
+  color: #e70000;
+ }
 
-}
-.text-area{
-  resize: none;
-  box-shadow: none!important;
-  border: none!important;
-}
-.btn-close{
-  box-shadow: none!important;
-  border: none!important;
-}
-input, select{
-  border: 1px solid rgba(0, 0, 0, 0.3)!important;
-}
-#cep, #num{
-  border: none !important;
-}
-
- /* #nomePassageiro{
-  white-space: nowrap;
-  overflow: hidden;
-  padding: 0;
-  margin: 0;
-  text-align: center;
-  text-overflow: ellipsis;
-  width: 20ch !important;
-}  */
-
-table{
-  table-layout: fixed;
-}
-#nomePassageiro{
-  overflow: hidden;
-  width: 5ch !important;
-  white-space: nowrap;
-  text-align: center;
-  text-overflow: ellipsis;
-}
+ .h-90 {
+  height: 75%;
+ }

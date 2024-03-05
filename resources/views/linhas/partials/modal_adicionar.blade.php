@@ -37,7 +37,7 @@
         margin: auto;
         outline: none !important;
         border: none !important;
-        backdrop-filter: blur(2px)
+        backdrop-filter: blur(2px);
         width: 40vw !important;
         
     }
@@ -71,14 +71,14 @@
       align-self: flex-start;
     }
     button.accept {
-      background-color: #2e3ae9;
+      background-color: #e70000;
       border: none;
       
       width: 200px;
       padding: 14px;
       font-size: 16px;
       color: white;
-      box-shadow: 0px 6px 18px -5px rgba(46, 58, 233, 1);
+      box-shadow: 0px 6px 18px -5px #e70000;
       outline: none !important;
     }
   }

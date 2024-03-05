@@ -18,7 +18,7 @@
         src="{{ url("images/userPadrao.png")}} "
         @else
         src="{{ url("storage/$passageiro->fotoPassageiro")}} "
-        @endif  class="w-100 h-100 border border-5 border-danger"  style="border-radius: 100%; object-fit: cover;">
+        @endif  class="w-100 h-100 border border-5 border-danger rounded-circle"  style="object-fit: cover; width:200px; height:200px;">
     </div>
     </div>
     <div class="row h-50 ">
@@ -28,9 +28,9 @@
     <div class="totalAcoes mt-3 w-100 h-50 gap-3 justify-content-center " style="border-top: 2px solid black">
       <table class=" justify-content-center mt-3 w-100 d-flex flex-column h-100">
         <tbody class="d-flex flex-column gap-3 w-100">
-          <tr class="w-100 d-flex flex-row justify-content-between"><th class="w-50">Compras</th> <td class="w-50 ">{{ $acoesCompra }}</td></tr>
-          <tr class="w-100 d-flex flex-row justify-content-between"><th class="w-50">Consumos</th> <td class="w-50 ">{{ $passagensInativas }}</td></tr>
-          <tr class="w-100 d-flex flex-row justify-content-between"><th class="w-50">Suportes</th> <td class="w-50 ">{{ $totalSuporte }}</td></tr>
+          <tr class="w-100 d-flex flex-row justify-content-between"><th class="w-50">Compras</th> <td class="w-50 d-flex justify-content-end">{{ $acoesCompra }}</td></tr>
+          <tr class="w-100 d-flex flex-row justify-content-between"><th class="w-50">Consumos</th> <td class="w-50 d-flex justify-content-end">{{ $passagensInativas }}</td></tr>
+          <tr class="w-100 d-flex flex-row justify-content-between"><th class="w-50">Suportes</th> <td class="w-50 d-flex justify-content-end">{{ $totalSuporte }}</td></tr>
         </tbody>
       </table>
     </div>
@@ -89,11 +89,11 @@
         </ul>
       </div>
       <div class="tab-pane fade " id="nav-bilhete" role="tabpanel" aria-labelledby="nav-bilhete-tab">
-        <div class="d-flex justify-content-end align-items-center py-1 align-end container" >    
-          <a href="{{ route('passageiros.addBilhete', $passageiro->id) }}" class="border-0"><i class="fas fa-plus-circle fa-2x" aria-hidden="true"></i></a>
-      </div>
           @if (count($bilhetes)>0)
           <div class="bilhetes row w-100 d-flex justify-content-end">
+            <div class="d-flex justify-content-end align-items-center py-1 align-end container" >    
+              <a href="{{ route('passageiros.addBilhete', $passageiro->id) }}" class="border-0 "><i class="fas fa-plus-circle fa-2x text-danger" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="left" title="Adicionar Bilhete"></i></a>
+            </div>
           @foreach ($bilhetes as $bilhete)
           <input type="hidden" value="{{ $bilhete->qtdPassagem }}" id="numero">
           <div class="w-100 d-flex flex-row justify-content-evenly gap-3 align-items-center">
@@ -101,7 +101,7 @@
             <img src="{{ url('images/fuleiragem.png') }}" style="width: 130px;height:130px">
           </div>
           <a href="#" class="btn text-decoration-none w-100 h-100 d-flex flex-row justify-content-evenly gap-3 align-items-center " data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <div class="rounded-4 mt-5 shadow" style="height: 280px; width:480px ; background-color:
+          <div class="rounded-4 shadow" style="height: 280px; width:480px ; background-color:
             @if($bilhete->tipoBilhete == 'Comum') #808075 
             @elseif ($bilhete->tipoBilhete == 'Estudante') #4390E1 
             @elseif ($bilhete->tipoBilhete == 'Idoso') #FFDB70 
@@ -152,8 +152,8 @@
             
             <footer class="row rodapeBilhete w-100">
                 <div class="col-9 codUsoBilhete text-end pe-5 pt-3">                   
-                        <label style="font-size:15px">Código de uso/N° do Bilhete Único</label>
-                        <p class="fw-bold text-end pe-5" style="font-size:20px">{{ $bilhete->numBilhete }}</p>                    
+                        <label style="font-size:13px">Código de uso/N° do Bilhete Único</label>
+                        <p class="fw-bold text-end pe-5" style="font-size:15px">{{ $bilhete->numBilhete }}</p>                    
                 </div>
                 <div class="col-3 logo2023 d-flex justify-content-center align-items-center" >
                         <img src=" {{ url('images/anoBilhete.png')}}" style="width: 100px;">
@@ -273,9 +273,15 @@
     </form>
   </div>
   </div>
+  
 <script src=" {{ URL::asset('js/verificaPassagem.js')}} "></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-
+<script>
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  });
+</script>
 @endsection

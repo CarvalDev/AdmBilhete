@@ -38,7 +38,7 @@
         @if (isset($data->status) || isset($linhas))
         <div id="pageTitleContainer" class="d-flex  justify-content-between w-100 align-items-center">
             <div class="w-25 ">
-            <span id="pageTitle" class="fs-3 fw-bold">@yield('pageTitle')</span>
+            <span id="pageTitle" class="fs-3 fw-bold text-capitalize">@yield('pageTitle')</span>
             <div id="underline"></div>
             </div>
             <form @if (isset($data->status))
