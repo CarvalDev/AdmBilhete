@@ -32,7 +32,7 @@ class LinhasRepository extends AbstractRepository implements LinhasRepositoryInt
                 $query->where('statusLinha', '=', $status);
                 }
             })
-            ->orderBy('linhas.created_at', 'desc')
+            // ->orderBy('linhas.created_at', 'desc')
             ->paginate(15);
 
         $consumos = $this->model
@@ -49,7 +49,7 @@ class LinhasRepository extends AbstractRepository implements LinhasRepositoryInt
                             $query->orWhere('numLinha','LIKE',"%{$search}%");
                         }
                     })
-                    ->orderBy('linhas.created_at', 'desc')
+                    // ->orderBy('linhas.created_at', 'desc')
                     ->paginate(15);
         $linhas = DataServices::resolveConsumos($linhas, $consumos);
         return $linhas;
@@ -118,7 +118,7 @@ class LinhasRepository extends AbstractRepository implements LinhasRepositoryInt
         ->groupBy('id', 'numLinha', 'nomeLinha')
         ->
         where('nomeLinha','LIKE',"%{$search}%")
-        ->orderBy('linhas.created_at', 'desc')
+        // ->orderBy('linhas.created_at', 'desc')
             ->paginate(15);
         
         $consumos = $this->model
@@ -129,7 +129,7 @@ class LinhasRepository extends AbstractRepository implements LinhasRepositoryInt
                 ->groupBy('linhas.id')
                 ->
                 where('nomeLinha','LIKE',"%{$search}%")
-                ->orderBy('linhas.created_at', 'desc')
+                // ->orderBy('linhas.created_at', 'desc')
                     ->paginate(15);
                     
         $linhas = DataServices::resolveConsumos($linhas1, $consumos);

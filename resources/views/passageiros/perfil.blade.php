@@ -2,7 +2,7 @@
 
 @push('css')
 <link rel="stylesheet" href="{{ URL::asset('css/perfilPassageiro.css') }}" type="text/css">
-
+<link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
 @endpush
 
 @section('pageTitle', 'Perfil do Passageiro')
@@ -10,7 +10,7 @@
 @section('title','Perfil do Passageiro')
 
 @section('content')
-<div class="w-100 h-100 d-flex flex-row pe-5 pt-5">
+<div class="conteudoPerfil w-100 h-100 d-flex flex-row pe-5 pt-5">
   <div class="col-3 pe-5">
     <div class="row h-50">
       <div class="fotoPassageiro p-5">
@@ -25,7 +25,7 @@
       <span style="color:rgb(52, 49, 49);" class="text-center fs-5 fw-bold  text-uppercase">
       {{ $passageiro->nomePassageiro }}
     </span>
-    <div class="totalAcoes mt-3 w-100 h-50 gap-3 justify-content-center " style="border-top: 2px solid black">
+    <div class="totalAcoes mt-3 w-100 h-50 gap-3 justify-content-center " style="border-top: 2px solid rgba(0,0,0,0.4)">
       <table class=" justify-content-center mt-3 w-100 d-flex flex-column h-100">
         <tbody class="d-flex flex-column gap-3 w-100">
           <tr class="w-100 d-flex flex-row justify-content-between"><th class="w-50">Compras</th> <td class="w-50 d-flex justify-content-end">{{ $acoesCompra }}</td></tr>
@@ -45,7 +45,7 @@
       </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="nav-dados" role="tabpanel" aria-labelledby="nav-dados-tab">
+      <div class="tab-pane fade show active p-3 pb-5 pt-1" id="nav-dados" role="tabpanel" aria-labelledby="nav-dados-tab">
         <ul class="list-group pt-3">
           <li class="list-group-item d-flex flex-row justify-content-between">
             <span class="title-dados">CPF:</span>
@@ -88,7 +88,14 @@
           </li>
         </ul>
       </div>
+<<<<<<< Updated upstream
       <div class="tab-pane fade " id="nav-bilhete" role="tabpanel" aria-labelledby="nav-bilhete-tab">
+=======
+      <div class="tab-pane fade p-5 pt-1" id="nav-bilhete" role="tabpanel" aria-labelledby="nav-bilhete-tab">
+        <div class="d-flex justify-content-end align-items-center py-1 align-end container" >    
+          <a href="{{ route('passageiros.addBilhete', $passageiro->id) }}" class="border-0"><i class="fas fa-plus-circle fa-2x text-dark" aria-hidden="true"></i></a>
+      </div>
+>>>>>>> Stashed changes
           @if (count($bilhetes)>0)
           <div class="bilhetes row w-100 d-flex justify-content-end">
             <div class="d-flex justify-content-end align-items-center py-1 align-end container" >    
@@ -170,7 +177,7 @@
         @endif
      
       </div>
-      <div class="tab-pane fade" id="nav-historico" role="tabpanel" aria-labelledby="nav-historico-tab">
+      <div class="tab-pane fade p-5 pt-2" id="nav-historico" role="tabpanel" aria-labelledby="nav-historico-tab">
         <div class="historico row w-100 d-flex justify-content-center">
           <div class="pt-2">
             @foreach ($acoes as $acao)
@@ -207,13 +214,13 @@
   </div>
   <script>
     // Adiciona um ouvinte de evento quando a página é carregada
-    document.addEventListener('DOMContentLoaded', function () {
-      // Encontrar a lista de abas
-      var myTab = new bootstrap.Tab(document.getElementById('home-tab'));
-  
-      // Ativar a primeira aba
-      myTab.show();
-    });
+    // document.addEventListener('DOMContentLoaded', function () {
+    //   // Encontrar a lista de abas
+    //   var myTab = new bootstrap.Tab(document.getElementById('home-tab'));
+      
+    //   // Ativar a primeira aba
+    //   myTab.show();
+    // });
   </script>
   
  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -275,8 +282,9 @@
   </div>
   
 <script src=" {{ URL::asset('js/verificaPassagem.js')}} "></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<<<<<<< Updated upstream
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 <script>
   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
@@ -287,4 +295,8 @@
 @endsection
 @section('pesquisa')
     @include('components.barraPesquisa')
+=======
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script> --}}
+
+>>>>>>> Stashed changes
 @endsection

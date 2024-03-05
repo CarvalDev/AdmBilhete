@@ -11,6 +11,20 @@
   color: rgb(131, 125, 125);
 }
 
+.divCarregada{
+  display: flex !important;
+}
+
+
+
+.carregador{
+  position: absolute !important;
+}
+
+.divCarregando{
+  display: none !important;
+}
+
 .info{
   font-size: 15px;
 }

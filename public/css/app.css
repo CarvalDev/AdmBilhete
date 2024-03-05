@@ -26,9 +26,10 @@
   --bs-nav-tabs-border-color: #d34343;
   --bs-nav-tabs-border-radius: var(--bs-border-radius);
   --bs-nav-tabs-link-hover-border-color: #ffffff var(--bs-secondary-bg) #fdfdfd;
-  --bs-nav-tabs-link-active-color: #f00;
+  --bs-nav-tabs-link-active-color: #d34343;
   --bs-nav-tabs-link-active-bg: #f5f5f5;
-  --bs-nav-tabs-link-active-border-color: #c1c1c1 #d1cdcd #c3c1c1;
+  --bs-nav-tabs-link-active-border-color: #d34343 #d34343 #c3c1c1;
+  --bs-nav-tabs-link-hover-border-color: #ffffff 
   border-bottom: var(--bs-nav-tabs-border-width) solid var(--bs-nav-tabs-border-color);
 }
 
@@ -80,7 +81,7 @@
 }
 
 .onLoadingDiv{
-  display: flex;
+  display: flex ;
 }
 
 .loadedDiv{
@@ -90,7 +91,7 @@
 
 
 /* HTML: <div class="loader"></div> */
-.loader {
+.carregador {
   width: 50px;
   aspect-ratio: 1;
   border-radius: 50%;

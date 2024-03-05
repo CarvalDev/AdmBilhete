@@ -6,10 +6,10 @@
     }
  
 });
-    let onLoadingDiv = document.querySelector('.onLoadingDiv')
-    let loadedDiv = document.querySelector('.loadedDiv')
+    let onLoadingDiv = document.querySelector('.divCarregando')
+    let loadedDiv = document.querySelector('.divCarregada')
     onLoadingDiv.style.display = "flex"
-    loadedDiv.style.display = "none"
+     loadedDiv.style.display = "none"
 
     const loading =() => {
         setTimeout(() => {

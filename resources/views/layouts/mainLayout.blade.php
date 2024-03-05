@@ -7,7 +7,7 @@
     @stack('css')
     <script src="https://kit.fontawesome.com/d5ea0dfb99.js" crossorigin="anonymous"></script>
     <link rel="short icon" href="{{ URL::asset('storage/site/logo bilhete 1.png') }}" />
-    <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
      
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -26,12 +26,12 @@
         <div style="width: 90%; margin-left:10%" class=" vh-100 d-flex flex-column justify-content-center align-items-center">
             {{-- <span id="pageTitle" class="fs-3 ">@yield('pageTitle')</span> --}}
             @include('components.navbar')
-            <div style="height: 80%" class="loadedDiv w-100 justify-content-center align-items-center">               
+            <div style="height: 80%" class="divCarregada w-100 justify-content-center align-items-center">               
                 @yield('content')
             </div>
-            <div style="height: 80%" class="onLoadingDiv w-100 justify-content-center align-items-center">
+            <div style="height: 80%" class="divCarregando w-100 justify-content-center align-items-center">
                 
-                <div class="loader"></div>
+                <div class="carregador"></div>
             
             </div>
         </div>
@@ -43,7 +43,8 @@
 <script src="{{ URL::asset('js/nav.js') }}"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
 @include('components.loader')
-
-
 </html>
