@@ -285,3 +285,6 @@
   });
 </script>
 @endsection
+@section('pesquisa')
+    @include('components.barraPesquisa')
+@endsection

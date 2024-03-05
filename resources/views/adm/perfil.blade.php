@@ -73,7 +73,7 @@
           </div>
           <div class=" text-end  col-md-10">
           <a href="{{ route('home.index') }}" class=" btn btn-primary" role="button" aria-disabled="true" href="index.php">Voltar</i></a>
-          <button class="btn btn-primary">Atualizar</button>
+          <button class="btn btn-success">Atualizar</button>
         </div>
         </div>
 
