@@ -74,7 +74,11 @@ class LinhasController extends Controller
         $linha = $query[0];
         $consumos = $consumoModel->countConsumosByCars($id);
         $totalConsumos = $consumoModel->countConsumosByLinha($id);
+        if($totalConsumos->count()>0){
         $linha->totalConsumos = $totalConsumos[0]->qtdConsumos;
+        }else{
+            $linha->totalConsumos =0;
+        }
          
         
         $carros = DataServices::resolveConsumos($carros, $consumos);

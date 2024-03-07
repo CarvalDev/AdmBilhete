@@ -12,7 +12,7 @@ if (!("erro" in conteudo)) {
     //Atualiza os campos com os valores.
     document.getElementById('rua').value=(conteudo.logradouro);
     document.getElementById('bairro').value=(conteudo.bairro);
-    // document.getElementById('cidade').value=(conteudo.localidade);
+    document.getElementById('cidade').value=(conteudo.localidade);
     document.getElementById('uf').value=(conteudo.uf);
     // document.getElementById('ibge').value=(conteudo.ibge);
 } //end if.

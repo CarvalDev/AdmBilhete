@@ -72,7 +72,7 @@ class StoreUpdatePassageiroFormRequest extends FormRequest
                 'email'
             ],
             'password' => [
-                'required'
+                'nullable'
             ],
             'fotoPassageiro' => [
                 'nullable',

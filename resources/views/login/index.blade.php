@@ -11,11 +11,11 @@
       <h3>Login</h3>
       <div class="input-field">
         <i class="fa-solid fa-envelope"></i>
-          <input type="text" name="emailAdm" placeholder="Enter your email">
+          <input type="text" name="emailAdm" placeholder="Email">
       </div>
       <div class="input-field">
         <i class="fa fa-lock"></i>
-        <input type="password" name="password" placeholder="Enter your password">
+        <input type="password" name="password" placeholder="Senha">
     </div>
     @if (session('erro'))
     <div class="w-100 fw-bold p-3">
@@ -24,7 +24,7 @@
 @endif
     <div class="p-3"></div>
     <button type="submit">Entrar</button>
-    <p>Não tem conta? <a href="#">KKKKKKKK</a></p>
+    <p>Esqueceu sua senha? <a href="#">Clique aqui</a></p>
 </form>
     <div class="image">
       <div class="overlay">

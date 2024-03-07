@@ -84,10 +84,13 @@ class PassageiroController extends Controller
     public function store(StoreUpdatePassageiroFormRequest $request)
     {
         $data = $request->all();
+        if($request->password){
         $data['password'] = bcrypt($data['password']);
+        }
         if($request->fotoPassageiro){
             $data['fotoPassageiro'] = $request->fotoPassageiro->store('passageiros');
         }
+        $data['nomePassageiro'] = $data['nomePassageiro']." ".$data['sobreNomePassageiro'];
         $this->model->create($data);
 
         return response()->json([
@@ -104,7 +107,7 @@ class PassageiroController extends Controller
         $totalSuporte = $this->model->getSuporte($id)->count();
         $passageiro = $passageiro[0];
         $passagens = $bilheteModel->getPassagensAtivas($id);
-        $passagensInativas = $bilheteModel->getConsumos($id)[0]->passagensConsumidas;
+        $passagensInativas = $bilheteModel->getAllConsumos($id);
 
         $bilhetes = $dataServices->resolvePassagens($bilhetes, $passagens);
 

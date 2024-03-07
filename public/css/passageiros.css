@@ -34,16 +34,28 @@ input[type="file"] {
  
  .input:focus, input:valid {
   outline: none;
-  border: 1.5px solid #e70000;
+  border: 1.5px solid #85afe7;
  }
  
  .input:focus ~ label, input:valid ~ label {
   transform: translateY(-50%) scale(0.8);
   background-color: #ffffff;
   padding: 0 .2em;
-  color: #e70000;
+  color: #85afe7;
  }
 
  .h-90 {
   height: 75%;
  }
+
+ .btnCadastrar{
+  background-color: #047228;
+  border: none;
+  
+  width: 150px;
+  padding: 14px;
+  font-size: 16px;
+  color: white;
+  box-shadow: 0px 6px 18px -5px #047228;
+  outline: none !important;
+}

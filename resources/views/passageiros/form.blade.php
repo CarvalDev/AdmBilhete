@@ -10,8 +10,9 @@
 @section('pageTitle', 'Adicionar Passageiro')
 @section('content')
 <div class="h-100 w-100 ">
-    <form class="w-100 h-100 d-flex flex-row pe-5 pt-5 " action="">
-    <div class="col-3 d-flex flex-column">
+    <form class="w-100 h-100 d-flex flex-row pe-5 pt-5 " action="" id="passageiroStore" method="POST"  enctype="multipart/form-data">
+    @csrf
+        <div class="col-3 d-flex flex-column">
         <div class="h-50 w-100 d-flex justify-content-center align-items-center">          
                 <label for="foto" id="lbFoto" >
                     <img id="preview" class="rounded-circle "
@@ -25,7 +26,7 @@
                 <label class="user-label">Nome</label>
             </div>
             <div class="input-g m-3 mx-4">
-                <input required="" type="text" name="sobrenomePassageiro" id="lastname" autocomplete="off" class="input w-100">
+                <input required="" type="text" name="sobreNomePassageiro" id="lastname" autocomplete="off" class="input w-100">
                 <label class="user-label">Sobrenome</label>
             </div>
             <div class="input-g m-3 mx-4">
@@ -56,14 +57,14 @@
                     <input required="" class="input w-100" autocomplete="off" data-mask="(00)00000-0000" type="text" name="numTelPassageiro" id="telefone">
                     <label class="user-label">Telefone</label>
                 </div>
-                <div class="input-g m-2 w-100">
+                {{-- <div class="input-g m-2 w-100">
                     <input required="" class="input w-100" autocomplete="off" type="password" name="password" id="password">
                     <label class="user-label">Senha</label>
                 </div>
                 <div class="input-g m-2 w-100">
                     <input required="" class="input w-100" autocomplete="off" type="password" id="confpassword">
                     <label class="user-label">Confirmar Senha</label>
-                </div>
+                </div> --}}
             </div>
             <div class="col h-100 flex-column d-flex align-items-center border-start border-2 border-secondary pt-1">
                 <div class="input-g m-2 w-100">
@@ -84,7 +85,7 @@
                     <label class="user-label">Bairro</label>
                 </div>
                 <div class="input-g m-2 w-100">
-                    <input required="" autocomplete="off" type="text" name="cidadePassageiro" class="input w-100" id="cidade">
+                    <input required="" autocomplete="off" type="text" id="cidade" name="cidadePassageiro" class="input w-100" id="cidade">
                     <label class="user-label">Cidade</label>
                 </div>
                 <div class="input-g m-2 w-100">
@@ -112,6 +113,9 @@
                         <option value="RN">RN</option>
                         <option value="SP">SP</option>
                     </select>
+                </div>
+                <div class="w-100  d-flex justify-content-end">
+                <button class="btnCadastrar my-3" type="submit">Cadastrar</button>
                 </div>
             </div>
         </div>

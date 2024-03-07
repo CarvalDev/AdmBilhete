@@ -11,4 +11,5 @@ interface BilheteRepositoryInterface
     public function adicionarPassagens($qtd, $bilhete);
     public function create($data);
     public function update($id, $data);
+    public function getAllConsumos($idPassageiro);
 }

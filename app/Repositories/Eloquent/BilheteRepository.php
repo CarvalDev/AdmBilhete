@@ -46,6 +46,29 @@ class BilheteRepository extends AbstractRepository implements BilheteRepositoryI
             ->where('passageiro_id', "$idPassageiro")
             ->where('statusPassagem', 'Inativa')
             ->get();
+        
+
+
+
+    }
+
+    public function getAllConsumos($idPassageiro) 
+    {
+
+        $consumos = $this->model->
+            
+            selectRaw('COUNT(passagems.id) as consumosTotais')
+            ->join('passagems', 'bilhetes.id', 'passagems.bilhete_id')
+            ->join('consumos', 'consumos.passagem_id', 'passagems.id')
+            ->where('passageiro_id', "$idPassageiro")
+            ->where('statusPassagem', 'Inativa')
+            ->get();
+        if($consumos->count()>0){
+            return $consumos[0]->consumosTotais;
+        }else{
+            return 0;
+        }
+
 
 
     }
