@@ -22,7 +22,11 @@
         <span class="text-danger">{{session('erro')}}</span>
     </div>
 @endif
-    <div class="p-3"></div>
+    <div class="p-3">
+      <label class="cyberpunk-checkbox-label">
+      <input type="checkbox" class="cyberpunk-checkbox">Lembre-se de mim
+    </label>
+  </div>
     <button type="submit">Entrar</button>
     <p>Esqueceu sua senha? <a href="#">Clique aqui</a></p>
 </form>

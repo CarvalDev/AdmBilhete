@@ -10,37 +10,41 @@
 @section('pageTitle', 'Adicionar Passageiro')
 @section('content')
 <div class="h-100 w-100 ">
-    <form class="w-100 h-100 d-flex flex-row pe-5 pt-5 " action="" id="passageiroStore" method="POST"  enctype="multipart/form-data">
+    <form class="w-100 h-90 d-flex flex-row pe-5 pt-5 " action="" id="passageiroStore" method="POST"  enctype="multipart/form-data">
     @csrf
         <div class="col-3 d-flex flex-column">
-        <div class="h-50 w-100 d-flex justify-content-center align-items-center">          
-                <label for="foto" id="lbFoto" >
-                    <img id="preview" class="rounded-circle "
-                        src="{{ url('images/userPadrao.png') }}" name="fotoPassageiro" style="object-fit: cover; width: 200px; height: 200px;" alt="" >                            
-                    </label>
-                    <input type="file" id="foto" name="fotoPassageiro"> 
-        </div>
-        <div class="h-50">
-            <div class="input-g m-3 mx-4">
-                <input required="" type="text" name="nomePassageiro" id="name" autocomplete="off" class="input w-100">
-                <label class="user-label">Nome</label>
-            </div>
-            <div class="input-g m-3 mx-4">
-                <input required="" type="text" name="sobreNomePassageiro" id="lastname" autocomplete="off" class="input w-100">
-                <label class="user-label">Sobrenome</label>
-            </div>
-            <div class="input-g m-3 mx-4">
-            <select id="genero" class="input w-100" name="generoPassageiro">
-                <option value="M">Masculino</option>
-                <option value="F">Feminino</option>
-                <option value="O">Outro</option>
-            </select>
-        </div>
-        </div>
+            <div class="h-50 w-100 d-flex justify-content-center align-items-center position-relative">
+                <label for="foto" id="lbFoto" class="position-relative">
+                    <img id="preview" class="rounded-circle"
+                         src="{{ url('images/userPadrao.png') }}" name="fotoPassageiro"
+                         style="object-fit: cover; width: 200px; height: 200px;" alt="adicionar foto">
+                    <div class="rounded-circle position-absolute" style="width: 50px; height: 50px; right: 0; bottom: 0; background-color: #e70000">
+                        <span class="text-white d-flex justify-content-center align-items-center fs-2 fw-bold" style="width: 100%; height: 100%;">+</span>
+                    </div>
+                </label>
+                <input type="file" id="foto" name="fotoPassageiro" style="display: none;">
+            </div>            
+        <span class="text-center fs-4 fw-semibold">Escolha uma Foto</span>
     </div>
     <div class="col-9 ">
-        <div class="row w-100 h-90">
-            <div class="col h-100 flex-column d-flex align-items-center border-start border-2 border-secondary pt-1">
+        <div class="row w-100 h-100">
+            <div class="col h-100 flex-column d-flex align-items-center border-start border-secondary pt-1">
+                <div class="input-g m-2 w-100">
+                    <label class="user-label2">Dados Pessoais</label>
+                    <input required="" type="text" name="nomePassageiro" id="name" autocomplete="off" class="input w-100">
+                    <label class="user-label">Nome</label>
+                </div>
+                <div class="input-g m-2 w-100">
+                    <input required="" type="text" name="sobreNomePassageiro" id="lastname" autocomplete="off" class="input w-100">
+                    <label class="user-label">Sobrenome</label>
+                </div>
+                <div class="input-g m-2 w-100">
+                <select id="genero" class="input w-100" name="generoPassageiro">
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
+                    <option value="O">Outro</option>
+                </select>
+                </div>
                 <div class="input-g m-2 w-100">
                     <label class="user-label2">Data de Nascimento</label>
                     <input required="" type="date" name="dataNascPassageiro" id="dataNasc" autocomplete="off" class="input w-100"> 
@@ -66,27 +70,28 @@
                     <label class="user-label">Confirmar Senha</label>
                 </div> --}}
             </div>
-            <div class="col h-100 flex-column d-flex align-items-center border-start border-2 border-secondary pt-1">
+            <div class="col h-100 flex-column d-flex align-items-center border-start border-end border-secondary pt-1">
                 <div class="input-g m-2 w-100">
                     <label class="user-label2">Endereço</label>
                     <input required="" class="input w-100" data-mask="00000-000" autocomplete="off" type="text" name="cepPassageiro" id="cep" onblur="pesquisacep(this.value);">
                     <label class="user-label">Cep</label>
                 </div>
                 <div class="input-g m-2 w-100">
+                    <input required="" autocomplete="off" type="text" id="cidade" name="cidadePassageiro" class="input w-100" id="cidade">
+                    <label class="user-label">Cidade</label>                   
+                </div>
+                <div class="input-g m-2 w-100">
+                    <input required="" autocomplete="off" type="text" name="bairroPassageiro" class="input w-100" id="bairro">
+                    <label class="user-label">Bairro</label>                 
+                </div>
+                <div class="input-g m-2 w-100">
+                    <label class="user-label2">Logradouro</label>
                     <input required="" autocomplete="off" type="text" name="logrPassageiro" class="input w-100" id="rua">
                     <label class="user-label">Rua</label>
                 </div>
                 <div class="input-g m-2 w-100">
                     <input required="" autocomplete="off" type="number" name="numLogrPassageiro" class="input w-100" id="numLgr">
                     <label class="user-label">Num</label>
-                </div>
-                <div class="input-g m-2 w-100">
-                    <input required="" autocomplete="off" type="text" name="bairroPassageiro" class="input w-100" id="bairro">
-                    <label class="user-label">Bairro</label>
-                </div>
-                <div class="input-g m-2 w-100">
-                    <input required="" autocomplete="off" type="text" id="cidade" name="cidadePassageiro" class="input w-100" id="cidade">
-                    <label class="user-label">Cidade</label>
                 </div>
                 <div class="input-g m-2 w-100">
                     <select id="uf" class="input w-100" name="ufPassageiro">
@@ -114,9 +119,10 @@
                         <option value="SP">SP</option>
                     </select>
                 </div>
-                <div class="w-100  d-flex justify-content-end">
-                <button class="btnCadastrar my-3" type="submit">Cadastrar</button>
-                </div>
+                
+            </div>
+            <div class="w-100 d-flex justify-content-end">
+                <button class="btnCadastrar" type="submit">Cadastrar</button>
             </div>
         </div>
         

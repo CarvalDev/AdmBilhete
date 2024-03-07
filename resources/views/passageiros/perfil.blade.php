@@ -88,10 +88,7 @@
           </li>
         </ul>
       </div>
-      <div class="tab-pane fade p-5 pt-1" id="nav-bilhete" role="tabpanel" aria-labelledby="nav-bilhete-tab">
-        <div class="d-flex justify-content-end align-items-center py-1 align-end container" >    
-          <a href="{{ route('passageiros.addBilhete', $passageiro->id) }}" class="border-0"><i class="fas fa-plus-circle fa-2x text-dark" aria-hidden="true"></i></a>
-      </div>
+      <div class="tab-pane fade p-5 pt-1" id="nav-bilhete" role="tabpanel" aria-labelledby="nav-bilhete-tab">       
           @if (count($bilhetes)>0)
           <div class="bilhetes row w-100 d-flex justify-content-end">
             <div class="d-flex justify-content-end align-items-center py-1 align-end container" >    

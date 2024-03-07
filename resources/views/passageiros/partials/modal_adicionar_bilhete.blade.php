@@ -5,29 +5,41 @@
       
       <p>Adicionar Bilhete</p>
 
-      <form id="linhaForm"  action="{{ route('linhas.store') }}"  class="w-100   flex-column gap-4 d-flex justify-content-center align-items-center" method="POST">
+      <form class="row justify-content-around mt-5 w-100" action="{{ route('passageiros.bilhetes.store', $idUsuario['id'] ) }}"  style="" method="POST">
         @csrf
-        <div class=" w-75 d-flex flex-column justify-content-start align-items-start ">
-          <label >Nome da linha</label>
-          <input id="nomeLinha" type="text" class="input w-100" >
-          
-        </div>
-        <div class=" w-75 d-flex flex-column justify-content-start align-items-start ">
-            <label >Numero da linha</label>
-            <input type="text" data-mask="0000-00" id="NumLinha"  class="input w-100"  placeholder="0000-00">
-            
-          </div>
-          <div class=" w-75 d-flex flex-column justify-content-start align-items-start ">
-            <label >Quantidade de carros</label>
-            <input type="number" id="qtdCarroLinha" class="input w-100" >
-            
-          </div>
+        <div class="w-100 justify-content-center d-flex flex-row align-items-center ">
+          <label for="tipoBilhete" class="text-center px-3" style="border-right: 1px solid black">Tipo</label>
+          <select id="tipoBilhete" class="form-control ms-2" name="tipoBilhete" style="border-bottom: 1px solid black">
+              <option value="Estudante">Estudante</option>
+              <option value="Idoso">Idoso</option>
+              <option value="Professor">Professor</option>
+              <option value="Comum">Comum</option>
+              <option value="Pcd">Pessoa com Deficiência</option>
+              <option value="Obesa">Pessoa Obesa</option>
+              <option value="Gestante">Gestante</option>
+              <option value="Corporativo">Corporativo</option>
+          </select>
+      </div>
+      <div class="w-100 d-flex align-items-center gap-2  ">
+        <label for="status" style="width: 30%;border-right: 1px solid black" class=" text-center">Status</label>
+        <select id="status" class="form-control" name="status" style="width:60%;border-bottom: 1px solid black">
+            <option value="Ativo">Ativo</option>
+            <option value="Inativo">Inativo</option>
+        </select>
+    </div>
 
           <button type="submit"  id="close" class="accept ">Adicionar</button>
       </form>
     </div>
     </dialog>
   </div>
+  @if ($errors->any())
+        <ul class="errors">
+            @foreach ($errors->all() as $error)
+                <li class="error">{{$error}}</li>
+            @endforeach
+        </ul>
+    @endif
 
 <style>
     .input {

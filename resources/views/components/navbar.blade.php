@@ -82,5 +82,10 @@
     </div>
       
 </div>
+<style>
+    .dropdown-item.active, .dropdown-item:active {
+  background-color: #e70000 !important; 
+}
+</style>
 
 <script defer src="{{ URL::asset('js/responsivo.js') }}"></script>

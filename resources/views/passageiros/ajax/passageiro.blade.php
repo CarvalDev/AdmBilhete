@@ -66,7 +66,7 @@ $('#passageiroStore').submit(function(e) {
         contentType: false,
         processData: false,
         success: (response) => {
-             toastr.success("Administrador cadastrado.", "Sucesso!")
+             toastr.success("Usuario cadastrado.", "Sucesso!")
 
                     toastr.options = {
                     "closeButton": true,
