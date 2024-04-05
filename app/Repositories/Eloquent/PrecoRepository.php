@@ -15,10 +15,14 @@ class PrecoRepository extends AbstractRepository implements PrecoRepositoryInter
     {
         $this->model = app($this->model);
     }
-    public function getTheLastReajustes($reajuste)
+    public function getLatestsReajustes()
     {
-       $reajustes = $reajuste ->orderBy('dataReajuste', 'desc') ->get(); 
-       return  $reajustes;
+       $precos = $this ->model->orderBy('dataPreco', 'desc') ->get(); 
+       return  $precos;
+    }
+    public function latest()
+    {
+        return $this->model->orderBy('dataPreco', 'desc')->first();
     }
     
 }

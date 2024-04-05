@@ -13,7 +13,7 @@ use App\Mail\RespostaSuporteMail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PassageiroController;
 use App\Http\Controllers\PrecoController;
-use App\Http\Controllers\ReajusteController;
+
 use App\Models\Passageiro;
 use Illuminate\Support\Facades\Mail;
 
@@ -47,8 +47,9 @@ Route::get('/caixaEntrada/results', [CaixaEntradaController::class, 'search'])->
 
 
 Route::get('/preco', [PrecoController::class, 'edit'])->name('preco.index');
-Route::put('/preco/{id}/update', [PrecoController::class, 'update'])->name('preco.update');
-Route::get('/reajuste', [ReajusteController::class, 'store'])->name('reajuste.store');
+// Route::put('/preco/{id}/update', [PrecoController::class, 'update'])->name('preco.update');
+Route::post('/preco/create', [PrecoController::class, 'store'])->name('preco.store');
+// Route::get('/reajuste', [ReajusteController::class, 'store'])->name('reajuste.store');
 Route::get('/faturamento', [FaturamentoController::class, 'index'])->name('faturamento.index');
 Route::get('/passageirosP/{id}/',[PassageiroController::class, 'perfilPassageiro'])->name('perfilPassageiro.index');
 Route::get('/linhas/{id}/show', [LinhasController::class, 'show'])->name('linhas.show');

@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('precos', function (Blueprint $table) {
+        Schema::create('pedido_bilhetes', function (Blueprint $table) {
             $table->id();
-            $table->float('passagemPreco');
-            $table->float('meiaPassagemPreco');
-            $table->dateTime('dataPreco');
+            $table->string('tipoBilhete');
+            $table->foreignId('passageiro_id')->constrained('passageiros');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('precos');
+        Schema::dropIfExists('pedido_bilhetes');
     }
 };

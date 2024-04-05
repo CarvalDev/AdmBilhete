@@ -29,8 +29,8 @@
           <h1 class="modal-title fs-5" id="exampleModalLabel">Preço de Reajuste</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form class="" method="POST" action="{{route('preco.update',$preco->id)}}" required>
-          @method('PUT')
+        <form class="" method="POST" action="{{route('preco.store')}}" required>
+          @method('POST')
           @csrf
         <div class="modal-body text-center align-items-center justify-content-center d-flex mt-2">
           <input type="text" class="fw-bold fs-5 form-control text-center" name="passagemPreco" placeholder="R${{$preco->passagemPreco}}">
@@ -53,7 +53,7 @@
   </div>
     </div>
         @for ($i=0;$i<4;$i++)
-            <input type="hidden" value="{{$reajustes[$i]->dataReajuste."#".$reajustes[$i]->precoPassagemReajuste}}" name="reajustes">
+            <input type="hidden" value="{{$reajustes[$i]->dataReajuste."#".$reajustes[$i]->passagemPreco}}" name="reajustes">
         @endfor
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"

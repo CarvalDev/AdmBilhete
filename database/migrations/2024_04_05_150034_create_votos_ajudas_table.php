@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('precos', function (Blueprint $table) {
+        Schema::create('votos_ajudas', function (Blueprint $table) {
             $table->id();
-            $table->float('passagemPreco');
-            $table->float('meiaPassagemPreco');
-            $table->dateTime('dataPreco');
+            $table->boolean('util');
+            $table->foreignId('ajuda_id')->constrained('ajudas');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('precos');
+        Schema::dropIfExists('votos_ajudas');
     }
 };

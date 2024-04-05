@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reajustes', function (Blueprint $table) {
+        Schema::create('categoria_ajudas', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('dataReajuste');
-            $table->float('precoPassagemReajuste');
-            $table->float('precoMeiaPassagemReajuste');
+            $table->string('nomeCategoria');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reajustes');
+        Schema::dropIfExists('categoria_ajudas');
     }
 };

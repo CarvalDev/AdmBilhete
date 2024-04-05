@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('precos', function (Blueprint $table) {
+        Schema::create('ajudas', function (Blueprint $table) {
             $table->id();
-            $table->float('passagemPreco');
-            $table->float('meiaPassagemPreco');
-            $table->dateTime('dataPreco');
+            $table->string('tituloAjuda', 100);
+            $table->string('caminhoAjuda');
+            $table->string('descAjuda');
+            $table->string('statusAjuda');
+            $table->foreignId('categoriaAjuda_id')->constrained('categoria_ajudas');
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('precos');
+        Schema::dropIfExists('ajudas');
     }
 };

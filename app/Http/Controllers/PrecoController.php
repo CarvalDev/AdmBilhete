@@ -17,28 +17,32 @@ class PrecoController extends Controller
         $this -> model = $preco;
     }
     
-    public function edit( Reajuste $reajuste)
+    public function edit()
     {
-        $preco = $this->model->findById(1);
-        $reajustes = $this->model->getTheLastReajustes($reajuste);
+        $preco = $this->model->latest();
+        
+        $reajustes = $this->model->getLatestsReajustes();
+        
         $user = Auth::guard('adm')->user();
         return view('preco.index', compact('preco', 'reajustes', 'user'));
     }
   
-    public function update(StoreUpdatePrecoFormRequest $request,$id)
+    public function store(StoreUpdatePrecoFormRequest $request)
     {
-        if(!$preco = $this->model->findById($id))
-        return redirect()->route('preco.index');
+        // if(!$preco = $this->model->findById($id))
+        // return redirect()->route('preco.index');
         
         $data = $request->all();
-      
+        $data['meiaPassagemPreco'] = $data['passagemPreco']/2;
         
-        $this->model->update($id, $data);
+        $data['dataPreco'] = now();
+        
+        $this->model->create($data);
 
 
-        //return redirect()->route('preco.edit',['id'=>1]);
+        return redirect()->route('preco.index');
 
-        return redirect()->action([ReajusteController::class, 'store'],compact('data'));
+        // return redirect()->action([ReajusteController::class, 'store'],compact('data'));
    
     }
 }

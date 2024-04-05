@@ -11,6 +11,7 @@ class Preco extends Model
     protected $fillable = [
         'passagemPreco',
         'meiaPassagemPreco',
+        'dataPreco'
     ];
     protected static function boot()
     {
