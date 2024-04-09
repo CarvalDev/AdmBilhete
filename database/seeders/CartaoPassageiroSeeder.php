@@ -14,6 +14,6 @@ class CartaoPassageiroSeeder extends Seeder
      */
     public function run()
     {
-        //
+        
     }
 }

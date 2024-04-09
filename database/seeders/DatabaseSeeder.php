@@ -27,6 +27,10 @@ class DatabaseSeeder extends Seeder
             PrecoSeeder::class,
             AcaoSeeder::class,
             CompraSeeder::class,
+            CategoriaAjudaSeeder::class,
+            AjudaSeeder::class,
+            VotosAjudaSeeder::class
+            
 
         ]);
     }

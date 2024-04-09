@@ -20,6 +20,8 @@ class CartaoPassageiroFactory extends Factory
     {
         return [
         'numeroCartao' => fake()->numerify('#### #### #### ####'),
+        'nomeTitularCartao' => fake()->name(),
+        'cpfTitularCartao' => fake()->numerify('###.###.###-##'),
         'bandeiraCartao' => fake()->randomElement(['Visa', 'MasterCard', 'Maestro']),
         'bancoCartao' => fake()->randomElement(['Banco do Brasil', 'Itaú', 'Bradesco', 'Nubank', 'C6']),
         'cvcCartao' => fake()->numerify('###'),

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('ajudas', function (Blueprint $table) {
             $table->id();
             $table->string('tituloAjuda', 100);
-            $table->string('caminhoAjuda');
+            $table->string('caminhoAjuda')->nullable();
             $table->string('descAjuda');
             $table->string('statusAjuda');
             $table->foreignId('categoriaAjuda_id')->constrained('categoria_ajudas');

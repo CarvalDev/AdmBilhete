@@ -87,11 +87,11 @@ class CaixaEntradaController extends Controller
         $datas = $this->model->all($request->statusSuporte,$request->search);
         if($datas->count() >= 1){
             foreach($datas as $data)
-        {
-            $formatar = explode(' ', $data->data);
-            $formatar = explode('-', $formatar[0]);
-            $data->data = $formatar[2]."/".$formatar[1]."/".$formatar[0];
-        }
+            {
+                $formatar = explode(' ', $data->data);
+                $formatar = explode('-', $formatar[0]);
+                $data->data = $formatar[2]."/".$formatar[1]."/".$formatar[0];
+            }
             return view('caixaEntrada.partials.caixaEntrada_result', compact('datas'))->render();
         }else{
             return view('components.no_results')->with('palavra', $request->search)->render();

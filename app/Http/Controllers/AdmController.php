@@ -20,7 +20,7 @@ class AdmController extends Controller
         $this->model = $adm;
         $this->services = $services;
     }
-
+    
     public function form(){
         $user = Auth::guard('adm')->user();
         return view('adm.form', compact('user'));

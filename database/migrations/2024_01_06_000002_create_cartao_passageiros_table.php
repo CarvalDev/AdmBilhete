@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('cartao_passageiros', function (Blueprint $table) {
             $table->id();
+            $table->string('nomeTitularCartao');
+            $table->string('cpfTitularCartao');
             $table->string('numeroCartao');
             $table->string('bandeiraCartao');
             $table->string('bancoCartao');
