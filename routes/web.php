@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdmController;
+use App\Http\Controllers\AjudaController;
 use App\Http\Controllers\CaixaEntradaController;
 
 
@@ -75,12 +76,11 @@ Route::delete('adm/{id}/destroy', [AdmController::class, 'destroy'])->name('adm.
 Route::put('adm/{id}/update', [AdmController::class, 'update'])->name('adm.update');
 Route::get('/adm/results', [AdmController::class, 'search'])->name('adm.search');
 Route::post('/logout', [AdmController::class, 'logout'])->name('adm.logout');
+Route::get('/ajuda', [AjudaController::class, 'index'])->name('ajuda.index');
+Route::get('/ajuda/{id}/show', [AjudaController::class, 'show'])->name('ajuda.show');
 
 });
 Route::get('/formulariopassageiro', [FormularioPassageiroControler::class, 'index'])->name('formulariopassageiro.index');
-
-
-
 
 Route::post('/login', [AdmController::class, 'login'])->name('adm.login');
 

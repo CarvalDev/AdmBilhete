@@ -32,6 +32,20 @@
               
             </ul>
           </li>
+
+          <li>
+            <div class="iocn-link">
+              <a href="{{route('ajuda.index')}}">
+                <i class='bx bx-help-circle'></i>
+                <span class="link_name">Ajuda</span>
+              </a>
+              
+            </div>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="{{route('ajuda.index')}}">Ajuda</a></li>
+            </ul>
+          </li>
+
           <li>
             <div class="iocn-link">
               <a href="#">
@@ -89,7 +103,7 @@
           <li>
         <div class="profile-details">
           <div class="profile-content" onclick="perfil()">
-            <img @if ($user->fotoAdm == '')
+            <img  @if ($user->fotoAdm == '')
                 src="{{URL::asset('images/user.png')}}"
             @else src="{{url("storage/$user->fotoAdm")}}" alt="profileImg">
             @endif

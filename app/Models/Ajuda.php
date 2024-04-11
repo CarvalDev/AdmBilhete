@@ -15,4 +15,5 @@ class Ajuda extends Model
         'statusAjuda',
         'categoriaAjuda_id'
     ];
+    
 }
