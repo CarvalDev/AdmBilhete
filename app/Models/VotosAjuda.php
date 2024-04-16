@@ -18,4 +18,8 @@ class VotosAjuda extends Model
     {
         return VotosAjudaFactory::new();
     }
+    public function ajudas()
+    {
+        return $this->belongsTo(Ajuda::class);
+    }
 }

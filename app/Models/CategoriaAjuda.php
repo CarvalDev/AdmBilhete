@@ -11,5 +11,10 @@ class CategoriaAjuda extends Model
     protected $fillable = [
         'nomeCategoria'
     ];
+
+    public function ajudas()
+    {
+        return $this->hasMany(Ajuda::class);
+    }
     
 }

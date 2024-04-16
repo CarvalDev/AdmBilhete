@@ -48,3 +48,18 @@
     font-weight: bold;
     padding: 8px;
 }
+#aprovacaoBar{
+    width: 140px;
+    height: 30px;
+    border: 1px solid;
+    border-color: rgba(0, 0, 0, 0.2);
+    /* margin-top: 10px; */
+}
+/* #aprovacaoBar::before{
+    content: "";
+    height: 20px;
+    position: fixed;
+    width: 40px;
+    align-self: flex-start;
+    background-color: black;
+} */

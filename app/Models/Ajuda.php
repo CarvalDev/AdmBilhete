@@ -15,5 +15,13 @@ class Ajuda extends Model
         'statusAjuda',
         'categoriaAjuda_id'
     ];
-    
+    public function categoriaAjuda()
+    {
+        return $this->belongsTo(CategoriaAjuda::class);
+    }
+
+    public function votosAjuda()
+    {
+        return $this->hasMany(VotosAjuda::class);
+    }
 }
