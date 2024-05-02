@@ -3,7 +3,7 @@
     <div class="cookiesContent w-100" id="cookiesPopup">
       <button id="close" onclick="fechaModal()" class="close">✖</button>
       
-      <p>Adicionar Bilhete</p>
+      <p>Adicionar Linha</p>
 
       <form id="linhaForm"  action="{{ route('linhas.store') }}"  class="w-100   flex-column gap-4 d-flex justify-content-center align-items-center" method="POST">
         @csrf
