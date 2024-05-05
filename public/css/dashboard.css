@@ -222,3 +222,59 @@ background: linear-gradient(214deg, rgba(0,0,0,1) 0%, rgba(38,31,31,1) 35%, rgba
     height: 100%;
     background-color: #3C7352;
 }
+
+#divisorBilhete{
+    width: 100%;
+    height: 80%;
+}
+#infosBilhete{
+    width: 50%;
+    height: 100%;
+    margin-left: 20px;
+}
+#graficoBilheteArea{
+    width: 50%;
+    height: 100%;
+}
+
+#graficoBilhete{
+    max-width: 200px; /* Defina o tamanho máximo do gráfico */
+      max-height: 200px;
+      margin-bottom: 30px;
+}
+
+#totalBilhetes{
+    width: 55%;
+    height: 100%;
+}
+
+#atualizacaoBilhetes{
+    width: 45%;
+    height: 40%;
+}
+
+#totalViagens{
+    height: 20%;
+    width: 100%;
+}
+
+#graficoViagensArea{
+    height: 60%;
+    width: 100%;
+}
+
+#graficoViagens{
+    max-width: 380px; /* Defina o tamanho máximo do gráfico */
+    max-height: 150px;
+    margin-bottom: 15px;
+}
+
+#linhasGraficoArea{
+    height: 80%;
+    width: 100%;
+}
+#linhasGrafico{
+     max-width: 250px; /* Defina o tamanho máximo do gráfico */
+     min-height: 215px; 
+     margin-bottom: 15px; 
+}

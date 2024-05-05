@@ -19,7 +19,7 @@ class PassageiroController extends Controller
     public function passageiroIndex(Request $request)
     {
         
-        $passageiros = $this->model->search($request->search);
+        $passageiros = $this->model->search($request->search, null);
         $user = Auth::guard('adm')->user();
 
         return view('passageiros.index', compact('passageiros', 'user'));
@@ -129,8 +129,12 @@ class PassageiroController extends Controller
 
     public function search(Request $request)
     {
-          
-        $passageiros = $this->model->search($request->search);
+        if(isset($request->status)){
+            $status = $request->status;
+        }else{
+            $status = null;
+        }
+        $passageiros = $this->model->search($request->search, $status);
         
         if($passageiros->count() >= 1){
            

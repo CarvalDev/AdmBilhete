@@ -20,7 +20,7 @@ class CompraSeeder extends Seeder
     public function run(Passageiro $passageiroModel, Bilhete $bilheteModel, FormaPagamento $formaPagamentoModel)
     {
        
-        for($i=1;$i<=40;$i++){
+        for($i=1;$i<=150;$i++){
             $bilhete = $bilheteModel->find($i);
             $passageiro = $bilhete->passageiro()->get();
             $passageiro = $passageiroModel->find($passageiro[0]->id);

@@ -33,7 +33,7 @@ class PassageiroFactory extends Factory
     {
         return [
         'nomePassageiro' => fake()->name(),
-        'dataNascPassageiro' => fake()->date(),
+        'dataNascPassageiro' => fake()->dateTimeBetween('-99 years', time()),
         'generoPassageiro' => fake()->randomElement(['M','F']),
         'cpfPassageiro' => fake()->numerify('###.###.###-##'),
         'numTelPassageiro' =>  fake()->unique()->phoneNumber(),

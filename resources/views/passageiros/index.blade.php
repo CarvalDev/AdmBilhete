@@ -10,10 +10,10 @@
 @section('content')
  
 <div class="tabela w-100 h-100 ">
-    <div class="d-flex justify-content-end align-items-center container">    
+    <div class="d-flex justify-content-end align-items-center container mt-2">    
         <a href="{{ route('passageiros.form') }}" class="border-0"><i class="fas fa-plus-circle fa-2x text-dark" aria-hidden="true"></i></a>
     </div>
-    @if (count($passageiros)>0)
+    
     <div id="table-content">
     <table class="  mt-3  mx-auto" style="width: 98%;" id="tabela">
         <thead class="">
@@ -50,11 +50,7 @@
     {{ $passageiros->links() }}
     </div>
 </div>
-    @else
-        <div class="w-100 h-50 d-flex justify-content-center align-items-center ">
-            <span class="fs-3">Não há passageiros para exibir</span>
-        </div>
-        @endif
+   
 </div>
 
 
