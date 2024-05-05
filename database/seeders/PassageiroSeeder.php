@@ -12,6 +12,7 @@ use App\Models\FormaPagamento;
 use App\Models\Passageiro;
 use App\Models\Passagem;
 use App\Models\Suporte;
+use App\Services\DataServices;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -24,8 +25,10 @@ class PassageiroSeeder extends Seeder
      */
     public function run()
     {
-        Passageiro::factory()
-            ->count(40)
+        Passageiro::factory([
+            'password' => bcrypt('123')
+        ])
+            ->count(150)
             
             ->has(Acao::factory(2)
                 ->has(Suporte::factory(1))
@@ -39,15 +42,16 @@ class PassageiroSeeder extends Seeder
             
             ->create();
 
-        
+            //atualizanod o bilehte
+            for($i=1;$i<=150;$i++){
+                Bilhete::find($i)->update([
+                    'qrCodeBilhete' => DataServices::qrCodeFetch($i)
+                ]);
+            }
 
-            // Passageiro::factory()
-            // ->count(40)
-            // ->has(Acao::factory(10)
-            //     ->has(Compra::factory(1)->for(FormaPagamento::find(1)))
-            // )
-             
-            // ->make();
+            Passageiro::factory(60)
+                ->has(Bilhete::factory(1))
+                ->create();
             
     }
 }

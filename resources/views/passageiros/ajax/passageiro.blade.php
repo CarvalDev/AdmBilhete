@@ -8,6 +8,23 @@ $.ajaxSetup({
     }
 });
 
+$("#statusPassageiro").on("change", function(e){
+    e.preventDefault()
+    let statusPassageiro = $("#statusPassageiro").val()
+    let search = $("passageiroSearch").val()
+    $.ajax({
+        url: "{{ route('passageiro.search') }}",
+        method: 'get',
+        data: {
+            status: statusPassageiro,
+            search: search
+        },
+        success: function(res){
+            console.log(res)
+            $('#table-content').html(res)
+        } 
+    })
+})
 
 $(document).on('keyup', function(e){
     
@@ -19,7 +36,7 @@ $(document).on('keyup', function(e){
         method: 'get', 
         data: {search: search},
         success: function(res){
-        
+        console.log(res)
         $('#table-content').html(res)
             
             if(res.status !== undefined){

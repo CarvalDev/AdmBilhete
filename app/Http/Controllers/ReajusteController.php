@@ -21,7 +21,7 @@ class ReajusteController extends Controller
     public function store(Request $request){
         $data = $request->all();
         $this->model->create($data);
-        return redirect()->route('preco.edit',['id'=>1]);
+        return redirect()->route('preco.index');
         
     }
 }

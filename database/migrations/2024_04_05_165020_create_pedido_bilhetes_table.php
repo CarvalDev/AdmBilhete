@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('pedido_bilhetes', function (Blueprint $table) {
             $table->id();
             $table->string('tipoBilhete');
+            $table->string('statusPedido');
             $table->foreignId('passageiro_id')->constrained('passageiros');
             $table->timestamps();
         });

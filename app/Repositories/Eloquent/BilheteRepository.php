@@ -5,6 +5,7 @@ namespace App\Repositories\Eloquent;
 use App\Models\Bilhete;
 use App\Models\Passagem;
 use App\Repositories\Contracts\BilheteRepositoryInterface;
+use Carbon\Carbon;
 
 class BilheteRepository extends AbstractRepository implements BilheteRepositoryInterface
 {
@@ -80,6 +81,40 @@ class BilheteRepository extends AbstractRepository implements BilheteRepositoryI
                 'tempoRestantePassagem' => '02:00:00'
             ]);
         }
+    }
+    public function getEmissaoBilhetes()
+    {
+        $bilhete = array();
+          $ultimaSemana = now()->subWeek()->startOfWeek(); 
+        $ontem =  Carbon::now()->subDays(1)->startOfDay();
+        $hoje = now();
+        $bilhete['total'] = $this->model 
+                            ->select('bilhetes.tipoBilhete as tipo')
+                            ->join('passageiros', 'bilhetes.passageiro_id', 'passageiros.id')
+                            ->whereBetween('bilhetes.created_at', [$ultimaSemana, $hoje])
+                            ->where('passageiros.password', '!=', null)
+                            ->get();
+        $bilhete['comum'] = 0;
+        $bilhete['meia'] =0;
+        $bilhete['gratuidade'] = 0;
+        foreach($bilhete['total'] as $b){
+            if($b->tipo == "Comum"){
+                $bilhete['comum'] ++;
+            }
+            else if ($b->tipo == "Estudante Ins. Privada"){
+                $bilhete['meia']++;
+            }else{
+                $bilhete['gratuidade']++;
+            }
+        }
+        $bilhete['total'] = count($bilhete['total']);
+        $bilhete['ultimoDia'] = $this->model 
+                            ->join('passageiros', 'bilhetes.passageiro_id', 'passageiros.id')
+                            ->whereBetween('bilhetes.created_at', [$ontem, $hoje])
+                            ->where('passageiros.password', '!=', null)
+                            ->count();
+        
+        return $bilhete;
     }
     
 }

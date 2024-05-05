@@ -19,7 +19,7 @@ class VotosAjudaFactory extends Factory
     public function definition()
     {
         return [
-            'util' => fake()->boolean(),
+            'util' => fake()->randomElement(['1', '1', '0']),
             
         ];
     }

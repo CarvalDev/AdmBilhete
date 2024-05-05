@@ -12,4 +12,5 @@ interface BilheteRepositoryInterface
     public function create($data);
     public function update($id, $data);
     public function getAllConsumos($idPassageiro);
+    public function getEmissaoBilhetes();
 }

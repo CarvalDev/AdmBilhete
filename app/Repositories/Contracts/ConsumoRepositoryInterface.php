@@ -6,4 +6,5 @@ interface ConsumoRepositoryInterface
 {
     public function countConsumosByCars($idLinha);
     public function countConsumosByLinha($idLinha);
+    public function lastFourDays();
 }

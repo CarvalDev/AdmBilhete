@@ -35,7 +35,7 @@
             </ul>
     </div>
     <div class="container">
-        @if (isset($data->status) || isset($linhas))
+        @if (isset($data->status) || isset($linhas) || isset($passageiros))
         <div id="pageTitleContainer" class="d-flex  justify-content-between w-100 align-items-center">
             <div class="w-25 ">
             <span id="pageTitle" class="fs-3 fw-bold text-capitalize">@yield('pageTitle')</span>
@@ -56,6 +56,15 @@
             <select class="form-control border border-dark w-50 " id="statusLinha" name="statusLinha" id="">
                 <option  value="Ativa">Ativas</option>
                 <option  value="Inativa">Inativas</option>
+            </select>
+            
+            </form>
+                @elseif(isset($passageiros))
+                action="{{route('linhas.index')}}"
+                class="d-flex justify-content-end   h-25 flex-row w-25 gap-2">
+            <select class="form-control border border-dark w-50 " id="statusPassageiro" name="statusPassageiro" id="">
+                <option  value="Cadastrados">Cadastrados</option>
+                <option  value="Sem Cadastro">Sem Cadastro</option>
             </select>
             
             </form>

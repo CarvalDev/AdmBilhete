@@ -71,7 +71,12 @@ class AppServiceProvider extends ServiceProvider
             'App\Repositories\Contracts\AjudaRepositoryInterface',
             'App\Repositories\Eloquent\AjudaRepository'
         );
+        $this->app->bind(
+            'App\Repositories\Contracts\PedidoBilheteRepositoryInterface',
+            'App\Repositories\Eloquent\PedidoBilheteRepository'
+        );
     }
+    
 
     /**
      * Bootstrap any application services.

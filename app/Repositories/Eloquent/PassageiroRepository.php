@@ -14,11 +14,25 @@ class PassageiroRepository extends AbstractRepository implements PassageiroRepos
         $this->model = app($this->model);
     }
 
-    public function search(String | null $search = null)
+    public function search($search, $status)
     {
+        
+        
+
         $passageiros =  $this->model
-            ->where('nomePassageiro','LIKE',"%{$search}%")
-            ->orWhere('emailPassageiro','LIKE',"%{$search}%")
+        ->where(function($query) use ($search, $status){
+            if($search !=null){
+                $query->where('nomePassageiro','LIKE',"%{$search}%");
+                $query->orWhere('emailPassageiro','LIKE',"%{$search}%");
+            }else if($status == "Sem Cadastro"){
+                $query->where('password', '=', null);
+            }
+            else if($status == 'Cadastrados'){
+                $query->where('password', '!=', null);
+            }else{  
+
+            }
+        })
                  
                  ->paginate(15);
         foreach($passageiros as $passageiro){
@@ -48,6 +62,14 @@ class PassageiroRepository extends AbstractRepository implements PassageiroRepos
     }
     public function allHome(){
         
-      return  $this->model->all();
+      $total = array();
+      $total['semCadastro'] = $this->model
+                            ->where('password', '=', null)            
+                            ->count();
+      $total['comCadastro'] = $this->model
+                            ->where('password', '!=', null) 
+                            ->count();
+                            
+        return $total;            
     }
 }

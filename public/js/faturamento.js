@@ -7,7 +7,7 @@ var data = {
   datasets: [{
     label: '',
    
-    borderColor: '#00FF00',
+    borderColor: '#000',
     borderWidth: 2,
     data: [2400000, 520000, 1180000, 1115222, 1117333, 1193333, 2111000,  1180000, 1115222, 1117333, 1193333, 2111000], 
     fill: false,
