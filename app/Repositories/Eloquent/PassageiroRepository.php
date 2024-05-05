@@ -62,6 +62,14 @@ class PassageiroRepository extends AbstractRepository implements PassageiroRepos
     }
     public function allHome(){
         
-      return  $this->model->all();
+      $total = array();
+      $total['semCadastro'] = $this->model
+                            ->where('password', '=', null)            
+                            ->count();
+      $total['comCadastro'] = $this->model
+                            ->where('password', '!=', null) 
+                            ->count();
+                            
+        return $total;            
     }
 }

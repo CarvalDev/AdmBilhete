@@ -107,7 +107,16 @@ class LinhasRepository extends AbstractRepository implements LinhasRepositoryInt
     
     }
     public function allHome(){
-        return $this->model->all();
+        $consumos = $this->model
+                ->select('linhas.numLinha')
+                ->selectRaw('COUNT(consumos.id) as qtdConsumos')
+                ->join('carros', 'linhas.id', '=', 'carros.linha_id')
+                ->join('consumos', 'carros.id', 'consumos.carro_id')
+                ->groupBy('linhas.numLinha')
+                ->orderBy('qtdConsumos', 'desc')
+                ->take(5)
+                ->get();
+        return $consumos;
     }
 
     public function search(String | null $search = null){

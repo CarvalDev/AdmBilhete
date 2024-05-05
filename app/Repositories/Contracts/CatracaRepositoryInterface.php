@@ -6,4 +6,5 @@ interface CatracaRepositoryInterface
 {
     public function update($id, $data); 
     public function factory($linha, $qtd);
+    public function count();
 }

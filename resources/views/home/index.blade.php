@@ -18,11 +18,11 @@
                             <span class="traco">-</span>
                         </div>
                         <div id="numero" class="d-flex  justify-content-center align-items-center">
-                            <span class="numeroPassageiro">400</span>
+                            <span class="numeroPassageiro">{{ $passageiro['semCadastro'] }}</span>
                         </div>
                         <div id="desc" class="d-flex flex-column justify-content-center align-items-center">
-                            <span style="font-size: 20px">passageiros</span>
-                            <span style="font-size: 18px; color:#B83810">sem cadastro</span>
+                            <span style="font-size: 18px">passageiros</span>
+                            <span style="font-size: 16px; color:#B83810">sem cadastro</span>
                         </div>
                     </div>
                     <div class="passageirosCad comCad  d-flex flex-row justify-content-around align-items-center">
@@ -30,11 +30,11 @@
                             <span class="traco text-white">-</span>
                         </div>
                         <div id="numero" class="d-flex  justify-content-center align-items-center">
-                            <span class="numeroPassageiro text-white">130</span>
+                            <span class="numeroPassageiro text-white">{{ $passageiro['comCadastro'] }}</span>
                         </div>
                         <div id="desc" class="d-flex flex-column justify-content-center align-items-center">
-                            <span class="text-white" style="font-size: 20px">passageiros</span>
-                            <span style="font-size: 18px; color:#3C7352">com cadastro</span>
+                            <span class="text-white" style="font-size: 18px">passageiros</span>
+                            <span style="font-size: 16px; color:#3C7352">com cadastro</span>
                         </div>
                     </div>
                 </div>
@@ -50,10 +50,11 @@
                         <div id="infosSuporte" class=" d-flex flex-column justify-content-center align-items-center">
                             <div class=" d-flex flex-row justify-content-center align-items-center" id="numerosSuporte">
                                 <div id="fechadosSuporte" class="d-flex  justify-content-center align-items-center">
-                                    <span style="font-size: 66px; color:#3C7352">33/</span>
+                                    <span style="font-size: 66px; color:#3C7352">{{ $suporte['fechados'] }}/</span>
                                 </div>
-                                <div id="abertosSuporte" class="d-flex  justify-content-start align-items-start">
-                                    <span style="font-size: 24px">231</span>
+                                <div id="abertosSuporte" class="d-flex ms-2  justify-content-start align-items-start">
+                                    <span style="font-size: 24px">{{ $suporte['total'] }}</span>
+                                    <input type="hidden" id="porcentagemSuporte" value={{ $suporte['porcentagem'] }}>
                                 </div>
 
                             </div>
@@ -75,11 +76,14 @@
                         <div id="divisorBilhete" class="d-flex justify-content-center align-items-center flex-row ">
                             <div id="infosBilhete" class=" d-flex justify-content-end flex-row align-items-center">
                                 <div id="totalBilhetes" class=" d-flex justify-content-center align-items-center">
-                                    <span style="font-size: 48px">361/</span>
+                                    <span style="font-size: 48px">{{ $bilhete['total'] }}/</span>
                                 </div>
                                 <div id="atualizacaoBilhetes" class=" d-flex flex-column justify-content-center align-items-start">
-                                    <span style="font-size: 20px">+123</span>
+                                    <span style="font-size: 20px">+{{ $bilhete['ultimoDia'] }}</span>
                                     <span style="font-weight: 400; font-size: 11px">desde ontem</span>
+                                    <input type="hidden" value={{ $bilhete['comum'] }} id="comum">
+                                    <input type="hidden" value={{ $bilhete['meia'] }} id="meia">
+                                    <input type="hidden" value={{ $bilhete['gratuidade'] }} id="gratuidade">
                                 </div>
                             </div>
                             <div id="graficoBilheteArea" class=" d-flex justify-content-center align-items-center">
@@ -102,8 +106,12 @@
 
                         </div>
                         <div id="totalViagens" class="d-flex justify-content-center  align-items-center">
-                            <span style="font-size: 64px">785K</span>
+                            <span id="totalConsumo" style="font-size: 64px">{{ $consumo['total'] }}</span>
                         </div>
+                        <input type="hidden" name="dia" value={{ $consumo['day1'] }}>
+                        <input type="hidden" name="dia" value={{ $consumo['day2'] }}>
+                        <input type="hidden" name="dia" value={{ $consumo['day3'] }}>
+                        <input type="hidden" name="dia" value={{ $consumo['day4'] }}>
                         <div id="graficoViagensArea" class=" d-flex justify-content-center align-items-end">
                             <canvas id="graficoViagens"></canvas>
                         </div>
@@ -119,6 +127,10 @@
 
                         </div>
                         <div id="linhasGraficoArea" class="d-flex  justify-content-center align-items-center">
+                            @foreach ($linha as $l)
+                            <input type="hidden" name="numLinha" value={{ $l->numLinha }}>  
+                            <input type="hidden" name="qtdConsumos" value={{ $l->qtdConsumos }}>   
+                            @endforeach
                             <canvas id="linhasGrafico"></canvas>
                         </div>
                     </div>
@@ -131,11 +143,11 @@
                             </div>
                             <div class="conteudo ">
                                 <div id="tituloSuporte" class="">
-                                    <span style="font-size: 16px; margin-left: 20px;">pedidos de bilhetes</span>
+                                    <span style="font-size: 14px; margin-left: 20px;">pedidos de bilhetes</span>
         
                                 </div>
                                 <div class="d-flex justify-content-center align-items-center " style="height: 80%; width:100%">
-                                    <span style="margin-bottom:35px; font-size:44px">300</span>
+                                    <span style="margin-bottom:35px; font-size:44px">{{ $pedido }}</span>
                                 </div>
                             </div>
                         </div>
@@ -145,11 +157,11 @@
                             </div>
                             <div class="conteudo ">
                                 <div id="tituloSuporte" class="">
-                                    <span style="font-size: 16px; margin-left: 20px;">gratuidades</span>
+                                    <span style="font-size: 14px; margin-left: 20px;">catracas ativas</span>
         
                                 </div>
                                 <div class="d-flex justify-content-center align-items-center " style="height: 80%; width:100%">
-                                    <span style="margin-bottom:35px; font-size:44px">150M</span>
+                                    <span style="margin-bottom:35px; font-size:44px">{{ $catraca }}</span>
                                 </div>
                             </div>
                         </div>
@@ -164,6 +176,8 @@
 
     </div>
     <script src=" {{ URL::asset('js/homeGraficos.js')}} "></script>
+    <script src=" {{ URL::asset('js/home.js')}} "></script>
+
 @endsection
 
 

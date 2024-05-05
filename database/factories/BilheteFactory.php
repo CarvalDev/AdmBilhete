@@ -21,7 +21,7 @@ class BilheteFactory extends Factory
         return [
         'qrCodeBilhete' => 'pendente',
         'numBilhete' => fake()->numerify('### ### ###'),
-        'tipoBilhete' => fake()->randomElement(['Estudante Ins. Privada', 'Comum', 'Idoso', 'PCD', 'Estudante']),
+        'tipoBilhete' => fake()->randomElement(['Estudante Ins. Privada', 'Comum', 'Idoso', 'PCD', 'Estudante', 'Comum', 'Comum']),
         'gratuidadeBilhete' => fake()->boolean(),
         'meiaPassagensBilhete' => fake()->boolean(),
         'statusBilhete' => fake()->randomElement(['Ativo', 'Inativo']),

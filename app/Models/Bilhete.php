@@ -18,7 +18,7 @@ class Bilhete extends Model
         'meiaPassagensBilhete',
         'statusBilhete',
         'passageiro_id',
-        'created_at'
+        
     ];
 
     protected $casts = [

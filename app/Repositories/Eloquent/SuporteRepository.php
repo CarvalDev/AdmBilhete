@@ -52,7 +52,14 @@ class SuporteRepository extends AbstractRepository implements SuporteRepositoryI
         ]);
     }
     public function allHome(){
-        return $this->model->all()->count();
+        $suporte = array();
+        $suporte['total'] = $this->model
+                            ->count();
+        $suporte['fechados'] = $this->model 
+                            ->where('statusSuporte', 'Fechado')
+                            ->count();
+        $suporte['porcentagem'] = ($suporte['fechados'] *100)/$suporte['total'];
+        return $suporte;
     }
     public function search(String | null $search = null){
             

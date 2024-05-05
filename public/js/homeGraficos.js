@@ -3,10 +3,15 @@
 
 
 var ctx = document.getElementById("graficoBilhete").getContext('2d');
+
+let comum = $("#comum").val()
+let meia = $("#meia").val()
+let gratuidade = $("#gratuidade").val()
+
 let data =  {
         labels: ['Com gratuidade', 'Meia Gratuidade', 'Comum'],
         datasets: [{
-            data: [30, 40, 30],
+            data: [parseInt(gratuidade), parseInt(meia), parseInt(comum)],
             backgroundColor:  [
                 'rgba(0, 0, 0, 1)',
                  'rgba(154, 56, 16, 1)',
@@ -39,14 +44,43 @@ var chart = new Chart(ctx, {
 
 //grafico viagens
 
+
+let dias = document.getElementsByName('dia')
+
+let quantidadeViagens = [];
+for(var i = 0;i<dias.length;i++){
+  quantidadeViagens.push(dias[i].value)
+}
+
+let diasSemana = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sab']
+
+let ultimos4Dias = []
+
+const last4days = () =>{
+  let diaDeHoje = new Date().getDay()
+  ultimos4Dias.push(diasSemana[diaDeHoje])
+  let pivot= diaDeHoje;
+  for(var i = 0;i<3;i++){
+    if(pivot == 0){
+      pivot = 6
+    }else{
+      pivot --
+    }
+    ultimos4Dias.push(diasSemana[pivot])
+  }
+  return ultimos4Dias.reverse()
+}
+
+let labels = last4days()
+console.log(labels)
 const dataViagens = {
-    labels: ['seg', 'ter', 'qua', 'qui'],
+    labels: labels,
     datasets: [{
       label: 'Quantidade de Viagens',
       backgroundColor: ['rgba(0, 0, 0, 1)', 'rgba(154, 56, 16, 1)' ],
       borderColor: 'rgba(54, 162, 235, 1)',
       borderWidth:0,
-      data: [4000000, 4004000, 4200000, 4750000, 500000],
+      data: quantidadeViagens.reverse(),
       fill:false
     }]
   };
@@ -133,14 +167,30 @@ const dataViagens = {
 
 //grafico linhas
 
+
+let numLinhas = []
+
+let qtdConsumos = []
+
+
+let inputsNumLinha = document.getElementsByName("numLinha")
+let inputsQtdConsumos = document.getElementsByName("qtdConsumos")
+
+for(var i =0;i<inputsNumLinha.length;i++){
+    numLinhas.push(inputsNumLinha[i].value)
+    qtdConsumos.push(parseInt(inputsQtdConsumos[i].value))
+}
+
+console.log(qtdConsumos)
+
 const dataLinhas = {
-    labels: ['2059-10', '1178-10', '2583-10', '273R-42', '407J-10'],
+    labels:numLinhas,
     datasets: [{
       label: 'Consumos:',
       backgroundColor: ['rgba(0, 0, 0, 1)', 'rgba(154, 56, 16, 1)' ],
       borderColor: 'rgba(54, 162, 235, 1)',
       borderWidth:0,
-      data: [4000000, 3000000, 2000000, 1750000, 900000],
+      data: qtdConsumos,
       fill:false
     }]
   };

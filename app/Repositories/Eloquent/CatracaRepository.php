@@ -24,4 +24,7 @@ class CatracaRepository extends AbstractRepository implements CatracaRepositoryI
                 )
                 ->create();
     }
+    public function count(){
+        return $this->model->where('statusCatraca','Ativa')->count();
+    }
 }
