@@ -36,7 +36,7 @@
           <li>
             <div class="iocn-link">
               <a href="{{route('ajuda.index')}}">
-                <i class='bx bx-help-circle'></i>
+                <i class='bx bx-info-square'></i>
                 <span class="link_name">Ajuda</span>
               </a>
               

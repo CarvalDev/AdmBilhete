@@ -16,14 +16,22 @@ class AjudaController extends Controller
     {
         $this->model = $ajuda;
         $this->services = $services;
-    }
-
+    } 
+ 
     public function index(){
         $ajudas = $this->model->allWithCategoria();
         $votos = $this->model->countVotosAjuda();
-       
+        for($i=0;$i<count($ajudas);$i++){
+            if($ajudas[$i]->id == $votos[$i]->id){
+                $ajudas[$i]['porcentagem'] = $votos[$i]->porcentagemAprovacao;
+            }else{
+                $ajudas[$i]['porcentagem'] = 0;
+            }
+        }
+        
+
         $user = Auth::guard('adm')->user();
-        return view('ajuda.index', compact('ajudas', 'votos', 'user'));
+        return view('ajuda.index', compact('ajudas',  'user'));
     }
 
     public function show() {

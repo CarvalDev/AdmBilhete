@@ -20,7 +20,7 @@ class AjudaRepository extends AbstractRepository implements AjudaRepositoryInter
             ->select('ajudas.id','ajudas.tituloAjuda as titulo', 'categoria_ajudas.nomeCategoria as categoria', 'ajudas.statusAjuda as status')
             ->with('votosAjuda')
             ->join('categoria_ajudas', 'ajudas.categoriaAjuda_id', 'categoria_ajudas.id')
-            ->get();
+            ->paginate(15);
     }
     public function countVotosAjuda()
     {
@@ -29,14 +29,14 @@ class AjudaRepository extends AbstractRepository implements AjudaRepositoryInter
             ->selectRaw('COUNT(votos_ajudas.id) as votos')
             ->groupBy('ajudas.id')
             ->join('votos_ajudas', 'ajudas.id', 'votos_ajudas.ajuda_id')
-            ->get();
+            ->paginate(15);
         $votosPositivos = $this->model
             ->select('ajudas.id as id')
             ->selectRaw('COUNT(votos_ajudas.id) as votosPositivos')
             ->groupBy('ajudas.id')
             ->join('votos_ajudas', 'ajudas.id', 'votos_ajudas.ajuda_id')
             ->where('votos_ajudas.util', '1')
-            ->get();    
+            ->paginate(15);    
         for($i = 0; $i<count($votos);$i++){
             $votos[$i]->negativos = $votos[$i]->votos - $votosPositivos[$i]->votosPositivos;
             $votos[$i]->positivos = $votosPositivos[$i]->votosPositivos;

@@ -29,19 +29,19 @@
         
         <tr class="text-center" style="border-bottom:rgba(1, 1, 1, 0.1) 1px solid ">
                
-               <td class="py-2 fw-bold">Como trocar o bilhete selecionado?</td>
-               <td class="py-2 fw-bold">Bilhete</td>
-               <td  class="text-center py-2  fw-bold">Ativo</td>
+               <td class="py-2 fw-bold" style="font-size: 14px">{{ $ajudas[$i]->titulo }}</td>
+               <td class="py-2 fw-bold">{{ $ajudas[$i]->categoria }}</td>
+               <td  class="text-center py-2  fw-bold">{{ $ajudas[$i]->status }}</td>
                <td class="text-center py-2 d-flex justify-content-center align-items-center   fw-bold h-100">
                     <div class="" id="aprovacaoBar">
-                        <div class="h-100 bg-dark d-flex justify-content-center align-items-center" style="width: {{ $votos[$i]->porcentagemAprovacao }}">
-                            <span class="text-white " style="font-size: 12px">{{ $votos[$i]->porcentagemAprovacao }}</span>
+                        <div class="h-100 bg-dark d-flex justify-content-center align-items-center" style={{"width:".  $ajudas[$i]->porcentagem."%" }}>
+                            <span class="text-white " style="font-size: 12px">{{ $ajudas[$i]->porcentagem }}%</span>
                         </div>
                     </div>
 
                </td>
                <td class="px-2 fw-bold "> 
-                    <a href="{{ route('ajuda.show', 1) }}" class="text-dark mt-2 ">
+                    <a href="{{ route('ajuda.show', $ajudas[$i]->id) }}" class="text-dark mt-2 ">
                         <i class='fs-4 bx bxs-hand-up'></i>
                     </a>
                </td>
@@ -55,6 +55,9 @@
         
 
     </table>
+    <div class="p-3">
+        {{ $ajudas->links() }}
+    </div>
 </div>
 </div>   
 
