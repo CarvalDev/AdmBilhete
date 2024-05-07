@@ -274,7 +274,7 @@ background: linear-gradient(214deg, rgba(0,0,0,1) 0%, rgba(38,31,31,1) 35%, rgba
     width: 100%;
 }
 #linhasGrafico{
-     max-width: 250px; /* Defina o tamanho máximo do gráfico */
+     /* max-width: 250px; Defina o tamanho máximo do gráfico */
      min-height: 215px; 
-     margin-bottom: 15px; 
+     margin-bottom: 20px; 
 }
