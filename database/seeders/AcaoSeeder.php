@@ -22,12 +22,12 @@ class AcaoSeeder extends Seeder
     
     public function run(Passageiro $passageiro, Passagem $passagemModel, Bilhete $bilhete)
     {
-        for($i=1;$i<=2000;$i++){
+        for($i=1;$i<=600;$i++){
            
             $acao = Acao::create([
                 'tipoAcao' => 'Consumo',
                 'dataAcao' => fake()->dateTimeBetween('-1 week', time()),
-                'passageiro_id' => fake()->numberBetween(1, 150),
+                'passageiro_id' => fake()->numberBetween(1, 40),
             ]);
             $bilheteDoPassageiro = $passageiro->find($acao->passageiro_id)->bilhetes()->get(); 
              $passagemId = $bilhete

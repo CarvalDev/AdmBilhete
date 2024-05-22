@@ -22,7 +22,7 @@ class PedidoBilheteFactory extends Factory
         return [
             'tipoBilhete' => fake()->randomElement(['Estudante Ins. Privada', 'PCD', 'Estudante']),
             'statusPedido' => 'Aberto',
-            'passageiro_id' => fake()->numberBetween(1, 150),
+            'passageiro_id' => fake()->numberBetween(1, 40),
             'created_at' => fake()->dateTimeBetween('-1 week', time())
         ];
     }

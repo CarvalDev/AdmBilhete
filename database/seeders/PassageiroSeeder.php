@@ -28,7 +28,7 @@ class PassageiroSeeder extends Seeder
         Passageiro::factory([
             'password' => bcrypt('123')
         ])
-            ->count(150)
+            ->count(40)
             
             ->has(Acao::factory(2)
                 ->has(Suporte::factory(1))
@@ -43,13 +43,13 @@ class PassageiroSeeder extends Seeder
             ->create();
 
             //atualizanod o bilehte
-            for($i=1;$i<=150;$i++){
+            for($i=1;$i<=40;$i++){
                 Bilhete::find($i)->update([
                     'qrCodeBilhete' => DataServices::qrCodeFetch($i)
                 ]);
             }
 
-            Passageiro::factory(60)
+            Passageiro::factory(10)
                 ->has(Bilhete::factory(1))
                 ->create();
             
