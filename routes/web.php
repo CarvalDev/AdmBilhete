@@ -3,8 +3,7 @@
 use App\Http\Controllers\AdmController;
 use App\Http\Controllers\AjudaController;
 use App\Http\Controllers\CaixaEntradaController;
-
-
+use App\Http\Controllers\CategoriaAjudaController;
 use App\Http\Controllers\FaturamentoController;
 use App\Http\Controllers\FormularioPassageiroControler;
 use App\Http\Controllers\HomeController;
@@ -77,6 +76,9 @@ Route::put('adm/{id}/update', [AdmController::class, 'update'])->name('adm.updat
 Route::get('/adm/results', [AdmController::class, 'search'])->name('adm.search');
 Route::post('/logout', [AdmController::class, 'logout'])->name('adm.logout');
 Route::get('/ajuda', [AjudaController::class, 'index'])->name('ajuda.index');
+Route::get('/ajuda/form', [AjudaController::class, 'form'])->name('ajuda.form');
+Route::post('/ajuda/store', [AjudaController::class, 'store'])->name('ajuda.store');
+Route::get('/categoria', [CategoriaAjudaController::class, 'index'])->name('categoriaAjuda.index');
 Route::get('/ajuda/{id}/show', [AjudaController::class, 'show'])->name('ajuda.show');
 
 });

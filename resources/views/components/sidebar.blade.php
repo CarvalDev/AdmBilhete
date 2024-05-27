@@ -34,15 +34,17 @@
           </li>
 
           <li>
-            <div class="iocn-link">
-              <a href="{{route('ajuda.index')}}">
+          <div class="iocn-link">
+              <a href="#">
                 <i class='bx bx-info-square'></i>
                 <span class="link_name">Ajuda</span>
               </a>
-              
+              <i class='bx bxs-chevron-down arrow' ></i>
             </div>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="{{route('ajuda.index')}}">Ajuda</a></li>
+            <ul class="sub-menu">
+              <li><a class="link_name" href="#">Ajudas</a></li>
+              <li><a href="{{route('ajuda.index')}}">Lista de Ajudas</a></li>
+              <li><a href="{{route('ajuda.form')}}">Adicionar Ajudas</a></li>
             </ul>
           </li>
 
