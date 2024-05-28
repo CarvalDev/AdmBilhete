@@ -45,9 +45,16 @@ class AjudaController extends Controller
         return view('ajuda.form', compact('user', 'categoriaAjuda'));
     } 
 
-    public function show() {
+    public function show($id) {
+        $ajuda = $this->model->findById($id);
+        $caminhoAjuda = explode('->', $ajuda->caminhoAjuda);
+        $ajuda->caminhoAjuda1 = $caminhoAjuda[0] ?? '';
+        $ajuda->caminhoAjuda2 = $caminhoAjuda[1] ?? '';
+        $ajuda->caminhoAjuda3 = $caminhoAjuda[2] ?? '';
+        $categoriaAjudaController = new CategoriaAjudaController;
+        $categoriaAjuda = $categoriaAjudaController->index();
         $user = Auth::guard('adm')->user();
-        return view('ajuda.show', compact('user'));
+        return view('ajuda.show', compact('user', 'ajuda', 'categoriaAjuda'));
     }
 
     public function store(Request $request){
@@ -62,4 +69,31 @@ class AjudaController extends Controller
         return $data;
             
     }
+
+    public function edit($id){
+        $ajuda = $this->model->findById($id);
+        $user = Auth::guard('adm')->user();
+        return view('ajuda.show', compact('ajuda'));
+    }
+public function update($id, Request $request){
+    // $ajuda = $this->model->findById($id);
+    $data = $request->all();
+    $data['caminhoAjuda'] = $data['caminhoAjuda'].'->'. $data['caminhoAjuda2'].'->' . $data['caminhoAjuda3'];
+        unset($data['caminhoAjuda2']);
+        unset($data['caminhoAjuda3']);
+    $this->model->update($id, $data);
+    Auth::guard('adm')->user();
+
+    return redirect()->back();
+
+}
+public function updateStatus($id, Request $request){
+    // $ajuda = $this->model->findById($id);
+    $data['statusAjuda'] = $request->statusAjuda;
+    $this->model->update($id, $data);
+    Auth::guard('adm')->user();
+
+    return redirect()->back();
+
+}
 }

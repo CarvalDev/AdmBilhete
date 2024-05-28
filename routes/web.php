@@ -80,7 +80,9 @@ Route::get('/ajuda/form', [AjudaController::class, 'form'])->name('ajuda.form');
 Route::post('/ajuda/store', [AjudaController::class, 'store'])->name('ajuda.store');
 Route::get('/categoria', [CategoriaAjudaController::class, 'index'])->name('categoriaAjuda.index');
 Route::get('/ajuda/{id}/show', [AjudaController::class, 'show'])->name('ajuda.show');
-
+Route::get('ajuda/{id}/edit', [AjudaController::class, 'edit'])->name('ajuda.edit');
+Route::get('ajuda/{id}/update', [AjudaController::class, 'update'])->name('ajuda.update');
+Route::put('/ajuda/{id}/status/update', [AjudaController::class, 'updateStatus'])->name('ajuda.status.update');
 });
 Route::get('/formulariopassageiro', [FormularioPassageiroControler::class, 'index'])->name('formulariopassageiro.index');
 

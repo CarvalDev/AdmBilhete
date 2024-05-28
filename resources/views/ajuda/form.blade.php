@@ -17,7 +17,7 @@
         </div>
 
         <div class="categoriasAjuda">
-            <div id="tituloCatAjuda">
+            <div id="tituloCatAjuda" style="width:10vw;">
                 <select id="categoriaAjuda_id" class="input w-100 fs-4 ps-3" name="categoriaAjuda_id" style="outline:none;border:none">
                     @for ($i = 0; $i < count($categoriaAjuda); $i++)
                     <option value="{{ $categoriaAjuda[$i]->id }}">{{ $categoriaAjuda[$i]->nomeCategoria }}</option>
