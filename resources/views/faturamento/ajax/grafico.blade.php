@@ -23,14 +23,14 @@ const config = {
       label: 'Faturamento Mensal',
       data: faturamentoMensal,
       fill: false,
-      borderColor: '#46a2ee',
+      borderColor: '#3C7352',
       tension: 0.4
     },
     {
         label: 'Sombra',
         data: faturamentoMensal.map(value => value - 1000), // Ajuste conforme desejado
         fill: false,
-        borderColor: 'rgba(75, 192, 192, 0.2)', // Cor mais clara para simular sombra
+        borderColor: 'rgba(60, 115, 82, 0.2)', // Cor mais clara para simular sombra
         tension: 0.4,
         borderWidth: 9 // Ajuste a largura conforme desejado para simular uma sombra mais suave
       }]
@@ -86,9 +86,9 @@ const dataPolar = {
         label: 'Faturamento',
         data: [300, 500, 700],
         backgroundColor: [
-          '#46a2ee',
-          '#50a296',
-          '#e8696c',
+          'rgba(0, 0, 0, 1)',
+          'rgba(154, 56, 16, 1)',
+          '#656d4a',
         ],
         
         

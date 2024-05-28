@@ -15,7 +15,8 @@ let data =  {
             backgroundColor:  [
                 'rgba(0, 0, 0, 1)',
                  'rgba(154, 56, 16, 1)',
-                 'rgba(38, 31, 31, 1)' ],
+                 '#656d4a'
+                 ],
             borderWidth: 0
         }]
     }

@@ -78,12 +78,12 @@
 }
 
 .quadrado:hover{
-    background-color: #46a2ee;
+    background-color: rgba(60, 115, 82, 1);
     cursor: pointer;
 }
 
 .quadrado-active{
-    background-color: #46a2ee;
+    background-color: rgba(60, 115, 82, 1);
 }
 #polar{
     max-height: 200px;

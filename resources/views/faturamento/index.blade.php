@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{{ URL::asset('css/financeiro.css') }}" type="text/css">
 @endpush
 @section('content')
-
+ 
 <div class="container d-flex justify-content-between align-items-center flex-column " style="height: 98%">
     <div class="linha-principal  d-flex justify-content-between align-items-center flex-row" id="linhaUm">
         <div class="blocos  h-100" >
@@ -20,9 +20,9 @@
                 </div>
                 <div id="infosFatCompras" class=" d-flex justify-content-center align-items-end flex-row">
                     <div id="totalFat" class=" d-flex flex-column justify-content-center align-items-start  h-75" style="width: 55%">
-                        <span style="font-size: 32px; margin-left: 20px; color:#50a296">740.000 R$</span>
+                        <span style="font-size: 32px; margin-left: 20px; color:#3C7352">740.000 R$</span>
                         <div class="d-flex gap-1 justify-content-center align-items-center flex-row">
-                            <i style="color:#46a2ee;margin-left:20px; font-size:16px" class='bx bx-trending-up'></i>
+                            <i style="color:#3C7352;margin-left:20px; font-size:16px" class='bx bx-trending-up'></i>
                             <span style="font-size: 10px; "> 5% desde semana passada</span>
                         </div>
                     </div>
@@ -44,9 +44,9 @@
                 </div>
                 <div id="infosFatCompras" class=" d-flex justify-content-center align-items-end flex-row">
                     <div id="totalFat" class=" d-flex flex-column justify-content-center align-items-start  h-75" style="width: 55%">
-                        <span style="font-size: 32px; margin-left: 20px; color:#50a296">3.000 R$</span>
+                        <span style="font-size: 32px; margin-left: 20px; color:#3C7352">3.000 R$</span>
                         <div class="d-flex gap-1 justify-content-center align-items-center flex-row">
-                            <i style="color:#e8696c;margin-left:20px; font-size:16px" class='bx bx-trending-down'></i>
+                            <i style="color:#B83810;margin-left:20px; font-size:16px" class='bx bx-trending-down'></i>
                             <span style="font-size: 10px; "> 5% desde semana passada</span>
                         </div>                    </div>
                     <div id="totalCompras" class=" rounded  d-flex justify-content-start align-items-center flex-column h-100" style="width: 45%;">
@@ -69,7 +69,7 @@
                 </div>
                 <div id="divisor" class=" w-100 d-flex flex-row justify-content-center align-items-center">
                     <div id="precoLabel" class=" w-50 d-flex justify-content-start align-items-start">
-                        <span style="font-size:36px;margin-left:20px; color:#50a296">4,40 R$</span>
+                        <span style="font-size:36px;margin-left:20px; color:#3C7352">4,40 R$</span>
                     </div>
                     <div id="reajustes" class="w-50 d-flex justify-content-between align-items-center flex-column">
                         <span style="font-size: 18px;" class="mb-2" >ultimos reajustes</span>
