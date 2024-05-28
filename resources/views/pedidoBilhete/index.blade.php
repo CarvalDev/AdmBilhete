@@ -18,7 +18,7 @@
             <th class="py-2" id="nomePassageiro" style="width: 20%">Tipo bilhete</th>
             <th class="py-2" style="width: 30%">Status bilhete</th>
             <th class="py-2" style="width: 20%">Nome do passageiro</th>
-            <th class="py-2" style="width: 30%">Vizualizar Pedido</th>
+            <th class="py-2" style="width: 30%">Visualizar Pedido</th>
         </tr>
         </thead>
        
@@ -31,7 +31,7 @@
             <td class="text-center fw-bold" id="nomePassageiro" style="">{{$pedidoBilhete->tipoBilhete}}</td>
             <td class="text-center fw-bold">{{$pedidoBilhete->statusPedido}}</td>
             <td class="text-center fw-bold">{{ $pedidoBilhete->passageiro_id }}</td>
-            {{-- <td class="justify-content-center align-items-center d-flex  py-2"><a href="{{route('perfilPassageiro.index', $passageiro->id)}}" class="btn px-4" style=""><i class="far fa-user-circle fa-xl"></i></a></td> --}}
+            <td class="justify-content-center align-items-center d-flex  py-2"><a href="{{route('pedidoBilhete.index')}}" class="btn px-4" style=""><i class="far fa-user-circle fa-xl"></i></a></td>
         </tr>
         @endforeach
         

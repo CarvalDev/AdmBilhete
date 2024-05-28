@@ -2,7 +2,7 @@
 
 
 console.log('ok')
-$(document).on('keyup', '#pedidoBilhetes', function(e) {
+$(document).on('keyup', '#pedidoBilheteSearch', function(e) {
     e.preventDefault();
     let search = $(this).val();
     console.log(search);
@@ -42,5 +42,32 @@ $(document).on('keyup', '#pedidoBilhetes', function(e) {
         }
     });
 });
+
+$(document).on('click', '.pagination a', function(e){
+    e.preventDefault()
+     
+    onLoadingDiv.style.display = "flex"
+    loadedDiv.style.display = "none"
+    let pagina = $(this).attr('href').split('page=')[1]
+    console.log("Pao")
+    console.log(pagina)
+    pedidoBilhete(pagina)
+})
+function pedidoBilhete(pagina){
+    console.log("cheguei na função")
+    let search = $('#pedidoBilheteSearch').val()
+    $.ajax({
+        url: "/pedidoBilhete/results?page="+pagina,
+        data: {search:search },
+        success: function(res){
+            console.log(res)
+            $('#table-content').html(res.html)
+            
+            onLoadingDiv.style.display = "none"
+            loadedDiv.style.display = "flex"
+        }
+    })
+}
+
 
 </script>

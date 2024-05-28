@@ -25,7 +25,7 @@ method="get" class="d-flex flex-row gap-2" >
     @elseif(isset($datas))
         id="caixaEntradaSearch"
     @elseif(isset($pedidoBilhetes))
-    id="pedidoBilhetes"
+    id="pedidoBilheteSearch"
     @endif
     
     >

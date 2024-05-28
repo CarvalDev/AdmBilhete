@@ -108,13 +108,14 @@
             <li>
               <div class="iocn-link">
                 <a href="#">
-                  <i class='bx bx-user'></i>
+                  <i class='bx bx-list-plus'></i>
+                  
                   <span class="link_name">Bilhetes</span>
                 </a>
                 <i class='bx bxs-chevron-down arrow' ></i>
               </div>
               <ul class="sub-menu">
-                <li><a class="link_name" href="#">Pedidos Bilhetes</a></li>
+                <li><a class="link_name" href="#">Pedidos de Bilhetes</a></li>
                 <li><a href="{{ route('pedidoBilhete.index') }}">Lista de Pedidos</a></li>
               </ul>
             </li>
