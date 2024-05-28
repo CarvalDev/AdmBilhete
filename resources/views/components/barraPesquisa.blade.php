@@ -9,6 +9,8 @@
 
 @elseif(isset($datas))
 
+@elseif(isset($pedidoBilhetes))
+    
 @endif
 method="get" class="d-flex flex-row gap-2" >
     @csrf
@@ -22,6 +24,8 @@ method="get" class="d-flex flex-row gap-2" >
         id="linhaSearch"
     @elseif(isset($datas))
         id="caixaEntradaSearch"
+    @elseif(isset($pedidoBilhetes))
+    id="pedidoBilhetes"
     @endif
     
     >

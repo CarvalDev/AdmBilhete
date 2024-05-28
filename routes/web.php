@@ -12,9 +12,11 @@ use App\Http\Controllers\LoginController;
 use App\Mail\RespostaSuporteMail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PassageiroController;
+use App\Http\Controllers\PedidoBilheteController;
 use App\Http\Controllers\PrecoController;
 
 use App\Models\Passageiro;
+use App\Models\PedidoBilhete;
 use Illuminate\Support\Facades\Mail;
 
 /*
@@ -83,6 +85,8 @@ Route::get('/ajuda/{id}/show', [AjudaController::class, 'show'])->name('ajuda.sh
 Route::get('ajuda/{id}/edit', [AjudaController::class, 'edit'])->name('ajuda.edit');
 Route::get('ajuda/{id}/update', [AjudaController::class, 'update'])->name('ajuda.update');
 Route::put('/ajuda/{id}/status/update', [AjudaController::class, 'updateStatus'])->name('ajuda.status.update');
+Route::get('/pedidoBilhete',[PedidoBilheteController::class, 'index'])->name('pedidoBilhete.index');
+Route::get('/pedidoBilhete/results', [PedidoBilheteController::class, 'search'])->name('pedidoBilhete.search');
 });
 Route::get('/formulariopassageiro', [FormularioPassageiroControler::class, 'index'])->name('formulariopassageiro.index');
 
