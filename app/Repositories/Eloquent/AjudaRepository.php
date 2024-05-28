@@ -25,25 +25,31 @@ class AjudaRepository extends AbstractRepository implements AjudaRepositoryInter
     public function countVotosAjuda()
     {
         $votos = $this->model
-            ->select('ajudas.id as id')
-            ->selectRaw('COUNT(votos_ajudas.id) as votos')
-            ->groupBy('ajudas.id')
-            ->join('votos_ajudas', 'ajudas.id', 'votos_ajudas.ajuda_id')
-            ->paginate(15);
-        $votosPositivos = $this->model
-            ->select('ajudas.id as id')
-            ->selectRaw('COUNT(votos_ajudas.id) as votosPositivos')
-            ->groupBy('ajudas.id')
-            ->join('votos_ajudas', 'ajudas.id', 'votos_ajudas.ajuda_id')
-            ->where('votos_ajudas.util', '1')
-            ->paginate(15);    
-        for($i = 0; $i<count($votos);$i++){
-            $votos[$i]->negativos = $votos[$i]->votos - $votosPositivos[$i]->votosPositivos;
-            $votos[$i]->positivos = $votosPositivos[$i]->votosPositivos;
-            $votos[$i]->porcentagemAprovacao = ($votosPositivos[$i]->votosPositivos*100)/$votos[$i]->votos;
-        }
+    ->select('ajudas.id as id')
+    ->selectRaw('COUNT(votos_ajudas.id) as votos')
+    ->groupBy('ajudas.id')
+    ->leftJoin('votos_ajudas', 'ajudas.id', 'votos_ajudas.ajuda_id')
+    ->paginate(15);
 
-        return $votos;
+$votosPositivos = $this->model
+    ->select('ajudas.id as id')
+    ->selectRaw('COUNT(votos_ajudas.id) as votosPositivos')
+    ->groupBy('ajudas.id')
+    ->leftJoin('votos_ajudas', function ($join) {
+        $join->on('ajudas.id', '=', 'votos_ajudas.ajuda_id')
+            ->where('votos_ajudas.util', '=', 1);
+    })
+    ->paginate(15);   
+    foreach ($votos as $key => $voto) {
+        if ($voto->votos != 0) {
+            $votos[$key]->porcentagemAprovacao = ($votosPositivos[$key]->votosPositivos * 100) / $voto->votos;
+        } else {
+            $votos[$key]->porcentagemAprovacao = 0; // Ou qualquer valor padrão que você deseje atribuir
+        }
+    }
+    
+    return $votos;
+    
         
     }
 }

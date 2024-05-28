@@ -24,29 +24,28 @@
             
            
         </tr>
-        @for ($i = 0; $i < count($ajudas); $i++)
-            
-        
-        <tr class="text-center" style="border-bottom:rgba(1, 1, 1, 0.1) 1px solid ">
-               
-               <td class="py-2 fw-bold" style="font-size: 14px">{{ $ajudas[$i]->titulo }}</td>
-               <td class="py-2 fw-bold">{{ $ajudas[$i]->categoria }}</td>
-               <td  class="text-center py-2  fw-bold">{{ $ajudas[$i]->status }}</td>
-               <td class="text-center py-2 d-flex justify-content-center align-items-center   fw-bold h-100">
-                    <div class="" id="aprovacaoBar">
-                        <div class="h-100 bg-dark d-flex justify-content-center align-items-center" style={{"width:".  $ajudas[$i]->porcentagem."%" }}>
-                            <span class="text-white " style="font-size: 12px">{{ $ajudas[$i]->porcentagem }}%</span>
-                        </div>
-                    </div>
+        @foreach ($ajudas as $ajuda)
+    <tr class="text-center" style="border-bottom: rgba(1, 1, 1, 0.1) 1px solid">
+        <td class="py-2 fw-bold" style="font-size: 14px">
+            {{ strpos($ajuda->titulo, '?') !== false ? $ajuda->titulo : $ajuda->titulo . '?' }}
+        </td>
+        <td class="py-2 fw-bold">{{ $ajuda->categoria }}</td>
+        <td class="text-center py-2 fw-bold">{{ $ajuda->status }}</td>
+        <td class="text-center py-2 d-flex justify-content-center align-items-center fw-bold h-100">
+            <div id="aprovacaoBar">
+                <div class="h-100 {{ $ajuda->porcentagem == 0 ? 'bg-white' : 'bg-dark' }} d-flex justify-content-center align-items-center" style="width: {{ $ajuda->porcentagem == 0 ? '100%' : $ajuda->porcentagem.'%' }}">
+                    <span class="{{ $ajuda->porcentagem != 0 ? 'text-white' : 'text-dark' }} d-flex justify-content-center align-items-center" style="font-size: 12px">{{ $ajuda->porcentagem }}%</span>
+                </div>
+            </div>
+        </td>
+        <td class="px-2 fw-bold"> 
+            <a href="{{ route('ajuda.show', $ajuda->id) }}" class="text-dark mt-2">
+                <i class="fs-4 bx bxs-hand-up"></i>
+            </a>
+        </td>
+    </tr>
+@endforeach
 
-               </td>
-               <td class="px-2 fw-bold "> 
-                    <a href="{{ route('ajuda.show', $ajudas[$i]->id) }}" class="text-dark mt-2 ">
-                        <i class='fs-4 bx bxs-hand-up'></i>
-                    </a>
-               </td>
-        </tr>
-        @endfor
             <!-- <tr style="border-bottom:1.5px solid red">
                <td>Não há pedidos de suporte</td>
             </tr> -->

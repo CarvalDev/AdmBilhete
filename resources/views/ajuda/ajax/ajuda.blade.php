@@ -36,7 +36,7 @@
                     "hideMethod": "fadeOut"
                     }
                     console.log(response)
-                    $('#ajudaStore input').val("")
+                    $('#ajudaStore input, textarea').val("")
             }, error: function(err){
                 let error = err.responseJSON
             $.each(error.errors, function(index, value){

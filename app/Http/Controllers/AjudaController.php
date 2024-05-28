@@ -25,15 +25,20 @@ class AjudaController extends Controller
     public function index(){
         $ajudas = $this->model->allWithCategoria();
         $votos = $this->model->countVotosAjuda();
-        for($i=0;$i<count($ajudas);$i++){
-            if($ajudas[$i]->id == $votos[$i]->id){
-                $ajudas[$i]['porcentagem'] = $votos[$i]->porcentagemAprovacao;
-            }else{
-                $ajudas[$i]['porcentagem'] = 0;
+
+        // dd($votos);
+        
+        foreach ($ajudas as $ajuda) {
+            $ajuda->porcentagem = 0;
+            foreach ($votos->items() as $item) {
+                if ($item->id == $ajuda->id) { 
+                    if ($item->votos != 0) {
+                        $ajuda->porcentagem = $item->porcentagemAprovacao;
+                    }
+                    
+                }
             }
         }
-        
-
         $user = Auth::guard('adm')->user();
         return view('ajuda.index', compact('ajudas',  'user'));
     }
@@ -63,7 +68,7 @@ class AjudaController extends Controller
         $data['caminhoAjuda'] = $data['caminhoAjuda'].'->'. $data['caminhoAjuda2'].'->' . $data['caminhoAjuda3'];
         unset($data['caminhoAjuda2']);
         unset($data['caminhoAjuda3']);
-        $data ['statusAjuda'] = 'ativo';
+        $data ['statusAjuda'] = 'Ativo';
         $this->model->create($data);
         Auth::guard('adm')->user();
         return $data;
