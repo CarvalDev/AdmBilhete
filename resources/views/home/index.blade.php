@@ -36,7 +36,7 @@
                             <span class="text-white" style="font-size: 18px">passageiros</span>
                             <span style="font-size: 16px; color:#3C7352">com cadastro</span>
                         </div>
-                    </div>
+                    </div> 
                 </div>
                 <div id="bloco-suportes" class=" d-flex flex-column justify-content-center align-items-center">
                     <div class=" d-flex justify-content-start align-items-center traco-dois" id=""> 
@@ -131,7 +131,7 @@
                             <input type="hidden" name="numLinha" value={{ $l->numLinha }}>  
                             <input type="hidden" name="qtdConsumos" value={{ $l->qtdConsumos }}>   
                             @endforeach
-                            <canvas id="linhasGrafico"></canvas>
+                            <canvas id="linhasGrafico" style="width: 450px; height: 400px;"></canvas>
                         </div>
                     </div>
                 </div>

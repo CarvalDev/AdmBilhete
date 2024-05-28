@@ -1,0 +1,90 @@
+.linha-principal{
+    width: 100%;
+    
+}
+
+#linhaUm{
+    height: 40%;
+}
+#linhaDois{
+    height: 58%;
+}
+
+.blocos{
+    width: 33%;
+    background-color: #EEEAEA;
+
+}
+
+#blocoUm{
+    width: 66.5%;
+}
+#blocoDois{
+    width: 32.9%;
+}
+
+.traco{
+    font-size: 30px;
+}
+
+.traco-span{
+    margin-top: 25px;
+    margin-left: 20px;
+     
+}
+
+.traco-dois{
+    height: 5%;
+    width: 100%;
+}
+
+.conteudo{
+    height: 95%;
+    width: 100%;
+}
+
+#tituloSuporte{
+    height: 20%;
+    width: 100%;
+    margin-top: 10px;
+}
+#tituloSuporte p{
+    width: 150px;
+}
+#infosFatCompras{
+    height: 80%;
+    width: 100%;
+}
+#divisor{
+    height: 80%;
+}
+
+#opcoes{
+    position: absolute;
+    width: 20%;
+    height: 5%;
+    
+    left: 46.7%;
+}
+
+.quadrado{
+    height: 100%;
+    width: 36px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.quadrado:hover{
+    background-color: #46a2ee;
+    cursor: pointer;
+}
+
+.quadrado-active{
+    background-color: #46a2ee;
+}
+#polar{
+    max-height: 200px;
+}
