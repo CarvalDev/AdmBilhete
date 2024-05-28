@@ -70,19 +70,15 @@
             </ul>
           </li>
           <li>
-            <div class="iocn-link">
-              <a href="#">
-                <i class='bx bx-line-chart'></i>
-                <span class="link_name">Financeiro</span>
-              </a>
-              <i class='bx bxs-chevron-down arrow' ></i>
-            </div>
-            <ul class="sub-menu ">
-              <li><a class="link_name" href="#">Financeiro</a></li>
-              <li><a href="{{ route('faturamento.index') }}">Faturamento</a></li>
-              <li><a href="{{ route('preco.index') }}">Editar Preço</a></li>
+            <a href="{{route('faturamento.index')}}">
+              <i class='bx bx-line-chart'></i>
+              <span class="link_name">Financeiro</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="{{route('faturamento.index')}}">Financeiro</a></li>
             </ul>
           </li>
+         
           <li>
             <div class="iocn-link">
               <a href="#">
