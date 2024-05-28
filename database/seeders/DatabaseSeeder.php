@@ -30,7 +30,8 @@ class DatabaseSeeder extends Seeder
             CategoriaAjudaSeeder::class,
             AjudaSeeder::class,
             VotosAjudaSeeder::class,
-            PedidosBilhetesSeeder::class
+            PedidosBilhetesSeeder::class,
+            TaxaEmissaoPrecoSeeder::class
             
 
         ]);
