@@ -12,9 +12,11 @@ use App\Http\Controllers\LoginController;
 use App\Mail\RespostaSuporteMail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PassageiroController;
+use App\Http\Controllers\PedidoBilheteController;
 use App\Http\Controllers\PrecoController;
 
 use App\Models\Passageiro;
+use App\Models\PedidoBilhete;
 use Illuminate\Support\Facades\Mail;
 
 /*
@@ -80,7 +82,8 @@ Route::get('/ajuda/form', [AjudaController::class, 'form'])->name('ajuda.form');
 Route::post('/ajuda/store', [AjudaController::class, 'store'])->name('ajuda.store');
 Route::get('/categoria', [CategoriaAjudaController::class, 'index'])->name('categoriaAjuda.index');
 Route::get('/ajuda/{id}/show', [AjudaController::class, 'show'])->name('ajuda.show');
-
+Route::get('/pedidoBilhete',[PedidoBilheteController::class, 'index'])->name('pedidoBilhete.index');
+Route::get('/pedidoBilhete/results', [PedidoBilheteController::class, 'search'])->name('pedidoBilhete.search');
 });
 Route::get('/formulariopassageiro', [FormularioPassageiroControler::class, 'index'])->name('formulariopassageiro.index');
 

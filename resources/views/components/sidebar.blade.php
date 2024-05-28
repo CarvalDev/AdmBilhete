@@ -85,6 +85,7 @@
               <li><a href="{{ route('preco.index') }}">Editar Preço</a></li>
             </ul>
           </li>
+          
           <li>
             <div class="iocn-link">
               <a href="#">
@@ -102,7 +103,21 @@
           </li>
           
           </li>
+          
           <li>
+            <li>
+              <div class="iocn-link">
+                <a href="#">
+                  <i class='bx bx-user'></i>
+                  <span class="link_name">Bilhetes</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow' ></i>
+              </div>
+              <ul class="sub-menu">
+                <li><a class="link_name" href="#">Pedidos Bilhetes</a></li>
+                <li><a href="{{ route('pedidoBilhete.index') }}">Lista de Pedidos</a></li>
+              </ul>
+            </li>
         <div class="profile-details">
           <div class="profile-content" onclick="perfil()">
             <img  @if ($user->fotoAdm == '')

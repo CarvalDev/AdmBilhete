@@ -19,4 +19,19 @@ class PedidoBilheteRepository extends AbstractRepository implements PedidoBilhet
                     ->where('statusPedido', 'Aberto')
                     ->count();
     }
+    public function search(String | null $search = null){
+            
+        return $this->model
+                    ->where('tipoBilhete', 'LIKE', "%{$search}%")
+                    ->orderByRaw('LENGTH(tipoBilhete) DESC')
+                    ->paginate(10);
+    }
+    public function getAllpedidos(){
+            
+        return $this->model
+        ->select('tipoBilhete','statusPedido','passageiro_id')
+        ->orderByRaw('LENGTH(tipoBilhete) ASC')
+        ->paginate(15);
+    }
+    
 }
