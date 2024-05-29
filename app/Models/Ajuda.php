@@ -24,4 +24,9 @@ class Ajuda extends Model
     {
         return $this->hasMany(VotosAjuda::class);
     }
+
+    public function passageiros()
+    {
+        return $this->belongsToMany(Passageiro::class);
+    }
 }

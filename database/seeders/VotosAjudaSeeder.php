@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Ajuda;
+use App\Models\Passageiro;
 use App\Models\VotosAjuda;
 use Database\Factories\VotosAjudaFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -16,12 +18,34 @@ class VotosAjudaSeeder extends Seeder
      */
     public function run()
     {
-        for($i=1;$i<7;$i++){
-            VotosAjuda::factory()
-                ->count(100)
-                ->create([
-                    'ajuda_id' => $i
-                ]);
+        
+        $passageiros = Passageiro::all();
+
+        
+        foreach (Ajuda::all() as $ajuda) {
+            
+            $passageirosQueVotaram = [];
+
+           
+            if ($ajuda->votosAjuda()->exists()) {
+                
+                $passageirosQueVotaram = $ajuda->votosAjuda()->pluck('passageiro_id')->toArray();
+            }
+
+            
+            foreach ($passageiros as $passageiro) {
+                
+                if (!in_array($passageiro->id, $passageirosQueVotaram)) {
+                    
+                    VotosAjuda::factory()->create([
+                        'ajuda_id' => $ajuda->id,
+                        'passageiro_id' => $passageiro->id,
+                    ]);
+
+                    
+                    $passageirosQueVotaram[] = $passageiro->id;
+                }
+            }
         }
     }
 }

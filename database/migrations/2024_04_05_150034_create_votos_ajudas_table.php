@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->boolean('util');
             $table->foreignId('ajuda_id')->constrained('ajudas');
+            $table->foreignId('passageiro_id')->constrained('passageiros');
             $table->timestamps();
         });
     }
