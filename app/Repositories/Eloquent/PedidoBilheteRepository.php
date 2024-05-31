@@ -19,19 +19,26 @@ class PedidoBilheteRepository extends AbstractRepository implements PedidoBilhet
                     ->where('statusPedido', 'Aberto')
                     ->count();
     }
-    public function search(String | null $search = null){
-            
+    public function search(String | null $search = null) {
         return $this->model
-                    ->where('tipoBilhete', 'LIKE', "%{$search}%")
-                    ->orderByRaw('LENGTH(tipoBilhete) DESC')
+                    ->select('pedido_bilhetes.tipoBilhete', 'pedido_bilhetes.statusPedido', 'pedido_bilhetes.passageiro_id', 'passageiros.nomePassageiro as passageiro_nome')
+                    ->join('passageiros', 'pedido_bilhetes.passageiro_id', '=', 'passageiros.id')
+                    ->when($search, function ($query, $search) {
+                        return $query->where(function ($q) use ($search) {
+                            $q->where('pedido_bilhetes.tipoBilhete', 'LIKE', "%{$search}%")
+                              ->orWhere('passageiros.nomePassageiro', 'LIKE', "%{$search}%");
+                        });
+                    })
+                    ->orderByRaw('LENGTH(pedido_bilhetes.tipoBilhete) DESC')
                     ->paginate(10);
     }
     public function getAllpedidos(){
-            
         return $this->model
-        ->select('tipoBilhete','statusPedido','passageiro_id')
-        ->orderByRaw('LENGTH(tipoBilhete) ASC')
-        ->paginate(15);
+            ->select('pedido_bilhetes.tipoBilhete', 'pedido_bilhetes.statusPedido', 'pedido_bilhetes.passageiro_id', 'passageiros.nomePassageiro as passageiro_nome')
+            ->join('passageiros', 'pedido_bilhetes.passageiro_id', '=', 'passageiros.id')
+            ->orderByRaw('LENGTH(pedido_bilhetes.tipoBilhete) ASC')
+            ->paginate(15);
     }
+    
     
 }

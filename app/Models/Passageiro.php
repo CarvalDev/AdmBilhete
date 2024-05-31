@@ -68,4 +68,8 @@ class Passageiro extends Model
         return $passageiro;
         
     }
+    public function pedidos()
+    {
+        return $this->hasMany(PedidoBilhete::class);
+    }
 }

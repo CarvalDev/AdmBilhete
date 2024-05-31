@@ -19,4 +19,8 @@ class PedidoBilhete extends Model
     {
         return PedidoBilheteFactory::new();
     }
+    public function passageiro()
+    {
+        return $this->belongsTo(Passageiro::class);
+    }
 }
