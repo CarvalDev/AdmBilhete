@@ -18,6 +18,7 @@ class CartaoPassageiroFactory extends Factory
     protected $model = CartaoPassageiro::class;
     public function definition()
     {
+        
         return [
         'numeroCartao' => fake()->numerify('#### #### #### ####'),
         'nomeTitularCartao' => fake()->name(),
@@ -28,6 +29,7 @@ class CartaoPassageiroFactory extends Factory
         'contaCartao' => fake()->numerify('########-#'),
         'agenciaCartao' => fake()->numerify('####'),
         'validadeCartao' => fake()->date(),
+        'apelidoCartao' => fake()->name(),
         ];
     }
 }

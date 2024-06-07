@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('contaCartao');
             $table->string('agenciaCartao');
             $table->string('validadeCartao');
+            $table->string('apelidoCartao');
             $table->foreignId('passageiro_id')->constrained('passageiros');
 
             $table->timestamps();
