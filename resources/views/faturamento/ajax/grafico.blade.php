@@ -375,6 +375,10 @@ $.ajax({
                    
             myChart.data.labels.pop()
             myChart.data.labels.push(newMeses)
+            myChart.data.datasets[0].data.pop()
+            myChart.data.datasets[0].data.push(faturamentoMensal.reverse())
+            myChart.update()
+          
         
         },
         error:(e) => {
@@ -455,7 +459,6 @@ let config = {
 };
 
 // Criação do gráfico
-semestral()
 
 
 let estudante = document.getElementById('estudante').value
@@ -514,5 +517,6 @@ const dataPolar = {
             document.getElementById('graficoFluxo'),
             config
             );
+    
 
 </script>
