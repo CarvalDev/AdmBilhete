@@ -9,4 +9,5 @@ interface CompraRepositoryInterface
     public function sumHome();
     public function getEmissaoData();
     public function comprasByTipoBilhete();
+    public function getFluxo($intervalo);
 }

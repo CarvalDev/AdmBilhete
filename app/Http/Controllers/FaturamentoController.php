@@ -30,8 +30,15 @@ class FaturamentoController extends Controller
             $reajuste->dataPreco = $reajuste->dataPreco[1]."/".$reajuste->dataPreco[0];
         }
         $bilhetes = $this->model->comprasByTipoBilhete();
+       
         
         $user = Auth::guard('adm')->user(); 
         return view("faturamento.index", compact('compras', 'taxas','precos', 'bilhetes' ,'user'));
+    }
+    public function fluxo($intervalo){
+        $res = $this->model->getFluxo($intervalo);
+        return response()->json(
+            $res
+        );
     }
 }

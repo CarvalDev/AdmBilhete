@@ -99,5 +99,97 @@ class CompraRepository extends AbstractRepository implements CompraRepositoryInt
         return $data;
                         
     }
+    public function getFluxo($intervalo)
+    {
+        switch($intervalo){
+            case "anual":
+                for($i=1;$i<13;$i++){
+                    $tempoInicial = now()->subMonths($i);
+                    if($i == 1){
+                        $tempoFinal = now();
+                    }else{
+                        $tempoFinal = now()->subMonths($i-1);
+                    }
+                    $resultado[$i-1]["mes"] = $this->model
+                    ->selectRaw('SUM(valorTotalCompra) as valor')
+                    ->join('acaos', 'compras.acao_id', 'acaos.id')
+                    ->whereBetween('acaos.dataAcao', [$tempoInicial, $tempoFinal])
+                    ->get()[0]
+                    ->valor;
+                }
+                return $resultado;
+                break;
+            case "semestral":
+                for($i=1;$i<13;$i++){
+                    $semanas = 2*$i;
+                    $tempoInicial = now()->subWeeks($semanas);
+                    if($i == 1){
+                        $tempoFinal = now();
+                    }else{
+                        $tempoFinal = now()->subWeeks($semanas-2);
+                    }
+                    $query = $this->model
+                    
+                    ->selectRaw('SUM(valorTotalCompra) as valor')
+                    ->join('acaos', 'compras.acao_id', 'acaos.id')
+                    ->whereBetween('acaos.dataAcao', [$tempoInicial, $tempoFinal])
+                    ->get()[0]
+                    ->valor;
+                    $resultado["valores"][$i-1]["semana"] = $query;
+                 
+                    $data = $tempoInicial->toDateString();
+                    $data = explode("-", $data);
+                    $data = $data[2]."/".$data[1];
+                    $resultado["datas"][$i-1]['data'] = $data; 
+                }
+                return $resultado;
+                break;
+                case "trimestral":
+                    for($i=1;$i<13;$i++){
+                        
+                        $tempoInicial = now()->subWeeks($i);
+                        if($i == 1){
+                            $tempoFinal = now();
+                        }else{
+                            $tempoFinal = now()->subWeeks($i-1);
+                        }
+                        $resultado["valores"][$i-1]["semana"] = $this->model
+                        ->selectRaw('SUM(valorTotalCompra) as valor')
+                        ->join('acaos', 'compras.acao_id', 'acaos.id')
+                        ->whereBetween('acaos.dataAcao', [$tempoInicial, $tempoFinal])
+                        ->get()[0]
+                        ->valor;
+                        $data = $tempoInicial->toDateString();
+                    $data = explode("-", $data);
+                    $data = $data[2]."/".$data[1];
+                    $resultado["datas"][$i-1]['data'] = $data; 
+                    }
+                    return $resultado;
+                    break;
+                    case "mensal":
+                        for($i=1;$i<13;$i++){
+                            $dias = 3*$i;
+                            $tempoInicial = now()->subDays($dias);
+                            if($i == 1){
+                                $tempoFinal = now();
+                            }else{
+                                $tempoFinal = now()->subDays($dias -3);
+                            }
+                            $resultado["valores"][$i-1]["semana"] = $this->model
+                            ->selectRaw('SUM(valorTotalCompra) as valor')
+                            ->join('acaos', 'compras.acao_id', 'acaos.id')
+                            ->whereBetween('acaos.dataAcao', [$tempoInicial, $tempoFinal])
+                            ->get()[0]
+                            ->valor;
+                            $data = $tempoInicial->toDateString();
+                    $data = explode("-", $data);
+                    $data = $data[2]."/".$data[1];
+                    $resultado["datas"][$i-1]['data'] = $data; 
+                        }
+                        return $resultado;
+                        break;
+        }
+        
+    }
    
 }

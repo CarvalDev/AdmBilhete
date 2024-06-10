@@ -87,6 +87,7 @@ Route::get('ajuda/{id}/update', [AjudaController::class, 'update'])->name('ajuda
 Route::put('/ajuda/{id}/status/update', [AjudaController::class, 'updateStatus'])->name('ajuda.status.update');
 Route::get('/pedidoBilhete',[PedidoBilheteController::class, 'index'])->name('pedidoBilhete.index');
 Route::get('/pedidoBilhete/results', [PedidoBilheteController::class, 'search'])->name('pedidoBilhete.search');
+Route::get('/faturamento/fluxo/{intervalo}', [FaturamentoController::class, 'fluxo'])->name('faturamento.fluxo');
 });
 Route::get('/formulariopassageiro', [FormularioPassageiroControler::class, 'index'])->name('formulariopassageiro.index');
 
