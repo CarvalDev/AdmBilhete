@@ -1,5 +1,6 @@
 <script>
     let faturamentoMensal = [10000, 12000, 15000, 1000, 20000, 22000, 25000, 28000, 30000, 32000, 35000, 38000];
+    let startChart =0
 
 // Labels para os meses
 let meses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
@@ -99,6 +100,11 @@ $.ajax({
               }
             }
           };
+          let ativo = document.getElementsByClassName('quadrado-active')
+          console.log(ativo)
+          ativo[0].classList.toggle("quadrado-active")
+          let novoAtivo = document.getElementById('6mes').classList.toggle('quadrado-active')
+          myChart.destroy()
                     myChart = new Chart(
             document.getElementById('graficoFluxo'),
             config
@@ -193,6 +199,11 @@ $.ajax({
               }
             }
           };
+          let ativo = document.getElementsByClassName('quadrado-active')
+          console.log(ativo)
+          ativo[0].classList.toggle("quadrado-active")
+          let novoAtivo = document.getElementById('3mes').classList.toggle('quadrado-active')
+          myChart.destroy()
                     myChart = new Chart(
             document.getElementById('graficoFluxo'),
             config
@@ -209,7 +220,7 @@ $.ajax({
 
     const mensal = () => {
 $.ajax({
-        url: `{{ route('faturamento.fluxo', 'trimestral') }}`,
+        url: `{{ route('faturamento.fluxo', 'mensal') }}`,
         method: 'get', 
         
         success: function(res){
@@ -286,10 +297,18 @@ $.ajax({
               }
             }
           };
+          let ativo = document.getElementsByClassName('quadrado-active')
+          console.log(ativo)
+          ativo[0].classList.toggle("quadrado-active")
+          let novoAtivo = document.getElementById('1mes').classList.toggle('quadrado-active')
+          if(startChart != 0){
+            myChart.destroy()
+          }
                     myChart = new Chart(
             document.getElementById('graficoFluxo'),
             config
-);
+            );
+          startChart++
         
         },
         error:(e) => {
@@ -298,7 +317,7 @@ $.ajax({
       })
     }
 
-mensal()
+
 const anual = () => {
 $.ajax({
         url: `{{ route('faturamento.fluxo', 'anual') }}`,
@@ -372,12 +391,15 @@ $.ajax({
               }
             }
           };
-                   
-            myChart.data.labels.pop()
-            myChart.data.labels.push(newMeses)
-            myChart.data.datasets[0].data.pop()
-            myChart.data.datasets[0].data.push(faturamentoMensal.reverse())
-            myChart.update()
+          let ativo = document.getElementsByClassName('quadrado-active')
+          console.log(ativo)
+          ativo[0].classList.toggle("quadrado-active")
+          let novoAtivo = document.getElementById('1ano').classList.toggle('quadrado-active')
+          myChart.destroy()
+          myChart = new Chart(
+            document.getElementById('graficoFluxo'),
+            config
+            );
           
         
         },
@@ -507,7 +529,7 @@ const dataPolar = {
         }
       }
     };
-
+    mensal()
     // Criação do gráfico
     var meu = new Chart(
       document.getElementById('polar'),

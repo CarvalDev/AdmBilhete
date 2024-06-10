@@ -113,16 +113,16 @@
                     
                 </div>
                 <div class=" d-flex justify-content-end gap-2 align-items-center flex-row" id="opcoes" >
-                    <div onclick="mensal()" class="quadrado">
+                    <div id="1mes" onclick="mensal()" class="quadrado">
                         <span>1M</span>
                     </div>
-                    <div onclick="trimestral()"  class="quadrado">
+                    <div id="3mes" onclick="trimestral()"  class="quadrado">
                         <span>3M</span>
                     </div>
-                    <div onclick="semestral()"  class="quadrado">
+                    <div id="6mes" onclick="semestral()"  class="quadrado">
                         <span>6M</span>
                     </div>
-                    <div onclick="anual()"  class="quadrado quadrado-active">
+                    <div id="1ano" onclick="anual()"  class="quadrado quadrado-active">
                         <span>1A</span>                        
                     </div>
                 </div>
