@@ -23,4 +23,8 @@ class PedidoBilhete extends Model
     {
         return $this->belongsTo(Passageiro::class);
     }
+    public function taxaEmissao()
+    {
+        $this->hasOne(TaxaEmissao::class);
+    }
 }

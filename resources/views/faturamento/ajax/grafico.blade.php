@@ -79,12 +79,16 @@ var myChart = new Chart(
 );
 
 
+let estudante = document.getElementById('estudante').value
+let estudante_meia = document.getElementById('estudante_meia').value
+let comum = document.getElementById('comum').value
+
 
 const dataPolar = {
       labels: ['Estudante Meia', 'Comum', 'Estudante'],
       datasets: [{
         label: 'Faturamento',
-        data: [300, 500, 700],
+        data: [estudante_meia, comum, estudante],
         backgroundColor: [
           'rgba(0, 0, 0, 1)',
           'rgba(154, 56, 16, 1)',

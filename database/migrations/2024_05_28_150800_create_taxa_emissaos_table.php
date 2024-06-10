@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('taxa_emissaos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pedido_bilhete_id')->constrained('pedido_bilhetes');
-            $table->foreignId('taxa_emissao_id')->constrained('taxa_emissaos');
+            $table->foreignId('taxa_emissao_preco_id')->constrained('taxa_emissao_precos');
             $table->timestamps();
         });
     }

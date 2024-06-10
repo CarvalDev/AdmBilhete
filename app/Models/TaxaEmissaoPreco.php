@@ -11,4 +11,9 @@ class TaxaEmissaoPreco extends Model
     protected $fillable = [
         'taxa'
     ];
+
+    public function taxaEmissao()
+    {
+        $this->hasOne(TaxaEmissao::class);
+    }
 }
