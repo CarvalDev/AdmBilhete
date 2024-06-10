@@ -34,7 +34,7 @@ class PedidoBilheteRepository extends AbstractRepository implements PedidoBilhet
     }
     public function getAllpedidos(){
         return $this->model
-            ->select('pedido_bilhetes.tipoBilhete', 'pedido_bilhetes.statusPedido', 'pedido_bilhetes.passageiro_id', 'passageiros.nomePassageiro as passageiro_nome')
+            ->select('pedido_bilhetes.id','pedido_bilhetes.tipoBilhete', 'pedido_bilhetes.statusPedido', 'pedido_bilhetes.passageiro_id', 'passageiros.nomePassageiro as passageiro_nome')
             ->join('passageiros', 'pedido_bilhetes.passageiro_id', '=', 'passageiros.id')
             ->orderByRaw('LENGTH(pedido_bilhetes.tipoBilhete) ASC')
             ->paginate(15);

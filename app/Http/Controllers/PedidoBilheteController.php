@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Passageiro;
+use App\Models\PedidoBilhete;
 use App\Repositories\Contracts\PedidoBilheteRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Repositories\Contracts\PassageiroRepositoryInterface;
 
 class PedidoBilheteController extends Controller
 {
@@ -32,5 +35,14 @@ class PedidoBilheteController extends Controller
             $view = view('components.no_results')->with('palavra', $request->search)->render();
            return response()->json(['html' => $view]);
         }
+    }
+
+    public function show($id) {
+        $user = Auth::guard('adm')->user();
+        $passageiro = Passageiro::find($id);
+        $trataData = explode("-",$passageiro->dataNascPassageiro);
+        $trataData = $trataData[2]."/".$trataData[1]."/".$trataData[0];
+        $passageiro->dataNascPassageiro = $trataData;
+        return view('pedidoBilhete.show', compact('user', 'passageiro'));
     }
 }

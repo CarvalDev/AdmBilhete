@@ -86,6 +86,7 @@ Route::get('ajuda/{id}/edit', [AjudaController::class, 'edit'])->name('ajuda.edi
 Route::get('ajuda/{id}/update', [AjudaController::class, 'update'])->name('ajuda.update');
 Route::put('/ajuda/{id}/status/update', [AjudaController::class, 'updateStatus'])->name('ajuda.status.update');
 Route::get('/pedidoBilhete',[PedidoBilheteController::class, 'index'])->name('pedidoBilhete.index');
+Route::get('/pedidoBilhete/show/{id}', [PedidoBilheteController::class, 'show'])->name('pedidoBilhete.show');
 Route::get('/pedidoBilhete/results', [PedidoBilheteController::class, 'search'])->name('pedidoBilhete.search');
 Route::get('/faturamento/fluxo/{intervalo}', [FaturamentoController::class, 'fluxo'])->name('faturamento.fluxo');
 });
