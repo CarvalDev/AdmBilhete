@@ -39,10 +39,17 @@ class PedidoBilheteController extends Controller
 
     public function show($id) {
         $user = Auth::guard('adm')->user();
-        $passageiro = Passageiro::find($id);
-        $trataData = explode("-",$passageiro->dataNascPassageiro);
+        $data =$this->model->findWithPassageiro($id);
+        $data = $data[0];
+        $trataData = explode("-",$data->nasc);
         $trataData = $trataData[2]."/".$trataData[1]."/".$trataData[0];
-        $passageiro->dataNascPassageiro = $trataData;
-        return view('pedidoBilhete.show', compact('user', 'passageiro'));
+        $data->nasc = $trataData;
+        
+        $podeAteFalarDeMim = explode(" ", $data->data)[0];
+        $podeAteFalarDeMim = explode("-",$podeAteFalarDeMim);
+        $podeAteFalarDeMim = $podeAteFalarDeMim[2]."/".$podeAteFalarDeMim[1]."/".$podeAteFalarDeMim[0];
+        $data->data = $podeAteFalarDeMim;
+        
+        return view('pedidoBilhete.show', compact('user', 'data'));
     }
 }

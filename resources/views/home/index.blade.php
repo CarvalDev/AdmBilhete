@@ -167,8 +167,11 @@
                         </div>
 
                     </div>
-                    <div id="financeiro" class="border  ">
-
+                    <div id="financeiro" class=" d-flex justify-content-between align-items-center ">
+                        <div onclick="financeiro()" style="cursor:pointer" class="w-75 d-flex  align-items-center h-100">
+                            <h2 class="fw-bold text-white ms-2">$ FINANCEIRO</h2>
+                        </div>
+                        <img src="{{ url('images/financeiro.png') }}" class="img-fluid me-2" width="100px" alt="">
                     </div>
                 </div>
             </section>    
@@ -177,7 +180,10 @@
     </div>
     <script src=" {{ URL::asset('js/homeGraficos.js')}} "></script>
     <script src=" {{ URL::asset('js/home.js')}} "></script>
-
+    <script>
+        let url = `{{ route('faturamento.index') }}`
+        const financeiro = () => window.location.href = url
+    </script>
 @endsection
 
 

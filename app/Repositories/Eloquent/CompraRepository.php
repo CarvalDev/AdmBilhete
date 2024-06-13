@@ -118,7 +118,7 @@ class CompraRepository extends AbstractRepository implements CompraRepositoryInt
                     ->valor;
                 }
                 return $resultado;
-                break;
+                
             case "semestral":
                 for($i=1;$i<13;$i++){
                     $semanas = 2*$i;
@@ -143,7 +143,7 @@ class CompraRepository extends AbstractRepository implements CompraRepositoryInt
                     $resultado["datas"][$i-1]['data'] = $data; 
                 }
                 return $resultado;
-                break;
+                
                 case "trimestral":
                     for($i=1;$i<13;$i++){
                         
@@ -165,7 +165,7 @@ class CompraRepository extends AbstractRepository implements CompraRepositoryInt
                     $resultado["datas"][$i-1]['data'] = $data; 
                     }
                     return $resultado;
-                    break;
+                    
                     case "mensal":
                         for($i=1;$i<13;$i++){
                             $dias = 3*$i;
@@ -187,9 +187,11 @@ class CompraRepository extends AbstractRepository implements CompraRepositoryInt
                     $resultado["datas"][$i-1]['data'] = $data; 
                         }
                         return $resultado;
-                        break;
+                        
+            default:
+                    return;
         }
-        
-    }
+        }
+       
    
 }

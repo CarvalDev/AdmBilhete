@@ -39,6 +39,14 @@ class PedidoBilheteRepository extends AbstractRepository implements PedidoBilhet
             ->orderByRaw('LENGTH(pedido_bilhetes.tipoBilhete) ASC')
             ->paginate(15);
     }
+    public function findWithPassageiro($id)
+    {
+        return $this->model
+            ->select('pedido_bilhetes.tipoBilhete as tipo', 'pedido_bilhetes.statusPedido as status', 'pedido_bilhetes.created_at as data', 'passageiros.nomePassageiro as nome', 'passageiros.emailPassageiro as email', 'passageiros.cpfPassageiro as cpf', 'passageiros.dataNascPassageiro as nasc', 'passageiros.fotoPassageiro as foto')
+            ->join('passageiros', 'pedido_bilhetes.passageiro_id', '=', 'passageiros.id')
+            ->where('pedido_bilhetes.id', $id)
+            ->get();
+    }   
     
     
 }
