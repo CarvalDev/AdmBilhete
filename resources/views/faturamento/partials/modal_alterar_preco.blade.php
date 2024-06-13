@@ -5,11 +5,11 @@
           
           <p>Alterar preço da passagem</p>
     
-          <form id="linhaForm"  action="{{ route('linhas.store') }}"  class="w-100   flex-column gap-4 d-flex justify-content-center align-items-center" method="POST">
+          <form id="linhaForm"  action="{{ route('preco.store') }}"  class="w-100  flex-column gap-4 d-flex justify-content-center align-items-center" method="POST">
             @csrf
             <div class=" w-75 d-flex flex-column justify-content-start align-items-start ">
               <label >Preço</label>
-              <input onkeyup="mascaraMoeda(this, event)" id="passagemPreco" maxlength="7" type="text" class="input w-100 mt-1" >
+              <input onkeyup="mascaraMoeda(this, event)" name="passagemPreco" id="passagemPreco" maxlength="7" type="text" class="input w-100 mt-1" >
               
             </div>
             

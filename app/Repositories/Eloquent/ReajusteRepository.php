@@ -14,10 +14,9 @@ class ReajusteRepository extends AbstractRepository implements ReajusteRepositor
         $this->model = app($this->model);
     }
     public function create($data){
-        
         $this->model->create([
-            'precoPassagemReajuste' => $data['data']['passagemPreco'],
-            'precoMeiaPassagemReajuste' => $data['data']['passagemPreco']/2,
+            'precoPassagemReajuste' => $data['passagemPreco'],
+            'precoMeiaPassagemReajuste' => $data['passagemPreco']/2,
              'dataReajuste' => date(now())
         ]);
     }

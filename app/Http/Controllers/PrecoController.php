@@ -1,48 +1,30 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUpdatePrecoFormRequest;
-
-use App\Models\Reajuste;
 use App\Repositories\Contracts\PrecoRepositoryInterface;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class PrecoController extends Controller
 {
-    
     protected $model;
     public function __construct(PrecoRepositoryInterface $preco)
     {
         $this -> model = $preco;
     }
-    
-    public function edit()
-    {
-        $preco = $this->model->latest();
         
-        $reajustes = $this->model->getLatestsReajustes();
-        
-        $user = Auth::guard('adm')->user();
-        return view('preco.index', compact('preco', 'reajustes', 'user'));
+    public function index(){
+        return view("reajuste.index");
     }
-  
-    public function store(StoreUpdatePrecoFormRequest $request)
-    {
-        // if(!$preco = $this->model->findById($id))
-        // return redirect()->route('preco.index');
-        
+    public function store(Request $request){
         $data = $request->all();
-        $data['meiaPassagemPreco'] = $data['passagemPreco']/2;
-        
-        $data['dataPreco'] = now();
-        
+        $novoPreco = explode(" ", $data['passagemPreco']);
+        $data['passagemPreco'] = (double) $novoPreco[1];
         $this->model->create($data);
-
-
-        return redirect()->route('preco.index');
-
-        // return redirect()->action([ReajusteController::class, 'store'],compact('data'));
-   
+        return redirect()->route('faturamento.index');
+        
     }
 }
+
