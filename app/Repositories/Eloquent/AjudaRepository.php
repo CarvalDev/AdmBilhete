@@ -14,14 +14,19 @@ class AjudaRepository extends AbstractRepository implements AjudaRepositoryInter
         $this->model = app($this->model);
     }
 
-    public function allWithCategoria()
-    {
-        return $this->model
-            ->select('ajudas.id','ajudas.tituloAjuda as titulo', 'categoria_ajudas.nomeCategoria as categoria', 'ajudas.statusAjuda as status')
-            ->with('votosAjuda')
-            ->join('categoria_ajudas', 'ajudas.categoriaAjuda_id', 'categoria_ajudas.id')
-            ->paginate(15);
+    public function allWithCategoria($status = null)
+{
+    $query = $this->model
+        ->select('ajudas.id','ajudas.tituloAjuda as titulo', 'categoria_ajudas.nomeCategoria as categoria', 'ajudas.statusAjuda as status')
+        ->with('votosAjuda')
+        ->join('categoria_ajudas', 'ajudas.categoriaAjuda_id', 'categoria_ajudas.id');
+
+    if ($status !== null) {
+        $query->where('ajudas.statusAjuda', $status);
     }
+
+    return $query->paginate(15);
+}
     public function countVotosAjuda()
     {
         $votos = $this->model
@@ -51,5 +56,11 @@ $votosPositivos = $this->model
     return $votos;
     
         
+    }
+
+
+    public function getStatus($statusAjuda){
+        $data = $this->model->where('statusAjuda', $statusAjuda)->get();
+        return $data;
     }
 }

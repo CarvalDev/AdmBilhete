@@ -4,6 +4,25 @@
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
+$(document).on('change', '#statusAjuda', function(e){
+        e.preventDefault(); // Corrigido aqui
+
+        let status = $('#statusAjuda').val(); // Corrigido aqui
+        console.log(status)
+
+        $.ajax({
+            url: "{{route('ajuda.status.get')}}",
+            method: 'POST',
+            data: { statusAjuda: status },
+            success: response => {
+            $('#table-content').html(response)
+        },
+            error: function(err) {
+                console.error(err); // Adicionei console.error para depurar erros
+            }
+        });
+    });
+
     $('#ajudaStore').submit(function(e){
         e.preventDefault();
         let formData = new FormData(this);

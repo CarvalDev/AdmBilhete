@@ -23,7 +23,7 @@ class AjudaController extends Controller
     } 
  
     public function index(){
-        $ajudas = $this->model->allWithCategoria();
+        $ajudas = $this->model->allWithCategoria('Ativo');
         $votos = $this->model->countVotosAjuda();
 
         // dd($votos);
@@ -101,4 +101,26 @@ public function updateStatus($id, Request $request){
     return redirect()->back();
 
 }
+
+    public function getStatus(Request $request){
+        $statusAjuda = $request->input('statusAjuda');
+        $ajudas = $this->model->allWithCategoria($statusAjuda);
+        $votos = $this->model->countVotosAjuda();
+
+        // dd($votos);
+        
+        foreach ($ajudas as $ajuda) {
+            $ajuda->porcentagem = 0;
+            foreach ($votos->items() as $item) {
+                if ($item->id == $ajuda->id) { 
+                    if ($item->votos != 0) {
+                        $ajuda->porcentagem = $item->porcentagemAprovacao;
+                    }
+                    
+                }
+            }
+        }
+       
+        return view('ajuda.partials.ajuda_result', compact('ajudas'))->render();
+    }
 }

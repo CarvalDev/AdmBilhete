@@ -11,16 +11,12 @@
     <div id="table-content">
     <table class=" mx-auto mt-4 text-center" style="width:98%" id="tabela">
         <tr class="text-center" style="border-bottom:rgba(1, 1, 1, 0.1) 1px solid">
-            @if ($datas->count()>0)
-            
             <th class="py-2" style="width: 25%">Email Passageiro</th>
             <th class="py-2" style="width: 10%">Data</th>
             <th  class="py-2" style="width: 20%;">Status</th>
             <th class="py-2" style="width: 20%">Tema da Dúvida</th>
             <th class="text-center py-2" style="width: 15%">Visualizar Mensagem</th>
-            @else
-                <th class="p-2"></th>
-            @endif
+            
            
         </tr>
         @if ($datas)

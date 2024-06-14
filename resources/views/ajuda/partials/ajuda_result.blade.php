@@ -1,15 +1,4 @@
-@extends('layouts.mainLayout')
-
-@push('css')
-<link rel="stylesheet" href="{{ URL::asset('css/ajuda.css') }}">
-@endpush
-
-@section('title', 'Ajuda')
-
-@section('content')
-
-<div class="tabela w-100 h-100">
-    <div id="table-content">
+<div id="table-content">
     <table class=" mx-auto mt-4 text-center" style="width:98%" id="tabela">
         <tr class="text-center" style="border-bottom:rgba(1, 1, 1, 0.1) 1px solid">
        
@@ -58,14 +47,3 @@
         {{ $ajudas->links() }}
     </div>
 </div>
-</div>   
-@include('ajuda.ajax.ajuda')
-
-@endsection
-
-
-@section('pageTitle', 'Lista de Guias')
-
-@section('pesquisa')
-@include('components.barraPesquisa')
-@endsection

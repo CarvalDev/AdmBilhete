@@ -117,6 +117,7 @@ const statusChange = (status, search) =>{
         url: "{{ route('caixaEntrada.search') }}",
         data: {search:search, statusSuporte:status},
         success: response => {
+            
             $('#table-content').html(response)
         }
     })

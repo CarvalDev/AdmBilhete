@@ -9,4 +9,6 @@ interface AjudaRepositoryInterface{
     public function update($id, $data);
     public function findById($id);
     public function destroy($id);
+    public function getStatus($statusAjuda);
+
 }
