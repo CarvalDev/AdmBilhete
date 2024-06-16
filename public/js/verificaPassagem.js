@@ -16,6 +16,29 @@ var idBilheteInputRemove = document.getElementById('idBilheteRemove')
 // var removeBtn = document.getElementById('removeBtn')
 console.log(input.value);
 
+
+function ativaModalAddBilhete() {
+    var modal = document.getElementById('modal');
+    if(modal.style.display === "none") {
+        modal.style.display = "block" 
+    } else {
+        modal.style.display = "block"
+    }
+}
+
+//  var conteudo = document.getElementsByClassName('menudropdown');
+//  var conteudoDrop = document.getElementsByClassName('menudropdown-conteudo');
+//  console.log(conteudoDrop)
+//  for(var i=0;i<conteudo.length;i++) {
+//     var pega = i;
+//     console.log(pega);
+//     $(conteudo[i]).click(()=>{
+//         conteudoDrop[pega].style.display = "block"
+//         console.log(i);
+//     })
+// }
+
+
 function adicionar() {
     var id = idBilheteInput.value
     adiciona.style.display = "flex"

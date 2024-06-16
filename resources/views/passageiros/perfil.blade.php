@@ -88,26 +88,30 @@
           </li>
         </ul>
       </div>
-      <div class="tab-pane fade p-5 pt-1" id="nav-bilhete" role="tabpanel" aria-labelledby="nav-bilhete-tab">       
+      {{-- href="{{ route('passageiros.addBilhete', $passageiro->id) }}" --}}
+      <div class="tab-pane fade p-5 pt-1" id="nav-bilhete" role="tabpanel" aria-labelledby="nav-bilhete-tab">  
+        <div class="d-flex justify-content-end align-items-center py-1 align-end container" >    
+          <button onclick="ativaModalAddBilhete()" class="border-0 "><i class="fas fa-plus-circle fa-2x text-success" aria-hidden="true" data-bs-toggle="exampleModal" data-bs-placement="left" title="Adicionar Bilhete"></i></button>
+        </div>
           @if (count($bilhetes)>0)
           <div class="bilhetes row w-100 d-flex justify-content-end">
-            <div class="d-flex justify-content-end align-items-center py-1 align-end container" >    
-              <a href="{{ route('passageiros.addBilhete', $passageiro->id) }}" class="border-0 "><i class="fas fa-plus-circle fa-2x text-success" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="left" title="Adicionar Bilhete"></i></a>
-            </div>
           @foreach ($bilhetes as $bilhete)
-          <input type="hidden" value="{{ $bilhete->qtdPassagem }}" id="numero">
-            <a class="w-100 text-decoration-none border border-dark flex-row text-dark fw-bold fs-3 justify-content-between d-flex" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="background-color: #d3d3d3" >
+          <div class="menudropdown">
+            <input type="hidden" value="{{ $bilhete->id }}" id="numero">
+            <button  class="btndropdown w-100 text-decoration-none flex-row text-dark fw-bold fs-3 justify-content-between d-flex">
               <span class="">{{ $bilhete->tipoBilhete }} - {{ $bilhete->numBilhete }}</span>
               <span ><i class="fa-solid fa-arrow-down"></i></span>
-            </a>
+            </button>
 
-            <div class="collapse" id="collapseExample">
-              <div class="card card-body">
-                <p class="gap-2 d-flex"><span>Passagens:</span>{{ $bilhete->qtdPassagem }}</p>
-                <p class="gap-2 d-flex"><span>Integração:</span>{{ $bilhete->statusBilhete }}</p>
-                <p class="gap-2 d-flex"><span>Passagens:</span>{{ $bilhete->statusBilhete }}</p>
+            <div class="menudropdown-conteudo" id="infoBilhete">
+              <input type="hidden" value="{{ $bilhete->id }}" id="idCerto">
+              <div class="">
+                <p class="gap-2 d-flex"><span class="fw-bold">Passagens:</span>{{ $bilhete->qtdPassagem }}</p>
+                <p class="gap-2 d-flex"><span class="fw-bold">Integração:</span>{{ $bilhete->statusBilhete }}</p>
+                <p class="gap-2 d-flex"><span class="fw-bold">Status:</span>{{ $bilhete->statusBilhete }}</p>
               </div>
-            </div>
+            </div> 
+          </div>
         @endforeach
       </div>
         @else <p>Não Possui Bilhetes</p>
@@ -161,63 +165,38 @@
     });
   </script>
   
- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog  modal-dialog-centered">
-    <div class="modal-content" id="primeira">
-      <div class="modal-header" style="border-bottom:1px solid gray">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Quantidade Total de Passagens</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body text-center align-items-center justify-content-center d-flex mt-2">
-        <p class="fw-bold fs-5" id="numPassagem"></p>
-        <input type="hidden" class="btn" id="idBilhete" name="idBilhete">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" id="removeBtn" onclick="remover()">Remover Passagem</button>
-        <button type="button" class="btn btn-primary" id="adicionaBtn" onclick="adicionar()">Adicionar Passagem</button>
-      </div>
-    </div>
-
-    <form class="modal-content" action=" {{ route('passageiro.passagens.store') }} " method="POST" style="display:none" id="adiciona">
-      @csrf
-      <div class="modal-header" style="border-bottom:1px solid gray">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Adicionar Passagens</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body text-center align-items-center justify-content-center d-flex flex-row gap-3 mt-2">
-        <p class="fw-bold fs-5 ms-5" id="numPassagemA" style="margin-top: 2.8%;"></p>
-        <span class="rounded-circle p-1 px-2 border border-dark " style="background-color: bisque;width:7.5%" onclick="plusNumero()"><i class="fa-solid fa-plus"></i></span>
-        <input type="hidden" class="btn" name="qtdPassagemAdiciona" id="inputAdiciona">
-        <input type="hidden" class="btn" name="qtdPassagemAnterior" id="qtdPassagemAnterior">
-        <input type="hidden" class="btn" id="idBilheteAdd" name="idBilhete">
-      </div>
-      <div class="modal-footer"> 
-        <button type="button" class="btn btn-danger" onclick="voltar()">Voltar</button>
-        <button type="submit" class="btn btn-primary">Adicionar</button>
-      </div>
-    </form>
-
-    <form class="modal-content" action=" {{ route('passageiro.passagens.update') }} " method="POST" style="display:none" id="remove">
-      @csrf
-      @method('PUT')
-      <div class="modal-header" style="border-bottom:1px solid gray">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Remover Passagens</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body text-center align-items-center justify-content-center  gap-3 d-flex flex-row mt-2">
-        <p class="fw-bold fs-5 ms-5" id="numPassagemR" style="margin-top: 2.8%"></p>
-        <span class="rounded-circle p-1 px-2 border border-dark " style="background-color: bisque; width:7.5%" onclick="minusNumero()"><i class="fa-solid fa-minus"></i></span>
-        <input type="hidden" class="btn" name="qtdPassagemRemove" id="inputRemove">
-        <input type="hidden" class="btn" name="qtdPassagemAnterior" id="qtdPassagemAnterior2">
-        <input type="hidden" class="btn" id="idBilheteRemove" name="idBilhete">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" onclick="voltar()">Voltar</button>
-        <button type="submit" class="btn btn-primary">Remover</button>
-      </div>
-    </form>
+ <div class="" id="modal">
+  <div class="w-100 d-flex justify-content-between flex-row d-flex p-2 align-items-center" style="border-bottom: 3px solid rgb(243, 160, 174)">
+    <h4 class="fw-bold pt-2">Adicionar Bilhete</h4>
+    <button id="botaoAtiva" onclick="ativaModalAddBilhete()"><i class="fa-solid fa-circle-xmark"></i></button>
   </div>
+  <div class="">
+    <form class="w-100 p-4 d-flex gap-3 justify-content-center flex-column align-items-center" action="{{ route('passageiros.bilhetes.store', $passageiro->id) }}"  style="" method="POST">
+      @csrf
+      <img src="{{ url('images/comum.png') }}" style="width:250px;height:150px"/>
+    <div class="w-100 justify-content-center d-flex flex-column align-items-center gap-3 ">
+      <select id="tipoBilhete" class="card fw-bold" name="tipoBilhete">
+          <option value="Estudante">Estudante</option>
+          <option value="Idoso">Idoso</option>
+          <option value="Professor">Professor</option>
+          <option value="Comum">Comum</option>
+          <option value="Pcd">Pessoa com Deficiência</option>
+          <option value="Obesa">Pessoa Obesa</option>
+          <option value="Gestante">Gestante</option>
+          <option value="Corporativo">Corporativo</option>
+      </select>
+
+      <select id="status" class="card fw-bold" name="status">
+        <option value="Ativo">Ativo</option>
+        <option value="Inativo">Inativo</option>
+    </select>
+    <button type="submit" id="adiciona">
+      <h5 class="fw-bold">Adicionar</h5>
+    </button>
   </div>
+  </form>
+  </div>
+</div>
   
 <script src=" {{ URL::asset('js/verificaPassagem.js')}} "></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
