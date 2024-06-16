@@ -31,7 +31,7 @@
             <td class="text-center fw-bold">{{ $pedidoBilhete->passageiro_nome }}</td>
             <td class="text-center fw-bold" id="nomePassageiro" style="">{{$pedidoBilhete->tipoBilhete}}</td>
             <td class="text-center fw-bold">{{$pedidoBilhete->statusPedido}}</td>
-            <td class="justify-content-center align-items-center d-flex  py-2"><a href="{{route('pedidoBilhete.show', $pedidoBilhete->passageiro_id)}}" class="btn px-4" style=""><i class="far fa-user-circle fa-xl"></i></a></td>
+            <td class="justify-content-center align-items-center d-flex  py-2"><a onclick="acionaModal({{ $pedidoBilhete->id }})" class="btn px-4" style=""><i class="far fa-user-circle fa-xl"></i></a></td>
         </tr>
         @endforeach
         
@@ -45,7 +45,7 @@
  
     </div>
 </div>
-   
+   @include('pedidoBilhete.partials.modal_visualizar_pedido')
 </div>
 
 

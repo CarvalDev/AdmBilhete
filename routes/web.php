@@ -90,6 +90,7 @@ Route::get('/pedidoBilhete',[PedidoBilheteController::class, 'index'])->name('pe
 Route::get('/pedidoBilhete/show/{id}', [PedidoBilheteController::class, 'show'])->name('pedidoBilhete.show');
 Route::get('/pedidoBilhete/results', [PedidoBilheteController::class, 'search'])->name('pedidoBilhete.search');
 Route::get('/faturamento/fluxo/{intervalo}', [FaturamentoController::class, 'fluxo'])->name('faturamento.fluxo');
+Route::put('/pedidoBilhete/responder/{idPedido}', [PedidoBilheteController::class, 'responder'])->name('pedidoBilhete.responder');
 });
 Route::get('/formulariopassageiro', [FormularioPassageiroControler::class, 'index'])->name('formulariopassageiro.index');
 

@@ -26,6 +26,7 @@
         }
         public function update($id, $data){
             $adm = $this->model->find($id);
-            return $adm->update($data);
+            $adm->update($data);
+            return $adm;
         }
     }

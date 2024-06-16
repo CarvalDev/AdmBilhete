@@ -2,15 +2,39 @@
 
 
 console.log('ok')
+$("#statusPedido").on("change", function(e){
+    e.preventDefault()
+    let statusPedido = $("#statusPedido").val()
+    let search = $("pedidoBilheteSearch").val()
+    $.ajax({
+        url: "{{ route('pedidoBilhete.search') }}",
+        method: 'get',
+        data: {
+            status: statusPedido,
+            search: search
+        },
+        success: function(res){
+            console.log(res)
+            $('#table-content').html(res.html)
+        },
+        error: (e) =>{
+            console.log(e)
+        } 
+
+    })
+})
+
+
+
 $(document).on('keyup', '#pedidoBilheteSearch', function(e) {
     e.preventDefault();
     let search = $(this).val();
     console.log(search);
-    
+    let status = $("#statusPedido").val()
     $.ajax({
         url: "{{ route('pedidoBilhete.search') }}",
         method: 'get',
-        data: { search: search },
+        data: { search: search, status: status },
         success: function(res) {
             console.log(res);
             if (res.status !== undefined) {

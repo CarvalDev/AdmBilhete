@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bilhete;
 use App\Models\Passageiro;
 use App\Models\PedidoBilhete;
 use App\Repositories\Contracts\PedidoBilheteRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\Contracts\PassageiroRepositoryInterface;
+use App\Services\DataServices;
 
 class PedidoBilheteController extends Controller
 {
@@ -25,7 +27,12 @@ class PedidoBilheteController extends Controller
   
     public function search(Request $request){
         $search = $request->input('search');
-        $pedidoBilhetes = $this->model->search($search);
+        if($request->status){
+            $status = $request->status;
+        }else{
+            $status = "Aberto";
+        }
+        $pedidoBilhetes = $this->model->search($search, $status);
         $user = Auth::guard('adm')->user();
 
         if ($pedidoBilhetes->count() >= 1) {
@@ -50,6 +57,46 @@ class PedidoBilheteController extends Controller
         $podeAteFalarDeMim = $podeAteFalarDeMim[2]."/".$podeAteFalarDeMim[1]."/".$podeAteFalarDeMim[0];
         $data->data = $podeAteFalarDeMim;
         
-        return view('pedidoBilhete.show', compact('user', 'data'));
+        return response()->json($data);
+    }
+    public function responder(Request $request, $idPedido)
+    {
+        $data = [
+            'statusPedido' => $request->status
+        ];
+        $pedido = $this->model->update($idPedido, $data);
+        if($request->status == "Aprovado")
+        {
+            switch($pedido->tipoBilhete){
+                case "PCD":
+                    $gratuidade = 1;
+                    $meiaGratuidade = 1;
+                    break;
+                case "Estudante Ins. Privada":
+                    $gratuidade = 0;
+                    $meiaGratuidade = 1;
+                    break;
+                case "Estudante":
+                    $gratuidade = 1;
+                    $meiaGratuidade = 1;
+                    break;
+                default:
+                    $gratuidade =0;
+                    $meiaGratuidade = 0;
+            }
+            $bilhete = Bilhete::create([
+                'qrCodeBilhete' => 'Pendente',
+                'numBilhete' =>  fake()->numerify('### ### ###'),
+                'tipoBilhete' => $pedido->tipoBilhete,
+                'gratuidadeBilhete' => $gratuidade,
+                'meiaPassagensBilhete' => $meiaGratuidade,
+                'statusBilhete' => 'Ativo',
+                'passageiro_id' => $pedido->passageiro_id,
+            ]);
+            $bilhete->update([
+                'qrCodeBilhete' => DataServices::qrCodeFetch($bilhete->id)
+            ]);
+        }
+        return response()->json($bilhete);
     }
 }

@@ -35,7 +35,7 @@
             </ul>
     </div>
     <div class="container">
-        @if (isset($data->status) || isset($linhas) || isset($passageiros) || isset($ajudas))
+        @if (isset($data->status) || isset($linhas) || isset($passageiros) || isset($ajudas) || isset($pedidoBilhetes))
         <div id="pageTitleContainer" class="d-flex  justify-content-between w-100 align-items-center">
             <div class="w-25 ">
             <span id="pageTitle" class="fs-3 fw-bold text-capitalize">@yield('pageTitle')</span>
@@ -77,6 +77,16 @@
             </select>
             
             </form>
+            @elseif(isset($pedidoBilhetes))
+            action="{{route('ajuda.index')}}"
+            class="d-flex justify-content-end   h-25 flex-row w-25 gap-2">
+        <select class="form-control border border-dark w-50 " id="statusPedido" name="statusPedido" id="">
+            <option  value="Aberto">Abertos</option>
+            <option  value="Aprovado">Aprovados</option>
+            <option  value="Fechado">Reprovados</option>
+        </select>
+        
+        </form>
             @endif
              
 

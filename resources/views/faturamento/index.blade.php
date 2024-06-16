@@ -77,7 +77,7 @@
                 <div id="tituloSuporte" class="d-flex">
                     <div class="justify-content-center gap-2 align-items-center d-flex">
                         <span style="font-size: 18px; margin-left: 20px;">preço atual </span>
-                        <i style="font-size: 22px;" class='bx bxs-edit' onclick="acionaModal()"></i>
+                        <i style="font-size: 22px;cursor:pointer;" class='bx bxs-edit' onclick="acionaModal()"></i>
                     </div>
                 </div>
                 <div id="divisor" class=" w-100 d-flex flex-row justify-content-center align-items-center">
