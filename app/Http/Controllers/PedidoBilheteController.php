@@ -65,38 +65,38 @@ class PedidoBilheteController extends Controller
             'statusPedido' => $request->status
         ];
         $pedido = $this->model->update($idPedido, $data);
-        if($request->status == "Aprovado")
-        {
-            switch($pedido->tipoBilhete){
-                case "PCD":
-                    $gratuidade = 1;
-                    $meiaGratuidade = 1;
-                    break;
-                case "Estudante Ins. Privada":
-                    $gratuidade = 0;
-                    $meiaGratuidade = 1;
-                    break;
-                case "Estudante":
-                    $gratuidade = 1;
-                    $meiaGratuidade = 1;
-                    break;
-                default:
-                    $gratuidade =0;
-                    $meiaGratuidade = 0;
-            }
-            $bilhete = Bilhete::create([
-                'qrCodeBilhete' => 'Pendente',
-                'numBilhete' =>  fake()->numerify('### ### ###'),
-                'tipoBilhete' => $pedido->tipoBilhete,
-                'gratuidadeBilhete' => $gratuidade,
-                'meiaPassagensBilhete' => $meiaGratuidade,
-                'statusBilhete' => 'Ativo',
-                'passageiro_id' => $pedido->passageiro_id,
-            ]);
-            $bilhete->update([
-                'qrCodeBilhete' => DataServices::qrCodeFetch($bilhete->id)
-            ]);
-        }
-        return response()->json($bilhete);
+        // if($request->status == "Aprovado")
+        // {
+        //     switch($pedido->tipoBilhete){
+        //         case "PCD":
+        //             $gratuidade = 1;
+        //             $meiaGratuidade = 1;
+        //             break;
+        //         case "Estudante Ins. Privada":
+        //             $gratuidade = 0;
+        //             $meiaGratuidade = 1;
+        //             break;
+        //         case "Estudante":
+        //             $gratuidade = 1;
+        //             $meiaGratuidade = 1;
+        //             break;
+        //         default:
+        //             $gratuidade =0;
+        //             $meiaGratuidade = 0;
+        //     }
+        //     $bilhete = Bilhete::create([
+        //         'qrCodeBilhete' => 'Pendente',
+        //         'numBilhete' =>  fake()->numerify('### ### ###'),
+        //         'tipoBilhete' => $pedido->tipoBilhete,
+        //         'gratuidadeBilhete' => $gratuidade,
+        //         'meiaPassagensBilhete' => $meiaGratuidade,
+        //         'statusBilhete' => 'Ativo',
+        //         'passageiro_id' => $pedido->passageiro_id,
+        //     ]);
+        //     $bilhete->update([
+        //         'qrCodeBilhete' => DataServices::qrCodeFetch($bilhete->id)
+        //     ]);
+        
+        
     }
 }
