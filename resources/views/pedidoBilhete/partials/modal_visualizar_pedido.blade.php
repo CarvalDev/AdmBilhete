@@ -111,7 +111,7 @@
             $.ajax({
                 url: "http://localhost:8000/pedidoBilhete/show/"+id,
                 method: 'get',
-                
+                mode: 'no-cors',
                 success: function(res) {
                     console.log(res)
                     document.getElementById('nome_modal').innerText = res.nome
