@@ -87,10 +87,10 @@ Route::get('ajuda/{id}/update', [AjudaController::class, 'update'])->name('ajuda
 Route::put('/ajuda/{id}/status/update', [AjudaController::class, 'updateStatus'])->name('ajuda.status.update');
 Route::post('/ajuda/status', [AjudaController::class, 'getStatus'])->name('ajuda.status.get');
 Route::get('/pedidoBilhete',[PedidoBilheteController::class, 'index'])->name('pedidoBilhete.index');
-Route::get('/pedidoBilhete/show/{id}', [PedidoBilheteController::class, 'show'])->name('pedidoBilhete.show');
+Route::get('/pedidoBilhete/show', [PedidoBilheteController::class, 'show'])->name('pedidoBilhete.show');
 Route::get('/pedidoBilhete/results', [PedidoBilheteController::class, 'search'])->name('pedidoBilhete.search');
 Route::get('/faturamento/fluxo/{intervalo}', [FaturamentoController::class, 'fluxo'])->name('faturamento.fluxo');
-Route::put('/pedidoBilhete/responder/{idPedido}', [PedidoBilheteController::class, 'responder'])->name('pedidoBilhete.responder');
+Route::put('/pedidoBilhete/responder', [PedidoBilheteController::class, 'responder'])->name('pedidoBilhete.responder');
 });
 Route::get('/formulariopassageiro', [FormularioPassageiroControler::class, 'index'])->name('formulariopassageiro.index');
 

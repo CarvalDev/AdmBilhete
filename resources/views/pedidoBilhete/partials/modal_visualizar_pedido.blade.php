@@ -109,9 +109,10 @@
 
             
             $.ajax({
-                url: "http://localhost:8000/pedidoBilhete/show/"+id,
+                url: "{{ route('pedidoBilhete.show') }}",
                 method: 'get',
                 mode: 'no-cors',
+                data: {id: id},
                 success: function(res) {
                     console.log(res)
                     document.getElementById('nome_modal').innerText = res.nome
@@ -142,9 +143,13 @@
             let idPedido = document.getElementById('idPedido').value
             let idPassageiro = document.getElementById('idPassageiro').value
             $.ajax({
-                url: "http://localhost:8000/pedidoBilhete/responder/"+idPedido,
+                url: "{{ route('pedidoBilhete.responder') }}",
                 method: 'put',
-                data: {status: status},
+                data: {
+                  status: status,
+                  idPedido: idPedido
+
+                },
                 success: (res) =>{
                     console.log(res)
                 }

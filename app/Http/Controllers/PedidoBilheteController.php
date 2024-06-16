@@ -44,9 +44,9 @@ class PedidoBilheteController extends Controller
         }
     }
 
-    public function show($id) {
+    public function show(Request $request) {
         $user = Auth::guard('adm')->user();
-        $data =$this->model->findWithPassageiro($id);
+        $data =$this->model->findWithPassageiro($request->id);
         $data = $data[0];
         $trataData = explode("-",$data->nasc);
         $trataData = $trataData[2]."/".$trataData[1]."/".$trataData[0];
@@ -59,12 +59,12 @@ class PedidoBilheteController extends Controller
         
         return response()->json($data);
     }
-    public function responder(Request $request, $idPedido)
+    public function responder(Request $request)
     {
         $data = [
             'statusPedido' => $request->status
         ];
-        $pedido = $this->model->update($idPedido, $data);
+        $pedido = $this->model->update($request->idPedido, $data);
         // if($request->status == "Aprovado")
         // {
         //     switch($pedido->tipoBilhete){
