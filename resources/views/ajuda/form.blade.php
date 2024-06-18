@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ URL::asset('css/ajuda.css') }}">
 @endpush
 
-@section('title', 'Editar pedido de Ajuda')
+@section('title', 'Adicionar pedido de Ajuda')
 
 @section('content')
 

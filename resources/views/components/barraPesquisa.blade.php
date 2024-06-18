@@ -24,9 +24,11 @@ method="get" class="d-flex flex-row gap-2" >
         id="linhaSearch"
     @elseif(isset($datas))
         id="caixaEntradaSearch"
-    @elseif(isset($pedidoBilhetes))
-    id="pedidoBilheteSearch"
-    @endif
+        @elseif(isset($pedidoBilhetes))
+        id="pedidoBilheteSearch"
+        @elseif(isset($ajudas))
+        id="ajudaSearch"
+        @endif
     
     >
     <button type="submit" style="background: none; border:none;font-size:22px"><i style="color: #000" class="fa-solid fa-magnifying-glass"></i></button>    

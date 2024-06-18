@@ -1,4 +1,7 @@
 <div id="table-content">
+    <div class="d-flex justify-content-end align-items-center container my-2">    
+        <a href="{{route('ajuda.form')}}" class="border-0"><i class="fas fa-plus-circle fa-2x text-dark" aria-hidden="true"></i></a>
+    </div>
     <table class=" mx-auto mt-4 text-center" style="width:98%" id="tabela">
         <tr class="text-center" style="border-bottom:rgba(1, 1, 1, 0.1) 1px solid">
        

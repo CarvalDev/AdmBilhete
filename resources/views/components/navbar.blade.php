@@ -72,6 +72,7 @@
                 action="{{route('ajuda.index')}}"
                 class="d-flex justify-content-end   h-25 flex-row w-25 gap-2">
             <select class="form-control border border-dark w-50 " id="statusAjuda" name="statusAjuda" id="">
+                <option  value="" selected>Geral</option>
                 <option  value="Ativo">Ativos</option>
                 <option  value="Inativa">Inativos</option>
             </select>

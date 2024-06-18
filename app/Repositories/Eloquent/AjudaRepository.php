@@ -4,6 +4,7 @@ namespace App\Repositories\Eloquent;
 
 use App\Models\Ajuda;
 use App\Repositories\Contracts\AjudaRepositoryInterface;
+use Illuminate\Support\Facades\Log;
 
 class AjudaRepository extends AbstractRepository implements AjudaRepositoryInterface
 {
@@ -14,8 +15,11 @@ class AjudaRepository extends AbstractRepository implements AjudaRepositoryInter
         $this->model = app($this->model);
     }
 
-    public function allWithCategoria($status = null)
+    public function allWithCategoria($status = null, $search = null)
 {
+
+    Log::info('Status: ' . $status);
+    Log::info('Search: ' . $search);
     $query = $this->model
         ->select('ajudas.id','ajudas.tituloAjuda as titulo', 'categoria_ajudas.nomeCategoria as categoria', 'ajudas.statusAjuda as status')
         ->with('votosAjuda')
@@ -23,6 +27,9 @@ class AjudaRepository extends AbstractRepository implements AjudaRepositoryInter
 
     if ($status !== null) {
         $query->where('ajudas.statusAjuda', $status);
+    }
+    if ($search !== null) {
+        $query->where('ajudas.tituloAjuda', 'like', '%' . $search . '%');
     }
 
     return $query->paginate(15);
@@ -56,11 +63,5 @@ $votosPositivos = $this->model
     return $votos;
     
         
-    }
-
-
-    public function getStatus($statusAjuda){
-        $data = $this->model->where('statusAjuda', $statusAjuda)->get();
-        return $data;
     }
 }

@@ -23,7 +23,7 @@ class AjudaController extends Controller
     } 
  
     public function index(){
-        $ajudas = $this->model->allWithCategoria('Ativo');
+        $ajudas = $this->model->allWithCategoria(null, null);
         $votos = $this->model->countVotosAjuda();
 
         // dd($votos);
@@ -102,25 +102,28 @@ public function updateStatus($id, Request $request){
 
 }
 
-    public function getStatus(Request $request){
-        $statusAjuda = $request->input('statusAjuda');
-        $ajudas = $this->model->allWithCategoria($statusAjuda);
-        $votos = $this->model->countVotosAjuda();
+public function getStatus(Request $request)
+{
+    $statusAjuda = $request->input('statusAjuda');
+    $ajudaSearch = $request->input('ajudaSearch');
+    $ajudas = $this->model->allWithCategoria($statusAjuda, $ajudaSearch);
+    $votos = $this->model->countVotosAjuda();
 
-        // dd($votos);
-        
-        foreach ($ajudas as $ajuda) {
-            $ajuda->porcentagem = 0;
-            foreach ($votos->items() as $item) {
-                if ($item->id == $ajuda->id) { 
-                    if ($item->votos != 0) {
-                        $ajuda->porcentagem = $item->porcentagemAprovacao;
-                    }
-                    
+    foreach ($ajudas as $ajuda) {
+        $ajuda->porcentagem = 0;
+        foreach ($votos->items() as $item) {
+            if ($item->id == $ajuda->id) { 
+                if ($item->votos != 0) {
+                    $ajuda->porcentagem = $item->porcentagemAprovacao;
                 }
             }
         }
-       
-        return view('ajuda.partials.ajuda_result', compact('ajudas'))->render();
     }
+
+    // Renderize a view parcial e retorne como resposta JSON
+    $view = view('ajuda.partials.ajuda_result', compact('ajudas'))->render();
+
+    return response()->json(['html' => $view, 'status' => $ajudas->isEmpty() ? 'nada_encontrado' : 'encontrado']);
+}
+
 }
