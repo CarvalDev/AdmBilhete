@@ -33,7 +33,7 @@ class AjudaController extends Controller
             foreach ($votos->items() as $item) {
                 if ($item->id == $ajuda->id) { 
                     if ($item->votos != 0) {
-                        $ajuda->porcentagem = $item->porcentagemAprovacao;
+                        $ajuda->porcentagem = round($item->porcentagemAprovacao);
                     }
                     
                 }
