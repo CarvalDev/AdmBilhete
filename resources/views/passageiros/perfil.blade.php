@@ -17,7 +17,7 @@
         <img @if ($passageiro->fotoPassageiro == '')
         src="{{ url("images/userPadrao.png")}} "
         @else
-        src="{{ url("storage/$passageiro->fotoPassageiro")}} "
+        src="{{ "http://0.tcp.sa.ngrok.io:11324/storage/". $passageiro->fotoPassageiro }} "
         @endif  class="w-100 h-100 border border-5 border-danger rounded-circle"  style="object-fit: cover; width:250px; height:250px;">
     </div>
     </div>
@@ -91,7 +91,7 @@
       {{-- href="{{ route('passageiros.addBilhete', $passageiro->id) }}" --}}
       <div class="tab-pane fade p-5 pt-1" id="nav-bilhete" role="tabpanel" aria-labelledby="nav-bilhete-tab">  
         <div class="d-flex justify-content-end align-items-center py-1 align-end container" >    
-          <button onclick="ativaModalAddBilhete()" class="border-0 "><i class="fas fa-plus-circle fa-2x text-success" aria-hidden="true" data-bs-toggle="exampleModal" data-bs-placement="left" title="Adicionar Bilhete"></i></button>
+          {{-- <button onclick="ativaModalAddBilhete()" class="border-0 "><i class="fas fa-plus-circle fa-2x text-success" aria-hidden="true" data-bs-toggle="exampleModal" data-bs-placement="left" title="Adicionar Bilhete"></i></button> --}}
         </div>
           @if (count($bilhetes)>0)
           <div class="bilhetes row w-100 d-flex justify-content-end">

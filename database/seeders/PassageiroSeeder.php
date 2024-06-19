@@ -42,6 +42,15 @@ class PassageiroSeeder extends Seeder
             
             ->create();
 
+            //atualizando fotos de perfil dos primeiros 14 passageiros
+
+            for($i =1;$i<=14;$i++){
+
+                Passageiro::find($i)->update([
+                    'fotoPassageiro' => $i.".png"
+                ]);
+            }
+
             //atualizanod o bilehte
             for($i=1;$i<=40;$i++){
                 Bilhete::find($i)->update([
