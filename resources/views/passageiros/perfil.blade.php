@@ -17,7 +17,7 @@
         <img @if ($passageiro->fotoPassageiro == '')
         src="{{ url("images/userPadrao.png")}} "
         @else
-        src="{{ "http://0.tcp.sa.ngrok.io:11324/storage/". $passageiro->fotoPassageiro }} "
+        src="{{ "http://0.tcp.sa.ngrok.io:16863/storage/". $passageiro->fotoPassageiro }} "
         @endif  class="w-100 h-100 border border-5 border-danger rounded-circle"  style="object-fit: cover; width:250px; height:250px;">
     </div>
     </div>
@@ -63,10 +63,7 @@
             <span class="title-dados">ESTADO:</span>
               <span class="desc-dados text-uppercase">{{ $passageiro->ufPassageiro}}</span>
             </li>
-          <li class="list-group-item d-flex flex-row justify-content-between">
-            <span class="title-dados">CIDADE:</span>
-              <span class="desc-dados"></span>
-            </li>
+          
           <li class="list-group-item d-flex flex-row justify-content-between">
             <span class="title-dados">BAIRRO:</span>
               <span class="desc-dados">{{ $passageiro->bairroPassageiro }}</span>
