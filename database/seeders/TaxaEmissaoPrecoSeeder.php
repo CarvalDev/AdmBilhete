@@ -6,6 +6,7 @@ use App\Models\Bilhete;
 use App\Models\PedidoBilhete;
 use App\Models\TaxaEmissao;
 use App\Models\TaxaEmissaoPreco;
+use App\Services\DataServices;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -34,6 +35,12 @@ class TaxaEmissaoPrecoSeeder extends Seeder
                 'statusBilhete' => 'Ativo'
             ])
             ->create();
+
+        }
+        for($i=51;$i<=75;$i++){
+            Bilhete::find($i)->update([
+                'qrCodeBilhete' => DataServices::qrCodeFetch($i)
+            ]);
         }
     }
 }
