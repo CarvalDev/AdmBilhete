@@ -3,7 +3,8 @@
 {{-- Header --}}
 <x-slot:header>
 <x-mail::header :url="config('app.url')">
-<img src="{{ URL::asset('images/logo bilhete 1.png') }}" alt="">
+    {{-- 0.tcp.sa.ngrok.io:00000 --}}
+<img src="{{ "http://localhost:9000/storage/samu.png" }}" alt="">
 </x-mail::header>
 </x-slot:header>
 

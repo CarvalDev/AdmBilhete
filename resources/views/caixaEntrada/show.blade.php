@@ -25,7 +25,7 @@
 
                         @else
 
-                        src="{{ asset("storage/$data->fotoPassageiro")}} "
+                        src="{{ "http://localhost:9000/storage/".$data->fotoPassageiro }} "
 
                         @endif  style="border-radius: 100%; width: 100px; height: 100px; object-fit: cover;" alt="">
                     
@@ -84,7 +84,7 @@
                     <div class="input-field ps-4 col">
                           <input type="text" name="mensagem" placeholder="Responder Atendimento ">
                       </div>
-                      <div  class="col-1 d-flex align-items-center"><button type="submit" class="btn px-3 btn-dark rounded-5">Enviar</button></div>
+                      <div  class="col-1 d-flex align-items-center"><button  onclick="loadingPermanent()" type="submit" class="btn px-3 btn-dark rounded-5">Enviar</button></div>
                     </div>
                 </form>   
                     @else 

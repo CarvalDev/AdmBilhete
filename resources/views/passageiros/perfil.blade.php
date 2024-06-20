@@ -16,8 +16,9 @@
       <div class="fotoPassageiro p-5">
         <img @if ($passageiro->fotoPassageiro == '')
         src="{{ url("images/userPadrao.png")}} "
+        {{-- 0.tcp.sa.ngrok.io:16863 --}}
         @else
-        src="{{ "http://0.tcp.sa.ngrok.io:16863/storage/". $passageiro->fotoPassageiro }} "
+        src="{{ "http://localhost:9000/storage/". $passageiro->fotoPassageiro }} "
         @endif  class="w-100 h-100 border border-5 border-danger rounded-circle"  style="object-fit: cover; width:250px; height:250px;">
     </div>
     </div>

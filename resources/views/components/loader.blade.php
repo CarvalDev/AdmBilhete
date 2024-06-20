@@ -20,4 +20,9 @@
             console.log("foi")
         }, 300);
     }
+
+    const loadingPermanent =() => {
+         onLoadingDiv.style.display = "flex"
+     loadedDiv.style.display = "none"
+    }
 </script>

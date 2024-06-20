@@ -9,7 +9,7 @@
             @csrf
             <div class="header w-100 d-flex flex-row p-2" style="height: 35%;border-bottom: 1px solid rgba(1, 1, 1, 0.1)">
                 <div class="areaImage w-25 h-100 d-flex  align-items-center justify-content-center">
-                    <img @if (1 != 0)
+                    <img id="foto_modal" @if (1 != 0)
                         src="{{ url("images/userPadrao.png") }}" 
                         @else  
                         src="{{ url('images/userPadrao.png') }}"
@@ -31,8 +31,8 @@
             </div>
             
             <div class="w-100 d-flex flex-row align-items-center justify-content-center gap-3" id="btn-area">
-              <button type="submit" onclick="fechaModal('Aprovado')" id="close" class="accept mt-2 " style="background-color: #13e700">Aceitar</button>
-              <button type="submit"  onclick="fechaModal('Fechado')"  id="close" class="accept mt-2 ">Recusar</button>
+              <button type="submit" onclick="fechaModal('Aprovado')" id="close" class=" mt-2 aprovar " style="background-color: #13e700;box-shadow: 0px 6px 18px -5px #13e700;">Aceitar</button>
+              <button type="submit"  onclick="fechaModal('Fechado')"  id="close" class="accept mt-2  ">Recusar</button>
             </div>
         </div>
         </div>
@@ -87,7 +87,7 @@
           font-weight: 600;
           align-self: flex-start;
         }
-        button.accept {
+        .accept {
           background-color: #e70000;
           border: none;
           
@@ -95,9 +95,14 @@
           padding: 14px;
           font-size: 16px;
           color: white;
-          box-shadow: 0px 6px 18px -5px #e70000;
+          /* box-shadow: 0px 6px 18px -5px #e70000; */
           outline: none !important;
         }
+        .aprovar{
+          /* box-shadow: 0px 6px 18px -5px #13e700 !important; */
+
+        }
+
       }
     </style>
     
@@ -123,6 +128,14 @@
                     document.getElementById('data_modal').innerText = res.data
                     document.getElementById('idPedido').value = res.idPedido
                     document.getElementById('idPassageiro').value = res.idPassageiro
+                    let foto = document.getElementById('foto_modal')
+                    console.log(foto)
+                    if(res.foto != null){
+
+                      foto.src = "http://localhost:9000/storage/" + res.foto }
+                      else{ foto.src = `{{ url("images/userPadrao.png") }}`
+                    }
+                   
                     if(res.status != "Aberto"){
                         $("#btn-area").html(`<div class="w-100 d-flex flex-row align-items-center justify-content-center gap-3" id="btn-area"><button type="submit"  onclick="fechaModal('null')"  id="close" class="accept mt-2 ">Fechar</button></div>`)
                     }else{
