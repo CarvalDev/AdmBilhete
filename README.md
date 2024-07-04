@@ -2,6 +2,9 @@
 
 > ## Web application that complements the  Bilhete Único Digital project, aimed at monitoring user interactions with the  <a href="https://github.com/moiseshxs/Bilhete_Unico_Digital">mobile application</a>. Furthermore, the application includes database migration files, allowing the database to be generated at any time and inserting simulated information into it.
 
+![Captura de tela 2024-07-03 194233](https://github.com/hucarvalho/bilhete-unico-digital-adm/assets/142733241/004f34a4-e090-41b7-b131-6d92312a74d4)
+
+
 <details>
   <summary><h2>To better understand what Bilhete Único Digital is, click here.</h2></summary>
   
